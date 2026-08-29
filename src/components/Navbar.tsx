@@ -53,7 +53,7 @@ const serviceCategories: ServiceCategory[] = [
     icon: SignalWaveIcon,
     sublinks: [
       { label: "Social Media Marketing", href: "/services/social-media-marketing" },
-      { label: "Search Engine Optimisation", href: "/services/lead-generation-growth-marketing#search-engine-optimisation" },
+      { label: "Search Engine Optimisation", href: "/services/seo" },
       { label: "Performance Marketing", href: "/services/lead-generation-growth-marketing#performance-marketing" },
       { label: "Advertising", href: "/services/lead-generation-growth-marketing#advertising" },
     ],
