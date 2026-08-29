@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { LinkedInIcon, InstagramIcon, FacebookIcon } from "@/components/icons";
+import { LinkedInIcon, InstagramIcon, FacebookIcon, RedditIcon } from "@/components/icons";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -30,6 +30,7 @@ const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/sarvopaya/", icon: LinkedInIcon },
   { label: "Instagram", href: "https://www.instagram.com/sarvopaya/", icon: InstagramIcon },
   { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61590305765567", icon: FacebookIcon },
+  { label: "Reddit", href: "https://www.reddit.com/user/sarvopaya/", icon: RedditIcon },
 ];
 
 const staggerContainer = {

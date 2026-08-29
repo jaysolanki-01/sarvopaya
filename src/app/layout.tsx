@@ -103,6 +103,7 @@ const organizationSchema = {
     "https://www.linkedin.com/company/sarvopaya/",
     "https://www.instagram.com/sarvopaya/",
     "https://www.facebook.com/profile.php?id=61590305765567",
+    "https://www.reddit.com/user/sarvopaya/",
   ],
 };
 
