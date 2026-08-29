@@ -221,9 +221,26 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (mobileOpen) {
+      // iOS Safari ignores overflow:hidden on body — use position:fixed instead
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflowY = "scroll";
+    } else {
+      const top = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflowY = "";
+      if (top) window.scrollTo(0, -parseInt(top, 10));
+    }
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflowY = "";
     };
   }, [mobileOpen]);
 
@@ -563,7 +580,7 @@ export default function Navbar() {
       <div
         className={`overflow-y-auto border-t transition-[max-height,background-color] duration-300 ease-in-out lg:hidden ${
           scrolled ? "border-white/10 bg-black" : "border-black/10 bg-white"
-        } ${mobileOpen ? "max-h-[calc(100vh-4rem)]" : "max-h-0"}`}
+        } ${mobileOpen ? "max-h-[calc(100dvh-4rem)]" : "max-h-0"}`}
       >
         <ul className="flex flex-col gap-1 px-4 py-4">
           {navigation.map((item) => (

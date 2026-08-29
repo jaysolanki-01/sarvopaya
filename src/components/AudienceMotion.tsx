@@ -214,8 +214,15 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
     const cx = w / 2, cy = h / 2;
     const rx = Math.min(w * 0.37, 262), ry = Math.min(h * 0.43, 202);
 
-    canvas.width  = w;
-    canvas.height = h;
+    // Scale canvas buffer by devicePixelRatio for crisp rendering on Retina / OLED
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    canvas.width  = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width  = `${w}px`;
+    canvas.style.height = `${h}px`;
+    const ctx2d = canvas.getContext("2d");
+    if (ctx2d) ctx2d.scale(dpr, dpr);
+
     sizeRef.current = { w, h, mobile };
 
     particlesRef.current = makeParticles(count, cx, cy, rx, ry);

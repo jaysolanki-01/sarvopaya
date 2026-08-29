@@ -1651,8 +1651,9 @@ export default function PerformanceMarketing() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="mt-12 overflow-hidden rounded-2xl border border-black/8"
+            className="mt-12 overflow-x-auto rounded-2xl border border-black/8"
           >
+            <div className="min-w-[520px]">
             <div className="grid grid-cols-3 border-b border-black/8 bg-black/[0.02] px-6 py-4 sm:px-8">
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">Variable</p>
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">What We Test</p>
@@ -1683,6 +1684,7 @@ export default function PerformanceMarketing() {
                 </div>
               </motion.div>
             ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -1797,8 +1799,9 @@ export default function PerformanceMarketing() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="mt-12 overflow-hidden rounded-2xl border border-black/8"
+            className="mt-12 overflow-x-auto rounded-2xl border border-black/8"
           >
+            <div className="min-w-[480px]">
             <div className="grid grid-cols-3 border-b border-black/8 bg-black/[0.02] px-6 py-4 sm:px-8">
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">Metric</p>
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">Brand A</p>
@@ -1831,6 +1834,7 @@ export default function PerformanceMarketing() {
                 </div>
               </motion.div>
             ))}
+            </div>
           </motion.div>
 
           <motion.p
