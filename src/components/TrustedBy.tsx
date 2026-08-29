@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 const logos = Array.from({ length: 8 }, () => "/images/Logo_black.png");
@@ -15,8 +14,7 @@ export default function TrustedBy() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="mx-auto max-w-2xl px-4 text-center text-sm font-semibold uppercase tracking-wide text-black/50 sm:text-base"
       >
-        Trusted by manufacturers, startups, and growing businesses across
-        India
+        Trusted by manufacturers, startups, and growing businesses across India
       </motion.p>
 
       <div className="relative mt-10 overflow-hidden">
@@ -25,11 +23,12 @@ export default function TrustedBy() {
         <div className="flex w-max shrink-0 animate-marquee items-center gap-16 py-4">
           {[...logos, ...logos].map((src, index) => (
             <div key={index} className="flex shrink-0 items-center justify-center">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={src}
                 alt="Client logo"
-                width={3564}
-                height={719}
+                width={200}
+                height={40}
                 className="h-10 w-auto object-contain opacity-60 transition-opacity hover:opacity-100 sm:h-14"
               />
             </div>

@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import Testimonials from "@/components/Testimonials";
-import AudienceMotion from "@/components/AudienceMotion";
 import {
   InstagramIcon,
   FacebookIcon,
@@ -724,9 +723,6 @@ export default function SocialMediaMarketingPage() {
           </motion.div>
         </div>
       </section>
-
-      {/* ── AudienceMotion interactive experience ─────────────────────────────── */}
-      <AudienceMotion />
 
       {/* ── Section 3: Growth System ─────────────────────────────────────────── */}
       <section className="w-full bg-black py-14 sm:py-16">

@@ -185,7 +185,7 @@ function applyTargets(
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function AudienceMotion() {
+export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "smm" }) {
   const canvasRef     = useRef<HTMLCanvasElement>(null);
   const sectionRef    = useRef<HTMLDivElement>(null);
   const rafRef        = useRef<number | null>(null);
@@ -202,7 +202,6 @@ export default function AudienceMotion() {
   const [showFinal, setShowFinal] = useState(false);
   const [metrics, setMetrics]     = useState({ audience: 0, interested: 0, intent: 0, action: 0 });
 
-  // Initialise / reinitialise particles for current canvas size
   const init = useCallback(() => {
     const canvas  = canvasRef.current;
     const section = sectionRef.current;
@@ -210,8 +209,8 @@ export default function AudienceMotion() {
 
     const w      = section.clientWidth;
     const mobile = w < 768;
-    const h      = mobile ? 300 : 480;
-    const count  = mobile ? 200 : 500;
+    const h      = mode === "homepage" ? (mobile ? 420 : 620) : (mobile ? 300 : 480);
+    const count  = mode === "homepage" ? (mobile ? 260 : 650) : (mobile ? 200 : 500);
     const cx = w / 2, cy = h / 2;
     const rx = Math.min(w * 0.37, 262), ry = Math.min(h * 0.43, 202);
 
@@ -221,9 +220,8 @@ export default function AudienceMotion() {
 
     particlesRef.current = makeParticles(count, cx, cy, rx, ry);
     setMetrics(m => ({ ...m, audience: count }));
-  }, []);
+  }, [mode]);
 
-  // Per-frame canvas draw — only touches refs, never React state
   const drawFrame = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -238,7 +236,6 @@ export default function AudienceMotion() {
     const curStage  = stageRef.current;
     const cursorR   = mobile ? CURSOR_R_MOB : CURSOR_R_DESK;
 
-    // Mouse velocity (for dynamic cursor force)
     const mvx = mouse.x - mouse.prevX;
     const mvy = mouse.y - mouse.prevY;
     const mSpd = Math.sqrt(mvx * mvx + mvy * mvy);
@@ -247,7 +244,6 @@ export default function AudienceMotion() {
 
     ctx.clearRect(0, 0, w, h);
 
-    // Physics pass
     for (const p of particles) {
       p.phase += p.phaseSpeed;
       const nx = Math.sin(p.phase) * Math.cos(p.phase * 0.63 + 0.4) * NOISE_STR;
@@ -274,7 +270,6 @@ export default function AudienceMotion() {
       p.op += (p.opT - p.op) * 0.038;
     }
 
-    // Render pass
     for (const p of particles) {
       if (p.op < 0.012) continue;
 
@@ -292,7 +287,6 @@ export default function AudienceMotion() {
       ctx.fill();
     }
 
-    // Subtle cursor aura
     if (mouse.active && mouse.x > -100 && mouse.x < w + 100) {
       const auraR = cursorR * 0.52;
       const grad  = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, auraR);
@@ -312,7 +306,6 @@ export default function AudienceMotion() {
     rafRef.current = requestAnimationFrame(loop);
   }, [drawFrame]);
 
-  // Metrics update — throttled at 850ms
   useEffect(() => {
     if (showFinal) return;
     const iv = setInterval(() => {
@@ -329,7 +322,6 @@ export default function AudienceMotion() {
     return () => clearInterval(iv);
   }, [showFinal]);
 
-  // Canvas setup + event wiring
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -383,7 +375,6 @@ export default function AudienceMotion() {
     };
   }, [init, loop]);
 
-  // Stage transition handler
   const goStage = useCallback((next: Stage) => {
     if (autoRef.current) clearTimeout(autoRef.current);
     stageRef.current = next;
@@ -431,14 +422,13 @@ export default function AudienceMotion() {
       className="relative w-full overflow-hidden bg-black"
       aria-label="Audience motion — interactive marketing experience"
     >
-      {/* Accessibility: text summary for screen readers */}
       <p className="sr-only">
-        An interactive particle simulation showing how targeted social media marketing moves
+        An interactive particle simulation showing how targeted marketing moves
         the right audience from awareness through to action. Use the stage controls below to
         step through Attention, Relevance, Amplify, and Move.
       </p>
 
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8${mode === "homepage" ? " py-20 sm:py-28 lg:py-32" : " py-16 sm:py-20"}`}>
 
         {/* ── Headline ──────────────────────────────────────────────────────── */}
         <motion.div
@@ -449,7 +439,7 @@ export default function AudienceMotion() {
           className="mb-10 max-w-2xl"
         >
           <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
-            Social Media Marketing
+            {mode === "homepage" ? "Creative Media · Technology · AI" : "Social Media Marketing"}
           </span>
           <h2 className="mt-3 font-heading text-5xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-7xl lg:text-8xl">
             Make the
@@ -459,9 +449,11 @@ export default function AudienceMotion() {
             Move.
           </h2>
           <p className="mt-5 max-w-xs text-base leading-7 text-white/40">
-            Attention is easy to chase.
-            <br />
-            Building movement is different.
+            {mode === "homepage" ? (
+              <>Creative media, technology, and AI —<br />working together to move the right people.</>
+            ) : (
+              <>Attention is easy to chase.<br />Building movement is different.</>
+            )}
           </p>
         </motion.div>
 
@@ -546,32 +538,65 @@ export default function AudienceMotion() {
                 transition={{ duration: 1.0 }}
                 className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center"
               >
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.7, ease: EASE }}
-                  className="text-sm font-medium text-white/40"
-                >
-                  Marketing isn&apos;t about making more noise.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.0, duration: 0.7, ease: EASE }}
-                  className="mt-1.5 text-sm font-medium text-white/40"
-                >
-                  It&apos;s about creating movement.
-                </motion.p>
-                <motion.h3
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.7, duration: 0.8, ease: EASE }}
-                  className="mt-8 font-heading text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
-                >
-                  Don&apos;t reach everyone.
-                  <br />
-                  <span className="text-accent">Move the right ones.</span>
-                </motion.h3>
+                {mode === "homepage" ? (
+                  <>
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3, duration: 0.7, ease: EASE }}
+                      className="text-sm font-medium text-white/40"
+                    >
+                      Brands don&apos;t just need reach.
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.0, duration: 0.7, ease: EASE }}
+                      className="mt-1.5 text-sm font-medium text-white/40"
+                    >
+                      They need movement.
+                    </motion.p>
+                    <motion.h3
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.7, duration: 0.8, ease: EASE }}
+                      className="mt-8 font-heading text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+                    >
+                      The agency that
+                      <br />
+                      <span className="text-accent">moves the right audience.</span>
+                    </motion.h3>
+                  </>
+                ) : (
+                  <>
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3, duration: 0.7, ease: EASE }}
+                      className="text-sm font-medium text-white/40"
+                    >
+                      Marketing isn&apos;t about making more noise.
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.0, duration: 0.7, ease: EASE }}
+                      className="mt-1.5 text-sm font-medium text-white/40"
+                    >
+                      It&apos;s about creating movement.
+                    </motion.p>
+                    <motion.h3
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.7, duration: 0.8, ease: EASE }}
+                      className="mt-8 font-heading text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+                    >
+                      Don&apos;t reach everyone.
+                      <br />
+                      <span className="text-accent">Move the right ones.</span>
+                    </motion.h3>
+                  </>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
@@ -637,6 +662,28 @@ export default function AudienceMotion() {
           </div>
         </div>
 
+        {/* ── Scroll indicator (homepage only) ──────────────────────────────── */}
+        {mode === "homepage" && !showFinal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.4, duration: 0.8 }}
+            className="mt-14 flex justify-center"
+            aria-hidden="true"
+          >
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+              className="flex flex-col items-center gap-2"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/20">
+                Scroll to explore
+              </span>
+              <span className="text-white/20 text-sm">↓</span>
+            </motion.div>
+          </motion.div>
+        )}
+
         {/* ── Final CTA ─────────────────────────────────────────────────────── */}
         <AnimatePresence>
           {showFinal && (
@@ -646,9 +693,15 @@ export default function AudienceMotion() {
               transition={{ delay: 2.7, duration: 0.8, ease: EASE }}
               className="mt-14 flex justify-center"
             >
-              <CTAButton href="/contact" variant="inverted" size="lg">
-                Start a Conversation
-              </CTAButton>
+              {mode === "homepage" ? (
+                <CTAButton href="/contact" variant="inverted" size="lg">
+                  Work With Us
+                </CTAButton>
+              ) : (
+                <CTAButton href="/contact" variant="inverted" size="lg">
+                  Start a Conversation
+                </CTAButton>
+              )}
             </motion.div>
           )}
         </AnimatePresence>

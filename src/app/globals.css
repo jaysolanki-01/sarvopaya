@@ -42,6 +42,15 @@ h6 {
   animation: marquee 24s linear infinite;
 }
 
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-marquee-r  { animation: marquee-reverse 28s linear infinite; }
+.animate-marquee-s  { animation: marquee 38s linear infinite; }
+.animate-marquee-rs { animation: marquee-reverse 34s linear infinite; }
+
 @keyframes float {
   0%,
   100% {

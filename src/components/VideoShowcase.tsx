@@ -2,19 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import CTAButton from "@/components/CTAButton";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
-
-const overlayReveal = {
-  rest: { opacity: 0, y: 24 },
-  hover: { opacity: 1, y: 0 },
-};
-
-const dimReveal = {
-  rest: { opacity: 0 },
-  hover: { opacity: 1 },
-};
 
 export default function VideoShowcase() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -30,37 +17,62 @@ export default function VideoShowcase() {
   return (
     <section ref={sectionRef} className="w-full bg-white pt-12 pb-8 sm:pt-16 sm:pb-10">
       <motion.div
-        initial="rest"
-        animate="rest"
-        whileHover="hover"
         style={{ width, borderRadius: radius }}
-        className="relative mx-auto aspect-video overflow-hidden bg-black shadow-2xl"
+        className="relative mx-auto aspect-video overflow-hidden bg-black"
       >
-        <video
-          className="h-full w-full object-cover"
-          src="/videos/dummy.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          disablePictureInPicture
-          disableRemotePlayback
-        />
-        <motion.div
+        {/* Subtle grid */}
+        <div
           aria-hidden="true"
-          variants={dimReveal}
-          transition={{ duration: 0.4, ease: EASE }}
-          className="absolute inset-0 bg-black/40"
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
         />
-        <motion.div
-          variants={overlayReveal}
-          transition={{ duration: 0.45, ease: EASE }}
-          className="absolute inset-0 flex items-center justify-center"
-        >
-          <CTAButton href="/contact" variant="primary" size="lg">
-            Contact Us
-          </CTAButton>
-        </motion.div>
+
+        {/* Accent glow */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 65%, rgba(237,40,48,0.09) 0%, transparent 58%)",
+          }}
+        />
+
+        {/* Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-7 text-center">
+          {/* Pulsing play ring */}
+          <div className="relative flex items-center justify-center">
+            <motion.div
+              animate={{ scale: [1, 1.5, 1], opacity: [0.18, 0, 0.18] }}
+              transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+              aria-hidden="true"
+              className="absolute h-20 w-20 rounded-full bg-accent"
+            />
+            <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-white/12 bg-white/6 backdrop-blur-sm sm:h-20 sm:w-20">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                className="h-6 w-6 translate-x-0.5 text-white/40 sm:h-7 sm:w-7"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/25">
+              Coming Soon
+            </p>
+            <h3 className="mt-2 font-heading text-3xl font-bold uppercase tracking-tight text-white/75 sm:text-5xl lg:text-6xl">
+              Sarvopaya Showreel
+            </h3>
+            <p className="mt-2 text-sm text-white/25">2025</p>
+          </div>
+        </div>
       </motion.div>
     </section>
   );

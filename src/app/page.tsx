@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Hero from "@/components/Hero";
+import AudienceMotion from "@/components/AudienceMotion";
 import VideoShowcase from "@/components/VideoShowcase";
 import TrustedBy from "@/components/TrustedBy";
 import WhatWeDo from "@/components/WhatWeDo";
@@ -10,14 +10,14 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Sarvopaya — Your Partner For SARV Digital UPAYA",
+  title: "Sarvopaya — We Move the Right Audiences",
   description:
     "Creative media, technology and AI company helping ambitious brands generate leads, build high-converting websites, automate operations with AI, and grow revenue predictably.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Sarvopaya — Your Partner For SARV Digital UPAYA",
+    title: "Sarvopaya — We Move the Right Audiences",
     description:
       "Creative media, technology and AI company helping ambitious brands generate leads, build high-converting websites, automate operations with AI, and grow revenue predictably.",
     url: "/",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Hero />
+      <AudienceMotion mode="homepage" />
       <VideoShowcase />
       <TrustedBy />
       <WhatWeDo />
