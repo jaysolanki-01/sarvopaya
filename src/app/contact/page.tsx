@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useRef, type FormEvent } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -67,12 +67,56 @@ function ArrowIcon() {
   );
 }
 
-export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+const SERVICES = [
+  "Performance Marketing",
+  "Advertising",
+  "SEO",
+  "Social Media Marketing",
+  "Website Development",
+  "AI & Automation",
+  "Growth Consulting",
+  "Other",
+];
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+export default function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    setStatus("loading");
+    setErrorMsg("");
+
+    const fd = new FormData(event.currentTarget);
+    const payload = {
+      name:    fd.get("name") as string,
+      email:   fd.get("email") as string,
+      phone:   fd.get("phone") as string,
+      service: fd.get("service") as string,
+      note:    fd.get("note") as string,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setErrorMsg((data as { error?: string }).error ?? "Something went wrong. Please try again.");
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+      formRef.current?.reset();
+    } catch {
+      setErrorMsg("Network error. Please check your connection and try again.");
+      setStatus("error");
+    }
   }
 
   return (
@@ -120,6 +164,7 @@ export default function ContactPage() {
             </motion.p>
 
             <motion.form
+              ref={formRef}
               variants={fadeUp}
               onSubmit={handleSubmit}
               className="mt-10 flex flex-col gap-4"
@@ -149,19 +194,23 @@ export default function ContactPage() {
                   placeholder="Phone Number*"
                   className={fieldClass}
                 />
-                <input
-                  type="text"
-                  name="location"
-                  placeholder="Location"
-                  className={fieldClass}
-                />
+                <select
+                  name="service"
+                  className={`${fieldClass} cursor-pointer`}
+                  defaultValue=""
+                >
+                  <option value="" disabled>Service Interested In</option>
+                  {SERVICES.map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
               </div>
 
               <div className="relative">
                 <textarea
-                  name="message"
+                  name="note"
                   rows={4}
-                  placeholder="How can we help?"
+                  placeholder="Note — tell us about your business or goals"
                   className={`${fieldClass} resize-none pr-20`}
                 />
                 <motion.div
@@ -173,8 +222,9 @@ export default function ContactPage() {
                 >
                   <button
                     type="submit"
+                    disabled={status === "loading"}
                     aria-label="Send message"
-                    className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-black"
+                    className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-black disabled:opacity-60"
                   >
                     <motion.span
                       aria-hidden="true"
@@ -187,19 +237,36 @@ export default function ContactPage() {
                       transition={{ duration: 0.3 }}
                       className="relative z-10 text-white"
                     >
-                      <ArrowIcon />
+                      {status === "loading" ? (
+                        <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <circle cx="12" cy="12" r="10" strokeOpacity=".25" />
+                          <path d="M12 2a10 10 0 0 1 10 10" strokeLinecap="round" />
+                        </svg>
+                      ) : (
+                        <ArrowIcon />
+                      )}
                     </motion.span>
                   </button>
                 </motion.div>
               </div>
 
-              {submitted && (
+              {status === "success" && (
                 <motion.p
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="text-sm font-medium text-accent"
                 >
                   Thanks — we&rsquo;ll be in touch shortly.
+                </motion.p>
+              )}
+
+              {status === "error" && (
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-sm font-medium text-red-600"
+                >
+                  {errorMsg}
                 </motion.p>
               )}
             </motion.form>
