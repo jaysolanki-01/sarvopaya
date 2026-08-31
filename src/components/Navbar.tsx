@@ -55,7 +55,7 @@ const serviceCategories: ServiceCategory[] = [
       { label: "Social Media Marketing", href: "/services/social-media-marketing" },
       { label: "Search Engine Optimisation", href: "/services/seo" },
       { label: "Performance Marketing", href: "/services/performance-marketing" },
-      { label: "Advertising", href: "/services/lead-generation-growth-marketing#advertising" },
+      { label: "Advertising", href: "/services/advertising" },
     ],
   },
   {
