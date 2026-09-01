@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
 
   // Create custom attributes if they don't already exist (idempotent).
   await Promise.all([
+    ensureAttribute(apiKey, "PHONE"),
     ensureAttribute(apiKey, "SERVICE"),
     ensureAttribute(apiKey, "NOTE"),
   ]);
@@ -47,9 +48,9 @@ export async function POST(req: NextRequest) {
     email,
     attributes: {
       FIRSTNAME: name,
-      SMS: phone ?? "",
+      PHONE:   phone ?? "",
       SERVICE: service ?? "",
-      NOTE: note ?? "",
+      NOTE:    note ?? "",
     },
     listIds: [BREVO_LIST_ID],
     updateEnabled: true,
