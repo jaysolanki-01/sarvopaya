@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     quote:
-      "We came to them with a factory floor of manual processes. They automated our reporting and CRM end to end — it feels like we hired an entire ops team.",
+      "We came to them with a factory floor of manual processes. They automated our reporting and CRM end to end it feels like we hired an entire ops team.",
     name: "Rohan Kapoor",
     role: "Director, Precision Manufacturing",
   },

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,7 +21,7 @@ interface Particle {
   springK: number; damp: number;
 }
 
-// ─── Pure helpers (stable references — defined outside component) ─────────────
+// ─── Pure helpers (stable references defined outside component) ─────────────
 
 const rnd = (a: number, b: number) => a + Math.random() * (b - a);
 const PHI = Math.PI * (3 - Math.sqrt(5));
@@ -427,7 +427,7 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-black"
-      aria-label="Audience motion — interactive marketing experience"
+      aria-label="Audience motion interactive marketing experience"
     >
       <p className="sr-only">
         An interactive particle simulation showing how targeted marketing moves
@@ -647,7 +647,7 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
           {/* Live simulation metrics */}
           <div className="flex flex-col gap-1.5 sm:items-end">
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/20">
-              Audience Model — Live Simulation
+              Audience Model Live Simulation
             </p>
             <div className="flex gap-5">
               {[

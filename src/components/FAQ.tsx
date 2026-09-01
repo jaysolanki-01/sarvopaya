@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "What services does Sarvopaya offer?",
     answer:
-      "We help ambitious brands with lead generation and growth marketing, website and digital experience design, AI and automation, and growth consulting — everything you need to grow predictably, under one roof.",
+      "We help ambitious brands with lead generation and growth marketing, website and digital experience design, AI and automation, and growth consulting everything you need to grow predictably, under one roof.",
   },
   {
     question: "How soon can we get started?",
@@ -35,17 +35,17 @@ const faqs = [
   {
     question: "Do you work with startups or only established brands?",
     answer:
-      "Both. We've partnered with solo founders shipping their first MVP campaign as well as growth-stage brands scaling revenue predictably — our approach adapts to your stage, not the other way around.",
+      "Both. We've partnered with solo founders shipping their first MVP campaign as well as growth-stage brands scaling revenue predictably our approach adapts to your stage, not the other way around.",
   },
   {
     question: "How do you measure success?",
     answer:
-      "Clear priorities and real numbers, no fluff. We agree on the metrics that matter for your business up front — pipeline, conversion, revenue — and report against them consistently.",
+      "Clear priorities and real numbers, no fluff. We agree on the metrics that matter for your business up front pipeline, conversion, revenue and report against them consistently.",
   },
   {
     question: "What does working with Sarvopaya actually look like?",
     answer:
-      "No jargon, no vague retainers — just a straight conversation about where you are, where you want to be, and how we get you there, followed by focused execution from a team that thinks like operators.",
+      "No jargon, no vague retainers just a straight conversation about where you are, where you want to be, and how we get you there, followed by focused execution from a team that thinks like operators.",
   },
 ];
 

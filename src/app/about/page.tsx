@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView, useReducedMotion, AnimatePresence } from "framer-motion";
@@ -118,21 +118,21 @@ const pillars = [
     id: "01",
     title: "Creative Media",
     body:
-      "Strategy, storytelling, and production that stops thumbs. We build brand narratives, ad creative, and content systems that convert attention into intent — across every platform and format.",
+      "Strategy, storytelling, and production that stops thumbs. We build brand narratives, ad creative, and content systems that convert attention into intent across every platform and format.",
     tags: ["Brand Strategy", "Ad Creative", "Content Production", "Social Media", "Advertising"],
   },
   {
     id: "02",
     title: "Technology",
     body:
-      "Clean, fast, conversion-engineered digital products. From performance landing pages to full-stack web applications — built with modern stacks and zero bloat, so your tech serves the business.",
+      "Clean, fast, conversion-engineered digital products. From performance landing pages to full-stack web applications built with modern stacks and zero bloat, so your tech serves the business.",
     tags: ["Website Development", "Landing Pages", "E-Commerce", "Performance", "CRO"],
   },
   {
     id: "03",
     title: "Artificial Intelligence",
     body:
-      "AI isn't a feature. It's infrastructure. We embed intelligent automation into lead generation, customer journeys, internal workflows, and campaign operations — so your growth compounds.",
+      "AI isn't a feature. It's infrastructure. We embed intelligent automation into lead generation, customer journeys, internal workflows, and campaign operations so your growth compounds.",
     tags: ["AI Automation", "Lead Gen AI", "Workflow Automation", "Smart Funnels", "Analytics"],
   },
 ];
@@ -141,17 +141,17 @@ const values = [
   {
     icon: "◈",
     title: "Integrated by design",
-    body: "Siloed agencies create siloed results. We built Sarvopaya as a single integrated system from day one — so creative, tech, and AI compound each other rather than cancel.",
+    body: "Siloed agencies create siloed results. We built Sarvopaya as a single integrated system from day one so creative, tech, and AI compound each other rather than cancel.",
   },
   {
     icon: "◎",
     title: "ROI is the only metric that matters",
-    body: "Impressions, reach, followers — these are vanity metrics unless they move revenue. Every service we deliver is measured against actual business outcomes.",
+    body: "Impressions, reach, followers these are vanity metrics unless they move revenue. Every service we deliver is measured against actual business outcomes.",
   },
   {
     icon: "◇",
     title: "Execution over ideation",
-    body: "The best strategy is the one that ships. We are a team of doers who move fast, iterate hard, and deliver finished work — not decks and recommendations.",
+    body: "The best strategy is the one that ships. We are a team of doers who move fast, iterate hard, and deliver finished work not decks and recommendations.",
   },
   {
     icon: "△",
@@ -161,12 +161,12 @@ const values = [
   {
     icon: "◻",
     title: "Built to scale with you",
-    body: "We work with seed-stage startups and established enterprises. Our systems are designed to grow without rebuilding — so the work we do today compounds into tomorrow.",
+    body: "We work with seed-stage startups and established enterprises. Our systems are designed to grow without rebuilding so the work we do today compounds into tomorrow.",
   },
   {
     icon: "◉",
     title: "Ahmedabad-built. India-ready.",
-    body: "Rooted in one of India's fastest-growing business cities, we understand the pace, ambition, and pragmatism of Indian commerce — and we build accordingly.",
+    body: "Rooted in one of India's fastest-growing business cities, we understand the pace, ambition, and pragmatism of Indian commerce and we build accordingly.",
   },
 ];
 
@@ -286,7 +286,7 @@ export default function AboutPage() {
               className="mt-10 max-w-2xl text-lg leading-relaxed text-white/55 sm:text-xl"
             >
               Sarvopaya is a creative media, technology and AI company from Ahmedabad, India.
-              We are a single integrated team that delivers complete digital solutions — no handoffs,
+              We are a single integrated team that delivers complete digital solutions no handoffs,
               no gaps, no excuses.
             </motion.p>
 
@@ -354,7 +354,7 @@ export default function AboutPage() {
               </motion.h2>
               <motion.p variants={item} className="mt-8 text-lg leading-relaxed text-black/60">
                 In Sanskrit, <strong className="text-black">Sarvopaya</strong> means{" "}
-                <em>complete solutions</em> — from{" "}
+                <em>complete solutions</em> from{" "}
                 <strong className="text-black">Sarv</strong> (all, complete) and{" "}
                 <strong className="text-black">Upaya</strong> (solutions, means).
               </motion.p>
@@ -367,7 +367,7 @@ export default function AboutPage() {
 
             <motion.div variants={item} className="space-y-0">
               {[
-                { abbr: "SARV", meaning: "All / Complete", detail: "We cover every dimension of digital growth — creative, technical, intelligent." },
+                { abbr: "SARV", meaning: "All / Complete", detail: "We cover every dimension of digital growth creative, technical, intelligent." },
                 { abbr: "DIGITAL", meaning: "The medium", detail: "Our domain is the internet: paid channels, organic reach, and automation." },
                 { abbr: "UPAYA", meaning: "Solutions / Means", detail: "Not services. Solutions. We solve the underlying business problem, not just the surface brief." },
               ].map((part, i) => (
@@ -435,7 +435,7 @@ export default function AboutPage() {
                 },
                 {
                   problem: "AI is a buzzword. Technology is an afterthought. Creativity is isolated.",
-                  outcome: "Three disciplines that should compound each other — kept apart.",
+                  outcome: "Three disciplines that should compound each other kept apart.",
                 },
               ].map((block, i) => (
                 <motion.div
@@ -460,12 +460,12 @@ export default function AboutPage() {
               className="mt-16 rounded-3xl border border-accent/20 bg-accent/5 p-10 sm:p-14"
             >
               <p className="text-2xl font-bold leading-snug text-white sm:text-3xl lg:text-4xl">
-                Sarvopaya was built as the answer — one integrated team that handles your
+                Sarvopaya was built as the answer one integrated team that handles your
                 creative, your technology, and your AI in a single coordinated system.
               </p>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/55">
                 Not a holding company of separate agencies. Not a generalist freelancer pretending
-                to be everything. A purpose-built, integrated team — where Creative Media,
+                to be everything. A purpose-built, integrated team where Creative Media,
                 Technology, and AI are three disciplines of one organism.
               </p>
             </motion.div>
@@ -726,7 +726,7 @@ export default function AboutPage() {
               variants={item}
               className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55"
             >
-              From early-stage startups to established manufacturers — if you&rsquo;re
+              From early-stage startups to established manufacturers if you&rsquo;re
               serious about growth and open to a rigorous integrated approach, we&rsquo;re
               the right partner.
             </motion.p>
@@ -784,7 +784,7 @@ export default function AboutPage() {
                 variants={item}
                 className="mt-6 max-w-lg text-lg leading-relaxed text-white/55"
               >
-                We are based at PNTC, one of Ahmedabad&rsquo;s premier business addresses — and we
+                We are based at PNTC, one of Ahmedabad&rsquo;s premier business addresses and we
                 work with brands across India, Europe, and the Middle East.
               </motion.p>
 
@@ -795,7 +795,7 @@ export default function AboutPage() {
                 {[
                   {
                     label: "Address",
-                    value: "C-1102, PNTC, Times Of India Press Road, Vejalpur, Ahmedabad — 380015",
+                    value: "C-1102, PNTC, Times Of India Press Road, Vejalpur, Ahmedabad 380015",
                     href: undefined,
                   },
                   {
@@ -886,7 +886,7 @@ export default function AboutPage() {
               className="mt-8 max-w-xl text-lg leading-relaxed text-black/55"
             >
               Tell us where your brand is and where you want it to go. We&rsquo;ll map out
-              exactly how Sarvopaya can close the gap — and we&rsquo;ll do it in one conversation.
+              exactly how Sarvopaya can close the gap and we&rsquo;ll do it in one conversation.
             </motion.p>
             <motion.div variants={item} className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import {
@@ -117,7 +117,7 @@ function PlusIcon({ open }: { open: boolean }) {
   );
 }
 
-// ─── Motion UX 01 — Revenue Engine ───────────────────────────────────────────
+// ─── Motion UX 01 Revenue Engine ───────────────────────────────────────────
 
 function RevenueEngine() {
   const prefersReducedMotion = useReducedMotion();
@@ -155,7 +155,7 @@ function RevenueEngine() {
           Performance Simulation
         </p>
         <p className="text-[10px] text-white/20">
-          Illustrative model — not a guarantee
+          Illustrative model not a guarantee
         </p>
       </div>
 
@@ -302,7 +302,7 @@ function RevenueEngine() {
   );
 }
 
-// ─── Motion UX 02 — Data Pipeline ────────────────────────────────────────────
+// ─── Motion UX 02 Data Pipeline ────────────────────────────────────────────
 
 const pipelineNodes = [
   { label: "User", detail: "Purchase event triggered on your store" },
@@ -445,7 +445,7 @@ const stackPhases = [
     num: "03",
     label: "Acquire",
     headline: "Reach the right people, at the right cost.",
-    body: "Platform strategy, audience architecture, and media buying optimized around your CAC target and margin structure — not just click-through rates.",
+    body: "Platform strategy, audience architecture, and media buying optimized around your CAC target and margin structure not just click-through rates.",
     items: [
       "Meta Ads (Prospecting + Retargeting)",
       "Google Shopping",
@@ -462,7 +462,7 @@ const stackPhases = [
     num: "04",
     label: "Convert",
     headline: "Traffic is worthless if the site doesn't convert.",
-    body: "We audit and improve the entire conversion path — from landing page to checkout — because your ROAS is only as good as your CVR.",
+    body: "We audit and improve the entire conversion path from landing page to checkout because your ROAS is only as good as your CVR.",
     items: [
       "Landing Page Optimization",
       "Product Page CRO",
@@ -478,7 +478,7 @@ const stackPhases = [
     num: "05",
     label: "Scale",
     headline: "Scale what the data shows is working.",
-    body: "Once the system is working, we expand systematically. New creatives, new audiences, broader budgets — all informed by the performance data we've built.",
+    body: "Once the system is working, we expand systematically. New creatives, new audiences, broader budgets all informed by the performance data we've built.",
     items: [
       "Creative Testing & Iteration",
       "Audience Expansion",
@@ -698,11 +698,11 @@ function D2CFunnel() {
 const faqs = [
   {
     q: "What is performance marketing?",
-    a: "Performance marketing is a form of digital advertising where spend is tied to measurable business outcomes — typically revenue, orders, leads or conversions. Every rupee spent is tracked against a specific result, not just reach or brand awareness.",
+    a: "Performance marketing is a form of digital advertising where spend is tied to measurable business outcomes typically revenue, orders, leads or conversions. Every rupee spent is tracked against a specific result, not just reach or brand awareness.",
   },
   {
     q: "What is D2C performance marketing?",
-    a: "D2C performance marketing refers to paid acquisition strategies built specifically for direct-to-consumer brands. It covers Meta Ads, Google Ads, tracking infrastructure, attribution, creative testing and conversion optimization — all measured against ecommerce revenue metrics like ROAS, CAC and AOV.",
+    a: "D2C performance marketing refers to paid acquisition strategies built specifically for direct-to-consumer brands. It covers Meta Ads, Google Ads, tracking infrastructure, attribution, creative testing and conversion optimization all measured against ecommerce revenue metrics like ROAS, CAC and AOV.",
   },
   {
     q: "What is ROAS?",
@@ -714,7 +714,7 @@ const faqs = [
   },
   {
     q: "What is MER?",
-    a: "MER (Marketing Efficiency Ratio) is total revenue divided by total marketing spend — across all channels. Unlike platform ROAS, MER is a blended view of media efficiency that isn't distorted by attribution window differences between platforms. It's a more reliable top-level performance signal.",
+    a: "MER (Marketing Efficiency Ratio) is total revenue divided by total marketing spend across all channels. Unlike platform ROAS, MER is a blended view of media efficiency that isn't distorted by attribution window differences between platforms. It's a more reliable top-level performance signal.",
   },
   {
     q: "What is CAC?",
@@ -738,7 +738,7 @@ const faqs = [
   },
   {
     q: "What is attribution in performance marketing?",
-    a: "Attribution is the process of assigning credit to marketing touchpoints that contributed to a conversion. Last-click gives all credit to the final touchpoint. Data-driven attribution distributes credit across multiple touchpoints. No attribution model is perfectly accurate — the goal is to use consistent measurement to inform better allocation decisions.",
+    a: "Attribution is the process of assigning credit to marketing touchpoints that contributed to a conversion. Last-click gives all credit to the final touchpoint. Data-driven attribution distributes credit across multiple touchpoints. No attribution model is perfectly accurate the goal is to use consistent measurement to inform better allocation decisions.",
   },
   {
     q: "Can you guarantee ROAS?",
@@ -746,7 +746,7 @@ const faqs = [
   },
   {
     q: "How much should a D2C brand spend on ads?",
-    a: "This depends on your CAC target, margins, LTV and growth objectives. A useful starting point: determine your maximum allowable CAC based on margin and payback period, then test at a scale where you can gather statistically meaningful signal — typically a minimum of ₹50,000–₹1,00,000/month to draw useful conclusions.",
+    a: "This depends on your CAC target, margins, LTV and growth objectives. A useful starting point: determine your maximum allowable CAC based on margin and payback period, then test at a scale where you can gather statistically meaningful signal typically a minimum of ₹50,000–₹1,00,000/month to draw useful conclusions.",
   },
   {
     q: "How long does performance marketing take to optimize?",
@@ -754,7 +754,7 @@ const faqs = [
   },
   {
     q: "How does GA4 fit into performance marketing?",
-    a: "GA4 provides session-level analytics, funnel data, audience behaviour and ecommerce event tracking. It complements platform-reported data from Meta and Google Ads by giving a more complete view of the customer journey. GA4 uses a different attribution model than ad platforms, so numbers will often differ — both views are useful for decision-making.",
+    a: "GA4 provides session-level analytics, funnel data, audience behaviour and ecommerce event tracking. It complements platform-reported data from Meta and Google Ads by giving a more complete view of the customer journey. GA4 uses a different attribution model than ad platforms, so numbers will often differ both views are useful for decision-making.",
   },
 ];
 
@@ -807,7 +807,7 @@ const jsonLd = {
       "@id": "https://sarvopaya.com/services/performance-marketing",
       name: "Performance Marketing for D2C Brands",
       description:
-        "Performance marketing for D2C and ecommerce brands — tracking, media buying, creative testing, attribution and revenue optimization.",
+        "Performance marketing for D2C and ecommerce brands tracking, media buying, creative testing, attribution and revenue optimization.",
       provider: { "@type": "Organization", name: "Sarvopaya" },
       serviceType: "Performance Marketing",
       areaServed: "India",
@@ -1139,7 +1139,7 @@ export default function PerformanceMarketing() {
                 className="mt-5 text-lg leading-8 text-white/45"
               >
                 Browser-based tracking has limits. Ad blockers, ITP, browser
-                restrictions — all reduce the signal your platforms rely on to
+                restrictions all reduce the signal your platforms rely on to
                 optimize delivery and report results.
               </motion.p>
               <motion.p
@@ -1147,7 +1147,7 @@ export default function PerformanceMarketing() {
                 className="mt-4 text-[15px] leading-7 text-white/38"
               >
                 Server-side tracking sends events from your infrastructure
-                directly to Meta, Google and GA4 — bypassing the browser layer
+                directly to Meta, Google and GA4 bypassing the browser layer
                 entirely. Combined with proper event deduplication, this can
                 improve the quality and completeness of your measurement signal.
               </motion.p>
@@ -1225,7 +1225,7 @@ export default function PerformanceMarketing() {
               variants={item}
               className="mt-4 text-lg leading-8 text-white/42"
             >
-              The technology ecosystem behind a performance-led D2C brand — from
+              The technology ecosystem behind a performance-led D2C brand from
               tracking infrastructure to media platforms to analytics and CRO.
             </motion.p>
           </motion.div>
@@ -1270,7 +1270,7 @@ export default function PerformanceMarketing() {
             style={{ background: "linear-gradient(to left, #000 0%, transparent 100%)" }}
           />
 
-          {/* Row 1 — Tracking (→ 32s) */}
+          {/* Row 1 Tracking (→ 32s) */}
           <div className="flex w-max animate-marquee items-center gap-3">
             {[...Array(2)].flatMap(() =>
               [
@@ -1304,7 +1304,7 @@ export default function PerformanceMarketing() {
             )}
           </div>
 
-          {/* Row 2 — Paid Media (← 26s) */}
+          {/* Row 2 Paid Media (← 26s) */}
           <div className="flex w-max animate-marquee-r items-center gap-3">
             {[...Array(2)].flatMap(() =>
               [
@@ -1338,7 +1338,7 @@ export default function PerformanceMarketing() {
             )}
           </div>
 
-          {/* Row 3 — Analytics & Reporting (→ 38s) */}
+          {/* Row 3 Analytics & Reporting (→ 38s) */}
           <div className="flex w-max animate-marquee-s items-center gap-3">
             {[...Array(2)].flatMap(() =>
               [
@@ -1372,7 +1372,7 @@ export default function PerformanceMarketing() {
             )}
           </div>
 
-          {/* Row 4 — Ecommerce & CRO (← 34s) */}
+          {/* Row 4 Ecommerce & CRO (← 34s) */}
           <div className="flex w-max animate-marquee-rs items-center gap-3">
             {[...Array(2)].flatMap(() =>
               [
@@ -1566,7 +1566,7 @@ export default function PerformanceMarketing() {
               variants={item}
               className="mt-5 text-lg leading-8 text-white/45"
             >
-              At scale, the biggest performance lever isn&apos;t budget — it&apos;s
+              At scale, the biggest performance lever isn&apos;t budget it&apos;s
               creative. We build, test and iterate ad creatives with a data-first
               framework, not guesswork.
             </motion.p>
@@ -1640,8 +1640,8 @@ export default function PerformanceMarketing() {
               variants={item}
               className="mt-5 text-[17px] leading-8 text-black/55"
             >
-              We run structured creative tests at the ad level — not the
-              campaign level — to isolate variables and understand what drives
+              We run structured creative tests at the ad level not the
+              campaign level to isolate variables and understand what drives
               performance improvements.
             </motion.p>
           </motion.div>
@@ -1711,7 +1711,7 @@ export default function PerformanceMarketing() {
                 className="mt-5 text-lg leading-8 text-white/45"
               >
                 A 1% to 2% CVR improvement on the same traffic doubles your
-                orders — without adding a rupee to your ad spend. CRO is the
+                orders without adding a rupee to your ad spend. CRO is the
                 highest-leverage performance intervention available.
               </motion.p>
               <motion.div
@@ -1789,7 +1789,7 @@ export default function PerformanceMarketing() {
               className="mt-5 text-lg leading-8 text-black/55"
             >
               ROAS doesn&apos;t account for returns, margins, platform fees, or
-              fulfilment costs. We optimize for contribution margin — the number
+              fulfilment costs. We optimize for contribution margin the number
               that determines whether the business is actually profitable.
             </motion.p>
           </motion.div>
@@ -1907,7 +1907,7 @@ export default function PerformanceMarketing() {
               className="mt-5 text-lg leading-8 text-black/55"
             >
               We work with multiple attribution perspectives to make better
-              decisions — not to find the number that makes our performance look
+              decisions not to find the number that makes our performance look
               best.
             </motion.p>
           </motion.div>
@@ -2315,7 +2315,7 @@ export default function PerformanceMarketing() {
               className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/45"
             >
               We review your tracking setup, campaign structure, creative
-              performance and funnel — and tell you exactly where you&apos;re
+              performance and funnel and tell you exactly where you&apos;re
               losing money. No pitch. Just findings.
             </motion.p>
             <motion.div
@@ -2335,7 +2335,7 @@ export default function PerformanceMarketing() {
               className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
             >
               {[
-                "Free — no obligation",
+                "Free no obligation",
                 "Delivered within 5 business days",
                 "Tracking + campaign + funnel review",
               ].map((pt) => (

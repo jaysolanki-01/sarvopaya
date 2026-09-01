@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import {
@@ -488,7 +488,7 @@ const AD_DATA: Record<
     label: "YouTube Ads",
     format: "In-Stream",
     hook: '"I replaced 6 products with one."',
-    body: "30-second narrative — product reveal — direct offer. Skip in 5s.",
+    body: "30-second narrative product reveal direct offer. Skip in 5s.",
     cta: "Watch",
     note: "Hook in the first 5 seconds before the skip button appears.",
     metrics: [
@@ -580,7 +580,7 @@ function GoogleMockup({ data }: { data: (typeof AD_DATA)[AdPlatform] }) {
             <span className="rounded-sm bg-white/15 px-1.5 py-0.5 text-[9px] font-bold text-white">Ad</span>
             <span className="text-[10px] text-white/30">competitor.com</span>
           </div>
-          <p className="text-sm font-semibold text-white/60">Face Serum Online — Browse Range</p>
+          <p className="text-sm font-semibold text-white/60">Face Serum Online Browse Range</p>
         </div>
       </div>
     </div>
@@ -609,7 +609,7 @@ function YouTubeMockup({ data }: { data: (typeof AD_DATA)[AdPlatform] }) {
       {/* CTA bar */}
       <div className="flex items-center justify-between px-4 py-3">
         <div>
-          <p className="text-xs font-semibold text-white/80">{data.body.split(" — ")[0]}</p>
+          <p className="text-xs font-semibold text-white/80">{data.body.split(" ")[0]}</p>
           <p className="text-[10px] text-white/35">sarvopaya.com</p>
         </div>
         <button className="rounded-full bg-[var(--accent)] px-4 py-2 text-xs font-bold text-white">
@@ -760,7 +760,7 @@ const CREATIVE_STEPS = [
     num: "02",
     label: "ANGLE",
     q: "Why should they care?",
-    detail: "The lens through which you present your message. The same product can be positioned from 10 different angles — pain, aspiration, social proof, curiosity, authority.",
+    detail: "The lens through which you present your message. The same product can be positioned from 10 different angles pain, aspiration, social proof, curiosity, authority.",
   },
   {
     num: "03",
@@ -837,15 +837,15 @@ function CreativeSystem() {
 const FAQ_ITEMS = [
   {
     q: "What is digital advertising?",
-    a: "Digital advertising is the practice of distributing paid messages across digital platforms — search engines, social media, websites and video platforms — to reach specific audiences with specific objectives. Unlike organic channels, paid advertising gives you control over reach, targeting, format and timing.",
+    a: "Digital advertising is the practice of distributing paid messages across digital platforms search engines, social media, websites and video platforms to reach specific audiences with specific objectives. Unlike organic channels, paid advertising gives you control over reach, targeting, format and timing.",
   },
   {
     q: "Which platforms do you run advertising on?",
-    a: "We run campaigns across Meta (Facebook and Instagram), Google (Search, Shopping, Performance Max), YouTube, LinkedIn, TikTok, Snapchat and Pinterest. Platform selection is always based on your audience, product and objective — not on what happens to be popular.",
+    a: "We run campaigns across Meta (Facebook and Instagram), Google (Search, Shopping, Performance Max), YouTube, LinkedIn, TikTok, Snapchat and Pinterest. Platform selection is always based on your audience, product and objective not on what happens to be popular.",
   },
   {
     q: "What is the difference between advertising and performance marketing?",
-    a: "Advertising is the broader discipline: creative, messaging, media buying, audience strategy and distribution. Performance marketing is a specific subset of advertising that is highly focused on measurable, revenue-linked outcomes — ROAS, CAC, CPA. Most strong advertising strategies combine both: brand-building and performance.",
+    a: "Advertising is the broader discipline: creative, messaging, media buying, audience strategy and distribution. Performance marketing is a specific subset of advertising that is highly focused on measurable, revenue-linked outcomes ROAS, CAC, CPA. Most strong advertising strategies combine both: brand-building and performance.",
   },
   {
     q: "Which advertising platform is best for D2C brands?",
@@ -865,11 +865,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "What is ROAS and how is it measured?",
-    a: "ROAS (Return on Ad Spend) measures revenue generated per rupee spent on advertising. A ROAS of 4× means you generate ₹4 in revenue for every ₹1 spent. It is one of several performance indicators — we also track CAC, MER (Media Efficiency Ratio), and contribution margin to give a more complete picture.",
+    a: "ROAS (Return on Ad Spend) measures revenue generated per rupee spent on advertising. A ROAS of 4× means you generate ₹4 in revenue for every ₹1 spent. It is one of several performance indicators we also track CAC, MER (Media Efficiency Ratio), and contribution margin to give a more complete picture.",
   },
   {
     q: "Why are my ads getting clicks but no conversions?",
-    a: "This usually indicates a disconnect between the ad and the landing page — message mismatch, weak offer, slow page speed, poor mobile experience, or a confusing conversion flow. The ad attracts attention; the landing page converts it. Both need to work together.",
+    a: "This usually indicates a disconnect between the ad and the landing page message mismatch, weak offer, slow page speed, poor mobile experience, or a confusing conversion flow. The ad attracts attention; the landing page converts it. Both need to work together.",
   },
   {
     q: "How often should ad creatives be refreshed?",
@@ -877,23 +877,23 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do you create the ad creatives?",
-    a: "Yes. Creative strategy, copy and design are part of our advertising service. We develop hooks, angles, visual concepts and copy — then test them systematically. Creative is not an afterthought; it is the foundation of advertising performance.",
+    a: "Yes. Creative strategy, copy and design are part of our advertising service. We develop hooks, angles, visual concepts and copy then test them systematically. Creative is not an afterthought; it is the foundation of advertising performance.",
   },
   {
     q: "What is paid social advertising?",
-    a: "Paid social refers to advertising on social media platforms — Meta, TikTok, LinkedIn, Snapchat, Pinterest. These platforms allow brands to target audiences by behaviour, interest, demographics and signals, and distribute creative content in formats native to each platform.",
+    a: "Paid social refers to advertising on social media platforms Meta, TikTok, LinkedIn, Snapchat, Pinterest. These platforms allow brands to target audiences by behaviour, interest, demographics and signals, and distribute creative content in formats native to each platform.",
   },
   {
     q: "What is paid search advertising?",
-    a: "Paid search (also called PPC) refers to text-based ads displayed in search engine results — primarily Google. Ads appear when users search for specific keywords, making it highly intent-driven. You pay per click. Google Shopping extends this with product listing ads for ecommerce.",
+    a: "Paid search (also called PPC) refers to text-based ads displayed in search engine results primarily Google. Ads appear when users search for specific keywords, making it highly intent-driven. You pay per click. Google Shopping extends this with product listing ads for ecommerce.",
   },
   {
     q: "Can you run campaigns across multiple platforms simultaneously?",
-    a: "Yes. Multi-platform campaigns are common and often more effective than single-platform strategies, provided budgets allow for meaningful reach on each. We allocate budget based on audience, objective and platform efficiency — not evenly by default.",
+    a: "Yes. Multi-platform campaigns are common and often more effective than single-platform strategies, provided budgets allow for meaningful reach on each. We allocate budget based on audience, objective and platform efficiency not evenly by default.",
   },
   {
     q: "Can you guarantee advertising results?",
-    a: "No. Advertising performance depends on many variables outside any agency's full control: market conditions, competitive activity, product quality, landing page experience and audience behaviour. What we commit to is a rigorous process — smart strategy, strong creative, continuous optimisation and transparent reporting.",
+    a: "No. Advertising performance depends on many variables outside any agency's full control: market conditions, competitive activity, product quality, landing page experience and audience behaviour. What we commit to is a rigorous process smart strategy, strong creative, continuous optimisation and transparent reporting.",
   },
 ];
 
@@ -1030,7 +1030,7 @@ export default function AdvertisingPage() {
                 variants={item}
                 className="mt-6 max-w-lg text-base leading-relaxed text-white/55 sm:text-lg"
               >
-                We build advertising campaigns that combine sharp creative, intelligent media buying and deliberate distribution — across the platforms where your audience actually spends their attention.
+                We build advertising campaigns that combine sharp creative, intelligent media buying and deliberate distribution across the platforms where your audience actually spends their attention.
               </motion.p>
 
               <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
@@ -1178,7 +1178,7 @@ export default function AdvertisingPage() {
                 <br />A BAD AD.
               </motion.h2>
               <motion.p variants={item} className="mt-6 text-base leading-relaxed text-black/55">
-                Media buying can distribute an ad to a million people. It cannot make a weak message relevant to any of them. The strategy that drives advertising performance begins with creative — not with campaign settings.
+                Media buying can distribute an ad to a million people. It cannot make a weak message relevant to any of them. The strategy that drives advertising performance begins with creative not with campaign settings.
               </motion.p>
             </div>
 
@@ -1225,7 +1225,7 @@ export default function AdvertisingPage() {
               EVERY AD MUST ANSWER.
             </motion.h2>
             <motion.p variants={item} className="mx-auto mt-4 max-w-lg text-base text-white/50">
-              Before we design anything, we answer these. The ad is an output of the strategy — not a starting point.
+              Before we design anything, we answer these. The ad is an output of the strategy not a starting point.
             </motion.p>
           </motion.div>
 
@@ -1358,7 +1358,7 @@ export default function AdvertisingPage() {
                 BUY RELEVANCE.
               </motion.h2>
               <motion.p variants={item} className="mt-6 text-base leading-relaxed text-black/55">
-                An impression served to the wrong person at the wrong moment is not media buying — it is media waste. Audience strategy is the discipline of ensuring your message reaches people who are most likely to care.
+                An impression served to the wrong person at the wrong moment is not media buying it is media waste. Audience strategy is the discipline of ensuring your message reaches people who are most likely to care.
               </motion.p>
             </div>
 
@@ -1376,7 +1376,7 @@ export default function AdvertisingPage() {
                 },
                 {
                   label: "Retargeting",
-                  desc: "People who visited specific pages, added to cart or reached checkout — your highest-intent pool.",
+                  desc: "People who visited specific pages, added to cart or reached checkout your highest-intent pool.",
                   tag: "Recover",
                 },
                 {
@@ -1519,7 +1519,7 @@ export default function AdvertisingPage() {
                 THAN BUDGET.
               </motion.h2>
               <motion.p variants={item} className="mt-6 text-base leading-relaxed text-black/55">
-                Where you spend matters less than how intelligently you spend it. Media buying is the system of decisions — platform allocation, audience segmentation, bidding strategy and creative pacing — that determines whether your budget generates results or generates activity.
+                Where you spend matters less than how intelligently you spend it. Media buying is the system of decisions platform allocation, audience segmentation, bidding strategy and creative pacing that determines whether your budget generates results or generates activity.
               </motion.p>
             </div>
 
@@ -1568,7 +1568,7 @@ export default function AdvertisingPage() {
                 THE BUTTON COLOUR.
               </motion.h2>
               <motion.p variants={item} className="mt-6 text-base leading-relaxed text-white/55">
-                Micro-testing minor variables wastes budget. High-impact advertising tests begin with the hypothesis that matters — the hook, the angle, the offer, the format — before moving to refinement.
+                Micro-testing minor variables wastes budget. High-impact advertising tests begin with the hypothesis that matters the hook, the angle, the offer, the format before moving to refinement.
               </motion.p>
             </div>
 
@@ -1634,7 +1634,7 @@ export default function AdvertisingPage() {
                 BEGINNING.
               </motion.h2>
               <motion.p variants={item} className="mt-6 text-base leading-relaxed text-black/55">
-                If the ad makes a promise and the landing page delivers something different, performance suffers — regardless of how good the ad is. Creative, copy and offer must be consistent from the first impression to the final conversion.
+                If the ad makes a promise and the landing page delivers something different, performance suffers regardless of how good the ad is. Creative, copy and offer must be consistent from the first impression to the final conversion.
               </motion.p>
             </div>
 
@@ -1706,7 +1706,7 @@ export default function AdvertisingPage() {
                   { label: "AOV", desc: "Average Order Value" },
                   { label: "CAC", desc: "Customer Acquisition Cost" },
                   { label: "MER", desc: "Media Efficiency Ratio (total revenue / total ad spend)" },
-                  { label: "LTV", desc: "Lifetime Value — revenue per customer over time" },
+                  { label: "LTV", desc: "Lifetime Value revenue per customer over time" },
                   { label: "Repeat Purchase Rate", desc: "Percentage of customers who buy again" },
                   { label: "Contribution Margin", desc: "Revenue minus variable costs per unit" },
                   { label: "Blended ROAS", desc: "Revenue from all channels / total ad spend" },
@@ -1762,7 +1762,7 @@ export default function AdvertisingPage() {
                 CLEAN DATA.
               </motion.h2>
               <motion.p variants={item} className="mt-6 text-base leading-relaxed text-black/55">
-                Campaigns optimised against inaccurate data don't improve — they compound errors. Tracking is the infrastructure your advertising performance is built on.
+                Campaigns optimised against inaccurate data don't improve they compound errors. Tracking is the infrastructure your advertising performance is built on.
               </motion.p>
               <motion.div variants={item} className="mt-6">
                 <Link
@@ -1822,7 +1822,7 @@ export default function AdvertisingPage() {
                 IT BETTER.
               </motion.h2>
               <motion.p variants={item} className="mt-6 text-base leading-relaxed text-white/55">
-                AI tools accelerate research, creative variation, reporting and analysis. But the decisions that determine whether a campaign succeeds — who to target, what to say, what to test, when to scale — remain strategic ones. We use AI to do more of the right things, faster.
+                AI tools accelerate research, creative variation, reporting and analysis. But the decisions that determine whether a campaign succeeds who to target, what to say, what to test, when to scale remain strategic ones. We use AI to do more of the right things, faster.
               </motion.p>
             </div>
 
@@ -1952,7 +1952,7 @@ export default function AdvertisingPage() {
               {
                 n: "01",
                 label: "Creative + Media Together",
-                desc: "Strategy, creative and media buying are managed as one system — not handed between separate teams. What we learn from the data feeds directly back into the creative.",
+                desc: "Strategy, creative and media buying are managed as one system not handed between separate teams. What we learn from the data feeds directly back into the creative.",
               },
               {
                 n: "02",
@@ -1962,7 +1962,7 @@ export default function AdvertisingPage() {
               {
                 n: "03",
                 label: "D2C Understanding",
-                desc: "We understand the unit economics of consumer brands — contribution margins, CAC tolerance, LTV implications. Advertising decisions are made in that context.",
+                desc: "We understand the unit economics of consumer brands contribution margins, CAC tolerance, LTV implications. Advertising decisions are made in that context.",
               },
               {
                 n: "04",
@@ -2059,7 +2059,7 @@ export default function AdvertisingPage() {
               NOT WORKING.
             </motion.h2>
             <motion.p variants={item} className="mx-auto mt-6 max-w-lg text-base text-white/50">
-              We review your advertising accounts, creative, audience strategy, tracking setup and landing pages — and tell you exactly where performance is being lost.
+              We review your advertising accounts, creative, audience strategy, tracking setup and landing pages and tell you exactly where performance is being lost.
             </motion.p>
             <motion.div variants={item} className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <div className="flex flex-wrap justify-center gap-2">

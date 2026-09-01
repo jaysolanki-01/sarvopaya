@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -61,7 +61,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
       <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[260px_1fr] lg:gap-16">
-            {/* Sidebar — stacks on top of the article on mobile, sticks in place on scroll from lg up */}
+            {/* Sidebar stacks on top of the article on mobile, sticks in place on scroll from lg up */}
             <aside className="lg:sticky lg:top-28 lg:self-start">
               <div className="flex flex-col gap-10 border-b border-black/10 pb-8 lg:border-b-0 lg:pb-0">
                 <div>

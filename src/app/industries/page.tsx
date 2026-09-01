@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -49,7 +49,7 @@ type IndustryShowcase = {
 const industryPortfolio: IndustryShowcase[] = [
   {
     industry: "Kitchen Equipment",
-    title: "Commercial Kitchen Equipment — B2B Catalog & Export Site",
+    title: "Commercial Kitchen Equipment B2B Catalog & Export Site",
     description:
       "A product-catalog website built for a commercial kitchenware manufacturer to showcase their range to distributors and capture bulk export inquiries.",
     image:
@@ -57,7 +57,7 @@ const industryPortfolio: IndustryShowcase[] = [
   },
   {
     industry: "Carpet & Rug",
-    title: "Handwoven Carpets — Export Storefront & Lookbook",
+    title: "Handwoven Carpets Export Storefront & Lookbook",
     description:
       "A visual-first storefront for a carpet exporter, built to present craftsmanship at scale and turn international buyers into qualified inquiries.",
     image:
@@ -65,7 +65,7 @@ const industryPortfolio: IndustryShowcase[] = [
   },
   {
     industry: "Jewellery",
-    title: "Fine Jewellery — D2C Storefront & Local SEO",
+    title: "Fine Jewellery D2C Storefront & Local SEO",
     description:
       "A conversion-focused ecommerce experience for a jewellery brand, paired with local SEO to drive footfall and online orders in equal measure.",
     image:
@@ -145,7 +145,7 @@ const helpCards: HelpCard[] = [
     icon: FunnelIcon,
     title: "B2B Business",
     subtitle:
-      "Corporate-grade websites and pipeline systems built for longer sales cycles — generate qualified leads and keep your CRM working for you, not against you.",
+      "Corporate-grade websites and pipeline systems built for longer sales cycles generate qualified leads and keep your CRM working for you, not against you.",
     gradient: "from-accent to-red-800",
     points: [
       "Corporate Website",
@@ -176,7 +176,7 @@ export default function IndustriesPage() {
 
   return (
     <>
-      {/* Section 1 — Hero */}
+      {/* Section 1 Hero */}
       <section className="relative flex min-h-[calc(100dvh-4rem)] w-full items-center overflow-hidden bg-white">
         <span
           aria-hidden="true"
@@ -237,11 +237,11 @@ export default function IndustriesPage() {
         </motion.div>
       </section>
 
-      {/* Section 2 — Portfolio + Use Cases */}
+      {/* Section 2 Portfolio + Use Cases */}
       <section id="portfolio" className="w-full scroll-mt-20 bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-10">
-            {/* Left — Portfolio */}
+            {/* Left Portfolio */}
             <div>
               <motion.div
                 initial="hidden"
@@ -319,7 +319,7 @@ export default function IndustriesPage() {
               </motion.div>
             </div>
 
-            {/* Right — Use Cases */}
+            {/* Right Use Cases */}
             <div>
               <motion.div
                 initial="hidden"
@@ -386,7 +386,7 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Section 3 — How We Can Help */}
+      {/* Section 3 How We Can Help */}
       <section className="w-full bg-white pt-10 pb-10 sm:pt-12 sm:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -495,12 +495,12 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Section 4 — Client Reviews */}
+      {/* Section 4 Client Reviews */}
       <div className="-mt-10 sm:-mt-14">
         <Testimonials />
       </div>
 
-      {/* Section 5 — Final CTA */}
+      {/* Section 5 Final CTA */}
       <FinalCTA />
     </>
   );

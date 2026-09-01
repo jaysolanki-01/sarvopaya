@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { animate, motion, useInView } from "framer-motion";
@@ -17,13 +17,13 @@ const pillars = [
     icon: MonitorIcon,
     title: "Technology",
     description:
-      "From high-performance websites to custom digital platforms — we build scalable tech that powers your business behind the scenes.",
+      "From high-performance websites to custom digital platforms we build scalable tech that powers your business behind the scenes.",
   },
   {
     icon: BoltIcon,
     title: "Artificial Intelligence",
     description:
-      "We integrate AI into your workflows, marketing, and products — making your business smarter, faster, and more competitive every day.",
+      "We integrate AI into your workflows, marketing, and products making your business smarter, faster, and more competitive every day.",
   },
 ];
 
@@ -145,7 +145,7 @@ export default function WhoWeAre() {
             Sarvopaya is a creative media, technology and AI company built
             for businesses that refuse to stand still. We sit at the
             intersection of bold storytelling, intelligent systems, and
-            growth strategy — turning complex ideas into digital experiences
+            growth strategy turning complex ideas into digital experiences
             that attract, engage, and convert.
           </motion.p>
         </div>

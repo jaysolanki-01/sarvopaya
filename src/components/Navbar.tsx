@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -222,7 +222,7 @@ export default function Navbar() {
 
   useEffect(() => {
     if (mobileOpen) {
-      // iOS Safari ignores overflow:hidden on body — use position:fixed instead
+      // iOS Safari ignores overflow:hidden on body use position:fixed instead
       const scrollY = window.scrollY;
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;

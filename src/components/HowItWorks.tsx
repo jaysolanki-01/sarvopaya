@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -16,14 +16,14 @@ const steps = [
     icon: TargetIcon,
     title: "Strategize",
     description:
-      "We design the automation blueprint — mapping data flows, integration points, and trigger logic before a single line of code is written.",
+      "We design the automation blueprint mapping data flows, integration points, and trigger logic before a single line of code is written.",
     bullets: ["Automation blueprint", "Integration planning", "Trigger logic design"],
   },
   {
     icon: BoltIcon,
     title: "Build & Automate",
     description:
-      "Our team builds and wires up the workflows — CRM syncs, AI chatbots, reporting pipelines — so your systems start talking to each other.",
+      "Our team builds and wires up the workflows CRM syncs, AI chatbots, reporting pipelines so your systems start talking to each other.",
     bullets: ["CRM & tool integration", "AI workflow build", "QA & trigger testing"],
   },
   {

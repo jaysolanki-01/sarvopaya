@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, type FormEvent } from "react";
 import Image from "next/image";
@@ -126,7 +126,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-stretch gap-10 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-2 lg:gap-14 lg:px-8 lg:py-28">
-        {/* Left — form */}
+        {/* Left form */}
         <div className="relative flex flex-col justify-center">
           <motion.div
             variants={staggerContainer}
@@ -210,7 +210,7 @@ export default function ContactPage() {
                 <textarea
                   name="note"
                   rows={4}
-                  placeholder="Note — tell us about your business or goals"
+                  placeholder="Note tell us about your business or goals"
                   className={`${fieldClass} resize-none pr-20`}
                 />
                 <motion.div
@@ -256,7 +256,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-sm font-medium text-accent"
                 >
-                  Thanks — we&rsquo;ll be in touch shortly.
+                  Thanks we&rsquo;ll be in touch shortly.
                 </motion.p>
               )}
 
@@ -310,7 +310,7 @@ export default function ContactPage() {
           </motion.div>
         </div>
 
-        {/* Right — dummy image panel */}
+        {/* Right dummy image panel */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

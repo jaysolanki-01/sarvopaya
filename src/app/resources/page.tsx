@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
@@ -156,7 +156,7 @@ export default function ResourcesPage() {
 
           {filteredProjects.length === 0 && (
             <p className="mt-14 text-center text-black/50">
-              No projects in this category yet — check back soon.
+              No projects in this category yet check back soon.
             </p>
           )}
         </div>

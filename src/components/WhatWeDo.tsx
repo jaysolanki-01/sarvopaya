@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -9,7 +9,7 @@ const services = [
   {
     icon: FunnelIcon,
     title: "Lead Generation",
-    subtitle: "We design data-driven lead generation campaigns that bring the right buyers to your door. From paid ads to inbound funnels — we build pipelines that fill themselves.",
+    subtitle: "We design data-driven lead generation campaigns that bring the right buyers to your door. From paid ads to inbound funnels we build pipelines that fill themselves.",
     gradient: "from-black to-neutral-800",
     bullets: [
       "Paid Ads & Media Buying",
@@ -35,7 +35,7 @@ const services = [
   {
     icon: BoltIcon,
     title: "AI & Automation",
-    subtitle: "We embed intelligent automation into your business — from AI chatbots to workflow automation — so you can do more with less effort and scale without adding headcount.",
+    subtitle: "We embed intelligent automation into your business from AI chatbots to workflow automation so you can do more with less effort and scale without adding headcount.",
     gradient: "from-neutral-800 to-black",
     bullets: [
       "AI Chatbots",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ProjectDetail from "@/components/ProjectDetail";
 import { getProjectBySlug, projects } from "@/lib/projects";
@@ -16,7 +16,7 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return { title: "Project Not Found — Sarvopaya" };
+    return { title: "Project Not Found Sarvopaya" };
   }
 
   const title = `${project.title} | Sarvopaya`;

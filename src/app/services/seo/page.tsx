@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
@@ -101,7 +101,7 @@ const systemSteps = [
     title: "Measure",
     summary: "GSC, GA4, rank tracking, organic conversions, search visibility signals.",
     purpose:
-      "We track visibility, engagement, demand, and business outcomes — not just rankings. Monthly reports translate data into decisions.",
+      "We track visibility, engagement, demand, and business outcomes not just rankings. Monthly reports translate data into decisions.",
   },
 ];
 
@@ -116,13 +116,13 @@ const techItems: TechItem[] = [
   {
     icon: BrowserPulseIcon,
     title: "Crawlability & Indexation",
-    what: "Ensuring search engines can discover, access, and index all pages that should be indexed — and that pages which should not be indexed are correctly excluded.",
+    what: "Ensuring search engines can discover, access, and index all pages that should be indexed and that pages which should not be indexed are correctly excluded.",
     why: "If a search engine cannot access a page, it cannot rank it. Poor crawl configuration wastes crawl budget and keeps important content out of the index.",
   },
   {
     icon: GearIcon,
     title: "Site Architecture",
-    what: "The logical structure of your website — how pages are organised, categorised, and connected to each other.",
+    what: "The logical structure of your website how pages are organised, categorised, and connected to each other.",
     why: "A clear, logical site structure helps search engines understand the hierarchy of your content and pass authority to the pages that matter most.",
   },
   {
@@ -188,14 +188,14 @@ const services: Service[] = [
   {
     icon: SearchIcon,
     title: "On-Page SEO",
-    what: "Optimising the individual elements of each page — titles, headings, content, internal links — for relevance and authority.",
+    what: "Optimising the individual elements of each page titles, headings, content, internal links for relevance and authority.",
     how: "Page-level audits, title and meta optimisation, heading structure, content relevance assessment, E-E-A-T signals, image optimisation.",
     when: "When pages have weak organic visibility despite being well-built technically, or when launching new pages.",
   },
   {
     icon: GlobeIcon,
     title: "Enterprise SEO",
-    what: "SEO at scale — managing hundreds or thousands of pages, complex site architectures, and multi-stakeholder environments.",
+    what: "SEO at scale managing hundreds or thousands of pages, complex site architectures, and multi-stakeholder environments.",
     how: "Crawl intelligence, log file analysis, content audits at scale, faceted navigation, international SEO, template optimisation.",
     when: "For large websites, ecommerce platforms, news and media properties, or organisations with multiple digital properties.",
   },
@@ -204,7 +204,7 @@ const services: Service[] = [
     title: "Local SEO",
     what: "Improving visibility in geographically targeted searches, including Google Maps and location-based results.",
     how: "Google Business Profile optimisation, local citation management, location-specific content, local structured data, review strategy.",
-    when: "For businesses serving specific geographic areas — retail, hospitality, healthcare, professional services with local offices.",
+    when: "For businesses serving specific geographic areas retail, hospitality, healthcare, professional services with local offices.",
   },
   {
     icon: CartIcon,
@@ -251,14 +251,14 @@ const services: Service[] = [
   {
     icon: BoltIcon,
     title: "AEO",
-    what: "Answer Engine Optimisation — structuring content to satisfy answer-oriented search queries and search features.",
+    what: "Answer Engine Optimisation structuring content to satisfy answer-oriented search queries and search features.",
     how: "Question-based content development, FAQ architecture, concise answer formatting, intent-matched content structure.",
     when: "For businesses whose audiences frequently search for how, what, and why questions before making purchasing decisions.",
   },
   {
     icon: GlobeIcon,
     title: "GEO",
-    what: "Generative Engine Optimisation — improving a brand's digital presence for clarity and coherence in generative search environments.",
+    what: "Generative Engine Optimisation improving a brand's digital presence for clarity and coherence in generative search environments.",
     how: "Entity clarity, topical consistency, first-party content signals, third-party brand mentions, structured information.",
     when: "For brands that want to build a consistent, well-understood digital presence as search increasingly integrates AI-generated experiences.",
   },
@@ -281,7 +281,7 @@ const services: Service[] = [
     title: "SEO Analytics",
     what: "Converting search performance data into clear decisions that improve strategy each month.",
     how: "Google Search Console analysis, GA4 organic reporting, rank tracking, CTR opportunity identification, content decline monitoring.",
-    when: "As an ongoing element of any SEO engagement — strategy without measurement is guesswork.",
+    when: "As an ongoing element of any SEO engagement strategy without measurement is guesswork.",
   },
 ];
 
@@ -327,22 +327,22 @@ const faqData = [
   {
     question: "What is AEO?",
     answer:
-      "Answer Engine Optimisation (AEO) is the practice of structuring content to satisfy answer-oriented search queries. As search engines increasingly surface direct answers — through featured snippets, People Also Ask boxes, and other search features — content that is clearly structured and intent-matched is more likely to be used. AEO focuses on question-based content, concise answers, and logical information architecture.",
+      "Answer Engine Optimisation (AEO) is the practice of structuring content to satisfy answer-oriented search queries. As search engines increasingly surface direct answers through featured snippets, People Also Ask boxes, and other search features content that is clearly structured and intent-matched is more likely to be used. AEO focuses on question-based content, concise answers, and logical information architecture.",
   },
   {
     question: "What is GEO?",
     answer:
-      "Generative Engine Optimisation (GEO) is the practice of improving a brand's digital presence so it is more clearly understood by generative AI systems — including Google AI Overviews, ChatGPT, Gemini, Perplexity, and others. GEO focuses on entity clarity, topical authority, consistent brand information, and high-quality content across multiple platforms. It does not guarantee that any AI system will cite or surface a specific brand.",
+      "Generative Engine Optimisation (GEO) is the practice of improving a brand's digital presence so it is more clearly understood by generative AI systems including Google AI Overviews, ChatGPT, Gemini, Perplexity, and others. GEO focuses on entity clarity, topical authority, consistent brand information, and high-quality content across multiple platforms. It does not guarantee that any AI system will cite or surface a specific brand.",
   },
   {
     question: "Is GEO replacing SEO?",
     answer:
-      "No. GEO is an extension of good SEO practice, not a replacement. Most GEO best practices — clear entity information, topical authority, high-quality content, structured data, and relevant third-party mentions — are also strong SEO fundamentals. Traditional search remains widely used. GEO simply addresses a broader set of discovery surfaces that have emerged alongside generative AI search.",
+      "No. GEO is an extension of good SEO practice, not a replacement. Most GEO best practices clear entity information, topical authority, high-quality content, structured data, and relevant third-party mentions are also strong SEO fundamentals. Traditional search remains widely used. GEO simply addresses a broader set of discovery surfaces that have emerged alongside generative AI search.",
   },
   {
     question: "What is the difference between SEO and GEO?",
     answer:
-      "SEO primarily focuses on improving visibility in traditional search engine results pages (SERPs). GEO focuses on improving a brand's presence and clarity in generative AI search experiences. SEO success is measured in rankings, clicks, and organic sessions. GEO success is harder to measure directly — it relates more to brand entity coherence, topical association, and the overall quality of a brand's digital information ecosystem.",
+      "SEO primarily focuses on improving visibility in traditional search engine results pages (SERPs). GEO focuses on improving a brand's presence and clarity in generative AI search experiences. SEO success is measured in rankings, clicks, and organic sessions. GEO success is harder to measure directly it relates more to brand entity coherence, topical association, and the overall quality of a brand's digital information ecosystem.",
   },
   {
     question: "How does AEO work?",
@@ -352,12 +352,12 @@ const faqData = [
   {
     question: "Can SEO help with AI search?",
     answer:
-      "Yes, indirectly. Strong SEO fundamentals — clear content, well-structured information, topical authority, consistent entity signals, and relevant external references — are also the foundations of a strong GEO presence. A brand with high organic search visibility has usually built many of the signals that also help generative AI systems understand and contextualise it. However, SEO and GEO are not identical, and neither guarantees AI citation.",
+      "Yes, indirectly. Strong SEO fundamentals clear content, well-structured information, topical authority, consistent entity signals, and relevant external references are also the foundations of a strong GEO presence. A brand with high organic search visibility has usually built many of the signals that also help generative AI systems understand and contextualise it. However, SEO and GEO are not identical, and neither guarantees AI citation.",
   },
   {
     question: "How long does SEO take?",
     answer:
-      "For most businesses, meaningful organic visibility improvements take three to six months. Significant business impact typically takes six to twelve months. This depends on the competitiveness of your market, your current site health, the quality and quantity of content you publish, and the authority your domain has already built. SEO is a compounding discipline — results grow over time rather than arriving immediately.",
+      "For most businesses, meaningful organic visibility improvements take three to six months. Significant business impact typically takes six to twelve months. This depends on the competitiveness of your market, your current site health, the quality and quantity of content you publish, and the authority your domain has already built. SEO is a compounding discipline results grow over time rather than arriving immediately.",
   },
   {
     question: "How much does SEO cost?",
@@ -367,27 +367,27 @@ const faqData = [
   {
     question: "Does SEO still work in 2026?",
     answer:
-      "Yes. Organic search remains one of the highest-intent discovery channels for most businesses. Google continues to process billions of searches per day. What has changed is that search is more sophisticated — it rewards genuine expertise, clear information, and helpful content rather than keyword repetition. SEO that focuses on user value and search intent works as well as it always has.",
+      "Yes. Organic search remains one of the highest-intent discovery channels for most businesses. Google continues to process billions of searches per day. What has changed is that search is more sophisticated it rewards genuine expertise, clear information, and helpful content rather than keyword repetition. SEO that focuses on user value and search intent works as well as it always has.",
   },
   {
     question: "How do I appear in AI search results?",
     answer:
-      "There is no guaranteed method to appear in AI-generated search results or be cited by systems like ChatGPT, Gemini, or Perplexity. These systems draw on a wide range of sources and their inclusion criteria are not fully transparent. However, brands with clear entity information, topical authority, consistent digital presence, high-quality content, and relevant third-party references have a stronger information ecosystem — which is the foundation of GEO.",
+      "There is no guaranteed method to appear in AI-generated search results or be cited by systems like ChatGPT, Gemini, or Perplexity. These systems draw on a wide range of sources and their inclusion criteria are not fully transparent. However, brands with clear entity information, topical authority, consistent digital presence, high-quality content, and relevant third-party references have a stronger information ecosystem which is the foundation of GEO.",
   },
   {
     question: "Can you guarantee Google rankings?",
     answer:
-      "No. Anyone who guarantees specific Google rankings is making a claim they cannot fulfil. Google's algorithms consider hundreds of signals and are continuously updated. What we can commit to is sound strategy, thorough implementation, and consistent measurement — the conditions most likely to result in improved visibility over time.",
+      "No. Anyone who guarantees specific Google rankings is making a claim they cannot fulfil. Google's algorithms consider hundreds of signals and are continuously updated. What we can commit to is sound strategy, thorough implementation, and consistent measurement the conditions most likely to result in improved visibility over time.",
   },
   {
     question: "Can you guarantee ChatGPT or AI citations?",
     answer:
-      "No. No agency can guarantee inclusion in AI-generated answers from ChatGPT, Google AI Overviews, Gemini, Perplexity, or any other generative system. These systems make their own decisions based on their training data and retrieval mechanisms. We focus on building the underlying conditions — entity clarity, topical authority, quality content, relevant mentions — that create a stronger foundation for potential inclusion.",
+      "No. No agency can guarantee inclusion in AI-generated answers from ChatGPT, Google AI Overviews, Gemini, Perplexity, or any other generative system. These systems make their own decisions based on their training data and retrieval mechanisms. We focus on building the underlying conditions entity clarity, topical authority, quality content, relevant mentions that create a stronger foundation for potential inclusion.",
   },
   {
     question: "Does Google Search Console measure GEO?",
     answer:
-      "No. Google Search Console provides data about your website's performance in traditional Google Search — impressions, clicks, positions, and search queries. It does not directly measure your brand's presence or performance in AI-generated experiences, AI Overviews, or generative search. Some AI Overview appearances may generate clicks that appear in GSC, but GSC was not built as a GEO measurement tool and should not be treated as one.",
+      "No. Google Search Console provides data about your website's performance in traditional Google Search impressions, clicks, positions, and search queries. It does not directly measure your brand's presence or performance in AI-generated experiences, AI Overviews, or generative search. Some AI Overview appearances may generate clicks that appear in GSC, but GSC was not built as a GEO measurement tool and should not be treated as one.",
   },
   {
     question: "How do you measure SEO success?",
@@ -850,7 +850,7 @@ export default function SeoPage() {
                 className="mx-auto mt-6 max-w-xl text-base leading-7 text-white/60 lg:mx-0 sm:text-lg"
               >
                 Search has expanded beyond the search bar. We build search visibility systems
-                covering SEO, AEO, and GEO — so your brand is easier to discover, understand,
+                covering SEO, AEO, and GEO so your brand is easier to discover, understand,
                 and trust across every surface where your audience is looking.
               </motion.p>
               <motion.div
@@ -1095,7 +1095,7 @@ export default function SeoPage() {
             </motion.h2>
             <motion.p variants={item} className="mt-4 max-w-xl text-base leading-7 text-white/60">
               Six interconnected stages from research to ongoing optimisation.
-              Each stage has a clear purpose — not just a deliverable.
+              Each stage has a clear purpose not just a deliverable.
             </motion.p>
           </motion.div>
 
@@ -1154,7 +1154,7 @@ export default function SeoPage() {
             </motion.h2>
             <motion.p variants={item} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
               Great content on a technically weak website will underperform. Technical SEO ensures
-              search engines can find, access, understand, and trust your website — before anything else.
+              search engines can find, access, understand, and trust your website before anything else.
             </motion.p>
           </motion.div>
 
@@ -1239,7 +1239,7 @@ export default function SeoPage() {
                   Publishing comprehensive, interconnected coverage of a topic area does.
                 </p>
                 <p>
-                  Topical authority is built through clusters — a primary topic supported by
+                  Topical authority is built through clusters a primary topic supported by
                   satellite content that covers every meaningful question, subtopic, and angle.
                   Each piece connects to the others through internal links, reinforcing relevance
                   across the entire cluster.
@@ -1350,7 +1350,7 @@ export default function SeoPage() {
                   link is ever clicked.
                 </p>
                 <p>
-                  AEO is about writing content that satisfies those questions — not just with
+                  AEO is about writing content that satisfies those questions not just with
                   keywords, but with clear, direct, well-structured answers that search engines
                   can identify and use. Content that is genuinely helpful is also content that
                   performs well in answer-oriented contexts.
@@ -1422,7 +1422,7 @@ export default function SeoPage() {
             <motion.p variants={item} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
               AI systems are increasingly integrated into how people search and discover information.
               GEO is about building the conditions that make a brand easier for those systems to
-              understand — not gaming them, but building something worth understanding.
+              understand not gaming them, but building something worth understanding.
             </motion.p>
           </motion.div>
 
@@ -1485,7 +1485,7 @@ export default function SeoPage() {
                 <p className="text-sm font-bold text-white/40">Think of GEO as</p>
                 <p className="mt-3 text-xl font-bold text-white leading-snug">
                   Building a brand that is clear, credible, and consistent enough to be understood
-                  by any intelligent system — human or machine.
+                  by any intelligent system human or machine.
                 </p>
               </div>
             </motion.div>
@@ -1618,7 +1618,7 @@ export default function SeoPage() {
             </motion.h2>
             <motion.p variants={item} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
               Modern discovery can happen across many surfaces. Not every channel is relevant
-              to every business — but understanding where your audience searches is the
+              to every business but understanding where your audience searches is the
               starting point for any search visibility strategy.
             </motion.p>
           </motion.div>
@@ -1863,7 +1863,7 @@ export default function SeoPage() {
           >
             Primary tools: Google Search Console (search performance), Google Analytics 4 (organic sessions and conversions),
             Google Business Profile (local visibility), rank tracking platforms. Note: Google Search Console reports
-            traditional search performance — it does not directly measure GEO or AI search performance.
+            traditional search performance it does not directly measure GEO or AI search performance.
           </motion.p>
         </div>
       </section>
@@ -1896,7 +1896,7 @@ export default function SeoPage() {
                 </p>
                 <p>
                   We use Search Console data to inform content strategy, AEO priorities,
-                  and on-page optimisation — not just to report on what happened, but to
+                  and on-page optimisation not just to report on what happened, but to
                   identify what to do next.
                 </p>
               </motion.div>

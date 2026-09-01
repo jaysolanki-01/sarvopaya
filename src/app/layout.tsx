@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -18,7 +18,7 @@ const siteDescription =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Sarvopaya — Your Partner For SARV Digital UPAYA",
+    default: "Sarvopaya Your Partner For SARV Digital UPAYA",
     template: "%s | Sarvopaya",
   },
   description: siteDescription,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName,
-    title: "Sarvopaya — Your Partner For SARV Digital UPAYA",
+    title: "Sarvopaya Your Partner For SARV Digital UPAYA",
     description: siteDescription,
     locale: "en_US",
     images: [
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sarvopaya — Your Partner For SARV Digital UPAYA",
+    title: "Sarvopaya Your Partner For SARV Digital UPAYA",
     description: siteDescription,
     images: ["/images/Main_icon.png"],
   },

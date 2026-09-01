@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import CTAButton from "@/components/CTAButton";
@@ -79,7 +79,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/60"
         >
-          No jargon, no vague retainers — just a straight conversation about
+          No jargon, no vague retainers just a straight conversation about
           where you are, where you want to be, and how we get you there.
         </motion.p>
 
