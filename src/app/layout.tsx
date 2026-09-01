@@ -62,6 +62,9 @@ export const metadata: Metadata = {
     shortcut: "/images/icon_mark.png",
     apple: "/images/icon_mark.png",
   },
+  verification: {
+    google: "2SYm5cFKe3bzUEdnyfyVHLcC2kbqsYrRm4luQ41GMJc",
+  },
   robots: {
     index: true,
     follow: true,
