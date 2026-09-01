@@ -697,6 +697,10 @@ function D2CFunnel() {
 
 const faqs = [
   {
+    q: "What does a D2C marketing agency do?",
+    a: "A D2C marketing agency plans, executes and optimises the entire paid growth system for direct-to-consumer brands. This includes building tracking infrastructure, running Meta Ads and Google Ads, producing and testing creative, optimising the conversion funnel, and reporting on business metrics like ROAS, CAC and MER — not just clicks. Unlike a general digital marketing agency, a D2C-focused agency understands the unit economics of ecommerce: margin structures, repeat purchase rates and payback periods.",
+  },
+  {
     q: "What is performance marketing?",
     a: "Performance marketing is a form of digital advertising where spend is tied to measurable business outcomes typically revenue, orders, leads or conversions. Every rupee spent is tracked against a specific result, not just reach or brand awareness.",
   },
@@ -805,12 +809,13 @@ const jsonLd = {
     {
       "@type": "Service",
       "@id": "https://sarvopaya.com/services/performance-marketing",
-      name: "Performance Marketing for D2C Brands",
+      name: "D2C Marketing Agency — Performance Marketing for D2C Brands",
       description:
-        "Performance marketing for D2C and ecommerce brands tracking, media buying, creative testing, attribution and revenue optimization.",
-      provider: { "@type": "Organization", name: "Sarvopaya" },
-      serviceType: "Performance Marketing",
+        "Sarvopaya is a D2C marketing agency in India. We build performance marketing systems for direct-to-consumer brands — tracking infrastructure, Meta Ads, Google Ads, creative testing, attribution and revenue optimization.",
+      provider: { "@type": "Organization", name: "Sarvopaya", url: "https://sarvopaya.com" },
+      serviceType: "D2C Marketing Agency",
       areaServed: "India",
+      keywords: "D2C marketing agency, performance marketing for D2C brands, direct to consumer marketing India, Meta Ads, Google Ads, ROAS, CAC",
     },
     {
       "@type": "BreadcrumbList",
@@ -884,23 +889,24 @@ export default function PerformanceMarketing() {
             className="max-w-3xl"
           >
             <motion.div variants={fadeUp}>
-              <SectionLabel>Performance Marketing</SectionLabel>
+              <SectionLabel>D2C Marketing Agency</SectionLabel>
             </motion.div>
 
             <motion.h1
               variants={item}
               className="mt-7 font-heading text-4xl font-black leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
             >
-              Performance Marketing for D2C Brands Who Track Business Outcomes.
+              D2C Marketing Agency Built Around Business Outcomes.
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-7 max-w-2xl text-lg leading-8 text-white/50 sm:text-xl"
             >
-              We build the tracking layer, buy media with precision, test
-              creative at volume, and optimize every stage of your funnel —
-              because "good ROAS" means nothing without good data.
+              As a D2C marketing agency, we build the tracking layer, buy media
+              with precision, test creative at volume, and optimize every stage
+              of your funnel — because &ldquo;good ROAS&rdquo; means nothing
+              without good data.
             </motion.p>
 
             <motion.div
