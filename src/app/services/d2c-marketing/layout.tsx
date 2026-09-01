@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "Google Ads for ecommerce",
   ],
   alternates: {
-    canonical: "/services/performance-marketing",
+    canonical: "/services/d2c-marketing",
   },
   openGraph: {
     title: "D2C Marketing Agency India | Performance Marketing | Sarvopaya",
     description:
       "Sarvopaya is a D2C marketing agency in India. Performance marketing built around tracking, creative testing, media buying and measurable revenue for D2C brands.",
-    url: "/services/performance-marketing",
+    url: "/services/d2c-marketing",
   },
 };
 

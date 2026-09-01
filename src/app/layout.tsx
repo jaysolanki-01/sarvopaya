@@ -8,6 +8,7 @@ export const viewport: Viewport = {
 };
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BookMeeting from "@/components/BookMeeting";
 import "./globals.css";
 
 const siteUrl = "https://sarvopaya.com";
@@ -136,6 +137,8 @@ export default function RootLayout({
         <Navbar />
         <div className="relative z-10 bg-background">{children}</div>
         <Footer />
+
+        <BookMeeting />
 
         {/* WhatsApp floating button */}
         <div className="fixed bottom-6 right-6 z-50">

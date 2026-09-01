@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@tailwindcss/oxide": "^4.3.3",
     "framer-motion": "^12.42.2",
     "lightningcss": "^1.33.0",

@@ -54,7 +54,7 @@ const serviceCategories: ServiceCategory[] = [
     sublinks: [
       { label: "Social Media Marketing", href: "/services/social-media-marketing" },
       { label: "Search Engine Optimisation", href: "/services/seo" },
-      { label: "Performance Marketing", href: "/services/performance-marketing" },
+      { label: "D2C Marketing", href: "/services/d2c-marketing" },
       { label: "Advertising", href: "/services/advertising" },
     ],
   },

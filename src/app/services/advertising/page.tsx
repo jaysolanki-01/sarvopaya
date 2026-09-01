@@ -1766,7 +1766,7 @@ export default function AdvertisingPage() {
               </motion.p>
               <motion.div variants={item} className="mt-6">
                 <Link
-                  href="/services/performance-marketing"
+                  href="/services/d2c-marketing"
                   className="inline-flex items-center gap-2 rounded-full border border-black px-5 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:bg-black hover:text-white"
                 >
                   See our Tracking & Attribution service →
@@ -2102,7 +2102,7 @@ export default function AdvertisingPage() {
             className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
           >
             {[
-              { label: "Performance Marketing", desc: "ROAS, tracking, attribution and D2C revenue measurement.", href: "/services/performance-marketing" },
+              { label: "Performance Marketing", desc: "ROAS, tracking, attribution and D2C revenue measurement.", href: "/services/d2c-marketing" },
               { label: "SEO", desc: "Organic search visibility that complements paid traffic.", href: "/services/seo" },
               { label: "Social Media Marketing", desc: "Organic social presence to support paid social campaigns.", href: "/services/social-media-marketing" },
               { label: "Web Development", desc: "The landing pages and experiences your ads send traffic to.", href: "/services/website-digital-experience" },

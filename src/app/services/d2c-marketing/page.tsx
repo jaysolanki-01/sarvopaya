@@ -808,7 +808,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://sarvopaya.com/services/performance-marketing",
+      "@id": "https://sarvopaya.com/services/d2c-marketing",
       name: "D2C Marketing Agency — Performance Marketing for D2C Brands",
       description:
         "Sarvopaya is a D2C marketing agency in India. We build performance marketing systems for direct-to-consumer brands — tracking infrastructure, Meta Ads, Google Ads, creative testing, attribution and revenue optimization.",
@@ -836,7 +836,7 @@ const jsonLd = {
           "@type": "ListItem",
           position: 3,
           name: "Performance Marketing",
-          item: "https://sarvopaya.com/services/performance-marketing",
+          item: "https://sarvopaya.com/services/d2c-marketing",
         },
       ],
     },
