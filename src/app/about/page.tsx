@@ -828,35 +828,34 @@ export default function AboutPage() {
               </motion.div>
             </div>
 
-            {/* Visual map card */}
+            {/* Google Maps embed */}
             <motion.div
               variants={item}
-              className="relative flex h-72 items-center justify-center overflow-hidden rounded-3xl border border-white/8 bg-white/[0.02] sm:h-96"
+              className="relative overflow-hidden rounded-3xl border border-white/8 sm:h-[420px]"
+              style={{ height: "340px" }}
             >
-              {/* Dot grid */}
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)",
-                  backgroundSize: "24px 24px",
-                }}
+              <iframe
+                title="Sarvopaya office location"
+                src="https://maps.google.com/maps?q=C-1102+PNTC+Times+Of+India+Press+Road+Vejalpur+Ahmedabad+380015+India&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
-              {/* Pulse */}
-              <div className="relative flex flex-col items-center gap-3">
-                <div className="relative">
-                  <motion.div
-                    animate={{ scale: [1, 2.2, 1], opacity: [0.7, 0, 0.7] }}
-                    transition={{ repeat: Infinity, duration: 2.2, ease: "easeOut" }}
-                    className="absolute inset-0 rounded-full bg-accent/40"
-                  />
-                  <div className="relative h-5 w-5 rounded-full bg-accent" />
-                </div>
-                <p className="text-sm font-bold uppercase tracking-widest text-white/70">
-                  Ahmedabad, India
-                </p>
-                <p className="text-xs text-white/30">23.0225° N, 72.5714° E</p>
-              </div>
+              {/* "Open in Maps" pill */}
+              <a
+                href="https://share.google/uof4RFT5sGHERr5LP"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full bg-black/80 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition-colors duration-300 hover:bg-accent"
+              >
+                Open in Maps
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+                </svg>
+              </a>
             </motion.div>
           </motion.div>
         </div>
