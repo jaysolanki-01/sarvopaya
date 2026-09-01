@@ -139,6 +139,26 @@ const PROJECTS: Project[] = [
     result:
       "10 blog posts now rank on page 1 of Google. The platform consistently attracts high-quality leads through organic search.",
   },
+  {
+    id: "b2b-tech-brand",
+    title: "B2B Tech Brand",
+    headline: "38.2K Impressions · 236 Clicks",
+    industry: "Technology / B2B",
+    service: "seo",
+    tags: ["On-page SEO", "Technical SEO", "Content Strategy", "Keyword Research"],
+    bigStat: "38.2K",
+    bigStatLabel: "Impressions",
+    metrics: [
+      { label: "Total Clicks",  value: "236" },
+      { label: "Impressions",   value: "38.2K" },
+      { label: "CTR",           value: "0.6%" },
+      { label: "Avg. Position", value: "14.5" },
+    ],
+    about:
+      "A B2B tech brand needed to establish organic search presence in a competitive niche. A structured SEO approach was applied — keyword research, on-page optimisation, and a content strategy targeting mid-funnel queries where decision-makers search.",
+    result:
+      "Generated 38.2K impressions and 236 clicks with steady upward momentum. Impressions tripled in the final month, signalling strong organic growth heading into the next quarter.",
+  },
 ];
 
 /* ── Helpers ─────────────────────────────────────────────────────────────── */
@@ -306,7 +326,7 @@ export default function WorkPage() {
             className="mt-14 flex flex-wrap gap-x-10 gap-y-6 border-t pt-10"
             style={{ borderColor: "rgba(255,255,255,0.07)" }}>
             {[
-              { v: "5+",   l: "Projects Delivered" },
+              { v: "6+",   l: "Projects Delivered" },
               { v: "10×",  l: "Best ROAS Achieved" },
               { v: "60K+", l: "App Installs Driven" },
               { v: "584K", l: "Organic Impressions" },
