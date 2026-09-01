@@ -120,7 +120,7 @@ const navigation: NavItem[] = [
       },
     ],
   },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Work", href: "/work" },
   { label: "Industries", href: "/industries" },
   { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
