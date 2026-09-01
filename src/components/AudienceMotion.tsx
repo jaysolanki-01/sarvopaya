@@ -209,8 +209,8 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
 
     const w      = section.clientWidth;
     const mobile = w < 768;
-    const h      = mode === "homepage" ? (mobile ? 420 : 620) : (mobile ? 300 : 480);
-    const count  = mode === "homepage" ? (mobile ? 260 : 650) : (mobile ? 200 : 500);
+    const h      = mode === "homepage" ? (mobile ? 300 : 400) : (mobile ? 300 : 480);
+    const count  = mode === "homepage" ? (mobile ? 220 : 520) : (mobile ? 200 : 500);
     const cx = w / 2, cy = h / 2;
     const rx = Math.min(w * 0.37, 262), ry = Math.min(h * 0.43, 202);
 
@@ -435,7 +435,7 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
         step through Attention, Relevance, Amplify, and Move.
       </p>
 
-      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8${mode === "homepage" ? " py-20 sm:py-28 lg:py-32" : " py-16 sm:py-20"}`}>
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8${mode === "homepage" ? " py-10 sm:py-14" : " py-16 sm:py-20"}`}>
 
         {/* ── Headline ──────────────────────────────────────────────────────── */}
         <motion.div
@@ -443,19 +443,19 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: EASE }}
-          className="mb-10 max-w-2xl"
+          className="mb-5 max-w-2xl"
         >
           <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
             {mode === "homepage" ? "Creative Media · Technology · AI" : "Social Media Marketing"}
           </span>
-          <h2 className="mt-3 font-heading text-5xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-7xl lg:text-8xl">
+          <h2 className="mt-3 font-heading text-4xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-6xl">
             Make the
             <br />
             <span className="text-accent">Audience</span>
             <br />
             Move.
           </h2>
-          <p className="mt-5 max-w-xs text-base leading-7 text-white/40">
+          <p className="mt-4 max-w-xs text-sm leading-6 text-white/40">
             {mode === "homepage" ? (
               <>Creative media, technology, and AI —<br />working together to move the right people.</>
             ) : (
@@ -669,27 +669,7 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
           </div>
         </div>
 
-        {/* ── Scroll indicator (homepage only) ──────────────────────────────── */}
-        {mode === "homepage" && !showFinal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.4, duration: 0.8 }}
-            className="mt-14 flex justify-center"
-            aria-hidden="true"
-          >
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-              className="flex flex-col items-center gap-2"
-            >
-              <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/20">
-                Scroll to explore
-              </span>
-              <span className="text-white/20 text-sm">↓</span>
-            </motion.div>
-          </motion.div>
-        )}
+        {/* Scroll indicator removed — controls are now visible without scrolling */}
 
         {/* ── Final CTA ─────────────────────────────────────────────────────── */}
         <AnimatePresence>
