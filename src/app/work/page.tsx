@@ -62,10 +62,10 @@ const PROJECTS: Project[] = [
       "Achieved 60% of the revenue expansion target, growing MRR from $400 to $2,000. Total installs crossed 60,000.",
   },
   {
-    id: "rise-up-overseas",
-    title: "Rise Up Overseas",
+    id: "study-visa-consultancy",
+    title: "Study Visa Consultancy",
     headline: "ROAS 10× in 15 Days",
-    industry: "Study Visa Consultancy",
+    industry: "Education / Visa Consultancy",
     service: "performance-marketing",
     tags: ["Meta Ads", "Google PMax", "Influencer", "Lead Gen"],
     bigStat: "10×",
@@ -77,7 +77,7 @@ const PROJECTS: Project[] = [
       { label: "Students Won",  value: "5" },
     ],
     about:
-      "Rise Up Overseas, a study visa consultancy, needed to drive footfall to a European Education Fair in just 15 days. A full-funnel campaign was built: influencer video for awareness, Meta Ads across three objectives, and a Google PMax campaign for calls and local reach.",
+      "A study visa consultancy needed to drive footfall to a European Education Fair in just 15 days. A full-funnel campaign was built: influencer video for awareness, Meta Ads across three objectives, and a Google PMax campaign for calls and local reach.",
     result:
       "5 students converted from a ₹20,000 spend, delivering a 10× ROAS within the 15-day window.",
   },
