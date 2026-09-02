@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
+import { blogPosts } from "@/lib/blogPosts";
 
 const BASE = "https://sarvopaya.com";
 
@@ -85,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 
-  // Dynamic resource/blog pages — auto-updates as projects.ts grows
+  // Dynamic resource/portfolio pages — auto-updates as projects.ts grows
   const resourceEntries: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${BASE}/resources/${project.slug}`,
     lastModified: now,
@@ -93,5 +94,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...resourceEntries];
+  // Dynamic blog posts — auto-updates as blogPosts.ts grows
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${BASE}/resources/founders-pov/${post.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...resourceEntries, ...blogEntries];
 }

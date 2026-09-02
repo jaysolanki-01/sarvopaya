@@ -123,7 +123,6 @@ const navigation: NavItem[] = [
   },
   { label: "Work", href: "/work" },
   { label: "Industries", href: "/industries" },
-  { label: "Locations", href: "/locations" },
   {
     label: "Resources",
     href: "/resources",
