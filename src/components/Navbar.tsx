@@ -122,7 +122,22 @@ const navigation: NavItem[] = [
   },
   { label: "Work", href: "/work" },
   { label: "Industries", href: "/industries" },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Resources",
+    href: "/resources",
+    items: [
+      {
+        label: "Blogs",
+        href: "/resources",
+        description: "In-depth guides, playbooks and marketing insights from the Sarvopaya team.",
+      },
+      {
+        label: "Founder's POVs",
+        href: "/resources/founders-pov",
+        description: "Unfiltered takes on growth, marketing and building a brand in India.",
+      },
+    ],
+  },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -139,6 +154,8 @@ const tileIcons: Record<string, ComponentType<{ className?: string }>> = {
   "/solutions/need-more-sales": ChartIcon,
   "/solutions/need-better-operations": GearIcon,
   "/solutions/launching-a-new-product": RocketIcon,
+  "/resources": ChartIcon,
+  "/resources/founders-pov": MegaphoneIcon,
 };
 
 function ChevronIcon({ open }: { open: boolean }) {
