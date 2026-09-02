@@ -4,7 +4,13 @@ export const metadata: Metadata = {
   title: "About Sarvopaya | Creative Media, Technology & AI Company Ahmedabad",
   description:
     "Sarvopaya is a creative media, technology and AI company from Ahmedabad, India. One integrated team. Three disciplines. Complete digital solutions for ambitious brands.",
-  alternates: { canonical: "/about" },
+  alternates: {
+    canonical: "/about",
+    languages: {
+      "en": "https://sarvopaya.com/about",
+      "x-default": "https://sarvopaya.com/about",
+    },
+  },
   openGraph: {
     title: "About Sarvopaya | Creative Media, Technology & AI",
     description:

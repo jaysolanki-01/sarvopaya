@@ -1,11 +1,15 @@
 ﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Social Media Marketing Agency",
+  title: "Social Media Marketing Agency India | Sarvopaya",
   description:
     "Sarvopaya is a social media marketing agency that grows your brand on Instagram, Facebook, LinkedIn, and YouTube with content strategy, paid ads, and analytics that drive real results.",
   alternates: {
     canonical: "/services/social-media-marketing",
+    languages: {
+      "en": "https://sarvopaya.com/services/social-media-marketing",
+      "x-default": "https://sarvopaya.com/services/social-media-marketing",
+    },
   },
   openGraph: {
     title: "Social Media Marketing Agency | Sarvopaya",

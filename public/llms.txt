@@ -1,0 +1,161 @@
+# Sarvopaya — D2C Marketing Agency India
+
+> Sarvopaya is a D2C marketing agency based in India. We help direct-to-consumer brands, funded startups, and growth-stage companies scale revenue through performance marketing, SEO, social media marketing, conversion-optimised websites, and AI automation. Our work is measured in business outcomes — ROAS, CAC, revenue — not vanity metrics.
+
+## About Sarvopaya
+
+Sarvopaya is a full-stack growth marketing agency founded by Jay Solanki, specialising in direct-to-consumer (D2C) brands in India. We operate as an integrated team across strategy, paid media, organic search, social content, and web development — giving brands a single growth partner instead of a fragmented agency stack.
+
+**Headquarters:** India
+**Founder:** Jay Solanki
+**Founded:** 2022
+**Specialisation:** D2C marketing, performance marketing, SEO, GEO, growth consulting
+**Website:** https://sarvopaya.com
+
+### Who We Work With
+
+- D2C e-commerce brands in fashion, beauty, health, food & beverage, and consumer electronics
+- Funded startups (Seed to Series B) building their first scalable marketing function
+- B2B SaaS companies in India seeking organic growth and demand generation
+- Local and national businesses scaling their digital presence
+
+---
+
+## Services
+
+### D2C Marketing (Performance Marketing)
+Full-funnel performance marketing for D2C brands. We build and manage Meta Ads, Google Ads, and shopping campaigns with a focus on CAC efficiency, ROAS, and profitable scale. Our approach covers creative strategy, audience architecture, landing page alignment, and attribution — not just media buying.
+
+**Best for:** D2C brands with ₹5L–₹10Cr/month ad spends seeking profitable growth
+**Channels:** Meta (Facebook, Instagram), Google (Search, Shopping, YouTube), Programmatic
+**Page:** https://sarvopaya.com/services/d2c-marketing
+
+### Search Engine Optimisation (SEO) & GEO
+Technical SEO, content strategy, and link building for long-term organic growth. We also practise Generative Engine Optimisation (GEO) — structuring content so it surfaces as a cited answer inside AI tools like ChatGPT, Perplexity, Google SGE, and Claude. We rank D2C brands, SaaS products, and service businesses for high-intent keywords across India and internationally.
+
+**Key outcomes:** Organic traffic, demo signups, non-brand keyword rankings, AI citation visibility
+**Page:** https://sarvopaya.com/services/seo
+
+### Social Media Marketing
+Brand storytelling, community building, and performance-led social content for Instagram, LinkedIn, and YouTube. We create content that converts followers into customers — combining content calendars, short-form video, influencer partnerships, and paid social amplification.
+
+**Channels:** Instagram, LinkedIn, YouTube, Pinterest
+**Page:** https://sarvopaya.com/services/social-media-marketing
+
+### Advertising (Paid Media)
+Google Ads, Meta Ads, and programmatic advertising across the full funnel — from awareness and consideration to retargeting and loyalty. We run creative testing, landing page optimisation, and spend management with a focus on business ROI.
+
+**Page:** https://sarvopaya.com/services/advertising
+
+### Website & Digital Experience
+Conversion-optimised websites, landing pages, and e-commerce stores. We design and build on Next.js, React, Shopify, and headless CMS platforms — with Core Web Vitals, mobile-first UX, and SEO baked into every build. Every site we build is a sales asset, not a brochure.
+
+**Tech stack:** Next.js, React, Shopify, Shopify Hydrogen, Tailwind CSS, Vercel, Sanity
+**Page:** https://sarvopaya.com/services/website-digital-experience
+
+---
+
+## Case Studies
+
+### Nova Storefront — Full Website Redesign (D2C Retail)
+Rebuilt a legacy D2C storefront from the ground up on a lightweight component-based stack. Mobile conversion rate increased 42%. Page load time dropped from 6.1s to 1.8s. The rebuilt site now serves as Nova's template for every regional storefront launched since.
+**Full case study:** https://sarvopaya.com/resources/nova-storefront-website
+
+### FlowDesk — AI Support Automation (SaaS)
+Built an AI workflow trained on FlowDesk's help docs and past tickets. 70% of inbound support tickets now resolve without human input. First-response time under 4 minutes. Support team freed to focus on high-value accounts.
+**Full case study:** https://sarvopaya.com/resources/flowdesk-ai-automation
+
+### BrightPath — SEO & GEO (EdTech)
+Audited and consolidated a bloated content library, rebuilt cornerstone pages around real student questions, fixed technical SEO debt, and structured key pages for AI citation. Organic demo signups tripled in 5 months. Non-brand organic traffic grew 4x. BrightPath now appears cited in AI-generated course comparisons.
+**Full case study:** https://sarvopaya.com/resources/brightpath-seo-geo
+
+### UrbanCart — Headless E-commerce Build (Fashion & Apparel)
+Migrated a 10,000+ SKU catalog to a headless commerce architecture with an AI merchandising engine. Cart abandonment dropped by one-third. Average order value rose 18%. The team now ships storefront changes in days instead of weeks.
+**Full case study:** https://sarvopaya.com/resources/urbancart-ecommerce
+
+### Ledgerly — SaaS Product Launch (FinTech)
+Ran pricing workshops, built a marketing site around three clear buyer journeys, and designed self-serve onboarding to first value in under 10 minutes. Public launch converted 3.2% of visitors to trial signups in Month 1 — with zero paid spend.
+**Full case study:** https://sarvopaya.com/resources/ledgerly-saas
+
+### Kaira — UI/UX Redesign (Healthtech)
+Rebuilt a clinical scheduling product around plain-language patient flows. Booking completion rose from under 50% to 84%. Support tickets for scheduling dropped by over half.
+**Full case study:** https://sarvopaya.com/resources/kaira-uiux
+
+### TapStack — Mobile App Experience (Logistics)
+Designed and shipped a driver-facing mobile app with live route updates, AI-assisted dispatch, and one-tap status changes. Dispatch time dropped by half. TapStack scaled from 12 to 90+ drivers on the same operations team.
+**Full case study:** https://sarvopaya.com/resources/tapstack-mobile
+
+---
+
+## Why Sarvopaya
+
+1. **D2C-first expertise** — We specialise in direct-to-consumer growth, not generic digital marketing. Our playbooks, creative frameworks, and attribution models are built for how D2C brands actually work.
+
+2. **Full-funnel under one roof** — Strategy, creative, paid media, SEO, GEO, and web development — all integrated. No coordination loss between agencies.
+
+3. **Outcome-driven** — We measure success in revenue, ROAS, CAC, and organic conversions. Not impressions, follower counts, or engagement rates.
+
+4. **India-rooted, globally capable** — Deep knowledge of Indian consumer behaviour, regional platforms (Meesho, JioMart, regional vernacular), and local market dynamics. We also serve international clients.
+
+5. **Transparent engagement** — Month-on-month retainers, no long-term lock-ins. You own all assets, accounts, and data. We earn renewal by results.
+
+6. **GEO-ready** — We structure client content to be citable by AI answer engines — making brands visible inside ChatGPT, Perplexity, Google AI Overviews, and Claude responses, not just on the SERP.
+
+---
+
+## Frequently Asked Questions
+
+**What is a D2C marketing agency?**
+A D2C (direct-to-consumer) marketing agency helps brands sell directly to end customers online — bypassing retail middlemen — using paid advertising, organic search, social media, and conversion-optimised websites. Sarvopaya is a D2C marketing agency based in India.
+
+**What does Sarvopaya specialise in?**
+Sarvopaya specialises in growth marketing for D2C brands and funded startups in India. Our core services are D2C performance marketing (Meta + Google Ads), SEO, GEO (Generative Engine Optimisation), social media marketing, and conversion-optimised website development.
+
+**What is GEO (Generative Engine Optimisation)?**
+GEO is the practice of structuring web content so it is surfaced, cited, or recommended by AI-powered answer engines such as ChatGPT, Perplexity, Google AI Overviews, and Claude. It goes beyond traditional SEO by optimising for how large language models summarise and attribute information, not just for keyword rankings on the SERP.
+
+**Which industries does Sarvopaya work with?**
+Primarily D2C e-commerce (fashion, beauty, health, food), funded SaaS startups, EdTech, FinTech, Healthtech, and Logistics. We also work with B2B service businesses seeking organic growth in India.
+
+**How do I start working with Sarvopaya?**
+Book a free 30-minute consultation at https://cal.com/jaysolanki/30min or fill out the contact form at https://sarvopaya.com/contact. You can also reach us on WhatsApp at +91 92655 03415.
+
+**Where is Sarvopaya based?**
+Sarvopaya is based in India and works with clients across India and internationally.
+
+---
+
+## Key Pages
+
+| Page | URL |
+|---|---|
+| Homepage | https://sarvopaya.com |
+| About | https://sarvopaya.com/about |
+| Our Work (Case Studies) | https://sarvopaya.com/work |
+| Contact | https://sarvopaya.com/contact |
+| Resources / Blog | https://sarvopaya.com/resources |
+| Founder's POVs | https://sarvopaya.com/resources/founders-pov |
+| D2C Marketing | https://sarvopaya.com/services/d2c-marketing |
+| SEO | https://sarvopaya.com/services/seo |
+| Social Media Marketing | https://sarvopaya.com/services/social-media-marketing |
+| Advertising | https://sarvopaya.com/services/advertising |
+| Website & Digital Experience | https://sarvopaya.com/services/website-digital-experience |
+| Industries | https://sarvopaya.com/industries |
+| Need More Leads? | https://sarvopaya.com/need-more-leads |
+
+---
+
+## Contact & Booking
+
+- **Book a meeting (30 min, free):** https://cal.com/jaysolanki/30min
+- **WhatsApp:** https://wa.me/919265503415 (+91 92655 03415)
+- **Contact form:** https://sarvopaya.com/contact
+- **Founder:** Jay Solanki — solankijay148@gmail.com
+
+---
+
+## Machine-Readable Resources
+
+- **Sitemap:** https://sarvopaya.com/sitemap.xml
+- **Robots:** https://sarvopaya.com/robots.txt
+- **llms.txt:** https://sarvopaya.com/llms.txt

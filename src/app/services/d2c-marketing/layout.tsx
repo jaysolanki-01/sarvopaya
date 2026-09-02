@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/services/d2c-marketing",
+    languages: {
+      "en": "https://sarvopaya.com/services/d2c-marketing",
+      "x-default": "https://sarvopaya.com/services/d2c-marketing",
+    },
   },
   openGraph: {
     title: "D2C Marketing Agency India | Performance Marketing | Sarvopaya",

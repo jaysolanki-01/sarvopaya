@@ -6,6 +6,10 @@ export const metadata: Metadata = {
     "Digital solutions built for B2B, B2C, and export businesses kitchen equipment, carpet & rug, jewellery, and other niche industries.",
   alternates: {
     canonical: "/industries",
+    languages: {
+      "en": "https://sarvopaya.com/industries",
+      "x-default": "https://sarvopaya.com/industries",
+    },
   },
   openGraph: {
     title: "Industries We Serve | Sarvopaya",

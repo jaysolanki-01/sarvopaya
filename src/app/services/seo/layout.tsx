@@ -6,6 +6,10 @@ export const metadata: Metadata = {
     "SEO, AEO, and GEO services that improve your visibility across Google, AI Search, and every modern discovery surface. Technical SEO, content strategy, topical authority, and entity optimisation for brands that want to be found, understood, and chosen.",
   alternates: {
     canonical: "/services/seo",
+    languages: {
+      "en": "https://sarvopaya.com/services/seo",
+      "x-default": "https://sarvopaya.com/services/seo",
+    },
   },
   openGraph: {
     title: "SEO Services | Search Visibility Agency | Sarvopaya",

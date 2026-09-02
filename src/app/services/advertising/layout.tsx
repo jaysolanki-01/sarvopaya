@@ -6,6 +6,10 @@ export const metadata: Metadata = {
     "Digital advertising services combining sharp creative, intelligent media buying and deliberate distribution across Meta, Google, YouTube, LinkedIn and TikTok. D2C and ecommerce advertising that gets noticed and drives action.",
   alternates: {
     canonical: "/services/advertising",
+    languages: {
+      "en": "https://sarvopaya.com/services/advertising",
+      "x-default": "https://sarvopaya.com/services/advertising",
+    },
   },
   openGraph: {
     title: "Advertising Services for D2C & Consumer Brands | Sarvopaya",

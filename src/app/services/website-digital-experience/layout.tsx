@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/services/website-digital-experience",
+    languages: {
+      "en": "https://sarvopaya.com/services/website-digital-experience",
+      "x-default": "https://sarvopaya.com/services/website-digital-experience",
+    },
   },
   openGraph: {
     title: "Website Development & Digital Experience | Sarvopaya",

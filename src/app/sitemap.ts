@@ -22,7 +22,26 @@ const staticRoutes: {
   { path: "/services/social-media-marketing",     changeFrequency: "monthly", priority: 0.8 },
   { path: "/services/advertising",                 changeFrequency: "monthly", priority: 0.8 },
   { path: "/services/website-digital-experience", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/services/ai-automation",              changeFrequency: "monthly", priority: 0.9 },
   { path: "/services/growth-consulting",           changeFrequency: "monthly", priority: 0.7 },
+  // Solutions
+  { path: "/solutions/need-more-leads",           changeFrequency: "monthly", priority: 0.7 },
+  { path: "/solutions/need-more-sales",           changeFrequency: "monthly", priority: 0.7 },
+  { path: "/solutions/need-better-operations",    changeFrequency: "monthly", priority: 0.7 },
+  { path: "/solutions/launching-a-new-product",   changeFrequency: "monthly", priority: 0.7 },
+  // Resources
+  { path: "/resources/founders-pov",              changeFrequency: "weekly",  priority: 0.7 },
+  // Locations hub
+  { path: "/locations",                           changeFrequency: "monthly", priority: 0.7 },
+  // Locations — P1 markets
+  { path: "/locations/usa",                       changeFrequency: "monthly", priority: 0.8 },
+  { path: "/locations/uk",                        changeFrequency: "monthly", priority: 0.8 },
+  { path: "/locations/uae",                       changeFrequency: "monthly", priority: 0.8 },
+  { path: "/locations/saudi-arabia",              changeFrequency: "monthly", priority: 0.8 },
+  // Locations — P2 markets
+  { path: "/locations/australia",                 changeFrequency: "monthly", priority: 0.7 },
+  { path: "/locations/canada",                    changeFrequency: "monthly", priority: 0.7 },
+  { path: "/locations/singapore",                 changeFrequency: "monthly", priority: 0.7 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

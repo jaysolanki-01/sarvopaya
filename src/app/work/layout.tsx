@@ -4,7 +4,13 @@ export const metadata: Metadata = {
   title: "Our Work | Sarvopaya",
   description:
     "Real results from real campaigns. Browse Sarvopaya's portfolio of performance marketing, SEO, social media and growth consulting projects.",
-  alternates: { canonical: "/work" },
+  alternates: {
+    canonical: "/work",
+    languages: {
+      "en": "https://sarvopaya.com/work",
+      "x-default": "https://sarvopaya.com/work",
+    },
+  },
   openGraph: {
     title: "Our Work | Sarvopaya",
     description:

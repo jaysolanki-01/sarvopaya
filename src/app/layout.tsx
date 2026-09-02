@@ -14,33 +14,37 @@ import "./globals.css";
 const siteUrl = "https://sarvopaya.com";
 const siteName = "Sarvopaya";
 const siteDescription =
-  "Sarvopaya is a creative media, technology and AI company helping ambitious brands grow through lead generation, website and digital experience design, AI automation, and growth consulting.";
+  "Sarvopaya is an AI automation and growth marketing agency helping businesses scale through AI workflows, performance marketing, SEO, and conversion-optimised websites. Based in India, serving global markets.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Sarvopaya Your Partner For SARV Digital UPAYA",
+    default: "AI Automation & Growth Marketing Agency India | Sarvopaya",
     template: "%s | Sarvopaya",
   },
   description: siteDescription,
   keywords: [
-    "Sarvopaya",
-    "lead generation",
-    "growth marketing",
-    "website design",
-    "AI automation",
-    "growth consulting",
+    "AI automation agency",
+    "AI automation agency India",
+    "growth marketing agency",
     "digital marketing agency India",
+    "performance marketing agency",
+    "n8n automation agency",
+    "lead generation agency India",
   ],
   authors: [{ name: "Sarvopaya" }],
   alternates: {
-    canonical: "/",
+    canonical: "https://sarvopaya.com",
+    languages: {
+      "en": "https://sarvopaya.com",
+      "x-default": "https://sarvopaya.com",
+    },
   },
   openGraph: {
     type: "website",
     url: siteUrl,
     siteName,
-    title: "Sarvopaya Your Partner For SARV Digital UPAYA",
+    title: "AI Automation & Growth Marketing Agency India | Sarvopaya",
     description: siteDescription,
     locale: "en_US",
     images: [
@@ -54,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sarvopaya Your Partner For SARV Digital UPAYA",
+    title: "AI Automation & Growth Marketing Agency India | Sarvopaya",
     description: siteDescription,
     images: ["/images/Main_icon.png"],
   },
@@ -99,10 +103,11 @@ const organizationSchema = {
       contactType: "customer support",
       email: "jay.sarvopaya@gmail.com",
       telephone: "+91-92655-03415",
-      areaServed: "IN",
-      availableLanguage: ["en"],
+      areaServed: ["IN", "US", "GB", "AE", "SA", "AU", "CA", "SG", "DE"],
+      availableLanguage: ["en", "de"],
     },
   ],
+  areaServed: ["IN", "US", "GB", "AE", "SA", "AU", "CA", "SG", "DE"],
   sameAs: [
     "https://www.linkedin.com/company/sarvopaya/",
     "https://www.instagram.com/sarvopaya/",
@@ -131,6 +136,22 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Sarvopaya",
+              url: siteUrl,
+              potentialAction: {
+                "@type": "SearchAction",
+                target: `${siteUrl}/resources?q={search_term_string}`,
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
