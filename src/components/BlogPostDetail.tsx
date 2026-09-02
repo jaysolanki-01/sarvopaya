@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import type { BlogPost } from "@/lib/blogPosts";
@@ -59,8 +60,14 @@ export default function BlogPostDetail({ post }: { post: BlogPost }) {
 
             {/* Author */}
             <motion.div variants={up} className="mt-8 flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-sm font-bold text-white">
-                J
+              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full">
+                <Image
+                  src="/images/jay-solanki.png"
+                  alt="Jay Solanki"
+                  fill
+                  sizes="44px"
+                  className="object-cover"
+                />
               </div>
               <div>
                 <p className="text-sm font-bold text-black">{post.author}</p>

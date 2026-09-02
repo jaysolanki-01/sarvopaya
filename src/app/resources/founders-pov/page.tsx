@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blogPosts";
 
@@ -64,6 +65,21 @@ export default function FoundersPovPage() {
               Direct thoughts on growth, performance marketing, AI automation and building a brand
               in India — from Jay Solanki, founder of Sarvopaya.
             </motion.p>
+            <motion.div variants={up} className="mt-8 flex items-center gap-3">
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full ring-2 ring-black/8">
+                <Image
+                  src="/images/jay-solanki.png"
+                  alt="Jay Solanki"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-black">Jay Solanki</p>
+                <p className="text-xs text-black/40">Founder, Sarvopaya</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -94,9 +110,17 @@ export default function FoundersPovPage() {
                     {pov.title}
                   </h2>
                   <p className="mt-3 text-sm leading-relaxed text-black/50">{pov.excerpt}</p>
-                  <div className="mt-6 flex items-center gap-2 text-sm font-bold text-black/30 transition-colors duration-300 group-hover:text-[var(--accent)]">
-                    Read POV
-                    <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  <div className="mt-6 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full">
+                        <Image src="/images/jay-solanki.png" alt="Jay Solanki" fill sizes="28px" className="object-cover" />
+                      </div>
+                      <span className="text-xs font-semibold text-black/40">Jay Solanki</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-bold text-black/30 transition-colors duration-300 group-hover:text-[var(--accent)]">
+                      Read POV
+                      <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </div>
                   </div>
                 </Link>
               </motion.div>
