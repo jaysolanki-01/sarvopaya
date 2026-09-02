@@ -42,6 +42,36 @@ const staticRoutes: {
   { path: "/locations/australia",                 changeFrequency: "monthly", priority: 0.7 },
   { path: "/locations/canada",                    changeFrequency: "monthly", priority: 0.7 },
   { path: "/locations/singapore",                 changeFrequency: "monthly", priority: 0.7 },
+  // German mirror — /de/*
+  { path: "/de",                                        changeFrequency: "weekly",  priority: 0.9 },
+  { path: "/de/about",                                  changeFrequency: "monthly", priority: 0.6 },
+  { path: "/de/contact",                                changeFrequency: "monthly", priority: 0.7 },
+  { path: "/de/work",                                   changeFrequency: "weekly",  priority: 0.7 },
+  { path: "/de/industries",                             changeFrequency: "monthly", priority: 0.6 },
+  { path: "/de/resources",                              changeFrequency: "weekly",  priority: 0.7 },
+  { path: "/de/need-more-leads",                        changeFrequency: "monthly", priority: 0.6 },
+  // DE Services
+  { path: "/de/services/d2c-marketing",                changeFrequency: "monthly", priority: 0.8 },
+  { path: "/de/services/seo",                           changeFrequency: "monthly", priority: 0.8 },
+  { path: "/de/services/social-media-marketing",       changeFrequency: "monthly", priority: 0.7 },
+  { path: "/de/services/advertising",                   changeFrequency: "monthly", priority: 0.7 },
+  { path: "/de/services/website-digital-experience",   changeFrequency: "monthly", priority: 0.7 },
+  { path: "/de/services/ai-automation",                changeFrequency: "monthly", priority: 0.8 },
+  { path: "/de/services/growth-consulting",             changeFrequency: "monthly", priority: 0.6 },
+  // DE Solutions
+  { path: "/de/solutions/need-more-leads",             changeFrequency: "monthly", priority: 0.6 },
+  { path: "/de/solutions/need-more-sales",             changeFrequency: "monthly", priority: 0.6 },
+  { path: "/de/solutions/need-better-operations",      changeFrequency: "monthly", priority: 0.6 },
+  { path: "/de/solutions/launching-a-new-product",     changeFrequency: "monthly", priority: 0.6 },
+  // DE Locations
+  { path: "/de/locations",                             changeFrequency: "monthly", priority: 0.6 },
+  { path: "/de/locations/usa",                         changeFrequency: "monthly", priority: 0.7 },
+  { path: "/de/locations/uk",                          changeFrequency: "monthly", priority: 0.7 },
+  { path: "/de/locations/uae",                         changeFrequency: "monthly", priority: 0.7 },
+  { path: "/de/locations/saudi-arabia",                changeFrequency: "monthly", priority: 0.7 },
+  { path: "/de/locations/australia",                   changeFrequency: "monthly", priority: 0.6 },
+  { path: "/de/locations/canada",                      changeFrequency: "monthly", priority: 0.6 },
+  { path: "/de/locations/singapore",                   changeFrequency: "monthly", priority: 0.6 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

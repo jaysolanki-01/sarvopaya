@@ -1,4 +1,5 @@
 ﻿import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -116,14 +117,15 @@ const organizationSchema = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lang = (await headers()).get("x-lang") ?? "en";
   return (
     <html
-      lang="en"
+      lang={lang}
       className="h-full scroll-smooth antialiased"
       data-scroll-behavior="smooth"
     >
