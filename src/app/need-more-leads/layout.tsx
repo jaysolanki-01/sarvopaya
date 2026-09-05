@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Need More Leads? AI Lead Intelligence by Sarvopaya",
     description:
       "Stop counting clicks. Start finding buyers. Sarvopaya AI combines behaviour, intent signals and automation to turn anonymous visitors into real opportunities.",
-    url: "/need-more-leads",
+    url: "/solutions/need-more-leads",
   },
 };
 

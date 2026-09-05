@@ -28,6 +28,17 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "FAQPage",
+      mainEntity: [
+        { "@type": "Question", name: "What is the difference between a website redesign and CRO?", acceptedAnswer: { "@type": "Answer", text: "A redesign changes the look, structure and technology of a site. CRO focuses on improving how many visitors take the desired action using data, testing and targeted changes. They complement each other but serve different purposes." } },
+        { "@type": "Question", name: "How long does a website development project take?", acceptedAnswer: { "@type": "Answer", text: "A landing page can be ready in 1–2 weeks. A full website typically takes 4–8 weeks depending on scope, number of pages, content availability and revision rounds." } },
+        { "@type": "Question", name: "Do you build on Shopify or custom stacks?", acceptedAnswer: { "@type": "Answer", text: "Both. For ecommerce brands, we build on Shopify when the standard platform fits, or develop a custom Next.js solution when you need more flexibility." } },
+        { "@type": "Question", name: "What makes a landing page high-converting?", acceptedAnswer: { "@type": "Answer", text: "Message-to-ad match, a clear single objective, a compelling headline, fast load time, trust signals, and a frictionless CTA." } },
+        { "@type": "Question", name: "Do you handle tracking and analytics setup?", acceptedAnswer: { "@type": "Answer", text: "Yes. Every project includes GA4 event tracking, Google Tag Manager setup, and integration with any ad platforms running traffic to the site." } },
+        { "@type": "Question", name: "Can you improve our existing site without a full rebuild?", acceptedAnswer: { "@type": "Answer", text: "Yes. CRO and landing page projects can work on top of your existing site. A full rebuild is only recommended when the current site has fundamental structural issues." } },
+      ],
+    },
+    {
       "@type": "Service",
       "@id": "https://sarvopaya.com/services/website-digital-experience",
       name: "Website Development & Digital Experience",

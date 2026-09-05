@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/Main_icon.png",
-        width: 500,
-        height: 500,
-        alt: "Sarvopaya",
+        width: 512,
+        height: 512,
+        alt: "Sarvopaya — AI Automation & Growth Marketing Agency",
       },
     ],
   },
@@ -78,6 +78,67 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
     },
+  },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://sarvopaya.com/#localbusiness",
+  name: "Sarvopaya",
+  alternateName: "Sarvopaya Digital",
+  url: siteUrl,
+  logo: `${siteUrl}/images/Main_icon.png`,
+  image: `${siteUrl}/images/Main_icon.png`,
+  description: siteDescription,
+  email: "jay.sarvopaya@gmail.com",
+  telephone: "+91-92655-03415",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "C-1102, PNTC, Times Of India Press Road, Vejalpur",
+    addressLocality: "Ahmedabad",
+    addressRegion: "Gujarat",
+    postalCode: "380015",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 23.0009,
+    longitude: 72.5169,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "19:00",
+  },
+  sameAs: [
+    "https://www.linkedin.com/company/sarvopaya/",
+    "https://www.instagram.com/sarvopaya/",
+    "https://www.facebook.com/profile.php?id=61590305765567",
+  ],
+  areaServed: [
+    { "@type": "Country", name: "India" },
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "Saudi Arabia" },
+    { "@type": "Country", name: "Australia" },
+    { "@type": "Country", name: "Canada" },
+    { "@type": "Country", name: "Singapore" },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Digital Marketing & AI Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Performance Advertising" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO & GEO" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Automation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "D2C Marketing" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website & Digital Experience" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Growth Consulting" } },
+    ],
   },
 };
 
@@ -141,6 +202,10 @@ export default async function RootLayout({
         <link
           rel="stylesheet"
           href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
         <script
           type="application/ld+json"

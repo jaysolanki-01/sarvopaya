@@ -16,7 +16,6 @@ const staticRoutes: {
   { path: "/work",                                 changeFrequency: "weekly",  priority: 0.8 },
   { path: "/industries",                           changeFrequency: "monthly", priority: 0.6 },
   { path: "/resources",                            changeFrequency: "weekly",  priority: 0.8 },
-  { path: "/need-more-leads",                      changeFrequency: "monthly", priority: 0.7 },
   // Services
   { path: "/services/d2c-marketing",              changeFrequency: "monthly", priority: 0.9 },
   { path: "/services/seo",                         changeFrequency: "monthly", priority: 0.9 },
