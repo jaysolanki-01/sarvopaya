@@ -15,12 +15,12 @@ import "./globals.css";
 const siteUrl = "https://sarvopaya.com";
 const siteName = "Sarvopaya";
 const siteDescription =
-  "Sarvopaya is an AI automation and growth marketing agency helping businesses scale through AI workflows, performance marketing, SEO, and conversion-optimised websites. Based in India, serving global markets.";
+  "Sarvopaya is a growth marketing agency combining AI automation, performance advertising, and SEO to help ambitious businesses scale faster. India-based, globally focused.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AI Automation & Growth Marketing Agency India | Sarvopaya",
+    default: "Growth Marketing Agencies for Ambitious Businesses | Sarvopaya",
     template: "%s | Sarvopaya",
   },
   description: siteDescription,
@@ -64,8 +64,11 @@ export const metadata: Metadata = {
     images: ["/images/Main_icon.png"],
   },
   icons: {
-    icon: "/images/icon_mark.png",
-    shortcut: "/images/icon_mark.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/icon_mark.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/images/icon_mark.png",
   },
   verification: {
