@@ -329,7 +329,7 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
             <a
               href={p.link}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 hover:gap-3"
               style={{ background: col.bg, color: col.text }}
             >
