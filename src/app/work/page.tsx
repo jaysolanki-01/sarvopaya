@@ -48,6 +48,7 @@ interface Project {
   metrics: { label: string; value: string }[];
   about: string;
   result: string;
+  link?: string;
 }
 
 const PROJECTS: Project[] = [
@@ -169,6 +170,69 @@ const PROJECTS: Project[] = [
     result:
       "Generated 38.2K impressions and 236 clicks with steady upward momentum. Impressions tripled in the final month, signalling strong organic growth.",
   },
+  {
+    id: "the-stop-n-shop",
+    title: "The Stop n Shop",
+    headline: "Conversion-Ready Retail Website",
+    industry: "Retail / E-commerce",
+    service: "website",
+    tags: ["Website Redesign", "On-page SEO", "CRO", "Speed Optimisation"],
+    bigStat: "95+",
+    bigStatLabel: "PageSpeed Score",
+    metrics: [
+      { label: "PageSpeed",      value: "95+" },
+      { label: "Core Web Vitals", value: "Pass" },
+      { label: "Mobile UX",      value: "✓" },
+      { label: "SEO Score",      value: "A" },
+    ],
+    about:
+      "The Stop n Shop needed a website that matched the ambition of the brand — fast, mobile-first, and built to turn visitors into buyers. We rebuilt the site with a clean product structure, optimised page speed, and on-page SEO baked in from day one.",
+    result:
+      "Launched with a 95+ PageSpeed score, fully passing Core Web Vitals across mobile and desktop. The site now ranks for local and category keywords it previously had zero presence for.",
+    link: "https://thestopnshop.in/",
+  },
+  {
+    id: "kareliya-equipments",
+    title: "Kareliya Equipments",
+    headline: "Industrial B2B Site Built for Leads",
+    industry: "Industrial Equipment",
+    service: "website",
+    tags: ["Website Development", "Technical SEO", "B2B", "Lead Capture"],
+    bigStat: "90+",
+    bigStatLabel: "PageSpeed Score",
+    metrics: [
+      { label: "PageSpeed",     value: "90+" },
+      { label: "Core Web Vitals", value: "Pass" },
+      { label: "Schema Markup", value: "✓" },
+      { label: "Indexed Pages", value: "100%" },
+    ],
+    about:
+      "Kareliya Equipments had a dated website that was slow to load and invisible in search. We built a fast, structured site with proper technical SEO — schema markup, clean URL architecture, and category pages optimised for the queries their buyers actually use.",
+    result:
+      "The new site is fully indexed, passes all Core Web Vitals, and gives the sales team a professional digital presence that converts industrial buyers. Organic visibility is climbing steadily month on month.",
+    link: "https://kareliyaequipments.com/",
+  },
+  {
+    id: "kaleen-baba",
+    title: "Kaleen Baba",
+    headline: "Carpet Brand Online — SEO & CRO",
+    industry: "Home Furnishing",
+    service: "website",
+    tags: ["Website Redesign", "E-commerce SEO", "Product Catalogue", "CRO"],
+    bigStat: "4×",
+    bigStatLabel: "Organic Visibility",
+    metrics: [
+      { label: "PageSpeed",      value: "92+" },
+      { label: "Core Web Vitals", value: "Pass" },
+      { label: "Product Pages",  value: "SEO-Ready" },
+      { label: "Mobile UX",      value: "✓" },
+    ],
+    about:
+      "Kaleen Baba sells premium carpets and rugs but had a site that buried its products and loaded painfully on mobile. We redesigned the catalogue structure, optimised every product page for search, and rebuilt the site for speed and conversion — making it easy for buyers to find and buy.",
+    result:
+      "Organic visibility grew 4× in the months following launch. The new product pages rank for category-level carpet and rug queries, and the mobile experience now drives meaningful engagement from first visit.",
+    link: "https://kaleenbaba.com/",
+  },
 ];
 
 /* ── Helpers ─────────────────────────────────────────────────────────────── */
@@ -281,6 +345,18 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
                   </p>
                   <p className="text-sm leading-relaxed text-black/70">{p.result}</p>
                 </div>
+                {p.link && (
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider transition-colors hover:opacity-70"
+                    style={{ color: col }}
+                  >
+                    View Live Site
+                    <span style={{ fontSize: 14 }}>↗</span>
+                  </a>
+                )}
               </div>
             </motion.div>
           )}
