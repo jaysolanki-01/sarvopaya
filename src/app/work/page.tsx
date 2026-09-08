@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import FinalCTA from "@/components/FinalCTA";
 
@@ -352,8 +352,17 @@ const STATS = [
 ];
 
 /* ── Page ────────────────────────────────────────────────────────────────── */
-export default function WorkPage() {
-  const [active, setActive] = useState<ServiceId>("all");
+function WorkPageInner() {
+  const router = useRouter();
+  const params = useSearchParams();
+  const raw = params.get("service") ?? "all";
+  const active: ServiceId = (SERVICES.some(s => s.id === raw) ? raw : "all") as ServiceId;
+
+  function setActive(id: ServiceId) {
+    const url = id === "all" ? "/work" : `/work?service=${id}`;
+    router.push(url, { scroll: false });
+  }
+
   const filtered = active === "all" ? PROJECTS : PROJECTS.filter((p) => p.service === active);
 
   return (
@@ -493,5 +502,13 @@ export default function WorkPage() {
 
       <FinalCTA />
     </>
+  );
+}
+
+export default function WorkPage() {
+  return (
+    <Suspense fallback={null}>
+      <WorkPageInner />
+    </Suspense>
   );
 }
