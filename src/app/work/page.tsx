@@ -17,13 +17,13 @@ type ServiceId =
   | "website"
   | "growth-consulting";
 
-const SERVICES: { id: ServiceId; label: string; emoji: string }[] = [
-  { id: "all",                   label: "All Work",              emoji: "✦" },
-  { id: "performance-marketing", label: "Performance Marketing", emoji: "📈" },
-  { id: "seo",                   label: "SEO",                   emoji: "🔍" },
-  { id: "social-media",          label: "Social Media",          emoji: "📱" },
-  { id: "website",               label: "Website & Digital",     emoji: "🌐" },
-  { id: "growth-consulting",     label: "Growth Consulting",     emoji: "🚀" },
+const SERVICES: { id: ServiceId; label: string }[] = [
+  { id: "all",                   label: "All Work"              },
+  { id: "performance-marketing", label: "Performance Marketing" },
+  { id: "seo",                   label: "SEO"                   },
+  { id: "social-media",          label: "Social Media"          },
+  { id: "website",               label: "Website & Digital"     },
+  { id: "growth-consulting",     label: "Growth Consulting"     },
 ];
 
 /* ── Projects ────────────────────────────────────────────────────────────── */
@@ -457,7 +457,6 @@ function WorkPageInner() {
                         : "bg-white border border-black/10 text-black/60 hover:border-black/25 hover:text-black"
                     }`}
                   >
-                    <span>{s.emoji}</span>
                     {s.label}
                     <span
                       className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold ${
