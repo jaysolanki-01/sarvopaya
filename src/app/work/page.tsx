@@ -49,6 +49,7 @@ interface Project {
   about: string;
   result: string;
   link?: string;
+  image?: string;
 }
 
 const PROJECTS: Project[] = [
@@ -190,6 +191,7 @@ const PROJECTS: Project[] = [
     result:
       "Launched with a 95+ PageSpeed score, fully passing Core Web Vitals across mobile and desktop. The site now ranks for local and category keywords it previously had zero presence for.",
     link: "https://thestopnshop.in/",
+    image: "/images/work-stopnshop.jpg",
   },
   {
     id: "kareliya-equipments",
@@ -211,6 +213,7 @@ const PROJECTS: Project[] = [
     result:
       "The new site is fully indexed, passes all Core Web Vitals, and gives the sales team a professional digital presence that converts industrial buyers. Organic visibility is climbing steadily month on month.",
     link: "https://kareliyaequipments.com/",
+    image: "/images/work-kareliya.jpg",
   },
   {
     id: "kaleen-baba",
@@ -232,6 +235,7 @@ const PROJECTS: Project[] = [
     result:
       "Organic visibility grew 4× in the months following launch. The new product pages rank for category-level carpet and rug queries, and the mobile experience now drives meaningful engagement from first visit.",
     link: "https://kaleenbaba.com/",
+    image: "/images/work-kaleenbaba.jpg",
   },
 ];
 
@@ -266,6 +270,19 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
     >
       {/* colour stripe */}
       <div className="h-1 w-full" style={{ background: col }} />
+
+      {/* site screenshot */}
+      {p.image && (
+        <div className="relative w-full overflow-hidden" style={{ height: 180 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={p.image}
+            alt={`${p.title} website screenshot`}
+            className="w-full h-full object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/10 pointer-events-none" />
+        </div>
+      )}
 
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         {/* service badge + industry */}
