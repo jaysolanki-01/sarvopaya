@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Website Development & Digital Experience | Sarvopaya",
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/services/website-digital-experience",
     languages: {
-      "en": "https://sarvopaya.com/services/website-digital-experience",
-      "x-default": "https://sarvopaya.com/services/website-digital-experience",
+      "en": "https://www.sarvopaya.com/services/website-digital-experience",
+      "x-default": "https://www.sarvopaya.com/services/website-digital-experience",
     },
   },
   openGraph: {

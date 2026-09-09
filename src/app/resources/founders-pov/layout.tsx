@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/resources/founders-pov",
     languages: {
-      "en": "https://sarvopaya.com/resources/founders-pov",
-      "x-default": "https://sarvopaya.com/resources/founders-pov",
+      "en": "https://www.sarvopaya.com/resources/founders-pov",
+      "x-default": "https://www.sarvopaya.com/resources/founders-pov",
     },
   },
   openGraph: {

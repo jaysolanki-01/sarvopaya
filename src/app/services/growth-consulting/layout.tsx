@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Growth Consulting Agency | GTM Strategy & Digital Audit | Sarvopaya",
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/services/growth-consulting",
     languages: {
-      "en": "https://sarvopaya.com/services/growth-consulting",
-      "x-default": "https://sarvopaya.com/services/growth-consulting",
+      "en": "https://www.sarvopaya.com/services/growth-consulting",
+      "x-default": "https://www.sarvopaya.com/services/growth-consulting",
     },
   },
   openGraph: {

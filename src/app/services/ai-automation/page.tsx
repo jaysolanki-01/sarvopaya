@@ -135,19 +135,19 @@ export default function AIAutomationPage() {
         provider: {
           "@type": "Organization",
           name: "Sarvopaya",
-          url: "https://sarvopaya.com",
+          url: "https://www.sarvopaya.com",
         },
         areaServed: ["IN", "US", "GB", "AE", "SA", "AU", "CA", "SG", "DE"],
         description:
           "AI-powered workflow automation using n8n, Make and LLM integrations for businesses worldwide. Marketing automation, business process automation, support automation and CRM automation.",
-        url: "https://sarvopaya.com/services/ai-automation",
+        url: "https://www.sarvopaya.com/services/ai-automation",
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://sarvopaya.com" },
-          { "@type": "ListItem", position: 2, name: "Services", item: "https://sarvopaya.com/services" },
-          { "@type": "ListItem", position: 3, name: "AI Automation", item: "https://sarvopaya.com/services/ai-automation" },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.sarvopaya.com" },
+          { "@type": "ListItem", position: 2, name: "Services", item: "https://www.sarvopaya.com/services" },
+          { "@type": "ListItem", position: 3, name: "AI Automation", item: "https://www.sarvopaya.com/services/ai-automation" },
         ],
       },
       {

@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     "SEO agency Australia",
   ],
   alternates: {
-    canonical: "https://sarvopaya.com/locations/australia",
+    canonical: "https://www.sarvopaya.com/locations/australia",
     languages: {
-      en: "https://sarvopaya.com/locations/australia",
-      "x-default": "https://sarvopaya.com/locations/australia",
+      en: "https://www.sarvopaya.com/locations/australia",
+      "x-default": "https://www.sarvopaya.com/locations/australia",
     },
   },
 };

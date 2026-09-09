@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Advertising Services for D2C & Consumer Brands | Sarvopaya",
@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/services/advertising",
     languages: {
-      "en": "https://sarvopaya.com/services/advertising",
-      "x-default": "https://sarvopaya.com/services/advertising",
+      "en": "https://www.sarvopaya.com/services/advertising",
+      "x-default": "https://www.sarvopaya.com/services/advertising",
     },
   },
   openGraph: {

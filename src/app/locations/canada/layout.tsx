@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "AI Automation & Digital Marketing Agency Canada | Sarvopaya",
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     "digital marketing agency Vancouver",
   ],
   alternates: {
-    canonical: "https://sarvopaya.com/locations/canada",
+    canonical: "https://www.sarvopaya.com/locations/canada",
     languages: {
-      en: "https://sarvopaya.com/locations/canada",
-      "x-default": "https://sarvopaya.com/locations/canada",
+      en: "https://www.sarvopaya.com/locations/canada",
+      "x-default": "https://www.sarvopaya.com/locations/canada",
     },
   },
 };

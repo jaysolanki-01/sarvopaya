@@ -1508,7 +1508,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Need More Leads? AI Lead Intelligence by Sarvopaya",
-  url: "https://sarvopaya.com/need-more-leads",
+  url: "https://www.sarvopaya.com/need-more-leads",
   description: "Sarvopaya AI identifies high-intent visitors and converts anonymous behaviour into actionable sales opportunities.",
 };
 

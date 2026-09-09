@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Our Work | Sarvopaya",
@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/work",
     languages: {
-      "en": "https://sarvopaya.com/work",
-      "x-default": "https://sarvopaya.com/work",
+      "en": "https://www.sarvopaya.com/work",
+      "x-default": "https://www.sarvopaya.com/work",
     },
   },
   openGraph: {

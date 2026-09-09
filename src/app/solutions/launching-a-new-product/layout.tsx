@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/solutions/launching-a-new-product",
     languages: {
-      "en": "https://sarvopaya.com/solutions/launching-a-new-product",
-      "x-default": "https://sarvopaya.com/solutions/launching-a-new-product",
+      "en": "https://www.sarvopaya.com/solutions/launching-a-new-product",
+      "x-default": "https://www.sarvopaya.com/solutions/launching-a-new-product",
     },
   },
   openGraph: {

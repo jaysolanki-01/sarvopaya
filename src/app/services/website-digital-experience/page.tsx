@@ -40,11 +40,11 @@ const jsonLd = {
     },
     {
       "@type": "Service",
-      "@id": "https://sarvopaya.com/services/website-digital-experience",
+      "@id": "https://www.sarvopaya.com/services/website-digital-experience",
       name: "Website Development & Digital Experience",
       description:
         "Website development, CRO, and landing page design for brands that want a site that converts. Fast, modern, conversion-focused websites using Next.js, React and Shopify.",
-      provider: { "@type": "Organization", name: "Sarvopaya", url: "https://sarvopaya.com" },
+      provider: { "@type": "Organization", name: "Sarvopaya", url: "https://www.sarvopaya.com" },
       serviceType: "Website Development",
       areaServed: "India",
       hasOfferCatalog: {
@@ -60,9 +60,9 @@ const jsonLd = {
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://sarvopaya.com" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://sarvopaya.com/services" },
-        { "@type": "ListItem", position: 3, name: "Website & Digital Experience", item: "https://sarvopaya.com/services/website-digital-experience" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.sarvopaya.com" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://www.sarvopaya.com/services" },
+        { "@type": "ListItem", position: 3, name: "Website & Digital Experience", item: "https://www.sarvopaya.com/services/website-digital-experience" },
       ],
     },
   ],

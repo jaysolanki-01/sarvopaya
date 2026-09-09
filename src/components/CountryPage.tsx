@@ -35,7 +35,7 @@ export interface CountryPageProps {
   slug: string;
 }
 
-const siteUrl = "https://sarvopaya.com";
+const siteUrl = "https://www.sarvopaya.com";
 
 export default function CountryPage({
   country, flag, region, h1, intro, whyUs, industries, stats, services, faqs, slug,

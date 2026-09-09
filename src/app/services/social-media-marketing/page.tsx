@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -522,7 +522,7 @@ export default function SocialMediaMarketingPage() {
             provider: {
               "@type": "Organization",
               name: "Sarvopaya",
-              url: "https://sarvopaya.com",
+              url: "https://www.sarvopaya.com",
             },
             description:
               "Social media marketing services including strategy, content creation, community management, paid social advertising, and analytics, designed to build brand authority and generate measurable business outcomes.",
@@ -552,13 +552,13 @@ export default function SocialMediaMarketingPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://sarvopaya.com" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://sarvopaya.com/services" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.sarvopaya.com" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://www.sarvopaya.com/services" },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "Social Media Marketing",
-                item: "https://sarvopaya.com/services/social-media-marketing",
+                item: "https://www.sarvopaya.com/services/social-media-marketing",
               },
             ],
           }),

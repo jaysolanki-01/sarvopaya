@@ -33,7 +33,7 @@ const contactSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact Sarvopaya",
-  url: "https://sarvopaya.com/contact",
+  url: "https://www.sarvopaya.com/contact",
   mainEntity: {
     "@type": "Organization",
     name: "Sarvopaya",

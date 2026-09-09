@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/services/social-media-marketing",
     languages: {
-      "en": "https://sarvopaya.com/services/social-media-marketing",
-      "x-default": "https://sarvopaya.com/services/social-media-marketing",
+      "en": "https://www.sarvopaya.com/services/social-media-marketing",
+      "x-default": "https://www.sarvopaya.com/services/social-media-marketing",
     },
   },
   openGraph: {

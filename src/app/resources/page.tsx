@@ -25,13 +25,13 @@ const resourcesSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Sarvopaya Case Studies & Work",
-  url: "https://sarvopaya.com/resources",
+  url: "https://www.sarvopaya.com/resources",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: projects.map((project, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: `https://sarvopaya.com/resources/${project.slug}`,
+      url: `https://www.sarvopaya.com/resources/${project.slug}`,
       name: project.title,
     })),
   },

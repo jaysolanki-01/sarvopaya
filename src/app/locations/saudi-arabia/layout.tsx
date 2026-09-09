@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Digital Marketing Agency Saudi Arabia | Sarvopaya",
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     "SEO agency Saudi Arabia",
   ],
   alternates: {
-    canonical: "https://sarvopaya.com/locations/saudi-arabia",
+    canonical: "https://www.sarvopaya.com/locations/saudi-arabia",
     languages: {
-      en: "https://sarvopaya.com/locations/saudi-arabia",
-      "x-default": "https://sarvopaya.com/locations/saudi-arabia",
+      en: "https://www.sarvopaya.com/locations/saudi-arabia",
+      "x-default": "https://www.sarvopaya.com/locations/saudi-arabia",
     },
   },
 };

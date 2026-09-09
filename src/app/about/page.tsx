@@ -203,13 +203,13 @@ const aboutSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "About Sarvopaya",
-  url: "https://sarvopaya.com/about",
+  url: "https://www.sarvopaya.com/about",
   description:
     "Sarvopaya is a creative media, technology and AI company from Ahmedabad, India.",
   mainEntity: {
     "@type": "Organization",
     name: "Sarvopaya",
-    url: "https://sarvopaya.com",
+    url: "https://www.sarvopaya.com",
     description:
       "A creative media, technology and AI company built for ambitious brands.",
     foundingLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "Ahmedabad", addressCountry: "IN" } },

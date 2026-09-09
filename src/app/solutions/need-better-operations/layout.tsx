@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Need Better Operations? Automate Workflows & Cut Manual Work | Sarvopaya",
@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/solutions/need-better-operations",
     languages: {
-      "en": "https://sarvopaya.com/solutions/need-better-operations",
-      "x-default": "https://sarvopaya.com/solutions/need-better-operations",
+      "en": "https://www.sarvopaya.com/solutions/need-better-operations",
+      "x-default": "https://www.sarvopaya.com/solutions/need-better-operations",
     },
   },
   openGraph: {

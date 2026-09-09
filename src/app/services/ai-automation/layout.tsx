@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "AI Automation Agency | AI Workflow & n8n Automation | Sarvopaya",
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/services/ai-automation",
     languages: {
-      "en": "https://sarvopaya.com/services/ai-automation",
-      "x-default": "https://sarvopaya.com/services/ai-automation",
+      "en": "https://www.sarvopaya.com/services/ai-automation",
+      "x-default": "https://www.sarvopaya.com/services/ai-automation",
     },
   },
   openGraph: {

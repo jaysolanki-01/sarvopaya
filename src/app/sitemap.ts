@@ -2,7 +2,7 @@
 import { projects } from "@/lib/projects";
 import { blogPosts } from "@/lib/blogPosts";
 
-const BASE = "https://sarvopaya.com";
+const BASE = "https://www.sarvopaya.com";
 
 // Static routes, add new pages here when created
 const staticRoutes: {

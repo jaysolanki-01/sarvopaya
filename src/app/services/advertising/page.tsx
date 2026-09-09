@@ -945,19 +945,19 @@ const jsonLd = {
     {
       "@type": "Service",
       name: "Advertising Services",
-      provider: { "@type": "Organization", name: "Sarvopaya", url: "https://sarvopaya.com" },
+      provider: { "@type": "Organization", name: "Sarvopaya", url: "https://www.sarvopaya.com" },
       description:
         "Digital advertising services combining creative strategy, media buying and distribution across Meta, Google, YouTube, LinkedIn, TikTok and more for D2C and consumer brands.",
       serviceType: "Digital Advertising",
       areaServed: "IN",
-      url: "https://sarvopaya.com/services/advertising",
+      url: "https://www.sarvopaya.com/services/advertising",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://sarvopaya.com" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://sarvopaya.com/services" },
-        { "@type": "ListItem", position: 3, name: "Advertising", item: "https://sarvopaya.com/services/advertising" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.sarvopaya.com" },
+        { "@type": "ListItem", position: 2, name: "Services", item: "https://www.sarvopaya.com/services" },
+        { "@type": "ListItem", position: 3, name: "Advertising", item: "https://www.sarvopaya.com/services/advertising" },
       ],
     },
     {

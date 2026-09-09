@@ -82,16 +82,16 @@ export default function GrowthConsultingPage() {
         "@type": "Service",
         name: "Growth Consulting",
         serviceType: "Growth Consulting",
-        provider: { "@type": "Organization", name: "Sarvopaya", url: "https://sarvopaya.com" },
+        provider: { "@type": "Organization", name: "Sarvopaya", url: "https://www.sarvopaya.com" },
         description: "Go-to-market strategy, digital audits, growth roadmaps and ongoing advisory for D2C brands and funded startups.",
-        url: "https://sarvopaya.com/services/growth-consulting",
+        url: "https://www.sarvopaya.com/services/growth-consulting",
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://sarvopaya.com" },
-          { "@type": "ListItem", position: 2, name: "Services", item: "https://sarvopaya.com/services" },
-          { "@type": "ListItem", position: 3, name: "Growth Consulting", item: "https://sarvopaya.com/services/growth-consulting" },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.sarvopaya.com" },
+          { "@type": "ListItem", position: 2, name: "Services", item: "https://www.sarvopaya.com/services" },
+          { "@type": "ListItem", position: 3, name: "Growth Consulting", item: "https://www.sarvopaya.com/services/growth-consulting" },
         ],
       },
       {

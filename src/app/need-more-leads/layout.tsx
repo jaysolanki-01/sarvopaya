@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Need More Leads? Find the Buyers You Already Have | Sarvopaya",
@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/solutions/need-more-leads",
     languages: {
-      "en": "https://sarvopaya.com/solutions/need-more-leads",
-      "x-default": "https://sarvopaya.com/solutions/need-more-leads",
+      "en": "https://www.sarvopaya.com/solutions/need-more-leads",
+      "x-default": "https://www.sarvopaya.com/solutions/need-more-leads",
     },
   },
   openGraph: {

@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 import BookMeeting from "@/components/BookMeeting";
 import "./globals.css";
 
-const siteUrl = "https://sarvopaya.com";
+const siteUrl = "https://www.sarvopaya.com";
 const siteName = "Sarvopaya";
 const siteDescription =
   "Sarvopaya is a growth marketing agency combining AI automation, performance advertising, and SEO to help ambitious businesses scale faster. India-based, globally focused.";
@@ -35,10 +35,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Sarvopaya" }],
   alternates: {
-    canonical: "https://sarvopaya.com",
+    canonical: "https://www.sarvopaya.com",
     languages: {
-      "en": "https://sarvopaya.com",
-      "x-default": "https://sarvopaya.com",
+      "en": "https://www.sarvopaya.com",
+      "x-default": "https://www.sarvopaya.com",
     },
   },
   openGraph: {
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://sarvopaya.com/#localbusiness",
+  "@id": "https://www.sarvopaya.com/#localbusiness",
   name: "Sarvopaya",
   alternateName: "Sarvopaya Digital",
   url: siteUrl,

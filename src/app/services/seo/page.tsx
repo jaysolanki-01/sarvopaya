@@ -776,7 +776,7 @@ export default function SeoPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "SEO Services",
-            provider: { "@type": "Organization", name: "Sarvopaya", url: "https://sarvopaya.com" },
+            provider: { "@type": "Organization", name: "Sarvopaya", url: "https://www.sarvopaya.com" },
             description:
               "SEO, AEO, and GEO services designed to improve search visibility across traditional search engines, AI-powered search experiences, and other modern discovery surfaces.",
             areaServed: "IN",
@@ -805,9 +805,9 @@ export default function SeoPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://sarvopaya.com" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://sarvopaya.com/services" },
-              { "@type": "ListItem", position: 3, name: "SEO Services", item: "https://sarvopaya.com/services/seo" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.sarvopaya.com" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://www.sarvopaya.com/services" },
+              { "@type": "ListItem", position: 3, name: "SEO Services", item: "https://www.sarvopaya.com/services/seo" },
             ],
           }),
         }}
