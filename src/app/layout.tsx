@@ -11,6 +11,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookMeeting from "@/components/BookMeeting";
 import LeadPopup from "@/components/LeadPopup";
+import CookieBanner from "@/components/CookieBanner";
 import "./globals.css";
 
 const siteUrl = "https://www.sarvopaya.com";
@@ -249,6 +250,7 @@ export default async function RootLayout({
 
         <BookMeeting />
         <LeadPopup />
+        <CookieBanner />
 
         {/* WhatsApp floating button */}
         <div className="fixed bottom-6 right-6 z-50">
