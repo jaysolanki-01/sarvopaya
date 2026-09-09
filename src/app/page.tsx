@@ -5,6 +5,7 @@ import TrustedBy from "@/components/TrustedBy";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeAre from "@/components/WhoWeAre";
 import HowItWorks from "@/components/HowItWorks";
+import RetentionRing from "@/components/RetentionRing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
@@ -32,6 +33,7 @@ export default function Home() {
       <TrustedBy />
       <WhatWeDo />
       <WhoWeAre />
+      <RetentionRing />
       <HowItWorks />
       <Testimonials />
       <FAQ />
