@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/_next/"],
     },
-    sitemap: "https://sarvopaya.com/sitemap.xml",
+    sitemap: "https://www.sarvopaya.com/sitemap.xml",
   };
 }
