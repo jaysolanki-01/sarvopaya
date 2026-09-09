@@ -11,16 +11,16 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "AI Automation & Growth Marketing Agency India | Sarvopaya",
+  title: "Growth Marketing Agency for Ambitious Brands | Sarvopaya",
   description:
-    "Sarvopaya is a growth marketing agency in India combining AI automation, performance ads, and SEO to help ambitious brands generate more leads and scale revenue predictably.",
+    "We help ambitious businesses scale faster with AI automation, performance ads, and SEO. India-based, globally focused. Book a free growth audit today.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "AI Automation & Growth Marketing Agency India | Sarvopaya",
+    title: "Growth Marketing Agency for Ambitious Brands | Sarvopaya",
     description:
-      "Sarvopaya is a growth marketing agency in India combining AI automation, performance ads, and SEO to help ambitious brands generate more leads and scale revenue predictably.",
+      "We help ambitious businesses scale faster with AI automation, performance ads, and SEO. India-based, globally focused. Book a free growth audit today.",
     url: "/",
   },
 };
