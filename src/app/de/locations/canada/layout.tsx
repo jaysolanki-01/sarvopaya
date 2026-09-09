@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Digitalagentur Kanada — KI & Growth Marketing | Sarvopaya",
+  title: "Digitalagentur Kanada, KI & Growth Marketing | Sarvopaya",
   description: "Sarvopaya bietet KI-Automatisierung, Performance Marketing und SEO für kanadische Unternehmen. Digitales Wachstum für den kanadischen Markt.",
   alternates: {
     canonical: "https://sarvopaya.com/de/locations/canada",

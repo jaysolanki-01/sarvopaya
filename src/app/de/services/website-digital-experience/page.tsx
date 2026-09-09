@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -9,17 +9,17 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const services = [
-  { id: "website-development", title: "Website-Entwicklung", desc: "Schnelle, moderne Websites mit Next.js, React und Tailwind — performance-optimiert, responsive und conversion-fokussiert." },
+  { id: "website-development", title: "Website-Entwicklung", desc: "Schnelle, moderne Websites mit Next.js, React und Tailwind, performance-optimiert, responsive und conversion-fokussiert." },
   { id: "cro", title: "Conversion Rate Optimierung", desc: "A/B-Tests, Heatmap-Analysen und UX-Optimierungen, die aus Besuchern Kunden machen." },
-  { id: "landing-pages-funnels", title: "Landingpages & Funnels", desc: "Zielgerichtete Landingpages für jede Kampagne — abgestimmt auf Audience, Message und Angebot." },
+  { id: "landing-pages-funnels", title: "Landingpages & Funnels", desc: "Zielgerichtete Landingpages für jede Kampagne, abgestimmt auf Audience, Message und Angebot." },
 ];
 
 const techStack = ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel", "Webflow", "WordPress", "Shopify"];
 
 const faqs = [
   { q: "Wie lange dauert die Entwicklung einer Website?", a: "Einfachere Websites (5–10 Seiten) sind in 3–6 Wochen fertig. Komplexere Projekte mit individuellen Features brauchen 8–16 Wochen. Wir definieren im Erstgespräch einen realistischen Zeitplan." },
-  { q: "Was ist CRO und warum ist es wichtig?", a: "Conversion Rate Optimierung verbessert, wie viele Ihrer Besucher zu Kunden werden. Eine höhere Conversion Rate bedeutet mehr Umsatz aus dem gleichen Traffic — das ist oft effizienter als mehr Werbebudget." },
-  { q: "Entwickeln Sie auch E-Commerce-Websites?", a: "Ja. Wir entwickeln E-Commerce-Lösungen mit Shopify, WooCommerce oder Custom-Builds — abgestimmt auf Ihre Anforderungen und Skalierungsziele." },
+  { q: "Was ist CRO und warum ist es wichtig?", a: "Conversion Rate Optimierung verbessert, wie viele Ihrer Besucher zu Kunden werden. Eine höhere Conversion Rate bedeutet mehr Umsatz aus dem gleichen Traffic, das ist oft effizienter als mehr Werbebudget." },
+  { q: "Entwickeln Sie auch E-Commerce-Websites?", a: "Ja. Wir entwickeln E-Commerce-Lösungen mit Shopify, WooCommerce oder Custom-Builds, abgestimmt auf Ihre Anforderungen und Skalierungsziele." },
   { q: "Ist SEO in der Website-Entwicklung inbegriffen?", a: "Ja. Jede Website, die wir entwickeln, ist technisch SEO-ready: saubere URLs, Meta-Tags, Schema Markup, schnelle Ladezeiten und Mobile-Optimierung. Optional integrieren wir auch eine vollständige SEO-Strategie." },
 ];
 
@@ -42,7 +42,7 @@ export default function DeWebsitePage() {
               <span className="text-black/25">konvertieren.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Wir bauen digitale Erlebnisse, die nicht nur gut aussehen — sie sind auf Performance, Conversion und Nutzererfahrung optimiert.
+              Wir bauen digitale Erlebnisse, die nicht nur gut aussehen, sie sind auf Performance, Conversion und Nutzererfahrung optimiert.
             </motion.p>
             <motion.div variants={up} className="mt-10">
               <Link href="/de/contact"

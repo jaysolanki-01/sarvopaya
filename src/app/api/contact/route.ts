@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 
 const BREVO_LIST_ID = 5;
 const BREVO_BASE = "https://api.brevo.com/v3";
@@ -15,7 +15,7 @@ async function ensureAttribute(apiKey: string, name: string) {
     },
     body: JSON.stringify({ type: "text" }),
   });
-  // Intentionally ignore the response — 400 = already exists, which is fine.
+  // Intentionally ignore the response, 400 = already exists, which is fine.
 }
 
 export async function POST(req: NextRequest) {

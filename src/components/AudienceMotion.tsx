@@ -669,7 +669,7 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
           </div>
         </div>
 
-        {/* Scroll indicator removed — controls are now visible without scrolling */}
+        {/* Scroll indicator removed, controls are now visible without scrolling */}
 
         {/* ── Final CTA ─────────────────────────────────────────────────────── */}
         <AnimatePresence>

@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Founder's POVs | Growth, Marketing & Brand Building | Sarvopaya",
   description:
-    "Unfiltered takes on growth, performance marketing, AI automation and building a brand in India — from the desk of Jay Solanki, founder of Sarvopaya.",
+    "Unfiltered takes on growth, performance marketing, AI automation and building a brand in India, from the desk of Jay Solanki, founder of Sarvopaya.",
   alternates: {
     canonical: "/resources/founders-pov",
     languages: {

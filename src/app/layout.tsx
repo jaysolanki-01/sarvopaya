@@ -53,7 +53,7 @@ export const metadata: Metadata = {
         url: "/images/Main_icon.png",
         width: 512,
         height: 512,
-        alt: "Sarvopaya — AI Automation & Growth Marketing Agency",
+        alt: "Sarvopaya, AI Automation & Growth Marketing Agency",
       },
     ],
   },

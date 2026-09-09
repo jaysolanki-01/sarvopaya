@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -19,7 +19,7 @@ const channels = [
 
 const deliverables = [
   { title: "Content-Strategie", desc: "Monatliche Content-Pläne abgestimmt auf Ihre Ziele, Ihre Audience und den Plattform-Algorithmus." },
-  { title: "Content-Produktion", desc: "Kreative Inhalte — Text, Design, Reels, Carousel und Story-Formate — vollständig von uns produziert." },
+  { title: "Content-Produktion", desc: "Kreative Inhalte, Text, Design, Reels, Carousel und Story-Formate, vollständig von uns produziert." },
   { title: "Community Management", desc: "Kommentare, DMs und Erwähnungen zeitnah und markenstimmig beantwortet." },
   { title: "Influencer & Creator", desc: "Identifikation und Koordination von Micro- und Macro-Influencern für authentische Reichweite." },
   { title: "Analytics & Reporting", desc: "Monatliche Auswertungen: Reichweite, Engagement, Follower-Qualität und Umsatz-Attribution." },
@@ -27,7 +27,7 @@ const deliverables = [
 ];
 
 const faqs = [
-  { q: "Wie viele Posts pro Monat sind inbegriffen?", a: "Je nach Paket und Plattform planen wir typischerweise 12–20 Posts pro Monat — mit einem Mix aus Feed-Posts, Stories und Reels. Wir passen das an Ihre Ziele und Ihre Audience an." },
+  { q: "Wie viele Posts pro Monat sind inbegriffen?", a: "Je nach Paket und Plattform planen wir typischerweise 12–20 Posts pro Monat, mit einem Mix aus Feed-Posts, Stories und Reels. Wir passen das an Ihre Ziele und Ihre Audience an." },
   { q: "Erstellen Sie auch Video-Content?", a: "Ja. Wir produzieren Reels, Short-Videos und Story-Sequenzen. Für aufwändigere Produktionen arbeiten wir mit Ihrem Team oder unserem Creator-Netzwerk zusammen." },
   { q: "Wie messen Sie Erfolg im Social Media?", a: "Wir fokussieren auf Metriken, die Geschäftsrelevanz haben: Reichweite, Engagement Rate, Link-Klicks, Leads und, wo möglich, direkte Umsatz-Attribution. Follower-Zahlen allein sind kein Erfolgskriterium." },
   { q: "Können Sie Social Media für mehrere Märkte/Sprachen verwalten?", a: "Ja. Wir haben Erfahrung mit mehrsprachigem Social-Media-Management und können auf verschiedene Märkte zugeschnittene Inhalte produzieren." },
@@ -52,7 +52,7 @@ export default function DeSocialMediaPage() {
               <span className="text-black/25">Kunden machen.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Strategisches Social-Media-Marketing, das Ihre Marke aufbaut, Ihre Community wachsen lässt und messbaren Umsatz generiert — nicht nur Likes.
+              Strategisches Social-Media-Marketing, das Ihre Marke aufbaut, Ihre Community wachsen lässt und messbaren Umsatz generiert, nicht nur Likes.
             </motion.p>
             <motion.div variants={up} className="mt-10">
               <Link href="/de/contact"

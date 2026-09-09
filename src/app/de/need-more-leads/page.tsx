@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -21,9 +21,9 @@ const layers = [
 ];
 
 const faqs = [
-  { q: "Was versteht man unter KI-gestützter Lead Intelligence?", a: "Sarvopaya AI analysiert das Verhalten von Website-Besuchern in Echtzeit — besuchte Seiten, Verweildauer, Rückkehrbesuche, Content-Konsum — und berechnet einen Intent-Score. Besucher mit hoher Kaufabsicht werden automatisch identifiziert und priorisiert, damit Ihr Vertrieb zur richtigen Zeit agiert." },
-  { q: "Wie unterscheidet sich das von herkömmlichem Lead-Scoring?", a: "Herkömmliches Lead-Scoring bewertet meist nur Formular-Einsendungen. Unser System wertet das Verhalten aller Besucher aus — auch die, die noch kein Formular ausgefüllt haben — und liefert so einen um ein Vielfaches größeren Datensatz an Kaufsignalen." },
-  { q: "Für welche Unternehmenstypen ist das geeignet?", a: "Das System eignet sich für D2C-Marken, B2B-Unternehmen, Dienstleister und High-Ticket-Anbieter — überall dort, wo Kaufentscheidungen mehrere Touch-Points erfordern und jeder Lead zählt." },
+  { q: "Was versteht man unter KI-gestützter Lead Intelligence?", a: "Sarvopaya AI analysiert das Verhalten von Website-Besuchern in Echtzeit, besuchte Seiten, Verweildauer, Rückkehrbesuche, Content-Konsum, und berechnet einen Intent-Score. Besucher mit hoher Kaufabsicht werden automatisch identifiziert und priorisiert, damit Ihr Vertrieb zur richtigen Zeit agiert." },
+  { q: "Wie unterscheidet sich das von herkömmlichem Lead-Scoring?", a: "Herkömmliches Lead-Scoring bewertet meist nur Formular-Einsendungen. Unser System wertet das Verhalten aller Besucher aus, auch die, die noch kein Formular ausgefüllt haben, und liefert so einen um ein Vielfaches größeren Datensatz an Kaufsignalen." },
+  { q: "Für welche Unternehmenstypen ist das geeignet?", a: "Das System eignet sich für D2C-Marken, B2B-Unternehmen, Dienstleister und High-Ticket-Anbieter, überall dort, wo Kaufentscheidungen mehrere Touch-Points erfordern und jeder Lead zählt." },
   { q: "Wie schnell sehe ich erste Ergebnisse?", a: "In der Regel identifizieren wir in den ersten 14 Tagen die ersten High-Intent-Besucher. Mit wachsendem Datensatz wird die Präzision des Intent-Scores laufend besser." },
   { q: "Was kostet der Einstieg?", a: "Starten Sie mit einem kostenlosen Erstgespräch. Wir zeigen Ihnen anhand Ihrer eigenen Website-Daten, welche Signale bereits vorliegen und welches Potenzial schlummert." },
 ];
@@ -54,7 +54,7 @@ export default function DeNeedMoreLeadsPage() {
               Starten Sie damit, die Käufer zu finden, die schon auf Ihrer Website sind.
             </motion.p>
             <motion.p variants={up} className="mt-4 max-w-md text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.3)" }}>
-              Ihre Website hat heute Besucher mit hoher Kaufabsicht. Sarvopaya AI liest die Verhaltenssignale, identifiziert, wer kurz vor dem Kauf steht, und löst die richtige Aktion aus — bevor diese Besucher verschwinden.
+              Ihre Website hat heute Besucher mit hoher Kaufabsicht. Sarvopaya AI liest die Verhaltenssignale, identifiziert, wer kurz vor dem Kauf steht, und löst die richtige Aktion aus, bevor diese Besucher verschwinden.
             </motion.p>
             <motion.div variants={up} className="mt-10 flex flex-wrap gap-3">
               <Link href="/de/contact"

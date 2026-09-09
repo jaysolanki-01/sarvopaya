@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Digitalagentur VAE — KI & Marketing Dubai | Sarvopaya",
+  title: "Digitalagentur VAE, KI & Marketing Dubai | Sarvopaya",
   description: "Sarvopaya bietet KI-Automatisierung und Performance Marketing für Unternehmen in den Vereinigten Arabischen Emiraten und Dubai. Wachstum im Nahen Osten.",
   alternates: {
     canonical: "https://sarvopaya.com/de/locations/uae",

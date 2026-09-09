@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -8,10 +8,10 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const levers = [
-  { title: "Conversion-Rate-Optimierung", desc: "Mehr aus dem Traffic holen, den Sie bereits haben — durch optimierte Landing Pages, Funnels und Nutzererfahrung." },
-  { title: "Retargeting & Remarketing", desc: "Interessenten, die gegangen sind, zurückholen — mit der richtigen Botschaft zum richtigen Zeitpunkt." },
+  { title: "Conversion-Rate-Optimierung", desc: "Mehr aus dem Traffic holen, den Sie bereits haben, durch optimierte Landing Pages, Funnels und Nutzererfahrung." },
+  { title: "Retargeting & Remarketing", desc: "Interessenten, die gegangen sind, zurückholen, mit der richtigen Botschaft zum richtigen Zeitpunkt." },
   { title: "Sales-Enablement-Content", desc: "Fallstudien, ROI-Rechner und Vergleichsseiten, die Verkaufsgespräche unterstützen und Einwände entkräften." },
-  { title: "E-Mail & Nurturing-Flows", desc: "Automatisierte Sequenzen, die Leads durch den Entscheidungsprozess führen — bis sie bereit sind zu kaufen." },
+  { title: "E-Mail & Nurturing-Flows", desc: "Automatisierte Sequenzen, die Leads durch den Entscheidungsprozess führen, bis sie bereit sind zu kaufen." },
 ];
 
 export default function DeNeedMoreSalesPage() {
@@ -26,7 +26,7 @@ export default function DeNeedMoreSalesPage() {
               <span className="text-black/25">Pipeline machen.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Sie haben Traffic, Sie haben Leads — aber die Conversion-Rate ist zu niedrig. Wir optimieren Ihren gesamten Sales-Funnel, um mehr aus der bestehenden Pipeline zu holen.
+              Sie haben Traffic, Sie haben Leads, aber die Conversion-Rate ist zu niedrig. Wir optimieren Ihren gesamten Sales-Funnel, um mehr aus der bestehenden Pipeline zu holen.
             </motion.p>
             <motion.div variants={up} className="mt-10">
               <Link href="/de/contact"

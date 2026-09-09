@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -65,7 +65,7 @@ export default function CountryPage({
         areaServed: country,
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: `Digital Marketing & AI Automation Services — ${country}`,
+          name: `Digital Marketing & AI Automation Services, ${country}`,
           itemListElement: services.map((s) => ({
             "@type": "Offer",
             itemOffered: { "@type": "Service", name: s.title, url: `${siteUrl}${s.href}` },

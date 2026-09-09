@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -18,7 +18,7 @@ const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChild
 const gtmPhases = [
   { phase: "01", label: "Positioning", title: "Who It's For. Why Now. Why You.", desc: "We run messaging workshops to define your ICP, competitive position and the single reason someone should choose your product over alternatives." },
   { phase: "02", label: "Foundation", title: "The Site & Landing Page", desc: "A conversion-first launch page built in days, not months. Clear headline, product demo or screenshot, social proof and a CTA that converts cold traffic." },
-  { phase: "03", label: "Acquisition", title: "First 1,000 Users", desc: "Paid acquisition (Meta + Google), SEO groundwork, LinkedIn outreach for B2B, and community activation — all built to get traction before you run out of runway." },
+  { phase: "03", label: "Acquisition", title: "First 1,000 Users", desc: "Paid acquisition (Meta + Google), SEO groundwork, LinkedIn outreach for B2B, and community activation, all built to get traction before you run out of runway." },
   { phase: "04", label: "Retention", title: "Onboarding & Activation", desc: "Onboarding email sequences, in-app triggers and support automation that get new users to first value fast and reduce early churn." },
   { phase: "05", label: "Scale", title: "What's Working Gets More Budget", desc: "After 30 days, we have real data. We double down on the acquisition channels and messaging that converts and cut everything else." },
 ];
@@ -60,7 +60,7 @@ export default function LaunchingANewProductPage() {
             </motion.h1>
             <motion.p variants={up} className="mt-8 max-w-md text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.38)" }}>
               Go to market with a plan built to get traction fast. Positioning, landing pages,
-              paid acquisition and growth systems — all in one integrated launch.
+              paid acquisition and growth systems, all in one integrated launch.
             </motion.p>
             <motion.div variants={up} className="mt-10 flex flex-wrap gap-3">
               <Link href="/contact"

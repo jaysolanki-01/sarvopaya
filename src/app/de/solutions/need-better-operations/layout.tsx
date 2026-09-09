@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Bessere Betriebsabläufe — Workflows automatisieren | Sarvopaya",
+  title: "Bessere Betriebsabläufe, Workflows automatisieren | Sarvopaya",
   description: "Vereinfachen Sie Workflows und eliminieren Sie manuelle Prozesse. Sarvopaya implementiert KI-Automatisierung, die Ihre Operations effizienter und skalierbarer macht.",
   alternates: {
     canonical: "https://sarvopaya.com/de/solutions/need-better-operations",

@@ -1,4 +1,4 @@
-import CountryPage from "@/components/CountryPage";
+﻿import CountryPage from "@/components/CountryPage";
 import type { CountryPageProps } from "@/components/CountryPage";
 
 const data: CountryPageProps = {
@@ -6,17 +6,17 @@ const data: CountryPageProps = {
   flag: "🇸🇬",
   region: "Südostasien",
   h1: "Digital Marketing & KI für|Singapur",
-  intro: "Sarvopaya bietet singapurischen Unternehmen KI-Automatisierung, Performance Marketing und SEO — als Gateway für die APAC-Region und für den hochkompetitiven Singapur-Markt selbst.",
+  intro: "Sarvopaya bietet singapurischen Unternehmen KI-Automatisierung, Performance Marketing und SEO, als Gateway für die APAC-Region und für den hochkompetitiven Singapur-Markt selbst.",
   stats: [
     { value: "50+", label: "Betreute Marken" },
     { value: "3-in-1", label: "Kreativ · Tech · KI" },
     { value: "100%", label: "ROI-fokussiert" },
   ],
   whyUs: [
-    { title: "APAC-Gateway Singapur", body: "Singapur ist das regionale Headquarter vieler internationaler Marken für APAC. Wir helfen Ihnen, von Singapur aus die Region zu adressieren — mit skalierbaren digitalen Systemen." },
+    { title: "APAC-Gateway Singapur", body: "Singapur ist das regionale Headquarter vieler internationaler Marken für APAC. Wir helfen Ihnen, von Singapur aus die Region zu adressieren, mit skalierbaren digitalen Systemen." },
     { title: "Mehrsprachige Kapazität", body: "Der singapurische Markt ist mehrsprachig (Englisch, Mandarin, Malay, Tamil). Wir produzieren englischen und mandarin-chinesischen Content sowie koordinieren Inhalte für weitere Sprachen." },
     { title: "Tech-affine Zielgruppen", body: "Singapur hat eine der weltweit höchsten Internetzugangsdichten und Digital-Affinität. Performante digitale Strategien entfalten hier besonders starke Wirkung." },
-    { title: "Bewährte Methodik", body: "Dieselbe Full-Stack-Methodik, die wir für Märkte in 7 Ländern anwenden — optimiert für den singapurischen und südostasiatischen Kontext." },
+    { title: "Bewährte Methodik", body: "Dieselbe Full-Stack-Methodik, die wir für Märkte in 7 Ländern anwenden, optimiert für den singapurischen und südostasiatischen Kontext." },
   ],
   industries: ["Financial Services & FinTech", "E-Commerce", "Technology & SaaS", "Healthcare", "Education & EdTech", "Real Estate", "Hospitality & Tourism", "Retail"],
   services: [

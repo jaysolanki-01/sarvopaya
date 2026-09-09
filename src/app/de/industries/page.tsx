@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -9,13 +9,13 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const industries = [
-  { title: "Küchen- und Haushaltsgeräte", desc: "Mehr Sichtbarkeit und direkter Verkauf für Marken in einem hart umkämpften Markt — D2C, E-Commerce und Exportstrategien." },
+  { title: "Küchen- und Haushaltsgeräte", desc: "Mehr Sichtbarkeit und direkter Verkauf für Marken in einem hart umkämpften Markt, D2C, E-Commerce und Exportstrategien." },
   { title: "Teppiche & Heimtextilien", desc: "Performance-Marketing und Designkampagnen, die Handwerkskunst mit digitalen Kanälen verbinden." },
   { title: "Schmuck & Luxusgüter", desc: "Premium-Positionierung, Social-Commerce und internationale Reichweite für Schmuckmarken." },
 ];
 
 const useCases = [
-  { type: "D2C", title: "Direkt an den Endkunden", body: "Wir helfen D2C-Marken dabei, ihre Customer Acquisition Costs zu senken und den Lifetime Value zu steigern — durch Creative Strategy, Performance Ads und Retention-Marketing." },
+  { type: "D2C", title: "Direkt an den Endkunden", body: "Wir helfen D2C-Marken dabei, ihre Customer Acquisition Costs zu senken und den Lifetime Value zu steigern, durch Creative Strategy, Performance Ads und Retention-Marketing." },
   { type: "B2B", title: "Unternehmen als Kunden gewinnen", body: "Lead-Generation-Systeme, LinkedIn-Strategien und Content-Funnels, die B2B-Entscheider ansprechen und in qualifizierte Leads verwandeln." },
   { type: "EXPORT", title: "International skalieren", body: "Von Indien in die Welt: Wir unterstützen Exporteure bei digitaler Sichtbarkeit, internationalem SEO und zielmarktgerechtem Marketing." },
 ];
@@ -46,7 +46,7 @@ export default function DeIndustriesPage() {
               <span className="text-black/25">Ihre Branche.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Sarvopaya bringt branchenspezifisches Wissen mit — kein Einheitsbrei, sondern Strategien, die auf die Realität Ihres Marktes zugeschnitten sind.
+              Sarvopaya bringt branchenspezifisches Wissen mit, kein Einheitsbrei, sondern Strategien, die auf die Realität Ihres Marktes zugeschnitten sind.
             </motion.p>
           </motion.div>
         </div>
@@ -126,7 +126,7 @@ export default function DeIndustriesPage() {
       <section className="bg-black py-24">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-4xl font-black text-white">Ihre Branche ist dabei?</h2>
-          <p className="mt-5 text-base text-white/50">Sprechen Sie mit uns — wir finden gemeinsam die richtige Wachstumsstrategie.</p>
+          <p className="mt-5 text-base text-white/50">Sprechen Sie mit uns, wir finden gemeinsam die richtige Wachstumsstrategie.</p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link href="/de/contact"
               className="inline-flex h-14 items-center gap-2 rounded-full bg-red-600 px-10 text-sm font-bold text-white transition-opacity hover:opacity-90">

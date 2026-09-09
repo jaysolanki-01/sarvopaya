@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Neues Produkt launchen — GTM-Strategie die funktioniert | Sarvopaya",
+  title: "Neues Produkt launchen, GTM-Strategie die funktioniert | Sarvopaya",
   description: "Gehen Sie mit einem Plan an den Markt, der Traktion erzeugt. Sarvopaya baut Ihre Go-to-Market-Strategie, Ihr Messaging und Ihre Launch-Kampagnen.",
   alternates: {
     canonical: "https://sarvopaya.com/de/solutions/launching-a-new-product",

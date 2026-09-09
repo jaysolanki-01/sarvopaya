@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Branchen — Industrien die wir bedienen | Sarvopaya",
+  title: "Branchen, Industrien die wir bedienen | Sarvopaya",
   description: "Sarvopaya arbeitet mit D2C-Marken, B2B-Unternehmen und Exporteuren in Küchen- und Haushaltsgeräten, Teppichen, Schmuck und mehr. Erfahren Sie, wie wir Ihre Branche kennen.",
   alternates: {
     canonical: "https://sarvopaya.com/de/industries",

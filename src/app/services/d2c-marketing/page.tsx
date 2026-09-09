@@ -698,7 +698,7 @@ function D2CFunnel() {
 const faqs = [
   {
     q: "What does a D2C marketing agency do?",
-    a: "A D2C marketing agency plans, executes and optimises the entire paid growth system for direct-to-consumer brands. This includes building tracking infrastructure, running Meta Ads and Google Ads, producing and testing creative, optimising the conversion funnel, and reporting on business metrics like ROAS, CAC and MER — not just clicks. Unlike a general digital marketing agency, a D2C-focused agency understands the unit economics of ecommerce: margin structures, repeat purchase rates and payback periods.",
+    a: "A D2C marketing agency plans, executes and optimises the entire paid growth system for direct-to-consumer brands. This includes building tracking infrastructure, running Meta Ads and Google Ads, producing and testing creative, optimising the conversion funnel, and reporting on business metrics like ROAS, CAC and MER, not just clicks. Unlike a general digital marketing agency, a D2C-focused agency understands the unit economics of ecommerce: margin structures, repeat purchase rates and payback periods.",
   },
   {
     q: "What is performance marketing?",
@@ -809,9 +809,9 @@ const jsonLd = {
     {
       "@type": "Service",
       "@id": "https://sarvopaya.com/services/d2c-marketing",
-      name: "D2C Marketing Agency — Performance Marketing for D2C Brands",
+      name: "D2C Marketing Agency, Performance Marketing for D2C Brands",
       description:
-        "Sarvopaya is a D2C marketing agency in India. We build performance marketing systems for direct-to-consumer brands — tracking infrastructure, Meta Ads, Google Ads, creative testing, attribution and revenue optimization.",
+        "Sarvopaya is a D2C marketing agency in India. We build performance marketing systems for direct-to-consumer brands, tracking infrastructure, Meta Ads, Google Ads, creative testing, attribution and revenue optimization.",
       provider: { "@type": "Organization", name: "Sarvopaya", url: "https://sarvopaya.com" },
       serviceType: "D2C Marketing Agency",
       areaServed: "India",
@@ -905,7 +905,7 @@ export default function PerformanceMarketing() {
             >
               As a D2C marketing agency, we build the tracking layer, buy media
               with precision, test creative at volume, and optimize every stage
-              of your funnel — because &ldquo;good ROAS&rdquo; means nothing
+              of your funnel, because &ldquo;good ROAS&rdquo; means nothing
               without good data.
             </motion.p>
 

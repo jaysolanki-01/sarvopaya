@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Need More Sales? Convert More of the Pipeline You Have | Sarvopaya",
   description:
-    "Stop losing deals you should win. Sarvopaya builds conversion systems — CRO, sales funnel optimisation, landing pages and follow-up automation — that turn pipeline into revenue.",
+    "Stop losing deals you should win. Sarvopaya builds conversion systems, CRO, sales funnel optimisation, landing pages and follow-up automation, that turn pipeline into revenue.",
   alternates: {
     canonical: "/solutions/need-more-sales",
     languages: {

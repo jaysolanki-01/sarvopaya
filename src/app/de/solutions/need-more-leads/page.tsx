@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -8,9 +8,9 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const channels = [
-  { title: "SEO & Content", desc: "Organische Sichtbarkeit, die kontinuierlich qualifizierte Besucher anzieht — ohne laufende Anzeigenkosten." },
+  { title: "SEO & Content", desc: "Organische Sichtbarkeit, die kontinuierlich qualifizierte Besucher anzieht, ohne laufende Anzeigenkosten." },
   { title: "Performance Ads", desc: "Bezahlte Kampagnen auf Google, Meta und LinkedIn, die genau die Zielgruppe ansprechen, die kaufbereit ist." },
-  { title: "KI Lead Intelligence", desc: "Identifizierung von Hochabsichts-Besuchern, die Ihre Website bereits besuchen — bevor sie verschwinden." },
+  { title: "KI Lead Intelligence", desc: "Identifizierung von Hochabsichts-Besuchern, die Ihre Website bereits besuchen, bevor sie verschwinden." },
   { title: "Conversion-Optimierung", desc: "Landing Pages und Funnels, die Besucher in qualifizierte Leads verwandeln." },
 ];
 
@@ -26,7 +26,7 @@ export default function DeNeedMoreLeadsSolutionPage() {
               <span className="text-black/25">qualifizierter Leads.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Kein Raten. Kein Gießkannenprinzip. Wir bauen ein Lead-Generierungs-System, das die richtigen Interessenten anzieht, qualifiziert und konvertiert — systematisch und skalierbar.
+              Kein Raten. Kein Gießkannenprinzip. Wir bauen ein Lead-Generierungs-System, das die richtigen Interessenten anzieht, qualifiziert und konvertiert, systematisch und skalierbar.
             </motion.p>
             <motion.div variants={up} className="mt-10 flex flex-wrap gap-4">
               <Link href="/de/contact"
@@ -68,7 +68,7 @@ export default function DeNeedMoreLeadsSolutionPage() {
       <section className="bg-black py-24">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-4xl font-black text-white">Mehr qualifizierte Leads?</h2>
-          <p className="mt-5 text-base text-white/50">Starten Sie mit einem kostenlosen Erstgespräch — wir analysieren Ihre aktuelle Situation und zeigen konkret, was möglich ist.</p>
+          <p className="mt-5 text-base text-white/50">Starten Sie mit einem kostenlosen Erstgespräch, wir analysieren Ihre aktuelle Situation und zeigen konkret, was möglich ist.</p>
           <div className="mt-10 flex justify-center">
             <Link href="/de/contact"
               className="inline-flex h-14 items-center gap-2 rounded-full bg-red-600 px-10 text-sm font-bold text-white transition-opacity hover:opacity-90">

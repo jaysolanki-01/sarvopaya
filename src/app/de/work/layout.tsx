@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Unsere Arbeit — Fallstudien & Ergebnisse | Sarvopaya",
+  title: "Unsere Arbeit, Fallstudien & Ergebnisse | Sarvopaya",
   description: "Entdecken Sie ausgewählte Projekte von Sarvopaya: Performance-Marketing-Kampagnen, SEO-Erfolge und digitale Transformationsprojekte für Marken weltweit.",
   alternates: {
     canonical: "https://sarvopaya.com/de/work",

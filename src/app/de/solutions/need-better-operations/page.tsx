@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -8,10 +8,10 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const solutions = [
-  { title: "Prozess-Automatisierung", desc: "Wiederkehrende manuelle Prozesse — Onboarding, Reporting, Follow-ups, Dateneingabe — vollständig automatisiert." },
-  { title: "Tool-Integration & Datenpipelines", desc: "Nahtlose Verbindung aller Business-Tools: CRM, Marketing-Stack, ERP, Kommunikation — kein Datenchaos mehr." },
+  { title: "Prozess-Automatisierung", desc: "Wiederkehrende manuelle Prozesse, Onboarding, Reporting, Follow-ups, Dateneingabe, vollständig automatisiert." },
+  { title: "Tool-Integration & Datenpipelines", desc: "Nahtlose Verbindung aller Business-Tools: CRM, Marketing-Stack, ERP, Kommunikation, kein Datenchaos mehr." },
   { title: "KI-gestützte Entscheidungsunterstützung", desc: "Dashboards und KI-Modelle, die Ihrem Team helfen, schneller und besser fundierte Entscheidungen zu treffen." },
-  { title: "Dokumentation & SOPs", desc: "Klare Prozesse und Standard-Operating-Procedures, die skalierbar sind — unabhängig davon, wer sie ausführt." },
+  { title: "Dokumentation & SOPs", desc: "Klare Prozesse und Standard-Operating-Procedures, die skalierbar sind, unabhängig davon, wer sie ausführt." },
 ];
 
 export default function DeNeedBetterOpsPage() {
@@ -63,7 +63,7 @@ export default function DeNeedBetterOpsPage() {
       <section className="bg-black py-24">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-4xl font-black text-white">Effizienter wachsen?</h2>
-          <p className="mt-5 text-base text-white/50">Buchen Sie ein kostenloses Erstgespräch — wir zeigen, wo Ihr größtes Optimierungspotenzial liegt.</p>
+          <p className="mt-5 text-base text-white/50">Buchen Sie ein kostenloses Erstgespräch, wir zeigen, wo Ihr größtes Optimierungspotenzial liegt.</p>
           <div className="mt-10 flex justify-center">
             <Link href="/de/contact"
               className="inline-flex h-14 items-center gap-2 rounded-full bg-red-600 px-10 text-sm font-bold text-white transition-opacity hover:opacity-90">

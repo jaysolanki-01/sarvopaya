@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Need More Leads? AI-Powered Lead Generation | Sarvopaya",
   description:
-    "Struggling to generate quality leads? Sarvopaya builds AI-powered lead generation systems across paid search, social, SEO and content — turning traffic into predictable pipeline.",
+    "Struggling to generate quality leads? Sarvopaya builds AI-powered lead generation systems across paid search, social, SEO and content, turning traffic into predictable pipeline.",
   alternates: {
     canonical: "/solutions/need-more-leads",
     languages: {

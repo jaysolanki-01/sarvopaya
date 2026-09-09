@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect, useMemo } from "react";
 import {
@@ -125,7 +125,7 @@ function Hero() {
       <div aria-hidden className="absolute inset-x-0 top-0 h-px" style={{ background: BORDER }} />
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-36 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-40">
-        {/* Left — headline */}
+        {/* Left, headline */}
         <motion.div variants={seq} initial="hidden" animate="show">
           <motion.p variants={up}
             className="mb-6 text-[10px] font-bold uppercase tracking-[0.25em]"
@@ -162,7 +162,7 @@ function Hero() {
           </motion.p>
         </motion.div>
 
-        {/* Right — live visitor tracking panel */}
+        {/* Right, live visitor tracking panel */}
         <div className="flex justify-center lg:justify-end">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8, ease: EASE }}
@@ -215,7 +215,7 @@ function Hero() {
                   className="rounded-xl p-4"
                   style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}25` }}>
                   <p className="text-[9px] font-bold uppercase tracking-[0.18em] mb-2" style={{ color: GREEN }}>
-                    AI DETECTED — HIGH BUYING INTENT
+                    AI DETECTED, HIGH BUYING INTENT
                   </p>
                   <div className="flex items-end gap-3">
                     <p className="text-5xl font-black tabular-nums" style={{ color: GREEN }}>{aiScore}%</p>
@@ -255,7 +255,7 @@ function Hero() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   DATA LAYER — The raw trace
+   DATA LAYER, The raw trace
 ══════════════════════════════════════════════════════════════════════════════ */
 function DataLayer() {
   const ref = useRef<HTMLDivElement>(null);
@@ -554,7 +554,7 @@ function IntelligenceCore() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   AI DASHBOARD — with zoom sequence
+   AI DASHBOARD, with zoom sequence
 ══════════════════════════════════════════════════════════════════════════════ */
 type DView = "overview" | "opps" | "visitor";
 
@@ -577,7 +577,7 @@ function AIDashboard() {
   return (
     <section ref={ref} id="dashboard" style={{ background: BG }} className="w-full">
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-        <Spine step="04b" label="INTELLIGENCE — LIVE" />
+        <Spine step="04b" label="INTELLIGENCE, LIVE" />
         <motion.div variants={seq} initial="hidden" animate={iv ? "show" : "hidden"} className="mb-10">
           <motion.h2 variants={up}
             className="text-4xl font-bold uppercase leading-tight tracking-tight text-white sm:text-5xl">
@@ -620,7 +620,7 @@ function AIDashboard() {
                 {["#f87171","#fbbf24","#4ade80"].map(c => <div key={c} className="h-2.5 w-2.5 rounded-full" style={{ background: c }} />)}
               </div>
               <span className="text-[10px] font-bold uppercase tracking-[0.18em]"
-                style={{ color: "rgba(255,255,255,0.3)" }}>SARVOPAYA AI — LEAD INTELLIGENCE</span>
+                style={{ color: "rgba(255,255,255,0.3)" }}>SARVOPAYA AI, LEAD INTELLIGENCE</span>
             </div>
             <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest"
               style={{ color: GREEN }}>
@@ -675,7 +675,7 @@ function AIDashboard() {
                     <div className="rounded-xl p-4 mb-3" style={{ background: BG, border: `1px solid ${BORDER}` }}>
                       <div className="flex items-center justify-between mb-3">
                         <p className="text-[9px] font-bold uppercase tracking-widest"
-                          style={{ color: "rgba(255,255,255,0.3)" }}>INTENT TREND — 12 DAYS</p>
+                          style={{ color: "rgba(255,255,255,0.3)" }}>INTENT TREND, 12 DAYS</p>
                         <p className="text-[9px] font-bold" style={{ color: GREEN }}>↑ 18% this week</p>
                       </div>
                       <div className="flex items-end gap-1.5 h-20">
@@ -710,7 +710,7 @@ function AIDashboard() {
                   <motion.div key="opps" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -12 }} transition={{ duration: 0.25 }}>
                     <p className="text-[9px] font-bold uppercase tracking-widest mb-4"
-                      style={{ color: "rgba(255,255,255,0.3)" }}>47 OPPORTUNITIES — BY INTENT</p>
+                      style={{ color: "rgba(255,255,255,0.3)" }}>47 OPPORTUNITIES, BY INTENT</p>
                     <div className="space-y-2">
                       {OPPS.map((op, i) => (
                         <button key={op.id} type="button"
@@ -843,7 +843,7 @@ function DecisionAction() {
                 transition={{ delay: 0.7 }}
                 className="rounded-full px-4 py-2 text-[10px] font-black uppercase tracking-widest"
                 style={{ background: `${GREEN}12`, border: `1px solid ${GREEN}35`, color: GREEN }}>
-                91% INTENT — DECISION STAGE
+                91% INTENT, DECISION STAGE
               </motion.div>
               <motion.div animate={iv ? { height: 28, opacity: 1 } : { height: 0, opacity: 0 }} transition={{ delay: 0.9 }}
                 className="ml-6 w-px" style={{ background: `${GREEN}40` }} />
@@ -905,7 +905,7 @@ function DecisionAction() {
               className="mt-5 rounded-xl p-4"
               style={{ background: `${GREEN}07`, border: `1px solid ${GREEN}25` }}>
               <p className="text-[9px] font-bold uppercase tracking-widest mb-2" style={{ color: GREEN }}>LIVE ALERT</p>
-              <p className="text-sm font-semibold text-white">Visitor #10482 — Intent 91% — Contact Now</p>
+              <p className="text-sm font-semibold text-white">Visitor #10482, Intent 91%, Contact Now</p>
               <p className="mt-1 text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
                 Strong commercial evaluation detected. 4 minutes ago.
               </p>
@@ -973,7 +973,7 @@ function ArchitectureTimeline() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   REVENUE — massive typography
+   REVENUE, massive typography
 ══════════════════════════════════════════════════════════════════════════════ */
 function RevenueSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -1068,7 +1068,7 @@ function UseCases() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   AI SIMULATOR ★ — live score, then full analysis
+   AI SIMULATOR ★, live score, then full analysis
 ══════════════════════════════════════════════════════════════════════════════ */
 const SIM_SIGS = [
   { id: "pricing",    label: "Visited pricing page",     pts: 21 },
@@ -1122,7 +1122,7 @@ function AISimulator() {
   const stage     = liveScore >= 80 ? "DECISION" : liveScore >= 60 ? "EVALUATION" : "AWARENESS";
   const priority  = liveScore >= 80 ? "HIGH" : liveScore >= 60 ? "MEDIUM" : "LOW";
   const rec       = liveScore >= 80
-    ? "Strong commercial evaluation behaviour. Prioritise direct sales outreach with ROI-focused messaging — do not send another promotional email."
+    ? "Strong commercial evaluation behaviour. Prioritise direct sales outreach with ROI-focused messaging, do not send another promotional email."
     : liveScore >= 60
     ? "Active evaluation stage. Recommend retargeting with case studies and ROI evidence."
     : "Early-stage awareness. Nurture with educational content before outreach.";
@@ -1283,7 +1283,7 @@ function AISimulator() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   DIFFERENTIATOR — large editorial type
+   DIFFERENTIATOR, large editorial type
 ══════════════════════════════════════════════════════════════════════════════ */
 function Differentiator() {
   const ref = useRef<HTMLDivElement>(null);
@@ -1355,7 +1355,7 @@ function Implementation() {
           {[
             { n: "01", t: "CONNECT",    b: "Your website, campaigns, analytics and CRM. Every source of signal mapped." },
             { n: "02", t: "UNDERSTAND", b: "We identify the behavioural patterns that indicate buying intent for your specific audience." },
-            { n: "03", t: "ACTIVATE",   b: "AI finds opportunities and triggers the right action — sales alert, retargeting, or automated sequence." },
+            { n: "03", t: "ACTIVATE",   b: "AI finds opportunities and triggers the right action, sales alert, retargeting, or automated sequence." },
           ].map((s, i) => (
             <motion.div key={s.n}
               initial={{ opacity: 0, y: 16 }} animate={iv ? { opacity: 1, y: 0 } : {}}
@@ -1381,9 +1381,9 @@ function Implementation() {
    FAQ
 ══════════════════════════════════════════════════════════════════════════════ */
 const FAQS = [
-  { q: "Is this replacing my CRM?", a: "No. We integrate with your existing CRM — HubSpot, Zoho, Salesforce. We enrich it with intent signals and trigger workflows inside it." },
+  { q: "Is this replacing my CRM?", a: "No. We integrate with your existing CRM, HubSpot, Zoho, Salesforce. We enrich it with intent signals and trigger workflows inside it." },
   { q: "Do I need thousands of visitors?", a: "No. Even with a few hundred monthly visitors, intent intelligence is valuable. It's about signal quality, not traffic volume." },
-  { q: "Does this only work with paid ads?", a: "No. The system works across all traffic sources — organic, direct, social, referral, and paid. Every channel produces behavioural data." },
+  { q: "Does this only work with paid ads?", a: "No. The system works across all traffic sources, organic, direct, social, referral, and paid. Every channel produces behavioural data." },
   { q: "Can it automatically notify sales?", a: "Yes. When intent crosses your threshold, the system can trigger a CRM task, WhatsApp notification, Slack alert, or automated email sequence." },
   { q: "Can it work with our existing tracking?", a: "Yes. We integrate with GA4 and Google Tag Manager. We enhance your tracking layer rather than replacing it." },
   { q: "Is this just lead scoring?", a: "Lead scoring assigns a number. This system explains the number, maps the journey, identifies the stage, recommends the action, and triggers it. It's lead intelligence." },

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -8,9 +8,9 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const gtmPhases = [
-  { phase: "01", title: "Markt & Wettbewerb", desc: "Zielmarktanalyse, Wettbewerbs-Mapping und ICP-Definition — wer sind Ihre idealen ersten Kunden?" },
+  { phase: "01", title: "Markt & Wettbewerb", desc: "Zielmarktanalyse, Wettbewerbs-Mapping und ICP-Definition, wer sind Ihre idealen ersten Kunden?" },
   { phase: "02", title: "Positioning & Messaging", desc: "Klare Positionierung, Alleinstellungsmerkmale und ein Messaging-Framework, das resoniert." },
-  { phase: "03", title: "Launch-Kampagne", desc: "Multi-Channel-Launch: Ads, PR, Content, E-Mail, Social — koordiniert und auf Traktion ausgerichtet." },
+  { phase: "03", title: "Launch-Kampagne", desc: "Multi-Channel-Launch: Ads, PR, Content, E-Mail, Social, koordiniert und auf Traktion ausgerichtet." },
   { phase: "04", title: "Traction & Iteration", desc: "Schnelle Lernzyklen nach dem Launch: Was funktioniert? Was skalieren wir? Was verändern wir?" },
 ];
 
@@ -26,7 +26,7 @@ export default function DeLaunchingProductPage() {
               <span className="text-black/25">Mit einem Plan.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Ein neues Produkt zu launchen ist eine der risikoreichsten und lohnendsten Phasen eines Unternehmens. Wir bauen Ihren GTM-Plan und setzen ihn mit Ihnen um — für einen Launch, der Traktion erzeugt.
+              Ein neues Produkt zu launchen ist eine der risikoreichsten und lohnendsten Phasen eines Unternehmens. Wir bauen Ihren GTM-Plan und setzen ihn mit Ihnen um, für einen Launch, der Traktion erzeugt.
             </motion.p>
             <motion.div variants={up} className="mt-10">
               <Link href="/de/contact"
@@ -63,7 +63,7 @@ export default function DeLaunchingProductPage() {
       <section className="bg-black py-24">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-4xl font-black text-white">Produkt-Launch planen?</h2>
-          <p className="mt-5 text-base text-white/50">Buchen Sie ein kostenloses Erstgespräch — wir analysieren Ihr Produkt und skizzieren gemeinsam den optimalen GTM-Ansatz.</p>
+          <p className="mt-5 text-base text-white/50">Buchen Sie ein kostenloses Erstgespräch, wir analysieren Ihr Produkt und skizzieren gemeinsam den optimalen GTM-Ansatz.</p>
           <div className="mt-10 flex justify-center">
             <Link href="/de/contact"
               className="inline-flex h-14 items-center gap-2 rounded-full bg-red-600 px-10 text-sm font-bold text-white transition-opacity hover:opacity-90">

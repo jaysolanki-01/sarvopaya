@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kontakt — Kostenlose Beratung buchen | Sarvopaya",
+  title: "Kontakt, Kostenlose Beratung buchen | Sarvopaya",
   description: "Bereit zu wachsen? Buchen Sie eine kostenlose 30-minütige Strategiesession mit dem Sarvopaya-Team und erfahren Sie, wie KI und Performance-Marketing Ihr Unternehmen voranbringen.",
   alternates: {
     canonical: "https://sarvopaya.com/de/contact",

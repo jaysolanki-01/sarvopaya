@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -150,7 +150,7 @@ export default function DeContactPage() {
                     "30-minütiges Erstgespräch ohne Verpflichtung",
                     "Analyse Ihres aktuellen digitalen Auftritts",
                     "Konkrete Empfehlungen mit sofortigem Mehrwert",
-                    "Kein Hard-Selling — ehrliches Feedback",
+                    "Kein Hard-Selling, ehrliches Feedback",
                   ].map(item => (
                     <li key={item} className="flex items-start gap-3 text-sm text-black/65">
                       <span className="mt-0.5 shrink-0 text-red-500">→</span>

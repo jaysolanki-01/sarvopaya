@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -14,7 +14,7 @@ const projects = [
     category: "performance-marketing",
     cat_label: "Performance Marketing",
     result: "+340% MoM Umsatz",
-    desc: "Vollständige Performance-Marketing-Strategie für eine B2C-SaaS-App — von der User Acquisition bis zur Retention-Optimierung.",
+    desc: "Vollständige Performance-Marketing-Strategie für eine B2C-SaaS-App, von der User Acquisition bis zur Retention-Optimierung.",
     tags: ["Meta Ads", "Google Ads", "App-Marketing"],
   },
   {
@@ -38,7 +38,7 @@ const projects = [
     category: "performance-marketing",
     cat_label: "Performance Marketing",
     result: "+180% qualifizierte Trials",
-    desc: "B2B-Demand-Generation für eine Video-Conferencing-Lösung — LinkedIn-Ads, Content-Funnel und Retargeting.",
+    desc: "B2B-Demand-Generation für eine Video-Conferencing-Lösung, LinkedIn-Ads, Content-Funnel und Retargeting.",
     tags: ["LinkedIn Ads", "B2B Marketing", "SaaS"],
   },
   {
@@ -85,7 +85,7 @@ export default function DeWorkPage() {
               <span className="text-black/25">für sich sprechen.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-xl text-lg leading-relaxed text-black/55">
-              Ausgewählte Projekte aus Performance Marketing, SEO und digitaler Transformation — mit messbaren Ergebnissen für Marken weltweit.
+              Ausgewählte Projekte aus Performance Marketing, SEO und digitaler Transformation, mit messbaren Ergebnissen für Marken weltweit.
             </motion.p>
           </motion.div>
         </div>

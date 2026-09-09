@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Launching a New Product? Go-to-Market Strategy | Sarvopaya",
   description:
-    "Sarvopaya builds go-to-market plans for new products — positioning, landing pages, acquisition strategy, early traction and growth systems built to get traction fast.",
+    "Sarvopaya builds go-to-market plans for new products, positioning, landing pages, acquisition strategy, early traction and growth systems built to get traction fast.",
   alternates: {
     canonical: "/solutions/launching-a-new-product",
     languages: {

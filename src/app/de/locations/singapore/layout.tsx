@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Digitalagentur Singapur — KI & Marketing APAC | Sarvopaya",
+  title: "Digitalagentur Singapur, KI & Marketing APAC | Sarvopaya",
   description: "Sarvopaya bietet KI-Automatisierung und Performance Marketing für Unternehmen in Singapur und der APAC-Region. Digitales Wachstum für den asiatischen Markt.",
   alternates: {
     canonical: "https://sarvopaya.com/de/locations/singapore",

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { getCalApi } from "@calcom/embed-react";
@@ -42,7 +42,7 @@ export default function BookMeeting() {
           </svg>
         </div>
 
-        {/* Text panel — expands on hover */}
+        {/* Text panel, expands on hover */}
         <div
           className="flex flex-col justify-center overflow-hidden transition-all duration-300 ease-out"
           style={{

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -9,7 +9,7 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const systemSteps = [
-  { id: "01", title: "Entdecken", desc: "Technisches Audit, Keyword-Recherche und Wettbewerbs-Analyse — wir verstehen Ihre Ausgangslage vollständig." },
+  { id: "01", title: "Entdecken", desc: "Technisches Audit, Keyword-Recherche und Wettbewerbs-Analyse, wir verstehen Ihre Ausgangslage vollständig." },
   { id: "02", title: "Aufbauen", desc: "On-Page-Optimierung, technische Korrekturen, Site-Struktur und interne Verlinkung." },
   { id: "03", title: "Antworten", desc: "Content-Strategie und -Produktion, die Suchabsichten trifft und Google-Vertrauen aufbaut." },
   { id: "04", title: "Etablieren", desc: "Link-Building und digitale PR für Authority und Domain-Stärke." },
@@ -25,8 +25,8 @@ const techItems = [
 const faqs = [
   { q: "Wie lange dauert es, bis SEO Ergebnisse zeigt?", a: "SEO ist eine Investition mit Zinseszinseffekt. Erste sichtbare Verbesserungen sehen wir typischerweise nach 60–90 Tagen. Signifikante Traffic- und Umsatzzuwächse entstehen über 6–12 Monate bei konsistenter Arbeit." },
   { q: "Was unterscheidet Ihren SEO-Ansatz von anderen Agenturen?", a: "Wir bauen SEO-Systeme, nicht Taktik-Listen. Jede Maßnahme ist Teil einer kohärenten Strategie, die auf Ihren Markt, Ihre Zielgruppe und Ihre Geschäftsziele abgestimmt ist." },
-  { q: "Übernehmen Sie auch die Content-Produktion?", a: "Ja. Unser Team produziert recherchierten, suchmaschinenoptimierten Content — Blogartikel, Landingpages, Vergleichsseiten — der rankt und konvertiert." },
-  { q: "Können Sie für internationale SEO helfen?", a: "Ja. Wir haben Erfahrung mit internationalem SEO, Hreflang-Setups und mehrsprachigen Websites — ideal für Marken, die global wachsen wollen." },
+  { q: "Übernehmen Sie auch die Content-Produktion?", a: "Ja. Unser Team produziert recherchierten, suchmaschinenoptimierten Content, Blogartikel, Landingpages, Vergleichsseiten, der rankt und konvertiert." },
+  { q: "Können Sie für internationale SEO helfen?", a: "Ja. Wir haben Erfahrung mit internationalem SEO, Hreflang-Setups und mehrsprachigen Websites, ideal für Marken, die global wachsen wollen." },
   { q: "Wie berichten Sie über Ergebnisse?", a: "Sie erhalten monatliche Berichte mit Rankings, Traffic, Conversions und dem geschätzten organischen Umsatz-Beitrag. Transparenz ist unser Standard." },
   { q: "Was ist technisches SEO und brauche ich das?", a: "Technisches SEO stellt sicher, dass Google Ihre Website vollständig crawlen, indexieren und verstehen kann. Ohne starke technische Basis limitieren alle anderen SEO-Maßnahmen ihren Effekt. Fast jede Website, die wir auditieren, hat korrigierbare technische Baustellen." },
 ];
@@ -51,7 +51,7 @@ export default function DeSeoPage() {
               <span className="text-black/25">die bleibt.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              SEO, das nicht nur rankt, sondern konvertiert. Wir bauen organische Sichtbarkeit, die qualifizierte Leads liefert — systematisch, nachhaltig und ohne Black-Hat-Taktiken.
+              SEO, das nicht nur rankt, sondern konvertiert. Wir bauen organische Sichtbarkeit, die qualifizierte Leads liefert, systematisch, nachhaltig und ohne Black-Hat-Taktiken.
             </motion.p>
             <motion.div variants={up} className="mt-10 flex flex-wrap gap-4">
               <Link href="/de/contact"
@@ -132,7 +132,7 @@ export default function DeSeoPage() {
       <section className="bg-black py-24">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-4xl font-black text-white sm:text-5xl">Organisch wachsen?</h2>
-          <p className="mt-5 text-base text-white/50">Starten Sie mit einem kostenlosen SEO-Audit — wir zeigen Ihnen, was fehlt und was möglich ist.</p>
+          <p className="mt-5 text-base text-white/50">Starten Sie mit einem kostenlosen SEO-Audit, wir zeigen Ihnen, was fehlt und was möglich ist.</p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link href="/de/contact"
               className="inline-flex h-14 items-center gap-2 rounded-full bg-red-600 px-10 text-sm font-bold text-white transition-opacity hover:opacity-90">

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -30,7 +30,7 @@ const automations = [
   { title: "Support Automation", desc: "Route tickets by type, auto-reply to common questions, escalate urgent cases and sync resolution status across tools." },
   { title: "Finance & Reporting", desc: "Auto-generate weekly performance reports, sync revenue data across tools and alert the right stakeholders without manual compilation." },
   { title: "HR & Onboarding", desc: "Automate new hire setup, tool access provisioning, onboarding task sequences and team notifications." },
-  { title: "Data Sync & Integration", desc: "Keep your CRM, helpdesk, e-commerce platform and analytics tools perfectly in sync — no manual exports or imports." },
+  { title: "Data Sync & Integration", desc: "Keep your CRM, helpdesk, e-commerce platform and analytics tools perfectly in sync, no manual exports or imports." },
 ];
 
 export default function NeedBetterOperationsPage() {
@@ -100,7 +100,7 @@ export default function NeedBetterOperationsPage() {
           </div>
           <motion.p initial={{ opacity: 0 }} animate={wasteIv ? { opacity: 1 } : {}} transition={{ delay: 0.8 }}
             className="mt-8 text-[10px] font-bold uppercase tracking-widest" style={{ color: GREEN }}>
-            TOTAL: ~30h PER TEAM PER WEEK — AUTOMATABLE TODAY
+            TOTAL: ~30h PER TEAM PER WEEK, AUTOMATABLE TODAY
           </motion.p>
         </div>
       </section>

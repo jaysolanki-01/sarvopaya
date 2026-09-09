@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -18,7 +18,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 const markets = [
   { flag: "🇺🇸", country: "USA", region: "North America", slug: "usa", desc: "AI automation, performance marketing and SEO for US D2C brands, SaaS companies and B2B businesses.", priority: true },
-  { flag: "🇬🇧", country: "United Kingdom", region: "Europe", slug: "uk", desc: "GDPR-compliant automation, digital marketing and SEO for UK businesses — without London agency rates.", priority: true },
+  { flag: "🇬🇧", country: "United Kingdom", region: "Europe", slug: "uk", desc: "GDPR-compliant automation, digital marketing and SEO for UK businesses, without London agency rates.", priority: true },
   { flag: "🇦🇪", country: "UAE", region: "Middle East", slug: "uae", desc: "Performance marketing, AI automation and bilingual English–Arabic digital strategy for Gulf businesses.", priority: true },
   { flag: "🇸🇦", country: "Saudi Arabia", region: "Middle East", slug: "saudi-arabia", desc: "Snapchat Ads, Arabic content, Vision 2030 digital growth and performance marketing for KSA businesses.", priority: true },
   { flag: "🇦🇺", country: "Australia", region: "Asia Pacific", slug: "australia", desc: "D2C e-commerce marketing, AI workflow automation and SEO for Australian businesses.", priority: false },
@@ -51,7 +51,7 @@ export default function LocationsPage() {
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55 sm:text-xl">
               Sarvopaya delivers AI automation, performance marketing and digital growth to businesses
-              across 9 international markets — at India pricing, with full-service execution and
+              across 9 international markets, at India pricing, with full-service execution and
               no communication overhead.
             </motion.p>
           </motion.div>
@@ -102,7 +102,7 @@ export default function LocationsPage() {
           </h2>
           <p className="mt-5 text-base leading-relaxed text-white/50">
             We work with businesses in markets beyond those listed here. Book a call and
-            tell us where you are — we will tell you how we can help.
+            tell us where you are, we will tell you how we can help.
           </p>
           <Link href="/contact"
             className="mt-10 inline-flex h-13 items-center gap-2 rounded-full bg-[var(--accent)] px-10 text-sm font-bold text-white transition-opacity hover:opacity-90">

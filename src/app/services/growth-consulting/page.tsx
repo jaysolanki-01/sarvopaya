@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -21,14 +21,14 @@ const services = [
     id: "gtm",
     anchor: "gtm",
     title: "Go-to-Market Strategy",
-    desc: "We build your GTM plan from first principles — ICP definition, positioning, channel selection, pricing, messaging hierarchy and launch sequencing. For new products, new markets and pivots.",
+    desc: "We build your GTM plan from first principles, ICP definition, positioning, channel selection, pricing, messaging hierarchy and launch sequencing. For new products, new markets and pivots.",
     deliverables: ["ICP definition", "Positioning framework", "Channel strategy", "Launch sequencing", "90-day execution roadmap"],
   },
   {
     id: "digital-audit",
     anchor: "digital-audit",
     title: "Digital Audit",
-    desc: "A complete audit of your digital presence — paid ads, organic search, website conversion, social, email and automation. We identify exactly what is working, what is wasting budget and what to fix first.",
+    desc: "A complete audit of your digital presence, paid ads, organic search, website conversion, social, email and automation. We identify exactly what is working, what is wasting budget and what to fix first.",
     deliverables: ["Ads audit (Meta + Google)", "SEO technical audit", "CRO audit", "Email & automation review", "Prioritised action report"],
   },
   {
@@ -42,7 +42,7 @@ const services = [
     id: "ongoing-advisory",
     anchor: "ongoing-advisory",
     title: "Ongoing Advisory",
-    desc: "Monthly or weekly advisory retainer. A senior growth strategist in your corner — reviewing performance, course-correcting campaigns, preparing for fundraising and helping you make better decisions faster.",
+    desc: "Monthly or weekly advisory retainer. A senior growth strategist in your corner, reviewing performance, course-correcting campaigns, preparing for fundraising and helping you make better decisions faster.",
     deliverables: ["Weekly / monthly calls", "Performance review", "Decision support", "Fundraising prep", "Team mentoring"],
   },
 ];
@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: "What is the difference between a digital audit and a growth strategy?",
-    a: "A digital audit looks backwards — it diagnoses what is broken today. A growth strategy looks forwards — it defines the playbook to scale. Most clients benefit from an audit first, then a strategy built on what the audit reveals.",
+    a: "A digital audit looks backwards, it diagnoses what is broken today. A growth strategy looks forwards, it defines the playbook to scale. Most clients benefit from an audit first, then a strategy built on what the audit reveals.",
   },
   {
     q: "How quickly can we start?",
@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     q: "Do you only consult, or do you also execute?",
-    a: "Both. Growth consulting gives you the strategy and plan. If you want us to execute — run the ads, build the pages, automate the workflows — we bring in the relevant Sarvopaya team. One partner, full execution.",
+    a: "Both. Growth consulting gives you the strategy and plan. If you want us to execute, run the ads, build the pages, automate the workflows, we bring in the relevant Sarvopaya team. One partner, full execution.",
   },
 ];
 

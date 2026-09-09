@@ -1,4 +1,4 @@
-import CountryPage from "@/components/CountryPage";
+﻿import CountryPage from "@/components/CountryPage";
 import type { CountryPageProps } from "@/components/CountryPage";
 
 const data: CountryPageProps = {
@@ -6,23 +6,23 @@ const data: CountryPageProps = {
   flag: "🇦🇺",
   region: "Asien-Pazifik",
   h1: "Digital Marketing & KI für|Australien",
-  intro: "Sarvopaya bietet australischen Unternehmen KI-Automatisierung, Performance Marketing und SEO — auf den australischen Markt zugeschnitten und mit APAC-Expertise verknüpft.",
+  intro: "Sarvopaya bietet australischen Unternehmen KI-Automatisierung, Performance Marketing und SEO, auf den australischen Markt zugeschnitten und mit APAC-Expertise verknüpft.",
   stats: [
     { value: "50+", label: "Betreute Marken" },
     { value: "3×", label: "Durchschnittlicher ROAS" },
     { value: "100%", label: "ROI-fokussiert" },
   ],
   whyUs: [
-    { title: "Australischer Markt", body: "Wir verstehen den australischen Consumer — digital-affin, preisbewusst und plattform-selektiv. Unsere Strategien berücksichtigen lokale Trends und Saisonalität (umgekehrte Jahreszeiten zum Nordhalbkugel-Markt)." },
+    { title: "Australischer Markt", body: "Wir verstehen den australischen Consumer, digital-affin, preisbewusst und plattform-selektiv. Unsere Strategien berücksichtigen lokale Trends und Saisonalität (umgekehrte Jahreszeiten zum Nordhalbkugel-Markt)." },
     { title: "APAC-Reichweite", body: "Für australische Marken mit APAC-Ambitionen verbinden wir australisches Marketing mit Expertise in Singapur, Indien und anderen APAC-Märkten." },
-    { title: "Bewährte Methodik", body: "Dieselbe Full-Stack-Methodik, die wir weltweit einsetzen — adaptiert für australische Plattformgewohnheiten und regulatorische Anforderungen." },
+    { title: "Bewährte Methodik", body: "Dieselbe Full-Stack-Methodik, die wir weltweit einsetzen, adaptiert für australische Plattformgewohnheiten und regulatorische Anforderungen." },
     { title: "Kosteneffizienz", body: "Als indische Agentur bieten wir hochwertige Dienstleistungen zu deutlich günstigeren Konditionen als vergleichbare australische Agenturen." },
   ],
   industries: ["E-Commerce & Retail", "Financial Services & FinTech", "Healthcare", "Real Estate", "Education", "Hospitality & Tourism", "Professional Services", "SaaS & Technology"],
   services: [
-    { title: "Performance Advertising", href: "/de/services/advertising", desc: "Meta, Google und LinkedIn Kampagnen für australische Zielgruppen — ACCC-konform." },
+    { title: "Performance Advertising", href: "/de/services/advertising", desc: "Meta, Google und LinkedIn Kampagnen für australische Zielgruppen, ACCC-konform." },
     { title: "SEO", href: "/de/services/seo", desc: "Organische Sichtbarkeit auf google.com.au für australische und internationale Suchanfragen." },
-    { title: "Social Media Marketing", href: "/de/services/social-media-marketing", desc: "Instagram, TikTok und LinkedIn — die dominanten Plattformen in Australien." },
+    { title: "Social Media Marketing", href: "/de/services/social-media-marketing", desc: "Instagram, TikTok und LinkedIn, die dominanten Plattformen in Australien." },
     { title: "KI & Automatisierung", href: "/de/services/ai-automation", desc: "KI-Workflows und Prozessautomatisierung für australische Unternehmen." },
     { title: "Web & Digital Experience", href: "/de/services/website-digital-experience", desc: "Hochperformante Websites für den australischen Markt." },
     { title: "Wachstumsberatung", href: "/de/services/growth-consulting", desc: "Strategie und GTM-Planung für australische Unternehmen und APAC-Expansion." },

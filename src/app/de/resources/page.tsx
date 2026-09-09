@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -11,21 +11,21 @@ const articles = [
   {
     cat: "Performance Marketing",
     title: "Warum der ROAS allein keine Entscheidung ist",
-    desc: "Ein tiefer Einblick in die Metriken, die wirklich zählen — und warum 3× ROAS in einem schlecht skalierten Account Geld verbrennt.",
+    desc: "Ein tiefer Einblick in die Metriken, die wirklich zählen, und warum 3× ROAS in einem schlecht skalierten Account Geld verbrennt.",
     href: "/resources",
     date: "2026",
   },
   {
     cat: "KI & Automatisierung",
     title: "KI-Automatisierung für Marketing-Teams",
-    desc: "Wie führende Wachstumsmarken KI einsetzen, um Follow-up, Reporting und Betriebsabläufe zu automatisieren — ohne Entwickler.",
+    desc: "Wie führende Wachstumsmarken KI einsetzen, um Follow-up, Reporting und Betriebsabläufe zu automatisieren, ohne Entwickler.",
     href: "/resources",
     date: "2026",
   },
   {
     cat: "SEO",
     title: "Technical SEO Checkliste 2026",
-    desc: "Die vollständige Checkliste für technisches SEO: Core Web Vitals, Indexierung, Crawl-Budget und mehr — aktualisiert für 2026.",
+    desc: "Die vollständige Checkliste für technisches SEO: Core Web Vitals, Indexierung, Crawl-Budget und mehr, aktualisiert für 2026.",
     href: "/resources",
     date: "2026",
   },
@@ -51,7 +51,7 @@ export default function DeResourcesPage() {
               <span className="text-black/25">Wachstum bringt.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-xl text-lg leading-relaxed text-black/55">
-              Guides, Playbooks und Einblicke vom Sarvopaya-Team — praxisnah, datenbasiert und ohne Marketingsprech.
+              Guides, Playbooks und Einblicke vom Sarvopaya-Team, praxisnah, datenbasiert und ohne Marketingsprech.
             </motion.p>
           </motion.div>
         </div>

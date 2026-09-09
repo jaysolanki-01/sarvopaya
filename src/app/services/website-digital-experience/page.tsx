@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
@@ -101,7 +101,7 @@ const SERVICES = [
     num: "01",
     title: "Website Development",
     subtitle: "Custom websites built to perform",
-    desc: "We design and develop fast, modern websites that represent your brand and convert visitors into customers. Built on Next.js, React or Shopify — whichever fits your business model.",
+    desc: "We design and develop fast, modern websites that represent your brand and convert visitors into customers. Built on Next.js, React or Shopify, whichever fits your business model.",
     items: [
       "Custom website design",
       "Next.js / React development",
@@ -118,7 +118,7 @@ const SERVICES = [
     num: "02",
     title: "CRO",
     subtitle: "Conversion Rate Optimisation",
-    desc: "More traffic won't fix a leaking funnel. We audit your site, identify drop-off points, and make data-led changes that turn more visitors into buyers — without increasing your ad spend.",
+    desc: "More traffic won't fix a leaking funnel. We audit your site, identify drop-off points, and make data-led changes that turn more visitors into buyers, without increasing your ad spend.",
     items: [
       "Full conversion audit",
       "Heatmap & session recording analysis",
@@ -135,7 +135,7 @@ const SERVICES = [
     num: "03",
     title: "Landing Pages & Funnels",
     subtitle: "High-converting pages for every campaign",
-    desc: "Generic product pages kill ad performance. We build dedicated landing pages and funnel sequences matched to your campaigns, audience, and offer — to squeeze more revenue from the same traffic.",
+    desc: "Generic product pages kill ad performance. We build dedicated landing pages and funnel sequences matched to your campaigns, audience, and offer, to squeeze more revenue from the same traffic.",
     items: [
       "Campaign-specific landing pages",
       "Lead generation funnels",
@@ -225,7 +225,7 @@ const PROCESS = [
   {
     num: "04",
     label: "Development",
-    desc: "Clean, performant code. Page speed, accessibility and SEO built in from the start — not bolted on after.",
+    desc: "Clean, performant code. Page speed, accessibility and SEO built in from the start, not bolted on after.",
   },
   {
     num: "05",
@@ -244,7 +244,7 @@ const PROCESS = [
 const FAQS = [
   {
     q: "What is the difference between a website redesign and CRO?",
-    a: "A redesign changes the look, structure and technology of a site. CRO (Conversion Rate Optimisation) focuses on improving how many visitors take the desired action — a purchase, a lead, a sign-up — using data, testing and targeted changes. They complement each other but serve different purposes.",
+    a: "A redesign changes the look, structure and technology of a site. CRO (Conversion Rate Optimisation) focuses on improving how many visitors take the desired action, a purchase, a lead, a sign-up, using data, testing and targeted changes. They complement each other but serve different purposes.",
   },
   {
     q: "How long does a website development project take?",
@@ -264,7 +264,7 @@ const FAQS = [
   },
   {
     q: "Can you improve our existing site without a full rebuild?",
-    a: "Yes. CRO and landing page projects can work on top of your existing site. We audit what's there, identify the highest-leverage changes, and implement them — a full rebuild is only recommended when the current site has fundamental structural issues.",
+    a: "Yes. CRO and landing page projects can work on top of your existing site. We audit what's there, identify the highest-leverage changes, and implement them, a full rebuild is only recommended when the current site has fundamental structural issues.",
   },
 ];
 
@@ -362,7 +362,7 @@ export default function WebsiteDigitalExperience() {
             >
               We design and build conversion-focused websites, landing pages and
               funnels for brands that want their digital presence to drive real
-              revenue — not just look good.
+              revenue, not just look good.
             </motion.p>
 
             <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
@@ -456,7 +456,7 @@ export default function WebsiteDigitalExperience() {
               },
               {
                 problem: "Poor mobile UX",
-                impact: "60%+ of traffic is mobile — bad mobile = lost revenue",
+                impact: "60%+ of traffic is mobile, bad mobile = lost revenue",
               },
               {
                 problem: "Unclear CTA",
@@ -528,7 +528,7 @@ export default function WebsiteDigitalExperience() {
               variants={item}
               className="mt-5 text-lg leading-8 text-white/45"
             >
-              We use the right tool for the job — not the one that&rsquo;s
+              We use the right tool for the job, not the one that&rsquo;s
               easiest for us to build on. Every technology decision is made
               around your performance, scale and ownership requirements.
             </motion.p>
@@ -631,7 +631,7 @@ export default function WebsiteDigitalExperience() {
             >
               Because we also manage paid media for our clients, we know exactly
               what makes a page convert after a click. We don&rsquo;t just hand
-              you a site — we hand you a revenue asset.
+              you a site, we hand you a revenue asset.
             </motion.p>
           </motion.div>
 
@@ -649,11 +649,11 @@ export default function WebsiteDigitalExperience() {
               },
               {
                 title: "Tracking built in from day one",
-                desc: "GA4, GTM, Meta Pixel, Google Ads conversions — all set up before launch, not as an afterthought.",
+                desc: "GA4, GTM, Meta Pixel, Google Ads conversions, all set up before launch, not as an afterthought.",
               },
               {
                 title: "Ad-to-page alignment",
-                desc: "We build landing pages that match the ad creative, audience, and offer — because message mismatch is the #1 conversion killer.",
+                desc: "We build landing pages that match the ad creative, audience, and offer, because message mismatch is the #1 conversion killer.",
               },
               {
                 title: "No templates, no shortcuts",

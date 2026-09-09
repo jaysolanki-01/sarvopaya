@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -63,7 +63,7 @@ export default function FoundersPovPage() {
               className="mt-6 max-w-xl text-lg leading-relaxed text-black/50 sm:text-xl"
             >
               Direct thoughts on growth, performance marketing, AI automation and building a brand
-              in India — from Jay Solanki, founder of Sarvopaya.
+              in India, from Jay Solanki, founder of Sarvopaya.
             </motion.p>
             <motion.div variants={up} className="mt-8 flex items-center gap-3">
               <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full ring-2 ring-black/8">

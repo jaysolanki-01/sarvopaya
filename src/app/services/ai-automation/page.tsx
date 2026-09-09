@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -32,13 +32,13 @@ const services = [
   {
     id: "marketing-automation",
     title: "Marketing Automation",
-    desc: "Automate your full marketing operation — lead capture, nurturing sequences, retargeting triggers, ad reporting and campaign alerts. Built on n8n, Make, or custom stacks depending on your tech.",
+    desc: "Automate your full marketing operation, lead capture, nurturing sequences, retargeting triggers, ad reporting and campaign alerts. Built on n8n, Make, or custom stacks depending on your tech.",
     tags: ["Lead nurturing", "Ad automation", "Retargeting", "Reporting"],
   },
   {
     id: "ai-workflows",
     title: "AI Workflow Automation",
-    desc: "Integrate LLMs (GPT-4, Claude, Gemini) into your business workflows — AI content generation, automated support triage, AI-assisted lead scoring and intelligent document processing.",
+    desc: "Integrate LLMs (GPT-4, Claude, Gemini) into your business workflows, AI content generation, automated support triage, AI-assisted lead scoring and intelligent document processing.",
     tags: ["GPT-4", "Claude", "Gemini", "LLM", "Vector DB", "RAG"],
   },
   {
@@ -82,7 +82,7 @@ const faqs = [
   },
   {
     q: "Can you automate my existing tools without replacing them?",
-    a: "Yes — we build automation on top of your existing stack. Whether you use HubSpot, Salesforce, Pipedrive, Intercom, Zendesk, Shopify, or custom tools, we connect them with n8n or the appropriate automation layer without requiring tool replacement.",
+    a: "Yes, we build automation on top of your existing stack. Whether you use HubSpot, Salesforce, Pipedrive, Intercom, Zendesk, Shopify, or custom tools, we connect them with n8n or the appropriate automation layer without requiring tool replacement.",
   },
   {
     q: "Do you serve clients outside India?",
@@ -90,13 +90,13 @@ const faqs = [
   },
   {
     q: "What is the difference between AI automation and traditional automation?",
-    a: "Traditional automation follows fixed rules (if X then Y). AI automation uses language models and machine learning to handle unstructured inputs — reading emails, classifying tickets, generating content, scoring leads — tasks that previously required human judgement.",
+    a: "Traditional automation follows fixed rules (if X then Y). AI automation uses language models and machine learning to handle unstructured inputs, reading emails, classifying tickets, generating content, scoring leads, tasks that previously required human judgement.",
   },
 ];
 
 const process = [
   { step: "01", title: "Workflow Audit", desc: "We map your current processes, identify automation opportunities and calculate time/cost savings before writing a line of code." },
-  { step: "02", title: "Architecture Design", desc: "We design the automation system — tools, data flows, triggers, error handling and escalation paths. You approve before we build." },
+  { step: "02", title: "Architecture Design", desc: "We design the automation system, tools, data flows, triggers, error handling and escalation paths. You approve before we build." },
   { step: "03", title: "Build & Test", desc: "We build the workflows in n8n or your chosen platform, test every edge case and run parallel with existing processes." },
   { step: "04", title: "Deploy & Monitor", desc: "We deploy to production, monitor for errors, and handle edge cases that appear in real-world usage for 30 days." },
   { step: "05", title: "Handover & Docs", desc: "You receive full documentation, workflow diagrams and a recorded walkthrough. Ongoing maintenance available." },
@@ -386,7 +386,7 @@ export default function AIAutomationPage() {
                 {[
                   "n8n specialists with 50+ live workflows deployed",
                   "LLM integrations across GPT-4, Claude and Gemini",
-                  "Full ownership — you own all workflows, credentials and code",
+                  "Full ownership, you own all workflows, credentials and code",
                   "Month-on-month retainers, no lock-in contracts",
                   "30-day monitoring included with every deployment",
                 ].map((pt) => (

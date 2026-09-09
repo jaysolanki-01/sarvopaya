@@ -1,10 +1,10 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
 import { blogPosts } from "@/lib/blogPosts";
 
 const BASE = "https://sarvopaya.com";
 
-// Static routes — add new pages here when created
+// Static routes, add new pages here when created
 const staticRoutes: {
   path: string;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
@@ -33,16 +33,16 @@ const staticRoutes: {
   { path: "/resources/founders-pov",              changeFrequency: "weekly",  priority: 0.7 },
   // Locations hub
   { path: "/locations",                           changeFrequency: "monthly", priority: 0.7 },
-  // Locations — P1 markets
+  // Locations, P1 markets
   { path: "/locations/usa",                       changeFrequency: "monthly", priority: 0.8 },
   { path: "/locations/uk",                        changeFrequency: "monthly", priority: 0.8 },
   { path: "/locations/uae",                       changeFrequency: "monthly", priority: 0.8 },
   { path: "/locations/saudi-arabia",              changeFrequency: "monthly", priority: 0.8 },
-  // Locations — P2 markets
+  // Locations, P2 markets
   { path: "/locations/australia",                 changeFrequency: "monthly", priority: 0.7 },
   { path: "/locations/canada",                    changeFrequency: "monthly", priority: 0.7 },
   { path: "/locations/singapore",                 changeFrequency: "monthly", priority: 0.7 },
-  // German mirror — /de/*
+  // German mirror, /de/*
   { path: "/de",                                        changeFrequency: "weekly",  priority: 0.9 },
   { path: "/de/about",                                  changeFrequency: "monthly", priority: 0.6 },
   { path: "/de/contact",                                changeFrequency: "monthly", priority: 0.7 },
@@ -85,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 
-  // Dynamic resource/portfolio pages — auto-updates as projects.ts grows
+  // Dynamic resource/portfolio pages, auto-updates as projects.ts grows
   const resourceEntries: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${BASE}/resources/${project.slug}`,
     lastModified: now,
@@ -93,7 +93,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Dynamic blog posts — auto-updates as blogPosts.ts grows
+  // Dynamic blog posts, auto-updates as blogPosts.ts grows
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${BASE}/resources/founders-pov/${post.slug}`,
     lastModified: now,

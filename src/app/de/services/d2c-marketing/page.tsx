@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -9,16 +9,16 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const funnelStages = [
-  { stage: "AWARENESS", title: "Sichtbarkeit aufbauen", desc: "Zielgruppengerechte Awareness-Kampagnen auf Meta, Google und Social — Ihre Marke dort, wo Ihre Kunden sind." },
-  { stage: "ACQUISITION", title: "Käufer gewinnen", desc: "Conversion-optimierte Kampagnen, die aus Interessenten zahlende Kunden machen — mit dem richtigen Angebot zur richtigen Zeit." },
+  { stage: "AWARENESS", title: "Sichtbarkeit aufbauen", desc: "Zielgruppengerechte Awareness-Kampagnen auf Meta, Google und Social, Ihre Marke dort, wo Ihre Kunden sind." },
+  { stage: "ACQUISITION", title: "Käufer gewinnen", desc: "Conversion-optimierte Kampagnen, die aus Interessenten zahlende Kunden machen, mit dem richtigen Angebot zur richtigen Zeit." },
   { stage: "RETENTION", title: "Kunden halten", desc: "E-Mail-Flows, Retargeting und Loyalty-Programme, die den Customer Lifetime Value maximieren." },
   { stage: "SCALING", title: "Profitabel skalieren", desc: "Systematische Skalierung durch Audience Expansion, Creative Refreshes und Kanal-Diversifikation." },
 ];
 
 const faqs = [
-  { q: "Was ist D2C Marketing und warum ist es anders?", a: "D2C (Direct-to-Consumer) Marketing bedeutet, direkt an den Endkunden zu verkaufen — ohne Zwischenhändler. Das gibt Ihnen volle Kontrolle über Preis, Erlebnis und Kundendaten. Wir entwickeln Full-Funnel-Strategien, die genau auf dieses Modell zugeschnitten sind." },
+  { q: "Was ist D2C Marketing und warum ist es anders?", a: "D2C (Direct-to-Consumer) Marketing bedeutet, direkt an den Endkunden zu verkaufen, ohne Zwischenhändler. Das gibt Ihnen volle Kontrolle über Preis, Erlebnis und Kundendaten. Wir entwickeln Full-Funnel-Strategien, die genau auf dieses Modell zugeschnitten sind." },
   { q: "Wie senken Sie meinen Customer Acquisition Cost (CAC)?", a: "Durch präziseres Targeting, bessere Creatives, optimierte Landing Pages und kontinuierliches A/B-Testing. Wir identifizieren, welche Kanäle und Creatives für Sie den niedrigsten CAC liefern, und skalieren diese systematisch." },
-  { q: "Welche Rolle spielt Creative Strategy?", a: "Creatives sind das wichtigste Hebel in D2C-Kampagnen. Wir entwickeln eine Creative-Strategie, die Ihre USPs klar kommuniziert, Ihre Zielgruppe anspricht und auf Conversion ausgelegt ist — und testen kontinuierlich neue Varianten." },
+  { q: "Welche Rolle spielt Creative Strategy?", a: "Creatives sind das wichtigste Hebel in D2C-Kampagnen. Wir entwickeln eine Creative-Strategie, die Ihre USPs klar kommuniziert, Ihre Zielgruppe anspricht und auf Conversion ausgelegt ist, und testen kontinuierlich neue Varianten." },
   { q: "Übernehmen Sie auch E-Commerce-Plattform-Arbeit?", a: "Unser Fokus liegt auf Marketing, Strategie und Creatives. Bei Bedarf empfehlen wir vertrauenswürdige Partner für Shopify-Entwicklung oder E-Commerce-Setup." },
   { q: "Wie schnell kann ich mit ersten Ergebnissen rechnen?", a: "Mit einem soliden Startbudget sehen die meisten D2C-Marken erste signifikante Ergebnisse nach 30–60 Tagen. Vollständige Optimierungszyklen brauchen 90 Tage." },
 ];
@@ -40,7 +40,7 @@ export default function DeD2CPage() {
               <span className="text-black/25">Ohne Umwege.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Full-Funnel D2C Marketing — von der ersten Impression bis zum treuen Wiederholungskäufer. Sarvopaya baut D2C-Wachstum, das profitabel skaliert.
+              Full-Funnel D2C Marketing, von der ersten Impression bis zum treuen Wiederholungskäufer. Sarvopaya baut D2C-Wachstum, das profitabel skaliert.
             </motion.p>
             <motion.div variants={up} className="mt-10">
               <Link href="/de/contact"

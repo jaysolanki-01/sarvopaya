@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "D2C Marketing Agency India | Performance Marketing | Sarvopaya",
   description:
-    "Sarvopaya is a D2C marketing agency in India. We build performance marketing systems for direct-to-consumer brands — tracking infrastructure, Meta Ads, Google Ads, creative testing, attribution and revenue optimization.",
+    "Sarvopaya is a D2C marketing agency in India. We build performance marketing systems for direct-to-consumer brands, tracking infrastructure, Meta Ads, Google Ads, creative testing, attribution and revenue optimization.",
   keywords: [
     "D2C marketing agency",
     "D2C marketing agency India",

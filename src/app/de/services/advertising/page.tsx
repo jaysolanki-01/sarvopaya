@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -9,19 +9,19 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const platforms = [
-  { name: "Meta Ads", desc: "Facebook & Instagram — Awareness, Retargeting und Conversion-Kampagnen mit kreativen Formaten." },
-  { name: "Google Ads", desc: "Search, Shopping, Performance Max und YouTube — Zielgenaue Kampagnen für jeden Funnel-Schritt." },
+  { name: "Meta Ads", desc: "Facebook & Instagram, Awareness, Retargeting und Conversion-Kampagnen mit kreativen Formaten." },
+  { name: "Google Ads", desc: "Search, Shopping, Performance Max und YouTube, Zielgenaue Kampagnen für jeden Funnel-Schritt." },
   { name: "LinkedIn Ads", desc: "B2B-Demand-Generation mit präzisem Berufstitel- und Unternehmens-Targeting." },
-  { name: "YouTube Ads", desc: "Video-Werbung, die informiert und konvertiert — von TrueView bis Bumper Ads." },
+  { name: "YouTube Ads", desc: "Video-Werbung, die informiert und konvertiert, von TrueView bis Bumper Ads." },
   { name: "TikTok Ads", desc: "Native Video-Kampagnen für junge Zielgruppen mit hohem Engagement-Potenzial." },
   { name: "Pinterest & Snapchat", desc: "Visuelle Plattformen für Lifestyle-, Einrichtungs- und Modebrands." },
 ];
 
 const services = [
   { title: "Kampagnenstrategie & Setup", desc: "Wir definieren die richtige Kampagnenstruktur, Zielgruppen und Budgetverteilung von Anfang an." },
-  { title: "Creative Production", desc: "Ad-Creatives, die stoppen, informieren und konvertieren — Text, Bild, Video und Motion-Design." },
+  { title: "Creative Production", desc: "Ad-Creatives, die stoppen, informieren und konvertieren, Text, Bild, Video und Motion-Design." },
   { title: "Audience Research & Targeting", desc: "Präzises Targeting basierend auf Demografie, Verhalten, Lookalikes und Custom Audiences." },
-  { title: "Conversion Tracking & Attribution", desc: "Vollständige Attribution-Setups: Pixel, CAPI, Google Tag Manager — wir tracken jeden Umsatz-Euro." },
+  { title: "Conversion Tracking & Attribution", desc: "Vollständige Attribution-Setups: Pixel, CAPI, Google Tag Manager, wir tracken jeden Umsatz-Euro." },
   { title: "Testing & Optimierung", desc: "Systematische A/B-Tests von Creatives, Audiences und Landing Pages zur kontinuierlichen Verbesserung." },
   { title: "Retargeting & Remarketing", desc: "Mehrstufige Retargeting-Sequenzen, die Besucher abholen, bevor sie zur Konkurrenz gehen." },
 ];
@@ -29,9 +29,9 @@ const services = [
 const faqs = [
   { q: "Welche Werbekanäle sind für mein Unternehmen die richtigen?", a: "Das hängt von Ihrem Produkt, Ihrer Zielgruppe und Ihren Zielen ab. In einem kostenlosen Erstgespräch analysieren wir Ihren Markt und empfehlen die Kanäle mit dem besten ROI-Potenzial für Ihre Situation." },
   { q: "Wie schnell sehen wir erste Ergebnisse?", a: "Erste Datenpunkte sehen wir nach 7–14 Tagen. Stabile, optimierbare Ergebnisse sind nach 30–60 Tagen zu erwarten, je nach Kanal und Budget." },
-  { q: "Was ist inbegriffen — nur die Schaltung oder auch die Creatives?", a: "Wir übernehmen beides: Strategie, Targeting und Optimierung sowie die Produktion aller Ad-Creatives. Sie müssen sich um nichts kümmern." },
+  { q: "Was ist inbegriffen, nur die Schaltung oder auch die Creatives?", a: "Wir übernehmen beides: Strategie, Targeting und Optimierung sowie die Produktion aller Ad-Creatives. Sie müssen sich um nichts kümmern." },
   { q: "Welches Mindestbudget brauche ich?", a: "Wir empfehlen ein Media-Mindestbudget von ca. 50.000–1.00.000 INR/Monat, um statistisch signifikante Daten zu erhalten. Für globale Märkte passen wir die Empfehlung entsprechend an." },
-  { q: "Wie messen Sie Erfolg?", a: "Wir definieren gemeinsam mit Ihnen die relevanten KPIs — ROAS, CPA, CPL, MQL-Rate — und tracken diese transparent in Ihrem Dashboard. Keine Vanity-Metriken." },
+  { q: "Wie messen Sie Erfolg?", a: "Wir definieren gemeinsam mit Ihnen die relevanten KPIs, ROAS, CPA, CPL, MQL-Rate, und tracken diese transparent in Ihrem Dashboard. Keine Vanity-Metriken." },
 ];
 
 export default function DeAdvertisingPage() {
@@ -55,7 +55,7 @@ export default function DeAdvertisingPage() {
               <span className="text-red-500">KLICKS.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-7 max-w-xl text-lg leading-relaxed text-white/50">
-              Wir bauen Ihr gesamtes Werbe-Ökosystem — von der Strategie über die Creatives bis zur Conversion-Optimierung. Plattformübergreifend, datengetrieben, skalierbar.
+              Wir bauen Ihr gesamtes Werbe-Ökosystem, von der Strategie über die Creatives bis zur Conversion-Optimierung. Plattformübergreifend, datengetrieben, skalierbar.
             </motion.p>
             <motion.div variants={up} className="mt-10 flex flex-wrap gap-4">
               <Link href="/de/contact"
@@ -140,7 +140,7 @@ export default function DeAdvertisingPage() {
       <section className="bg-black py-24">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-4xl font-black text-white sm:text-5xl">Bereit, Ihr Werbebudget zu maximieren?</h2>
-          <p className="mt-5 text-base text-white/50">Buchen Sie eine kostenlose Analyse Ihrer aktuellen Kampagnen — oder starten Sie von Null mit einem System, das funktioniert.</p>
+          <p className="mt-5 text-base text-white/50">Buchen Sie eine kostenlose Analyse Ihrer aktuellen Kampagnen, oder starten Sie von Null mit einem System, das funktioniert.</p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link href="/de/contact"
               className="inline-flex h-14 items-center gap-2 rounded-full bg-red-600 px-10 text-sm font-bold text-white transition-opacity hover:opacity-90">

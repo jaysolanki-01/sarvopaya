@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -17,7 +17,7 @@ export default function DeHomePage() {
   const whyIv = useInView(whyRef, { once: true, amount: 0.2 });
 
   const services = [
-    { num: "01", title: "Performance Marketing", desc: "Zielgenaue Kampagnen auf Google, Meta, LinkedIn und mehr — skalierbar und ROI-messbar.", href: "/de/services/advertising" },
+    { num: "01", title: "Performance Marketing", desc: "Zielgenaue Kampagnen auf Google, Meta, LinkedIn und mehr, skalierbar und ROI-messbar.", href: "/de/services/advertising" },
     { num: "02", title: "Suchmaschinenoptimierung", desc: "Organische Sichtbarkeit aufbauen, die langfristig qualifizierte Leads liefert.", href: "/de/services/seo" },
     { num: "03", title: "Social-Media-Marketing", desc: "Community-Aufbau, Kreativkampagnen und datengetriebenes Wachstum über alle Kanäle.", href: "/de/services/social-media-marketing" },
     { num: "04", title: "KI & Automatisierung", desc: "Workflows automatisieren, Follow-ups beschleunigen und Ops-Prozesse ohne mehr Personal skalieren.", href: "/de/services/ai-automation" },
@@ -33,9 +33,9 @@ export default function DeHomePage() {
   ];
 
   const whyPoints = [
-    { title: "KI trifft auf Marketingstrategie", body: "Wir verbinden künstliche Intelligenz mit bewährter Marketingstrategie — keine blinden Experimente, sondern präzises Wachstum auf Basis von Daten." },
-    { title: "Drei Disziplinen. Ein Team.", body: "Kreativmedien, Technologie und KI unter einem Dach. Kein Ping-Pong zwischen Agenturen — alles aus einer Hand, vollständig aufeinander abgestimmt." },
-    { title: "Messbare Ergebnisse", body: "Wir tracken jede Kampagne bis zum Umsatz. Keine Eitelkeitskennzahlen — nur Metriken, die für Ihr Geschäft wirklich zählen." },
+    { title: "KI trifft auf Marketingstrategie", body: "Wir verbinden künstliche Intelligenz mit bewährter Marketingstrategie, keine blinden Experimente, sondern präzises Wachstum auf Basis von Daten." },
+    { title: "Drei Disziplinen. Ein Team.", body: "Kreativmedien, Technologie und KI unter einem Dach. Kein Ping-Pong zwischen Agenturen, alles aus einer Hand, vollständig aufeinander abgestimmt." },
+    { title: "Messbare Ergebnisse", body: "Wir tracken jede Kampagne bis zum Umsatz. Keine Eitelkeitskennzahlen, nur Metriken, die für Ihr Geschäft wirklich zählen." },
     { title: "Global aufgestellt, lokal durchdacht", body: "Von Indien aus betreuen wir Kunden in USA, UK, VAE, Saudi-Arabien, Australien, Kanada, Singapur und Deutschland." },
   ];
 

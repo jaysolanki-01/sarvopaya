@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -9,17 +9,17 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const offerings = [
-  { id: "gtm", title: "Go-to-Market Strategie", desc: "Wir entwickeln Ihren GTM-Plan: Zielmarkt-Definition, Positioning, Channel-Mix, Messaging und Launch-Roadmap — ready to execute." },
-  { id: "digital-audit", title: "Digitaler Audit", desc: "360°-Analyse Ihres gesamten digitalen Auftritts: Website, SEO, Ads, Social, CRM, Tracking — mit priorisierten Handlungsempfehlungen." },
+  { id: "gtm", title: "Go-to-Market Strategie", desc: "Wir entwickeln Ihren GTM-Plan: Zielmarkt-Definition, Positioning, Channel-Mix, Messaging und Launch-Roadmap, ready to execute." },
+  { id: "digital-audit", title: "Digitaler Audit", desc: "360°-Analyse Ihres gesamten digitalen Auftritts: Website, SEO, Ads, Social, CRM, Tracking, mit priorisierten Handlungsempfehlungen." },
   { id: "growth-strategy", title: "Wachstumsstrategie", desc: "Datenbasierte Wachstumsplanung: Welche Hebel haben die größte Wirkung? Wo ist das ungenutzter Potenzial? Wo wird Budget verschwendet?" },
   { id: "ongoing-advisory", title: "Laufende Beratung", desc: "Als strategischer Partner begleiten wir Sie kontinuierlich: monatliche Reviews, Entscheidungsunterstützung und Zugang zu unserem Experten-Netzwerk." },
 ];
 
 const faqs = [
-  { q: "Für welche Unternehmensphase ist Wachstumsberatung geeignet?", a: "Unser Beratungsangebot ist für Unternehmen in jeder Phase relevant — ob Startup in der Frühphase, Scale-up mit erstem Produkt-Markt-Fit oder etabliertes Unternehmen, das stagniert. Wir passen den Ansatz an Ihre spezifische Situation an." },
+  { q: "Für welche Unternehmensphase ist Wachstumsberatung geeignet?", a: "Unser Beratungsangebot ist für Unternehmen in jeder Phase relevant, ob Startup in der Frühphase, Scale-up mit erstem Produkt-Markt-Fit oder etabliertes Unternehmen, das stagniert. Wir passen den Ansatz an Ihre spezifische Situation an." },
   { q: "Was ist ein digitaler Audit?", a: "Ein digitaler Audit ist eine systematische Analyse aller digitalen Touchpoints Ihres Unternehmens: Website-Performance, SEO-Status, Ad-Kampagnen, Social-Media-Präsenz, Tracking-Setup, CRM-Nutzung und Conversion-Flows. Das Ergebnis ist ein priorisierter Maßnahmenplan." },
-  { q: "Wie läuft eine Go-to-Market-Beratung ab?", a: "In 4–8 Wochen erarbeiten wir gemeinsam Ihren GTM-Plan: Markt- und Wettbewerbsanalyse, Zielgruppen-Definition, Positioning, Channel-Strategie und Launch-Planung — mit klaren Verantwortlichkeiten und Meilensteinen." },
-  { q: "Bieten Sie auch laufende strategische Begleitung an?", a: "Ja. Im Rahmen unseres Ongoing-Advisory-Modells fungieren wir als externer Wachstumspartner — monatliche Sessions, Entscheidungsbegleitung, Review der Marketing-Performance und Zugang zu unserem Netzwerk." },
+  { q: "Wie läuft eine Go-to-Market-Beratung ab?", a: "In 4–8 Wochen erarbeiten wir gemeinsam Ihren GTM-Plan: Markt- und Wettbewerbsanalyse, Zielgruppen-Definition, Positioning, Channel-Strategie und Launch-Planung, mit klaren Verantwortlichkeiten und Meilensteinen." },
+  { q: "Bieten Sie auch laufende strategische Begleitung an?", a: "Ja. Im Rahmen unseres Ongoing-Advisory-Modells fungieren wir als externer Wachstumspartner, monatliche Sessions, Entscheidungsbegleitung, Review der Marketing-Performance und Zugang zu unserem Netzwerk." },
 ];
 
 export default function DeGrowthConsultingPage() {
@@ -39,7 +39,7 @@ export default function DeGrowthConsultingPage() {
               <span className="text-black/25">umgesetzt wird.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Wachstumsberatung ohne Buzzwords. Wir erarbeiten gemeinsam mit Ihnen eine Strategie, die auf Ihren Markt passt — und setzen sie um.
+              Wachstumsberatung ohne Buzzwords. Wir erarbeiten gemeinsam mit Ihnen eine Strategie, die auf Ihren Markt passt, und setzen sie um.
             </motion.p>
             <motion.div variants={up} className="mt-10">
               <Link href="/de/contact"
@@ -91,7 +91,7 @@ export default function DeGrowthConsultingPage() {
       <section className="bg-black py-24">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-4xl font-black text-white">Strategisch wachsen?</h2>
-          <p className="mt-5 text-base text-white/50">Starten Sie mit einem kostenlosen Erstgespräch — kein Pitch, nur ehrliche Einschätzung.</p>
+          <p className="mt-5 text-base text-white/50">Starten Sie mit einem kostenlosen Erstgespräch, kein Pitch, nur ehrliche Einschätzung.</p>
           <div className="mt-10 flex justify-center">
             <Link href="/de/contact"
               className="inline-flex h-14 items-center gap-2 rounded-full bg-red-600 px-10 text-sm font-bold text-white transition-opacity hover:opacity-90">

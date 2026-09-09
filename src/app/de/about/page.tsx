@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -10,14 +10,14 @@ const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChild
 
 const pillars = [
   { title: "Kreativmedien", body: "Storytelling, das konvertiert. Kampagnen, die in Erinnerung bleiben. Wir produzieren Inhalte mit einer Wirkung, die über Klicks hinausgeht." },
-  { title: "Technologie", body: "Conversion-optimierte Websites, Funnels und digitale Erlebnisse, die auf Leistung ausgelegt sind — nicht nur auf Ästhetik." },
-  { title: "KI & Automatisierung", body: "Von KI-gestützten Lead-Intelligence-Systemen bis zu automatisierten Betriebsabläufen — wir skalieren Ihre Kapazitäten ohne mehr Personal." },
+  { title: "Technologie", body: "Conversion-optimierte Websites, Funnels und digitale Erlebnisse, die auf Leistung ausgelegt sind, nicht nur auf Ästhetik." },
+  { title: "KI & Automatisierung", body: "Von KI-gestützten Lead-Intelligence-Systemen bis zu automatisierten Betriebsabläufen, wir skalieren Ihre Kapazitäten ohne mehr Personal." },
 ];
 
 const values = [
   { title: "Erst Daten, dann Meinungen", body: "Jede Entscheidung wird durch Daten gestützt. Intuition hilft beim Start, aber Zahlen führen uns ans Ziel." },
   { title: "Ergebnisse, keine Berichte", body: "Wir liefern Wachstum, kein Deck-Theater. Unsere Kunden messen uns am Umsatz, nicht an der Follower-Zahl." },
-  { title: "Langfristige Partnerschaften", body: "Wir bauen echte Beziehungen auf — keine einmaligen Projekte. Ihr Erfolg ist unser Referenz." },
+  { title: "Langfristige Partnerschaften", body: "Wir bauen echte Beziehungen auf, keine einmaligen Projekte. Ihr Erfolg ist unser Referenz." },
   { title: "Transparenz immer", body: "Keine schwarzen Boxen. Sie sehen genau, was wir tun, warum wir es tun und was es bringt." },
   { title: "Kontinuierliche Verbesserung", body: "Wir testen, lernen, iterieren. Was heute funktioniert, wird morgen noch besser." },
   { title: "Globale Perspektive", body: "Von Indien aus denken wir global. Wir bringen internationale Best Practices in jede Kampagne." },
@@ -50,7 +50,7 @@ export default function DeAboutPage() {
               <span className="text-black/25">Eine Mission.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Sarvopaya ist eine Full-Service-Agentur, die Kreativmedien, Technologie und KI-Automatisierung vereint. Wir helfen Unternehmen weltweit dabei, nachhaltiges Wachstum zu erzielen — messbar, skalierbar und ohne Kompromisse.
+              Sarvopaya ist eine Full-Service-Agentur, die Kreativmedien, Technologie und KI-Automatisierung vereint. Wir helfen Unternehmen weltweit dabei, nachhaltiges Wachstum zu erzielen, messbar, skalierbar und ohne Kompromisse.
             </motion.p>
           </motion.div>
         </div>

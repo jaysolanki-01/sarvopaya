@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -19,17 +19,17 @@ const up = {
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const problems = [
-  { title: "High traffic, low conversions", body: "You're getting visitors but your landing pages and product pages aren't closing them. Every click costs money — you're haemorrhaging budget." },
+  { title: "High traffic, low conversions", body: "You're getting visitors but your landing pages and product pages aren't closing them. Every click costs money, you're haemorrhaging budget." },
   { title: "Weak follow-up", body: "Leads come in and go cold. No automation, no sequence, no trigger to re-engage them at the right moment. Revenue left on the table daily." },
   { title: "Pages that explain, not convert", body: "Your website tells people what you do. It doesn't tell them why to buy now. No urgency, no social proof in the right places, no CRO thinking." },
   { title: "No attribution clarity", body: "You don't know which ads, pages or touchpoints actually drive sales. So you can't optimise. You're guessing what to scale." },
 ];
 
 const solutions = [
-  { label: "CRO", title: "Conversion Rate Optimisation", desc: "We audit your funnel, identify the exact drop-off points and fix them — landing page copy, layout, CTA placement, trust signals and form friction." },
+  { label: "CRO", title: "Conversion Rate Optimisation", desc: "We audit your funnel, identify the exact drop-off points and fix them, landing page copy, layout, CTA placement, trust signals and form friction." },
   { label: "Funnels", title: "Sales Funnel Design", desc: "End-to-end funnel architecture: awareness → consideration → purchase → retention. Designed around how your buyers actually decide." },
   { label: "Automation", title: "Follow-Up Automation", desc: "Automated email sequences, WhatsApp follow-ups and retargeting triggers that reach the right prospect at the right time without manual effort." },
-  { label: "Landing Pages", title: "Landing Pages That Convert", desc: "High-performance landing pages designed and built for conversion — tested copy, mobile-first design and fast load times. Not templates." },
+  { label: "Landing Pages", title: "Landing Pages That Convert", desc: "High-performance landing pages designed and built for conversion, tested copy, mobile-first design and fast load times. Not templates." },
 ];
 
 export default function NeedMoreSalesPage() {

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -68,7 +68,7 @@ const PROJECTS: Project[] = [
     tags: ["Meta Ads", "Google PMax", "Influencer", "Lead Gen"],
     bigStat: "10×",
     bigStatLabel: "ROAS in 15 Days",
-    whatWeDid: "Built a full-funnel campaign in 15 days to drive footfall to a European Education Fair — influencer video for awareness, Meta Ads across 3 objectives, and Google PMax for local calls.",
+    whatWeDid: "Built a full-funnel campaign in 15 days to drive footfall to a European Education Fair, influencer video for awareness, Meta Ads across 3 objectives, and Google PMax for local calls.",
     result: "5 students enrolled from a ₹20,000 spend, delivering 10× ROAS.",
     metrics: [
       { label: "ROAS", value: "10×" },
@@ -84,7 +84,7 @@ const PROJECTS: Project[] = [
     tags: ["GTM Strategy", "Meta Ads", "AI Creatives", "Brand Launch"],
     bigStat: "3.84×",
     bigStatLabel: "ROAS from Launch",
-    whatWeDid: "Built the full go-to-market strategy for a new Ayurvedic brand — market research, AI-assisted creative production, and Meta Ads across 4 objectives before a single rupee was spent.",
+    whatWeDid: "Built the full go-to-market strategy for a new Ayurvedic brand, market research, AI-assisted creative production, and Meta Ads across 4 objectives before a single rupee was spent.",
     result: "3.84× ROAS and 148.7% ROI achieved straight from launch.",
     metrics: [
       { label: "ROAS", value: "3.84×" },
@@ -115,7 +115,7 @@ const PROJECTS: Project[] = [
     tags: ["SEO Audit", "On-page SEO", "Content Plan"],
     bigStat: "10",
     bigStatLabel: "Blogs on Page 1",
-    whatWeDid: "Full SEO audit, on-page optimisation, competitor research, and a structured content plan — all from scratch with no existing SEO foundation.",
+    whatWeDid: "Full SEO audit, on-page optimisation, competitor research, and a structured content plan, all from scratch with no existing SEO foundation.",
     result: "10 blog posts now rank on page 1 of Google, driving consistent high-quality leads.",
     metrics: [
       { label: "Page 1 Rankings", value: "10" },
@@ -131,7 +131,7 @@ const PROJECTS: Project[] = [
     bigStat: "38.2K",
     bigStatLabel: "Impressions",
     whatWeDid: "Established organic search presence in a competitive B2B niche through keyword research, on-page optimisation, and a mid-funnel content strategy.",
-    result: "38.2K impressions and 236 clicks — with impressions tripling in the final month.",
+    result: "38.2K impressions and 236 clicks, with impressions tripling in the final month.",
     metrics: [
       { label: "Impressions", value: "38.2K" },
       { label: "Avg. Position", value: "14.5" },
@@ -146,7 +146,7 @@ const PROJECTS: Project[] = [
     tags: ["Website Redesign", "On-page SEO", "CRO", "Speed Optimisation"],
     bigStat: "95+",
     bigStatLabel: "PageSpeed Score",
-    whatWeDid: "Rebuilt the site from the ground up — fast, mobile-first, clean product structure, and on-page SEO baked in from day one.",
+    whatWeDid: "Rebuilt the site from the ground up, fast, mobile-first, clean product structure, and on-page SEO baked in from day one.",
     result: "95+ PageSpeed score. Passes all Core Web Vitals. Now ranks for keywords it had zero presence for before.",
     metrics: [
       { label: "PageSpeed", value: "95+" },
@@ -200,7 +200,7 @@ const PROJECTS: Project[] = [
     tags: ["Instagram", "Content Strategy", "B2B", "Video", "Product Showcase"],
     bigStat: "",
     bigStatLabel: "",
-    whatWeDid: "Built and managed the Instagram presence for a B2B display counter manufacturer — translating factory-floor engineering into scroll-stopping visual content.",
+    whatWeDid: "Built and managed the Instagram presence for a B2B display counter manufacturer, translating factory-floor engineering into scroll-stopping visual content.",
     result: "A professional feed that builds trust with bakery and retail buyers before they ever pick up the phone.",
     metrics: [],
     link: "https://www.instagram.com/kareliya_equipments_india/",
@@ -215,7 +215,7 @@ const PROJECTS: Project[] = [
     tags: ["Instagram", "Content Strategy", "Visual Identity", "925 Silver", "Gifting"],
     bigStat: "",
     bigStatLabel: "",
-    whatWeDid: "Built the complete Instagram presence for a 925 silver jewellery brand — crafting an emotion-led content identity around love, gifting, and everyday elegance.",
+    whatWeDid: "Built the complete Instagram presence for a 925 silver jewellery brand, crafting an emotion-led content identity around love, gifting, and everyday elegance.",
     result: "A cohesive, premium feed with a consistent visual language that positions Luniva as the go-to gifting brand for silver jewellery.",
     metrics: [],
     link: "https://www.instagram.com/luniva_jewels_",
@@ -263,7 +263,7 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
     >
       {/* ── Visual area ── */}
       {p.image && p.instagramHandle ? (
-        /* Instagram — full-bleed image + minimal footer */
+        /* Instagram, full-bleed image + minimal footer */
         <>
           <div className="relative w-full overflow-hidden" style={{ height: 460 }}>
             {/* Instagram top chrome */}
@@ -479,7 +479,7 @@ function WorkPageInner() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-black/55"
           >
-            Every project below is a real business we worked with — with real numbers, real challenges, and real outcomes. No stock imagery. No made-up stats.
+            Every project below is a real business we worked with, with real numbers, real challenges, and real outcomes. No stock imagery. No made-up stats.
           </motion.p>
 
           <motion.div
@@ -571,7 +571,7 @@ function WorkPageInner() {
                   <p className="text-base font-semibold text-black/40">
                     Case studies for this service are being prepared.
                   </p>
-                  <p className="mt-2 text-sm text-black/30">Check back soon — or reach out and we&rsquo;ll walk you through relevant work.</p>
+                  <p className="mt-2 text-sm text-black/30">Check back soon, or reach out and we&rsquo;ll walk you through relevant work.</p>
                   <div className="mt-6 flex justify-center">
                     <CTAButton href="/contact" variant="primary" size="sm">Talk to us →</CTAButton>
                   </div>

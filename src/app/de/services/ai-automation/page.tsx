@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -9,19 +9,19 @@ const up = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
 const useCases = [
-  { title: "Lead-Nurturing-Automatisierung", desc: "Automatisierte E-Mail- und WhatsApp-Sequenzen, die Leads zur richtigen Zeit mit der richtigen Message ansprechen — ohne manuelle Eingriffe." },
-  { title: "CRM & Daten-Integration", desc: "Nahtlose Verbindung zwischen Ihrer Website, Ihrem CRM, Ihren Marketing-Tools und Ihrem Vertriebsteam — alles in Echtzeit synchronisiert." },
-  { title: "Reporting-Automatisierung", desc: "Automatisierte Dashboards und Berichte, die Ihr Team täglich mit relevanten Metriken versorgen — keine manuellen Tabellen mehr." },
+  { title: "Lead-Nurturing-Automatisierung", desc: "Automatisierte E-Mail- und WhatsApp-Sequenzen, die Leads zur richtigen Zeit mit der richtigen Message ansprechen, ohne manuelle Eingriffe." },
+  { title: "CRM & Daten-Integration", desc: "Nahtlose Verbindung zwischen Ihrer Website, Ihrem CRM, Ihren Marketing-Tools und Ihrem Vertriebsteam, alles in Echtzeit synchronisiert." },
+  { title: "Reporting-Automatisierung", desc: "Automatisierte Dashboards und Berichte, die Ihr Team täglich mit relevanten Metriken versorgen, keine manuellen Tabellen mehr." },
   { title: "KI-gestützte Lead Intelligence", desc: "Verhaltensbasierte Intent-Scoring-Systeme, die Ihrem Vertrieb mitteilen, wen er wann kontaktieren soll." },
-  { title: "Workflow-Automatisierung", desc: "Interne Prozesse — Onboarding, Auftragsabwicklung, Kommunikation — systematisch automatisiert mit n8n, Make und Zapier." },
-  { title: "KI-Chatbots & Assistenten", desc: "Intelligente Chatbots für Lead-Qualifizierung, Support und First-Line-Kommunikation — 24/7 verfügbar." },
+  { title: "Workflow-Automatisierung", desc: "Interne Prozesse, Onboarding, Auftragsabwicklung, Kommunikation, systematisch automatisiert mit n8n, Make und Zapier." },
+  { title: "KI-Chatbots & Assistenten", desc: "Intelligente Chatbots für Lead-Qualifizierung, Support und First-Line-Kommunikation, 24/7 verfügbar." },
 ];
 
 const faqs = [
-  { q: "Brauche ich technisches Know-how, um KI-Automatisierung einzusetzen?", a: "Nein. Wir übernehmen die gesamte technische Implementierung — von der Strategie über den Aufbau bis zur Übergabe. Sie bekommen ein funktionierendes System mit klarer Dokumentation." },
-  { q: "Welche Tools nutzen Sie für Automatisierungen?", a: "Wir arbeiten mit n8n, Make (Integromat), Zapier, OpenAI-APIs, HubSpot, und proprietären KI-Modellen — je nach Anforderung und Budget." },
+  { q: "Brauche ich technisches Know-how, um KI-Automatisierung einzusetzen?", a: "Nein. Wir übernehmen die gesamte technische Implementierung, von der Strategie über den Aufbau bis zur Übergabe. Sie bekommen ein funktionierendes System mit klarer Dokumentation." },
+  { q: "Welche Tools nutzen Sie für Automatisierungen?", a: "Wir arbeiten mit n8n, Make (Integromat), Zapier, OpenAI-APIs, HubSpot, und proprietären KI-Modellen, je nach Anforderung und Budget." },
   { q: "Wie schnell ist eine Automatisierung implementiert?", a: "Einfache Workflows sind in 1–2 Wochen live. Komplexere Systeme mit CRM-Integration, KI-Logik und Multi-Step-Pipelines brauchen 4–8 Wochen." },
-  { q: "Wie viel Budget spare ich durch Automatisierung?", a: "Das hängt von Ihren aktuellen Prozessen ab. In der Praxis sehen wir typischerweise eine Zeitersparnis von 10–40 Stunden/Monat pro automatisiertem Workflow — realisierbar als Kosteneinsparung oder als freigesetzte Kapazität für wachstumsrelevante Aufgaben." },
+  { q: "Wie viel Budget spare ich durch Automatisierung?", a: "Das hängt von Ihren aktuellen Prozessen ab. In der Praxis sehen wir typischerweise eine Zeitersparnis von 10–40 Stunden/Monat pro automatisiertem Workflow, realisierbar als Kosteneinsparung oder als freigesetzte Kapazität für wachstumsrelevante Aufgaben." },
 ];
 
 export default function DeAIAutomationPage() {
@@ -44,7 +44,7 @@ export default function DeAIAutomationPage() {
               <span className="text-blue-400">MEHR PERSONAL.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-7 max-w-xl text-lg leading-relaxed text-white/50">
-              KI-Workflows, automatisiertes Lead-Nurturing und intelligente Betriebssysteme — wir implementieren Automatisierung, die sofort wirkt.
+              KI-Workflows, automatisiertes Lead-Nurturing und intelligente Betriebssysteme, wir implementieren Automatisierung, die sofort wirkt.
             </motion.p>
             <motion.div variants={up} className="mt-10 flex flex-wrap gap-4">
               <Link href="/de/contact"
@@ -100,7 +100,7 @@ export default function DeAIAutomationPage() {
       <section className="py-24" style={{ background: "#050505" }}>
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-4xl font-black text-white">Bereit für KI-Automatisierung?</h2>
-          <p className="mt-5 text-base text-white/50">Starten Sie mit einem kostenlosen Automatisierungs-Audit — wir zeigen, welche Prozesse zuerst automatisiert werden sollten.</p>
+          <p className="mt-5 text-base text-white/50">Starten Sie mit einem kostenlosen Automatisierungs-Audit, wir zeigen, welche Prozesse zuerst automatisiert werden sollten.</p>
           <div className="mt-10 flex justify-center">
             <Link href="/de/contact"
               className="inline-flex h-14 items-center gap-2 rounded-full bg-blue-600 px-10 text-sm font-bold text-white transition-opacity hover:opacity-90">

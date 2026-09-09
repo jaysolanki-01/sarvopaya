@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Mehr Leads generieren — Qualifizierte Nachfrage aufbauen | Sarvopaya",
+  title: "Mehr Leads generieren, Qualifizierte Nachfrage aufbauen | Sarvopaya",
   description: "Bauen Sie einen konsistenten Fluss qualifizierter Interessenten auf. Sarvopaya kombiniert SEO, Performance Marketing und KI-Lead-Intelligence für nachhaltige Lead-Generierung.",
   alternates: {
     canonical: "https://sarvopaya.com/de/solutions/need-more-leads",

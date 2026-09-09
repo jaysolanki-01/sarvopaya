@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "AI Automation & Digital Marketing Agency Australia | Sarvopaya",
   description:
-    "Sarvopaya is an AI automation and digital marketing agency serving Australian businesses. D2C e-commerce, performance marketing and AI workflows — India expertise at AEST-compatible hours.",
+    "Sarvopaya is an AI automation and digital marketing agency serving Australian businesses. D2C e-commerce, performance marketing and AI workflows, India expertise at AEST-compatible hours.",
   keywords: [
     "AI automation agency Australia",
     "digital marketing agency Australia",

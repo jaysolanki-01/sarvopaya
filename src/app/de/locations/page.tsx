@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -12,9 +12,9 @@ const markets = [
   { flag: "🇺🇸", country: "USA", region: "Nordamerika", desc: "Performance Marketing, SEO und KI-Automatisierung für Unternehmen in den Vereinigten Staaten.", href: "/de/locations/usa", priority: true },
   { flag: "🇬🇧", country: "Vereinigtes Königreich", region: "Europa", desc: "Digitales Wachstum und KI-Strategien für britische Marken und Unternehmen.", href: "/de/locations/uk", priority: true },
   { flag: "🇦🇪", country: "Vereinigte Arabische Emirate", region: "Naher Osten", desc: "Marketing und KI-Automatisierung für Unternehmen in Dubai und den Emiraten.", href: "/de/locations/uae", priority: true },
-  { flag: "🇸🇦", country: "Saudi-Arabien", region: "Naher Osten", desc: "Wachstumsstrategien für saudische Unternehmen — lokalisiert und kulturell abgestimmt.", href: "/de/locations/saudi-arabia", priority: true },
+  { flag: "🇸🇦", country: "Saudi-Arabien", region: "Naher Osten", desc: "Wachstumsstrategien für saudische Unternehmen, lokalisiert und kulturell abgestimmt.", href: "/de/locations/saudi-arabia", priority: true },
   { flag: "🇦🇺", country: "Australien", region: "Asien-Pazifik", desc: "Performance-Marketing und SEO für australische Marken mit internationalen Ambitionen.", href: "/de/locations/australia", priority: false },
-  { flag: "🇨🇦", country: "Kanada", region: "Nordamerika", desc: "Digitales Wachstum für kanadische Unternehmen — B2C, B2B und Export.", href: "/de/locations/canada", priority: false },
+  { flag: "🇨🇦", country: "Kanada", region: "Nordamerika", desc: "Digitales Wachstum für kanadische Unternehmen, B2C, B2B und Export.", href: "/de/locations/canada", priority: false },
   { flag: "🇸🇬", country: "Singapur", region: "Asien-Pazifik", desc: "Marketing und KI-Strategien für Unternehmen im asiatisch-pazifischen Wachstumsmarkt.", href: "/de/locations/singapore", priority: false },
 ];
 
@@ -34,7 +34,7 @@ export default function DeLocationsPage() {
               <span className="text-black/25">Lokal gedacht.</span>
             </motion.h1>
             <motion.p variants={up} className="mt-6 max-w-2xl text-lg leading-relaxed text-black/55">
-              Von Indien aus betreuen wir Unternehmen in 7 internationalen Märkten — mit Strategien, die auf die Realität jedes Marktes zugeschnitten sind.
+              Von Indien aus betreuen wir Unternehmen in 7 internationalen Märkten, mit Strategien, die auf die Realität jedes Marktes zugeschnitten sind.
             </motion.p>
           </motion.div>
         </div>

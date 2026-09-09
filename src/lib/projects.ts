@@ -1,4 +1,4 @@
-export type Category = {
+﻿export type Category = {
   label: string;
 };
 
@@ -32,7 +32,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "nova-storefront-website",
-    title: "Nova Storefront — Full Website Redesign",
+    title: "Nova Storefront, Full Website Redesign",
     category: "Website Development",
     summary:
       "A full website rebuild focused on speed, clarity, and conversion for a fast-growing D2C brand.",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
       },
       {
         heading: "2. The Approach",
-        body: "We rebuilt the site from the ground up on a lightweight, component-based stack — restructuring navigation around how customers actually shop, compressing checkout to two steps, and rebuilding every template for sub-two-second load times.",
+        body: "We rebuilt the site from the ground up on a lightweight, component-based stack, restructuring navigation around how customers actually shop, compressing checkout to two steps, and rebuilding every template for sub-two-second load times.",
       },
       {
         heading: "3. The Result",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
   },
   {
     slug: "flowdesk-ai-automation",
-    title: "FlowDesk — AI Support Automation",
+    title: "FlowDesk, AI Support Automation",
     category: "AI Automation",
     summary:
       "Automated 70% of inbound support tickets with an AI workflow trained on FlowDesk's own knowledge base.",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
     intro:
-      "FlowDesk's support team was drowning in repetitive tickets — password resets, billing questions, integration errors — while the hard problems waited in queue for days.",
+      "FlowDesk's support team was drowning in repetitive tickets, password resets, billing questions, integration errors, while the hard problems waited in queue for days.",
     sections: [
       {
         heading: "1. The Challenge",
@@ -86,7 +86,7 @@ export const projects: Project[] = [
   },
   {
     slug: "brightpath-seo-geo",
-    title: "BrightPath — SEO & Generative Engine Optimization",
+    title: "BrightPath, SEO & Generative Engine Optimization",
     category: "SEO & GEO",
     summary:
       "Rebuilt technical SEO and optimized content for AI answer engines, tripling organic demo signups.",
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     image:
       "https://images.unsplash.com/photo-1607703703674-df96af81dffa?auto=format&fit=crop&w=1600&q=80",
     intro:
-      "BrightPath ranked well for its brand name and nothing else. Meanwhile, prospective students were increasingly asking AI assistants for course recommendations — and BrightPath was invisible in those answers too.",
+      "BrightPath ranked well for its brand name and nothing else. Meanwhile, prospective students were increasingly asking AI assistants for course recommendations, and BrightPath was invisible in those answers too.",
     sections: [
       {
         heading: "1. The Challenge",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
   },
   {
     slug: "urbancart-ecommerce",
-    title: "UrbanCart — Headless E-commerce Build",
+    title: "UrbanCart, Headless E-commerce Build",
     category: "E-commerce",
     summary:
       "A headless storefront with AI-personalized merchandising that cut cart abandonment by a third.",
@@ -140,7 +140,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ledgerly-saas",
-    title: "Ledgerly — SaaS Product Launch",
+    title: "Ledgerly, SaaS Product Launch",
     category: "SaaS Development",
     summary:
       "Took Ledgerly from private beta to public launch with a rebuilt product and go-to-market site.",
@@ -167,7 +167,7 @@ export const projects: Project[] = [
   },
   {
     slug: "kaira-uiux",
-    title: "Kaira — UI/UX Redesign",
+    title: "Kaira, UI/UX Redesign",
     category: "UI/UX Design",
     summary:
       "A ground-up UX overhaul that made a clinical scheduling product feel simple for first-time patients.",
@@ -194,7 +194,7 @@ export const projects: Project[] = [
   },
   {
     slug: "tapstack-mobile",
-    title: "TapStack — Mobile App Experience",
+    title: "TapStack, Mobile App Experience",
     category: "Mobile Apps",
     summary:
       "Designed and shipped a driver-facing mobile app that cut delivery dispatch time in half.",
