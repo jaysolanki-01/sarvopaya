@@ -10,6 +10,7 @@ export const viewport: Viewport = {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookMeeting from "@/components/BookMeeting";
+import LeadPopup from "@/components/LeadPopup";
 import "./globals.css";
 
 const siteUrl = "https://www.sarvopaya.com";
@@ -247,6 +248,7 @@ export default async function RootLayout({
         <Footer />
 
         <BookMeeting />
+        <LeadPopup />
 
         {/* WhatsApp floating button */}
         <div className="fixed bottom-6 right-6 z-50">
