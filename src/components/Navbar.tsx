@@ -202,9 +202,6 @@ function MenuIcon({ open }: { open: boolean }) {
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isGerman = pathname.startsWith("/de");
-  const langSwitchHref = isGerman ? (pathname.slice(3) || "/") : `/de${pathname}`;
-
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [activeService, setActiveService] = useState<string>(serviceCategories[0].label);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -330,16 +327,6 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Link
-            href={langSwitchHref}
-            className={`rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-wider transition-colors ${
-              scrolled
-                ? "border-white/20 text-white/60 hover:border-white/50 hover:text-white"
-                : "border-black/20 text-black/50 hover:border-black/40 hover:text-black"
-            }`}
-          >
-            {isGerman ? "EN" : "DE"}
-          </Link>
           <CTAButton href="/contact" variant={scrolled ? "inverted" : "primary"}>
             Contact Us
           </CTAButton>
@@ -786,19 +773,6 @@ export default function Navbar() {
               )}
             </li>
           ))}
-          <li className="mt-2">
-            <Link
-              href={langSwitchHref}
-              onClick={() => setMobileOpen(false)}
-              className={`block rounded-md border px-3 py-3 text-center text-sm font-bold uppercase tracking-wider transition-colors ${
-                scrolled
-                  ? "border-white/20 text-white/70 hover:text-white"
-                  : "border-black/15 text-black/60 hover:text-black"
-              }`}
-            >
-              {isGerman ? "Switch to English (EN)" : "Auf Deutsch wechseln (DE)"}
-            </Link>
-          </li>
           <li className="mt-2">
             <CTAButton
               href="/contact"

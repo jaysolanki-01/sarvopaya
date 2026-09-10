@@ -29,7 +29,10 @@ export type Project = {
   sections: ProjectSection[];
 };
 
-export const projects: Project[] = [
+export const projects: Project[] = [];
+
+// Placeholder case studies removed. Add real client projects here.
+const _placeholder: Project[] = [
   {
     slug: "nova-storefront-website",
     title: "Nova Storefront, Full Website Redesign",
