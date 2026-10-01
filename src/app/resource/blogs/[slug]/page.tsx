@@ -73,7 +73,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <BlogPostDetail post={post} />
+      <BlogPostDetail
+        post={post}
+        parentLabel="Blogs"
+        parentHref="/resource/blogs"
+        watermark="BLOG"
+      />
     </>
   );
 }

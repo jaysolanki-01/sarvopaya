@@ -28,15 +28,9 @@ const nextConfig: NextConfig = {
         destination: "/resource/blogs",
         permanent: true,
       },
-      // Shorten /resources/founders-pov/:slug → /resource/blogs/:slug
+      // /resources/blogs/:slug → /resource/blogs/:slug
       {
-        source: "/resources/founders-pov/:slug",
-        destination: "/resource/blogs/:slug",
-        permanent: true,
-      },
-      // Shorten /founders-pov/:slug → /resource/blogs/:slug
-      {
-        source: "/founders-pov/:slug",
+        source: "/resources/blogs/:slug",
         destination: "/resource/blogs/:slug",
         permanent: true,
       },
@@ -46,11 +40,17 @@ const nextConfig: NextConfig = {
         destination: "/resource/blogs/:slug",
         permanent: true,
       },
+      // /resource/blog/:slug → /resource/blogs/:slug
+      {
+        source: "/resource/blog/:slug",
+        destination: "/resource/blogs/:slug",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
     return [
-      // Short URLs directly serving blog posts
+      // Short URLs for Blogs
       {
         source: "/blog/:slug",
         destination: "/resource/blogs/:slug",
@@ -60,19 +60,6 @@ const nextConfig: NextConfig = {
         destination: "/resource/blogs/:slug",
       },
       {
-        source: "/pov/:slug",
-        destination: "/resource/blogs/:slug",
-      },
-      {
-        source: "/b/:slug",
-        destination: "/resource/blogs/:slug",
-      },
-      {
-        source: "/p/:slug",
-        destination: "/resource/blogs/:slug",
-      },
-      // Short URLs for the blogs hub
-      {
         source: "/blog",
         destination: "/resource/blogs",
       },
@@ -80,9 +67,22 @@ const nextConfig: NextConfig = {
         source: "/blogs",
         destination: "/resource/blogs",
       },
+      // Short URLs for Founder's POV
+      {
+        source: "/pov/:slug",
+        destination: "/resources/founders-pov/:slug",
+      },
       {
         source: "/pov",
-        destination: "/resource/blogs",
+        destination: "/resources/founders-pov",
+      },
+      {
+        source: "/founders-pov/:slug",
+        destination: "/resources/founders-pov/:slug",
+      },
+      {
+        source: "/founders-pov",
+        destination: "/resources/founders-pov",
       },
     ];
   },

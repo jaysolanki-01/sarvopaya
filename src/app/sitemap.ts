@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blogPosts";
+import { founderPovs } from "@/lib/founderPovs";
 
 const BASE = "https://www.sarvopaya.com";
 
@@ -64,5 +65,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...blogEntries];
+  // Dynamic founder POV posts
+  const povEntries: MetadataRoute.Sitemap = founderPovs.map((post) => ({
+    url: `${BASE}/resources/founders-pov/${post.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...blogEntries, ...povEntries];
 }

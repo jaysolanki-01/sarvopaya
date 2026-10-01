@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { blogPosts } from "@/lib/blogPosts";
+import { founderPovs } from "@/lib/founderPovs";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const up = {
@@ -16,13 +16,13 @@ const seq = {
   show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
 };
 
-const povs = blogPosts.map((p) => ({
+const povs = founderPovs.map((p) => ({
   title: p.title,
   date: p.date,
   tag: p.tag,
   excerpt: p.excerpt,
   readTime: p.readTime,
-  slug: `/resource/blogs/${p.slug}`,
+  slug: `/resources/founders-pov/${p.slug}`,
 }));
 
 export default function FoundersPovPage() {

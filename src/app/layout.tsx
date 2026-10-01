@@ -1,4 +1,4 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 
 export const viewport: Viewport = {
@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import BookMeeting from "@/components/BookMeeting";
 import LeadPopup from "@/components/LeadPopup";
 import CookieBanner from "@/components/CookieBanner";
+import AIChatWidget from "@/components/AIChatWidget";
 import "./globals.css";
 
 const siteUrl = "https://www.sarvopaya.com";
@@ -251,6 +252,7 @@ export default async function RootLayout({
         <BookMeeting />
         <LeadPopup />
         <CookieBanner />
+        <AIChatWidget />
 
         {/* WhatsApp floating button */}
         <div className="fixed bottom-6 right-6 z-50">

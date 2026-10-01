@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
-import type { BlogPost } from "@/lib/blogPosts";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const up = {
@@ -13,7 +12,28 @@ const up = {
 };
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
-export default function BlogPostDetail({ post }: { post: BlogPost }) {
+export type ArticleItem = {
+  slug: string;
+  title: string;
+  date: string;
+  tag: string;
+  excerpt: string;
+  readTime: string;
+  author: string;
+  sections: { heading: string; body: string }[];
+};
+
+export default function BlogPostDetail({
+  post,
+  parentLabel = "Blogs",
+  parentHref = "/resource/blogs",
+  watermark = "ARTICLE",
+}: {
+  post: ArticleItem;
+  parentLabel?: string;
+  parentHref?: string;
+  watermark?: string;
+}) {
   return (
     <article>
       {/* ── HEADER ── */}
@@ -23,7 +43,7 @@ export default function BlogPostDetail({ post }: { post: BlogPost }) {
           className="pointer-events-none absolute right-0 top-0 select-none font-black uppercase leading-none text-black/[0.03]"
           style={{ fontSize: "clamp(80px,14vw,200px)" }}
         >
-          POV
+          {watermark}
         </span>
 
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
@@ -32,7 +52,7 @@ export default function BlogPostDetail({ post }: { post: BlogPost }) {
             <motion.div variants={up} className="mb-6 flex items-center gap-2 text-xs text-black/40">
               <Link href="/resources" className="hover:text-black transition-colors">Resources</Link>
               <span>/</span>
-              <Link href="/resource/blogs" className="hover:text-black transition-colors">Blogs</Link>
+              <Link href={parentHref} className="hover:text-black transition-colors">{parentLabel}</Link>
             </motion.div>
 
             {/* Tag + date */}
@@ -133,8 +153,8 @@ export default function BlogPostDetail({ post }: { post: BlogPost }) {
               <CTAButton href="/contact" variant="primary" size="lg">
                 Start the Conversation
               </CTAButton>
-              <CTAButton href="/resource/blogs" variant="outline" size="lg">
-                ← Back to Blogs
+              <CTAButton href={parentHref} variant="outline" size="lg">
+                ← Back to {parentLabel}
               </CTAButton>
             </div>
           </motion.div>

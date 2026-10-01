@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostDetail from "@/components/BlogPostDetail";
-import { getBlogPostBySlug, blogPosts } from "@/lib/blogPosts";
+import { getFounderPovBySlug, founderPovs } from "@/lib/founderPovs";
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return founderPovs.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
@@ -13,20 +13,20 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const post = getFounderPovBySlug(slug);
 
   if (!post) return { title: "Post Not Found | Sarvopaya" };
 
-  const title = `${post.title} | Sarvopaya`;
+  const title = `${post.title} | Sarvopaya Founder's POV`;
 
   return {
     title,
     description: post.excerpt,
-    alternates: { canonical: `/resource/blogs/${post.slug}` },
+    alternates: { canonical: `/resources/founders-pov/${post.slug}` },
     openGraph: {
       title,
       description: post.excerpt,
-      url: `/resource/blogs/${post.slug}`,
+      url: `/resources/founders-pov/${post.slug}`,
       type: "article",
     },
     twitter: {
@@ -37,13 +37,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({
+export default async function FounderPovPostPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const post = getFounderPovBySlug(slug);
 
   if (!post) notFound();
 
@@ -52,7 +52,7 @@ export default async function BlogPostPage({
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    url: `https://sarvopaya.com/resource/blogs/${post.slug}`,
+    url: `https://sarvopaya.com/resources/founders-pov/${post.slug}`,
     datePublished: post.date,
     author: {
       "@type": "Person",
@@ -73,7 +73,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <BlogPostDetail post={post} />
+      <BlogPostDetail
+        post={post}
+        parentLabel="Founder's POV"
+        parentHref="/resources/founders-pov"
+        watermark="POV"
+      />
     </>
   );
 }
