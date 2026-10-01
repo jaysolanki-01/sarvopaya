@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["192.168.1.5"],
+  output: "standalone",
   async redirects() {
     return [
       // Old performance-marketing URL → new d2c-marketing
@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
       {
         source: "/need-more-leads",
         destination: "/solutions/need-more-leads",
+        permanent: true,
+      },
+      // /privacy → /privacy-policy
+      {
+        source: "/privacy",
+        destination: "/privacy-policy",
         permanent: true,
       },
     ];

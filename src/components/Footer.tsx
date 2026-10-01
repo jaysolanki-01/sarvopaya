@@ -23,7 +23,7 @@ const footerNav = [
 
   { label: "About", href: "/about" },
   { label: "Contact Us", href: "/contact" },
-  { label: "Privacy", href: "/privacy" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
 ];
 
 const socials = [

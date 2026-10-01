@@ -1,4 +1,4 @@
-﻿import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blogPosts";
 
 const BASE = "https://www.sarvopaya.com";
@@ -15,6 +15,7 @@ const staticRoutes: {
   { path: "/work",                                 changeFrequency: "weekly",  priority: 0.8 },
   { path: "/industries",                           changeFrequency: "monthly", priority: 0.6 },
   { path: "/resources",                            changeFrequency: "weekly",  priority: 0.8 },
+  { path: "/privacy-policy",                       changeFrequency: "yearly",  priority: 0.3 },
   // Services
   { path: "/services/d2c-marketing",              changeFrequency: "monthly", priority: 0.9 },
   { path: "/services/seo",                         changeFrequency: "monthly", priority: 0.9 },
