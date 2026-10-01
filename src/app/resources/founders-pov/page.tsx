@@ -22,7 +22,7 @@ const povs = blogPosts.map((p) => ({
   tag: p.tag,
   excerpt: p.excerpt,
   readTime: p.readTime,
-  slug: `/resources/founders-pov/${p.slug}`,
+  slug: `/resource/blogs/${p.slug}`,
 }));
 
 export default function FoundersPovPage() {

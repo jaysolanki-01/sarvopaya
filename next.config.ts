@@ -28,6 +28,62 @@ const nextConfig: NextConfig = {
         destination: "/resource/blogs",
         permanent: true,
       },
+      // Shorten /resources/founders-pov/:slug → /resource/blogs/:slug
+      {
+        source: "/resources/founders-pov/:slug",
+        destination: "/resource/blogs/:slug",
+        permanent: true,
+      },
+      // Shorten /founders-pov/:slug → /resource/blogs/:slug
+      {
+        source: "/founders-pov/:slug",
+        destination: "/resource/blogs/:slug",
+        permanent: true,
+      },
+      // /resources/blog/:slug → /resource/blogs/:slug
+      {
+        source: "/resources/blog/:slug",
+        destination: "/resource/blogs/:slug",
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      // Short URLs directly serving blog posts
+      {
+        source: "/blog/:slug",
+        destination: "/resource/blogs/:slug",
+      },
+      {
+        source: "/blogs/:slug",
+        destination: "/resource/blogs/:slug",
+      },
+      {
+        source: "/pov/:slug",
+        destination: "/resource/blogs/:slug",
+      },
+      {
+        source: "/b/:slug",
+        destination: "/resource/blogs/:slug",
+      },
+      {
+        source: "/p/:slug",
+        destination: "/resource/blogs/:slug",
+      },
+      // Short URLs for the blogs hub
+      {
+        source: "/blog",
+        destination: "/resource/blogs",
+      },
+      {
+        source: "/blogs",
+        destination: "/resource/blogs",
+      },
+      {
+        source: "/pov",
+        destination: "/resource/blogs",
+      },
     ];
   },
   images: {
