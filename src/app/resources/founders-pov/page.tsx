@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -44,12 +44,23 @@ export default function FoundersPovPage() {
         </span>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div variants={seq} initial="hidden" animate={heroIv ? "show" : "hidden"}>
-            <motion.span
-              variants={up}
-              className="mb-4 inline-block rounded-full border border-black/10 bg-black/[0.04] px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-black/50"
-            >
-              Founder&apos;s POVs
-            </motion.span>
+            <motion.div variants={up} className="mb-6 flex flex-wrap items-center gap-2">
+              <Link
+                href="/resources"
+                className="rounded-full border border-black/10 px-4 py-1.5 text-xs font-semibold text-black/60 transition-colors hover:border-black/30 hover:text-black"
+              >
+                Case Studies & Work
+              </Link>
+              <Link
+                href="/resource/blogs"
+                className="rounded-full border border-black/10 px-4 py-1.5 text-xs font-semibold text-black/60 transition-colors hover:border-black/30 hover:text-black"
+              >
+                Blogs & Playbooks
+              </Link>
+              <span className="rounded-full bg-black px-4 py-1.5 text-xs font-bold text-white shadow-sm">
+                Founder&apos;s POVs
+              </span>
+            </motion.div>
             <motion.h1
               variants={up}
               className="font-heading text-5xl font-black leading-[1.05] tracking-tight text-black sm:text-6xl lg:text-7xl"

@@ -32,7 +32,7 @@ export default function BlogPostDetail({ post }: { post: BlogPost }) {
             <motion.div variants={up} className="mb-6 flex items-center gap-2 text-xs text-black/40">
               <Link href="/resources" className="hover:text-black transition-colors">Resources</Link>
               <span>/</span>
-              <Link href="/resources/founders-pov" className="hover:text-black transition-colors">Founder&apos;s POV</Link>
+              <Link href="/resource/blogs" className="hover:text-black transition-colors">Blogs</Link>
             </motion.div>
 
             {/* Tag + date */}
@@ -133,8 +133,8 @@ export default function BlogPostDetail({ post }: { post: BlogPost }) {
               <CTAButton href="/contact" variant="primary" size="lg">
                 Start the Conversation
               </CTAButton>
-              <CTAButton href="/resources/founders-pov" variant="outline" size="lg">
-                ← Back to POVs
+              <CTAButton href="/resource/blogs" variant="outline" size="lg">
+                ← Back to Blogs
               </CTAButton>
             </div>
           </motion.div>

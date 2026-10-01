@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
         destination: "/privacy-policy",
         permanent: true,
       },
+      // /resources/blogs → /resource/blogs
+      {
+        source: "/resources/blogs",
+        destination: "/resource/blogs",
+        permanent: true,
+      },
     ];
   },
   images: {

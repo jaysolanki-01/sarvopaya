@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import CTAButton from "@/components/CTAButton";
 import FinalCTA from "@/components/FinalCTA";
@@ -74,6 +75,28 @@ export default function ResourcesPage() {
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Our Work
           </motion.span>
+
+          {/* Subpage switcher */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-6 flex flex-wrap justify-center items-center gap-2"
+          >
+            <span className="rounded-full bg-black px-4 py-1.5 text-xs font-bold text-white shadow-sm">
+              Case Studies & Work
+            </span>
+            <Link
+              href="/resource/blogs"
+              className="rounded-full border border-black/10 px-4 py-1.5 text-xs font-semibold text-black/60 transition-colors hover:border-black/30 hover:text-black"
+            >
+              Blogs & Playbooks
+            </Link>
+            <Link
+              href="/resources/founders-pov"
+              className="rounded-full border border-black/10 px-4 py-1.5 text-xs font-semibold text-black/60 transition-colors hover:border-black/30 hover:text-black"
+            >
+              Founder&apos;s POVs
+            </Link>
+          </motion.div>
 
           <motion.h1
             variants={fadeUp}

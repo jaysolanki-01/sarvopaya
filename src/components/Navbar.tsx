@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -129,7 +129,7 @@ const navigation: NavItem[] = [
     items: [
       {
         label: "Blogs",
-        href: "/resources",
+        href: "/resource/blogs",
         description: "In-depth guides, playbooks and marketing insights from the Sarvopaya team.",
       },
       {
@@ -155,6 +155,8 @@ const tileIcons: Record<string, ComponentType<{ className?: string }>> = {
   "/solutions/need-more-sales": ChartIcon,
   "/solutions/need-better-operations": GearIcon,
   "/solutions/launching-a-new-product": RocketIcon,
+  "/resource/blogs": ChartIcon,
+  "/resources/blogs": ChartIcon,
   "/resources": ChartIcon,
   "/resources/founders-pov": MegaphoneIcon,
 };

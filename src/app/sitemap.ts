@@ -30,6 +30,7 @@ const staticRoutes: {
   { path: "/solutions/need-better-operations",    changeFrequency: "monthly", priority: 0.7 },
   { path: "/solutions/launching-a-new-product",   changeFrequency: "monthly", priority: 0.7 },
   // Resources
+  { path: "/resource/blogs",                      changeFrequency: "weekly",  priority: 0.8 },
   { path: "/resources/founders-pov",              changeFrequency: "weekly",  priority: 0.7 },
   // Locations hub
   { path: "/locations",                           changeFrequency: "monthly", priority: 0.7 },
