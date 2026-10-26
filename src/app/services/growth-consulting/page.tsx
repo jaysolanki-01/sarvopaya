@@ -32,6 +32,8 @@ const services = [
     title: "Digital Audit",
     desc: "A complete audit of your digital presence, paid ads, organic search, website conversion, social, email and automation. We identify exactly what is working, what is wasting budget and what to fix first.",
     deliverables: ["Ads audit (Meta + Google)", "SEO technical audit", "CRO audit", "Email & automation review", "Prioritised action report"],
+    dedicatedHref: "/services/digital-audit",
+    dedicatedLabel: "Explore Dedicated Digital Audit Practice",
   },
   {
     id: "growth-strategy",
