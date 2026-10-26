@@ -41,6 +41,8 @@ const services = [
     title: "Growth Strategy",
     desc: "A 6–12 month growth roadmap built around your business model, unit economics and market. We identify your highest-leverage growth levers and build the plan to execute them in the right order.",
     deliverables: ["Unit economics review", "Channel prioritisation", "Growth model", "Experiment roadmap", "OKRs & KPIs"],
+    dedicatedHref: "/services/growth-strategy",
+    dedicatedLabel: "Explore Dedicated Growth Strategy Practice",
   },
   {
     id: "ongoing-advisory",
