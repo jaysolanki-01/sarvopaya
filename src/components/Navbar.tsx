@@ -81,7 +81,7 @@ const serviceCategories: ServiceCategory[] = [
     href: "/services/growth-consulting",
     icon: CompassNeedleIcon,
     sublinks: [
-      { label: "GTM", href: "/services/growth-consulting#gtm" },
+      { label: "GTM Strategy Experts", href: "/services/go-to-market-startegy-expert" },
       { label: "Digital Audit", href: "/services/growth-consulting#digital-audit" },
       { label: "Growth Strategy", href: "/services/growth-consulting#growth-strategy" },
       { label: "Ongoing Advisory", href: "/services/growth-consulting#ongoing-advisory" },

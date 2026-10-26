@@ -84,6 +84,19 @@ const nextConfig: NextConfig = {
         source: "/founders-pov",
         destination: "/resources/founders-pov",
       },
+      // GTM Strategy Expert aliases
+      {
+        source: "/services/go-to-market-strategy-expert",
+        destination: "/services/go-to-market-startegy-expert",
+      },
+      {
+        source: "/services/gtm",
+        destination: "/services/go-to-market-startegy-expert",
+      },
+      {
+        source: "/gtm",
+        destination: "/services/go-to-market-startegy-expert",
+      },
     ];
   },
   images: {

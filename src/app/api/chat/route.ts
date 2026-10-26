@@ -19,6 +19,7 @@ CORE SERVICES:
 5. Website & Digital Experience (/services/website-digital-experience): Bespoke Next.js platforms, headless Shopify stores, ultra-fast web applications, and conversion rate optimization (CRO).
 6. AI Automation (/services/ai-automation): Custom n8n workflow pipelines, CRM auto-enrichment, instant WhatsApp lead qualification, automated reporting, and secure enterprise LLM integrations.
 7. Growth Consulting (/services/growth-consulting): Strategic diagnostics, unit economics audits, retention systems, and advisory for scaling startups and established enterprises.
+8. Go-To-Market (GTM) Strategy Experts (/services/go-to-market-startegy-expert): First-principles GTM blueprints, ICP micro-segment validation, category positioning, pricing architecture, and 90-day launch sequencing for new products, pivots, and cross-border expansion (attached to /services/growth-consulting#gtm).
 
 SOLUTIONS:
 - Need More Leads: /solutions/need-more-leads

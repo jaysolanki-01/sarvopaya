@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -23,6 +23,8 @@ const services = [
     title: "Go-to-Market Strategy",
     desc: "We build your GTM plan from first principles, ICP definition, positioning, channel selection, pricing, messaging hierarchy and launch sequencing. For new products, new markets and pivots.",
     deliverables: ["ICP definition", "Positioning framework", "Channel strategy", "Launch sequencing", "90-day execution roadmap"],
+    dedicatedHref: "/services/go-to-market-startegy-expert",
+    dedicatedLabel: "Explore Dedicated GTM Strategy Experts Practice",
   },
   {
     id: "digital-audit",
@@ -163,6 +165,16 @@ export default function GrowthConsultingPage() {
                   <div className="mb-1 h-1 w-10 rounded-full bg-[var(--accent)]" />
                   <h3 className="mt-5 font-heading text-2xl font-bold text-black">{svc.title}</h3>
                   <p className="mt-3 text-base leading-relaxed text-black/55">{svc.desc}</p>
+                  {svc.dedicatedHref && (
+                    <div className="mt-6">
+                      <Link
+                        href={svc.dedicatedHref}
+                        className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-2.5 text-xs font-bold text-white transition-all duration-300 hover:bg-[var(--accent)] hover:shadow-lg"
+                      >
+                        {svc.dedicatedLabel} <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                  )}
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-black/30">Deliverables</p>

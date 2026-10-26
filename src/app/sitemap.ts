@@ -25,6 +25,7 @@ const staticRoutes: {
   { path: "/services/website-digital-experience", changeFrequency: "monthly", priority: 0.8 },
   { path: "/services/ai-automation",              changeFrequency: "monthly", priority: 0.9 },
   { path: "/services/growth-consulting",           changeFrequency: "monthly", priority: 0.7 },
+  { path: "/services/go-to-market-startegy-expert", changeFrequency: "monthly", priority: 0.9 },
   // Solutions
   { path: "/solutions/need-more-leads",           changeFrequency: "monthly", priority: 0.7 },
   { path: "/solutions/need-more-sales",           changeFrequency: "monthly", priority: 0.7 },
