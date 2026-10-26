@@ -279,10 +279,10 @@ export default function DigitalAuditPage() {
               variants={up}
               className="font-heading text-5xl font-black leading-[1.05] tracking-tight text-black sm:text-6xl lg:text-7xl"
             >
-              Stop Guessing Where
+              Digital Audit
               <br />
               <span className="text-[var(--accent)]">
-                Your Budget Leaks.
+                Stop Guessing Where Your Budget Leaks.
               </span>
             </motion.h1>
 
