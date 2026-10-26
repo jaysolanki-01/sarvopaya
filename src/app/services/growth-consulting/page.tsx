@@ -50,6 +50,8 @@ const services = [
     title: "Ongoing Advisory",
     desc: "Monthly or weekly advisory retainer. A senior growth strategist in your corner, reviewing performance, course-correcting campaigns, preparing for fundraising and helping you make better decisions faster.",
     deliverables: ["Weekly / monthly calls", "Performance review", "Decision support", "Fundraising prep", "Team mentoring"],
+    dedicatedHref: "/services/ongoing-advisory",
+    dedicatedLabel: "Explore Dedicated Ongoing Advisory Practice",
   },
 ];
 

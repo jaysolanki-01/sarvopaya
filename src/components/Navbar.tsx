@@ -84,7 +84,7 @@ const serviceCategories: ServiceCategory[] = [
       { label: "GTM Strategy Experts", href: "/services/go-to-market-startegy-expert" },
       { label: "Digital Audit", href: "/services/digital-audit" },
       { label: "Growth Strategy", href: "/services/growth-strategy" },
-      { label: "Ongoing Advisory", href: "/services/growth-consulting#ongoing-advisory" },
+      { label: "Ongoing Advisory", href: "/services/ongoing-advisory" },
     ],
   },
 ];

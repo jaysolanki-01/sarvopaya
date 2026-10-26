@@ -22,6 +22,7 @@ CORE SERVICES:
 8. Go-To-Market (GTM) Strategy Experts (/services/go-to-market-startegy-expert): First-principles GTM blueprints, ICP micro-segment validation, category positioning, pricing architecture, and 90-day launch sequencing for new products, pivots, and cross-border expansion (attached to /services/growth-consulting#gtm).
 9. Digital Audit (/services/digital-audit): 360° forensic review of paid media leakage, website CRO, technical SEO, and retention workflows delivered in 48-72h with a prioritized 90-day fix roadmap (attached to /services/growth-consulting#digital-audit).
 10. Growth Strategy (/services/growth-strategy): 6-12 month revenue expansion roadmaps based on unit economics (CM1/CM2/CM3), capital allocation (70/20/10), and weekly experimentation velocity for brands scaling from ₹1Cr to ₹50Cr+ ARR (attached to /services/growth-consulting#growth-strategy).
+11. Ongoing Advisory (/services/ongoing-advisory): Executive growth advisory retainer with founder Jay Solanki. Weekly working sessions, performance course-correction, fundraising prep, and agency governance on rolling 3-month terms (attached to /services/growth-consulting#ongoing-advisory).
 
 SOLUTIONS:
 - Need More Leads: /solutions/need-more-leads
