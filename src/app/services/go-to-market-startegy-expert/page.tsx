@@ -276,10 +276,10 @@ export default function GoToMarketStrategyExpertPage() {
               variants={up}
               className="font-heading text-5xl font-black leading-[1.05] tracking-tight text-black sm:text-6xl lg:text-7xl"
             >
-              Launch With Velocity.
+              Go to Market Strategy Experts
               <br />
               <span className="text-[var(--accent)]">
-                Dominate Your Category.
+                Launch With Velocity. Dominate Your Category.
               </span>
             </motion.h1>
 
