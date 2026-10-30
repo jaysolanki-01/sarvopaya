@@ -123,6 +123,23 @@ const nextConfig: NextConfig = {
         source: "/cro",
         destination: "/services/Conversion-Rate-Optimisation",
       },
+      // Landing Pages & Funnels aliases
+      {
+        source: "/services/landing-pages",
+        destination: "/services/landing-pages-funnels",
+      },
+      {
+        source: "/landing-pages",
+        destination: "/services/landing-pages-funnels",
+      },
+      {
+        source: "/services/funnels",
+        destination: "/services/landing-pages-funnels",
+      },
+      {
+        source: "/funnels",
+        destination: "/services/landing-pages-funnels",
+      },
     ];
   },
   images: {

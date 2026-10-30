@@ -150,6 +150,8 @@ const SERVICES = [
       "Multi-step form funnels",
       "Split testing setup",
     ],
+    dedicatedHref: "/services/landing-pages-funnels",
+    dedicatedLabel: "Explore Dedicated Landing Pages & Funnels Practice",
   },
 ];
 

@@ -66,7 +66,7 @@ const serviceCategories: ServiceCategory[] = [
     sublinks: [
       { label: "Website Development", href: "/services/website-development" },
       { label: "CRO (Conversion Rate Optimisation)", href: "/services/Conversion-Rate-Optimisation" },
-      { label: "Landing Pages & Funnels", href: "/services/website-digital-experience#landing-pages-funnels" },
+      { label: "Landing Pages & Funnels", href: "/services/landing-pages-funnels" },
     ],
   },
   {
