@@ -254,7 +254,7 @@ export default function Footer() {
             >
               Proudly built in India.
               <br />
-              &copy; 2026 Sarvopaya. All rights reserved.
+              &copy; 2026 Sarvopaya Private Limited. All rights reserved.
             </motion.p>
           </motion.div>
         </div>
