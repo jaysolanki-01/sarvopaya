@@ -106,6 +106,23 @@ const nextConfig: NextConfig = {
         source: "/web-development",
         destination: "/services/website-development",
       },
+      // Conversion Rate Optimisation aliases
+      {
+        source: "/services/conversion-rate-optimisation",
+        destination: "/services/Conversion-Rate-Optimisation",
+      },
+      {
+        source: "/conversion-rate-optimisation",
+        destination: "/services/Conversion-Rate-Optimisation",
+      },
+      {
+        source: "/services/cro",
+        destination: "/services/Conversion-Rate-Optimisation",
+      },
+      {
+        source: "/cro",
+        destination: "/services/Conversion-Rate-Optimisation",
+      },
     ];
   },
   images: {

@@ -131,6 +131,8 @@ const SERVICES = [
       "Checkout friction reduction",
       "Mobile UX improvements",
     ],
+    dedicatedHref: "/services/Conversion-Rate-Optimisation",
+    dedicatedLabel: "Explore Dedicated Conversion Rate Optimisation Practice",
   },
   {
     id: "landing-pages-funnels",
