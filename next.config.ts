@@ -97,6 +97,15 @@ const nextConfig: NextConfig = {
         source: "/gtm",
         destination: "/services/go-to-market-startegy-expert",
       },
+      // Website Development aliases
+      {
+        source: "/services/web-development",
+        destination: "/services/website-development",
+      },
+      {
+        source: "/web-development",
+        destination: "/services/website-development",
+      },
     ];
   },
   images: {

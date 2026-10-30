@@ -64,7 +64,7 @@ const serviceCategories: ServiceCategory[] = [
     href: "/services/website-digital-experience",
     icon: BrowserPulseIcon,
     sublinks: [
-      { label: "Website Development", href: "/services/website-digital-experience#website-development" },
+      { label: "Website Development", href: "/services/website-development" },
       { label: "CRO (Conversion Rate Optimisation)", href: "/services/website-digital-experience#cro" },
       { label: "Landing Pages & Funnels", href: "/services/website-digital-experience#landing-pages-funnels" },
     ],

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
@@ -112,6 +112,8 @@ const SERVICES = [
       "SEO-ready architecture",
       "Analytics & tracking setup",
     ],
+    dedicatedHref: "/services/website-development",
+    dedicatedLabel: "Explore Dedicated Website Development Practice",
   },
   {
     id: "cro",
@@ -182,6 +184,17 @@ function ServiceCard({ s, idx }: { s: (typeof SERVICES)[0]; idx: number }) {
             </div>
           ))}
         </div>
+        {"dedicatedHref" in s && s.dedicatedHref && (
+          <div className="mt-6 border-t border-black/6 pt-5">
+            <Link
+              href={s.dedicatedHref as string}
+              className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-2.5 text-xs font-bold text-white transition-all duration-300 hover:bg-[var(--accent)] hover:shadow-lg"
+            >
+              {"dedicatedLabel" in s ? (s.dedicatedLabel as string) : "Learn More"}{" "}
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        )}
       </div>
     </motion.div>
   );
