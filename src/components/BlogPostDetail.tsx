@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
+import D2CIndustryConversionChart from "@/components/D2CIndustryConversionChart";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const up = {
@@ -47,11 +48,13 @@ export type ArticleItem = {
     body: string;
     table?: BlogTable;
     chart?: BlogChart;
+    rechartsChart?: string;
     subsections?: {
       heading: string;
       body: string;
       table?: BlogTable;
       chart?: BlogChart;
+      rechartsChart?: string;
     }[];
   }[];
   faqs?: { question: string; answer: string }[];
@@ -274,6 +277,9 @@ export default function BlogPostDetail({
 
                 {section.table && <BlogTableRenderer table={section.table} />}
                 {section.chart && <BlogChartRenderer chart={section.chart} />}
+                {section.rechartsChart === "d2c-industry-conversion" && (
+                  <D2CIndustryConversionChart />
+                )}
 
                 {section.subsections && section.subsections.length > 0 && (
                   <div className="mt-8 space-y-8 pl-0 sm:pl-4 border-l-2 border-black/8">
@@ -291,6 +297,9 @@ export default function BlogPostDetail({
                         </div>
                         {sub.table && <BlogTableRenderer table={sub.table} />}
                         {sub.chart && <BlogChartRenderer chart={sub.chart} />}
+                        {sub.rechartsChart === "d2c-industry-conversion" && (
+                          <D2CIndustryConversionChart />
+                        )}
                       </div>
                     ))}
                   </div>

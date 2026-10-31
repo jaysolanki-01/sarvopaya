@@ -25,6 +25,7 @@ export type BlogSubSection = {
   body: string;
   table?: BlogTable;
   chart?: BlogChart;
+  rechartsChart?: string;
 };
 
 export type BlogSection = {
@@ -32,6 +33,7 @@ export type BlogSection = {
   body: string;
   table?: BlogTable;
   chart?: BlogChart;
+  rechartsChart?: string;
   subsections?: BlogSubSection[];
 };
 
@@ -213,6 +215,7 @@ export const blogPosts: BlogPost[] = [
             ],
           ],
         },
+        rechartsChart: "d2c-industry-conversion",
         subsections: [
           {
             heading: "1:1 Ad-to-Page Congruence & Dedicated Direct-Response Landers",
@@ -544,6 +547,7 @@ export const blogPosts: BlogPost[] = [
           {
             heading: "Conversion Rate Optimization (CRO) & Dedicated Landing Pages",
             body: "Sending cold ad traffic to a generic homepage or standard product catalog page is one of the most expensive mistakes in D2C marketing. High-converting brands engineer dedicated campaign landing pages, advertorials, and interactive quiz funnels that match the exact visual and emotional angle of the ad creative.\n\nStreamlined checkout flows, trust badges, and sub-second mobile page loads routinely lift conversion rates from 1.2% to 2.8%+, effectively doubling revenue on identical ad spend.",
+            rechartsChart: "d2c-industry-conversion",
           },
           {
             heading: "Retention Marketing & Customer Lifecycle Automation (Email, SMS & WhatsApp)",
