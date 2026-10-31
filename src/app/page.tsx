@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import AudienceMotion from "@/components/AudienceMotion";
 import VideoShowcase from "@/components/VideoShowcase";
 import TrustedBy from "@/components/TrustedBy";
@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   description:
     "We help ambitious businesses scale faster with AI automation, performance ads, and SEO. India-based, globally focused. Book a free growth audit today.",
   alternates: {
-    canonical: "/",
+    canonical: "https://sarvopaya.com/",
   },
   openGraph: {
     title: "Growth Marketing Agency for Ambitious Brands | Sarvopaya",
     description:
       "We help ambitious businesses scale faster with AI automation, performance ads, and SEO. India-based, globally focused. Book a free growth audit today.",
-    url: "/",
+    url: "https://sarvopaya.com/",
   },
 };
 

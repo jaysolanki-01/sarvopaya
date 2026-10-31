@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Static pages
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map(({ path, changeFrequency, priority }) => ({
-    url: `${BASE}${path}`,
+    url: path === "/" ? "https://sarvopaya.com/" : `${BASE}${path}`,
     lastModified: now,
     changeFrequency,
     priority,
