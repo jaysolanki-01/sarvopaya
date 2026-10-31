@@ -12,6 +12,28 @@ const up = {
 };
 const seq = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } };
 
+export type BlogTable = {
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+};
+
+export type BlogChartBar = {
+  label: string;
+  value: number;
+  formattedValue: string;
+  color?: "accent" | "emerald" | "amber" | "neutral" | "rose";
+  annotation?: string;
+};
+
+export type BlogChart = {
+  title: string;
+  subtitle?: string;
+  type: "waterfall" | "bar" | "cohort";
+  bars: BlogChartBar[];
+  insightNote?: string;
+};
+
 export type ArticleItem = {
   slug: string;
   title: string;
@@ -23,10 +45,129 @@ export type ArticleItem = {
   sections: {
     heading: string;
     body: string;
-    subsections?: { heading: string; body: string }[];
+    table?: BlogTable;
+    chart?: BlogChart;
+    subsections?: {
+      heading: string;
+      body: string;
+      table?: BlogTable;
+      chart?: BlogChart;
+    }[];
   }[];
   faqs?: { question: string; answer: string }[];
 };
+
+function BlogTableRenderer({ table }: { table: BlogTable }) {
+  return (
+    <div className="my-8 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+      {table.caption && (
+        <div className="border-b border-black/6 bg-black/[0.02] px-6 py-3.5">
+          <p className="text-xs font-bold uppercase tracking-wider text-black/60">
+            {table.caption}
+          </p>
+        </div>
+      )}
+      <div className="overflow-x-auto">
+        <table className="w-full text-left text-sm">
+          <thead className="border-b border-black/8 bg-black/[0.03] text-xs font-bold uppercase tracking-wider text-black/70">
+            <tr>
+              {table.headers.map((h, i) => (
+                <th key={i} className="px-5 py-3.5 whitespace-nowrap">
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-black/6">
+            {table.rows.map((row, rIdx) => (
+              <tr key={rIdx} className="hover:bg-black/[0.015] transition-colors">
+                {row.map((cell, cIdx) => (
+                  <td
+                    key={cIdx}
+                    className={`px-5 py-4 leading-relaxed ${
+                      cIdx === 0
+                        ? "font-bold text-black whitespace-nowrap"
+                        : "text-black/75"
+                    }`}
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function BlogChartRenderer({ chart }: { chart: BlogChart }) {
+  const colorMap = {
+    accent: "bg-[var(--accent)] text-white",
+    emerald: "bg-emerald-500 text-white",
+    amber: "bg-amber-500 text-white",
+    rose: "bg-rose-500 text-white",
+    neutral: "bg-neutral-800 text-white",
+  };
+
+  return (
+    <div className="my-8 rounded-3xl border border-black/8 bg-black/[0.02] p-6 sm:p-8">
+      <div className="mb-6">
+        <span className="inline-block rounded-full bg-black/5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-black/50">
+          Visual Model & Benchmark
+        </span>
+        <h4 className="mt-2 text-lg font-black tracking-tight text-black sm:text-xl">
+          {chart.title}
+        </h4>
+        {chart.subtitle && (
+          <p className="mt-1 text-xs text-black/50">{chart.subtitle}</p>
+        )}
+      </div>
+
+      <div className="space-y-4">
+        {chart.bars.map((bar, idx) => {
+          const colorKey = bar.color || "accent";
+          return (
+            <div key={idx} className="space-y-1.5">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-bold text-black">{bar.label}</span>
+                <span className="font-mono font-bold text-black">
+                  {bar.formattedValue}
+                </span>
+              </div>
+              <div className="relative h-6 w-full overflow-hidden rounded-full bg-black/6">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${Math.min(Math.max(bar.value, 6), 100)}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: idx * 0.08, ease: EASE }}
+                  className={`h-full rounded-full flex items-center px-3 text-[11px] font-bold ${
+                    colorMap[colorKey]
+                  }`}
+                >
+                  {bar.value >= 25 && bar.formattedValue}
+                </motion.div>
+              </div>
+              {bar.annotation && (
+                <p className="text-[11px] text-black/45 leading-tight">
+                  {bar.annotation}
+                </p>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {chart.insightNote && (
+        <div className="mt-6 rounded-xl border border-black/6 bg-white p-4 text-xs leading-relaxed text-black/70">
+          <span className="font-bold text-black">Strategic Takeaway: </span>
+          {chart.insightNote}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function BlogPostDetail({
   post,
@@ -131,6 +272,9 @@ export default function BlogPostDetail({
                   ))}
                 </div>
 
+                {section.table && <BlogTableRenderer table={section.table} />}
+                {section.chart && <BlogChartRenderer chart={section.chart} />}
+
                 {section.subsections && section.subsections.length > 0 && (
                   <div className="mt-8 space-y-8 pl-0 sm:pl-4 border-l-2 border-black/8">
                     {section.subsections.map((sub, k) => (
@@ -145,6 +289,8 @@ export default function BlogPostDetail({
                             </p>
                           ))}
                         </div>
+                        {sub.table && <BlogTableRenderer table={sub.table} />}
+                        {sub.chart && <BlogChartRenderer chart={sub.chart} />}
                       </div>
                     ))}
                   </div>

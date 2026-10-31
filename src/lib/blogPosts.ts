@@ -1,11 +1,37 @@
+export type BlogTable = {
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+};
+
+export type BlogChartBar = {
+  label: string;
+  value: number;
+  formattedValue: string;
+  color?: "accent" | "emerald" | "amber" | "neutral" | "rose";
+  annotation?: string;
+};
+
+export type BlogChart = {
+  title: string;
+  subtitle?: string;
+  type: "waterfall" | "bar" | "cohort";
+  bars: BlogChartBar[];
+  insightNote?: string;
+};
+
 export type BlogSubSection = {
   heading: string;
   body: string;
+  table?: BlogTable;
+  chart?: BlogChart;
 };
 
 export type BlogSection = {
   heading: string;
   body: string;
+  table?: BlogTable;
+  chart?: BlogChart;
   subsections?: BlogSubSection[];
 };
 
@@ -54,6 +80,53 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Why D2C Marketing Outperforms Traditional Retail Distribution",
         body: "Operating a direct-to-consumer model provides distinct structural and competitive moats that compound over time, giving agile direct-to-consumer companies the ability to out-maneuver legacy consumer packaged goods (CPG) conglomerates.",
+        table: {
+          caption: "Direct-to-Consumer (D2C) vs. Traditional Retail Wholesale Comparison Matrix",
+          headers: [
+            "Strategic Dimension",
+            "Traditional Retail / Wholesale",
+            "Modern D2C Marketing Model",
+            "Commercial Leverage",
+          ],
+          rows: [
+            [
+              "Gross Margin Retention",
+              "40% – 50% (Heavy distributor discounts)",
+              "70% – 85% (Direct retail pricing)",
+              "+30% to +45% higher gross profit per unit",
+            ],
+            [
+              "Customer Data Ownership",
+              "Zero (Owned by Amazon, Walmart, Supermarkets)",
+              "100% First-party & Zero-party Data",
+              "Powers predictive retention & high-ROAS lookalikes",
+            ],
+            [
+              "Speed to Market for New SKUs",
+              "12 – 18 Months (Buyer review cycles & listing fees)",
+              "2 – 4 Weeks (Landing pages & pre-order validation)",
+              "10x faster product experimentation velocity",
+            ],
+            [
+              "Customer Lifetime Value (LTV)",
+              "Limited to in-store retail shelf presence",
+              "Compounding (Automated replenishment & subscriptions)",
+              "Maximizes LTV:CAC payback and brand equity",
+            ],
+            [
+              "Brand Narrative & Experience",
+              "2D box on a crowded retail shelf with zero context",
+              "Immersive digital storefront with video proof & UGC",
+              "Creates emotional loyalty and premium brand moat",
+            ],
+            [
+              "Pricing & Discount Agility",
+              "Dictated by retail buyer contracts & markdown bins",
+              "Dynamic bundle pricing, volume tiers & flash offers",
+              "Full real-time price elasticity control",
+            ],
+          ],
+        },
         subsections: [
           {
             heading: "First-Party Data Ownership in a Post-Cookie World",
@@ -72,6 +145,60 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "The Core Pillars of a Modern D2C Marketing Strategy",
         body: "A resilient D2C marketing engine is not built on a single silver bullet or isolated ad hack. It is an interdependent growth system built across three primary operational pillars: Paid Acquisition, Conversion Optimization, and Lifecycle Retention.",
+        table: {
+          caption: "Core D2C Customer Acquisition & Retention Channels Matrix (2026 Benchmarks)",
+          headers: [
+            "Channel",
+            "Core Objective",
+            "Audience Intent",
+            "Benchmark Conversion Rate",
+            "LTV & Payback Role",
+          ],
+          rows: [
+            [
+              "Meta Ads (FB & IG)",
+              "Algorithmic visual scale & impulse demand creation",
+              "Cold & Broad Prospecting",
+              "1.8% – 3.2%",
+              "Drives 60%–75% of new customer volume at scale",
+            ],
+            [
+              "Google Search & PMax",
+              "High-intent problem solving & brand protection",
+              "Warm / Solution-Aware",
+              "2.8% – 4.5%",
+              "Captures active shoppers with sub-30 day payback",
+            ],
+            [
+              "TikTok Ads",
+              "Creator-led UGC discovery & demographic reach",
+              "Cold Trend Discovery",
+              "1.2% – 2.4%",
+              "Drives rapid brand awareness and viral unboxings",
+            ],
+            [
+              "Email & SMS (Klaviyo)",
+              "Lifecycle automation, repeat replenishment & upsells",
+              "Existing & Engaged Customers",
+              "8.5% – 16.0%+",
+              "Generates 30%–40% of total store revenue at 0 ad cost",
+            ],
+            [
+              "WhatsApp Commerce",
+              "Instant cart recovery, COD verification & VIP support",
+              "High-Intent & Mobile-First",
+              "14.0% – 28.0%+",
+              "Reduces RTO return rates by up to 25% in GCC & India",
+            ],
+            [
+              "SEO & GEO (AI Search)",
+              "Organic Google rankings & ChatGPT/Perplexity citations",
+              "Information & Problem Research",
+              "2.4% – 4.2%",
+              "Builds zero-CAC compounding organic traffic moat",
+            ],
+          ],
+        },
         subsections: [
           {
             heading: "Paid Acquisition Architecture for D2C Brands (Meta, Google, TikTok)",
@@ -90,6 +217,85 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Mastering D2C Marketing Unit Economics: CAC, MER, and Contribution Margins",
         body: "You cannot scale what you do not measure accurately. In an era of elevated customer acquisition costs, sustainable D2C brands evaluate financial performance at the contribution margin level rather than relying on blended platform vanity metrics.",
+        chart: {
+          title: "D2C Unit Economics Waterfall: First-Order Contribution Margin Breakdown (₹1,000 / $100 AOV)",
+          subtitle: "How gross order value translates into contribution margins (CM1, CM2, CM3)",
+          type: "waterfall",
+          bars: [
+            {
+              label: "Gross Order Revenue",
+              value: 100,
+              formattedValue: "100% (Gross Revenue)",
+              color: "emerald",
+              annotation: "Starting baseline revenue received at checkout",
+            },
+            {
+              label: "Product Cost of Goods (COGS)",
+              value: 25,
+              formattedValue: "-25% (COGS)",
+              color: "rose",
+              annotation: "Raw materials, formulation, manufacturing & product packaging",
+            },
+            {
+              label: "CM1: Gross Contribution Margin",
+              value: 75,
+              formattedValue: "75% (CM1)",
+              color: "emerald",
+              annotation: "True product-level gross margin before variable logistics",
+            },
+            {
+              label: "Fulfillment & Shipping Logistics",
+              value: 12,
+              formattedValue: "-12% (Logistics)",
+              color: "rose",
+              annotation: "3PL pick, pack, warehouse handling, and courier shipping",
+            },
+            {
+              label: "Payment Gateway & Tech Fees",
+              value: 3,
+              formattedValue: "-3% (Payment / Tech)",
+              color: "rose",
+              annotation: "Credit card, UPI, Shop Pay, or COD verification gateway fees",
+            },
+            {
+              label: "Return & RTO Damage Provision",
+              value: 6,
+              formattedValue: "-6% (Returns Reserve)",
+              color: "rose",
+              annotation: "Allowance for return-to-origin transit damage and refunds",
+            },
+            {
+              label: "CM2: Order Contribution Margin",
+              value: 54,
+              formattedValue: "54% (CM2)",
+              color: "amber",
+              annotation: "Net profit generated by the order before ad spend",
+            },
+            {
+              label: "First-Order Customer Acquisition Cost (CAC)",
+              value: 35,
+              formattedValue: "-35% (Blended Ad CAC)",
+              color: "rose",
+              annotation: "Paid media acquisition spend on Meta/Google/TikTok",
+            },
+            {
+              label: "CM3: First-Order Operating Margin",
+              value: 19,
+              formattedValue: "+19% (CM3 Profit)",
+              color: "emerald",
+              annotation: "Cash retained on first purchase; break-even or positive is ideal",
+            },
+            {
+              label: "Repeat Purchase Contribution (Orders 2–4)",
+              value: 68,
+              formattedValue: "+68% (Repeat Margin)",
+              color: "emerald",
+              annotation: "Ad spend drops to ₹0 on owned email/SMS/WhatsApp channels",
+            },
+          ],
+          insightNote:
+            "If your first-order CM3 is break-even or positive, every returning customer generates near 100% net operating margin. Never scale ad spend on low CM2 products.",
+        },
         subsections: [
           {
             heading: "Understanding Contribution Margin 1, 2, and 3 in D2C Marketing",
@@ -98,6 +304,50 @@ export const blogPosts: BlogPost[] = [
           {
             heading: "Why Platform ROAS Misleads D2C Marketing Teams (MER vs. ROAS)",
             body: "Platform-reported Return on Ad Spend (ROAS) in Meta or Google Ads Manager is distorted by view-through attribution, overlapping touchpoints, and ad platform double-counting.\n\nSophisticated D2C marketing leaders manage by Marketing Efficiency Ratio (MER = Total Store Revenue ÷ Total Marketing Spend), blended Cost Per Acquisition (Blended CAC), and the LTV:CAC Payback Period—aiming for 100% acquisition payback within 60 to 90 days.",
+            chart: {
+              title: "Cohort LTV Expansion vs. Customer Acquisition Cost (CAC) Payback Curve",
+              subtitle: "Cumulative revenue recovered per acquired customer over a 180-day lifecycle",
+              type: "cohort",
+              bars: [
+                {
+                  label: "Day 0 (Initial Order)",
+                  value: 100,
+                  formattedValue: "1.00x CAC Payback",
+                  color: "amber",
+                  annotation: "First checkout recovers initial customer acquisition cost",
+                },
+                {
+                  label: "Day 30 (Unboxing & Cross-sell)",
+                  value: 128,
+                  formattedValue: "1.28x LTV:CAC",
+                  color: "emerald",
+                  annotation: "Post-purchase unboxing series and complementary bundle upsell",
+                },
+                {
+                  label: "Day 60 (Replenishment Trigger)",
+                  value: 185,
+                  formattedValue: "1.85x LTV:CAC",
+                  color: "emerald",
+                  annotation: "Automated consumption replenishment email & WhatsApp trigger",
+                },
+                {
+                  label: "Day 90 (Subscription / Volume Tier)",
+                  value: 242,
+                  formattedValue: "2.42x LTV:CAC",
+                  color: "emerald",
+                  annotation: "Customer upgrades to discounted 90-day supply or subscription",
+                },
+                {
+                  label: "Day 180 (Brand Advocate & Repeat Buyer)",
+                  value: 365,
+                  formattedValue: "3.65x LTV:CAC",
+                  color: "emerald",
+                  annotation: "Healthy 3.65:1 LTV-to-CAC ratio providing massive balance sheet leverage",
+                },
+              ],
+              insightNote:
+                "Top-performing D2C operators prioritize payback velocity. Strive to recover 100% of your CAC within 30 to 60 days to self-fund ad spend without relying on external venture capital.",
+            },
           },
         ],
       },
