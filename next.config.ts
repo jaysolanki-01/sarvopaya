@@ -28,37 +28,42 @@ const nextConfig: NextConfig = {
         destination: "/resource/blogs",
         permanent: true,
       },
-      // /resources/blogs/:slug → /resource/blogs/:slug
+      // Short URLs for all blogs
+      {
+        source: "/resource/blogs/:slug",
+        destination: "/:slug",
+        permanent: true,
+      },
       {
         source: "/resources/blogs/:slug",
-        destination: "/resource/blogs/:slug",
+        destination: "/:slug",
         permanent: true,
       },
-      // /resources/blog/:slug → /resource/blogs/:slug
       {
         source: "/resources/blog/:slug",
-        destination: "/resource/blogs/:slug",
+        destination: "/:slug",
         permanent: true,
       },
-      // /resource/blog/:slug → /resource/blogs/:slug
       {
         source: "/resource/blog/:slug",
-        destination: "/resource/blogs/:slug",
+        destination: "/:slug",
+        permanent: true,
+      },
+      {
+        source: "/blog/:slug",
+        destination: "/:slug",
+        permanent: true,
+      },
+      {
+        source: "/blogs/:slug",
+        destination: "/:slug",
         permanent: true,
       },
     ];
   },
   async rewrites() {
     return [
-      // Short URLs for Blogs
-      {
-        source: "/blog/:slug",
-        destination: "/resource/blogs/:slug",
-      },
-      {
-        source: "/blogs/:slug",
-        destination: "/resource/blogs/:slug",
-      },
+      // Short URLs for Blog listing
       {
         source: "/blog",
         destination: "/resource/blogs",

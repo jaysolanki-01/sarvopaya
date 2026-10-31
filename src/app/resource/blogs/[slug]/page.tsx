@@ -22,11 +22,11 @@ export async function generateMetadata({
   return {
     title,
     description: post.excerpt,
-    alternates: { canonical: `/resource/blogs/${post.slug}` },
+    alternates: { canonical: `https://www.sarvopaya.com/${post.slug}` },
     openGraph: {
       title,
       description: post.excerpt,
-      url: `/resource/blogs/${post.slug}`,
+      url: `https://www.sarvopaya.com/${post.slug}`,
       type: "article",
     },
     twitter: {
@@ -53,7 +53,7 @@ export default async function BlogPostPage({
       "@type": "BlogPosting",
       headline: post.title,
       description: post.excerpt,
-      url: `https://www.sarvopaya.com/resource/blogs/${post.slug}`,
+      url: `https://www.sarvopaya.com/${post.slug}`,
       datePublished: post.date,
       author: {
         "@type": "Person",

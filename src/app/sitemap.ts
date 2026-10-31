@@ -66,10 +66,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Dynamic blog posts, auto-updates as blogPosts.ts grows
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${BASE}/resource/blogs/${post.slug}`,
+    url: `${BASE}/${post.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
 
   // Dynamic founder POV posts

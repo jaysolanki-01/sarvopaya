@@ -56,7 +56,7 @@ export default function BlogsPage() {
       headline: post.title,
       description: post.excerpt,
       datePublished: post.date,
-      url: `https://www.sarvopaya.com/resource/blogs/${post.slug}`,
+      url: `https://www.sarvopaya.com/${post.slug}`,
       author: {
         "@type": "Person",
         name: post.author,
@@ -208,7 +208,7 @@ export default function BlogsPage() {
 
                     {/* Title */}
                     <h2 className="mt-5 font-heading text-xl font-bold leading-snug text-black transition-colors duration-200 group-hover:text-[var(--accent)] sm:text-2xl">
-                      <Link href={`/resource/blogs/${post.slug}`}>
+                      <Link href={`/${post.slug}`}>
                         {post.title}
                       </Link>
                     </h2>
@@ -238,7 +238,7 @@ export default function BlogsPage() {
                     </div>
 
                     <Link
-                      href={`/resource/blogs/${post.slug}`}
+                      href={`/${post.slug}`}
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-black/40 transition-colors duration-200 group-hover:text-[var(--accent)]"
                     >
                       Read Guide
