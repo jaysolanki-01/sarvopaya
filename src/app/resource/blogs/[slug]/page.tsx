@@ -47,31 +47,48 @@ export default async function BlogPostPage({
 
   if (!post) notFound();
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.excerpt,
-    url: `https://sarvopaya.com/resource/blogs/${post.slug}`,
-    datePublished: post.date,
-    author: {
-      "@type": "Person",
-      name: post.author,
-      url: "https://sarvopaya.com/about",
+  const schemas: object[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      url: `https://www.sarvopaya.com/resource/blogs/${post.slug}`,
+      datePublished: post.date,
+      author: {
+        "@type": "Person",
+        name: post.author,
+        url: "https://www.sarvopaya.com/about",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Sarvopaya",
+        url: "https://www.sarvopaya.com",
+      },
+      keywords: post.tag,
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Sarvopaya",
-      url: "https://sarvopaya.com",
-    },
-    keywords: post.tag,
-  };
+  ];
+
+  if (post.faqs && post.faqs.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: post.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    });
+  }
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
       <BlogPostDetail
         post={post}

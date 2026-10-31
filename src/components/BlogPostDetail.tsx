@@ -20,7 +20,12 @@ export type ArticleItem = {
   excerpt: string;
   readTime: string;
   author: string;
-  sections: { heading: string; body: string }[];
+  sections: {
+    heading: string;
+    body: string;
+    subsections?: { heading: string; body: string }[];
+  }[];
+  faqs?: { question: string; answer: string }[];
 };
 
 export default function BlogPostDetail({
@@ -125,8 +130,64 @@ export default function BlogPostDetail({
                     </p>
                   ))}
                 </div>
+
+                {section.subsections && section.subsections.length > 0 && (
+                  <div className="mt-8 space-y-8 pl-0 sm:pl-4 border-l-2 border-black/8">
+                    {section.subsections.map((sub, k) => (
+                      <div key={k} className="space-y-3">
+                        <h3 className="text-lg font-bold tracking-tight text-black sm:text-xl">
+                          {sub.heading}
+                        </h3>
+                        <div className="space-y-3">
+                          {sub.body.split("\n\n").map((para, m) => (
+                            <p key={m} className="text-base leading-relaxed text-black/60 sm:text-lg">
+                              {para}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             ))}
+
+            {post.faqs && post.faqs.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, ease: EASE }}
+                className="pt-10 border-t border-black/8"
+              >
+                <div className="mb-8">
+                  <span className="mb-2 inline-block rounded-full border border-black/10 bg-black/[0.04] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-black/50">
+                    FAQ
+                  </span>
+                  <h2 className="text-2xl font-black tracking-tight text-black sm:text-3xl">
+                    Frequently Asked Questions About D2C Marketing
+                  </h2>
+                  <p className="mt-2 text-sm text-black/50">
+                    Expert answers to strategic questions direct-to-consumer founders and growth teams ask.
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  {post.faqs.map((faq, idx) => (
+                    <div
+                      key={idx}
+                      className="rounded-2xl border border-black/8 bg-black/[0.02] p-6 transition-colors hover:border-black/15"
+                    >
+                      <h3 className="text-base font-bold text-black sm:text-lg">
+                        {faq.question}
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-black/65 sm:text-base">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
           </div>
         </div>
       </section>
