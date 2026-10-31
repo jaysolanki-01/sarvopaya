@@ -17,12 +17,12 @@ import "./globals.css";
 const siteUrl = "https://www.sarvopaya.com";
 const siteName = "Sarvopaya";
 const siteDescription =
-  "Sarvopaya is a growth marketing agency combining AI automation, performance advertising, and SEO to help ambitious businesses scale faster. India-based, globally focused.";
+  "Sarvopaya is a digital growth partner helping businesses grow through performance marketing, SEO, website development, creative media, AI and automation.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Growth Marketing Agencies for Ambitious Businesses | Sarvopaya",
+    default: "Sarvopaya | Digital Growth, Marketing & AI Automation Agency",
     template: "%s | Sarvopaya",
   },
   description: siteDescription,
@@ -183,6 +183,17 @@ const organizationSchema = {
   ],
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Sarvopaya",
+  alternateName: [
+    "Sarvopaya Digital",
+    "sarvopaya.com",
+  ],
+  url: "https://www.sarvopaya.com/",
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -218,19 +229,7 @@ export default async function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Sarvopaya",
-              url: siteUrl,
-              potentialAction: {
-                "@type": "SearchAction",
-                target: `${siteUrl}/resources?q={search_term_string}`,
-                "query-input": "required name=search_term_string",
-              },
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
