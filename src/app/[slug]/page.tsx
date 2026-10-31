@@ -15,9 +15,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
 
-  if (!post) return { title: "Post Not Found | Sarvopaya" };
+  if (!post) return { title: "Post Not Found" };
 
-  const title = `${post.title} | Sarvopaya`;
+  const title = post.title;
 
   return {
     title,
