@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -448,13 +448,23 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
           <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
             {mode === "homepage" ? "Creative Media · Technology · AI" : "Social Media Marketing"}
           </span>
-          <h2 className="mt-3 font-heading text-4xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Make the
-            <br />
-            <span className="text-accent">Audience</span>
-            <br />
-            Move.
-          </h2>
+          {mode === "homepage" ? (
+            <h1 className="mt-3 font-heading text-4xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Make the
+              <br />
+              <span className="text-accent">Audience</span>
+              <br />
+              Move.
+            </h1>
+          ) : (
+            <h2 className="mt-3 font-heading text-4xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Make the
+              <br />
+              <span className="text-accent">Audience</span>
+              <br />
+              Move.
+            </h2>
+          )}
           <p className="mt-4 max-w-xs text-sm leading-6 text-white/40">
             {mode === "homepage" ? (
               <>Creative media, technology, and AI —<br />working together to move the right people.</>
