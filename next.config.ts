@@ -34,6 +34,12 @@ const nextConfig: NextConfig = {
         destination: "/d2c-vs-b2c-guide",
         permanent: true,
       },
+      // Alias for 12 marketing channels guide
+      {
+        source: "/12-effective-marketing-channels-for-d2c-brands",
+        destination: "/d2c-marketing-channels-guide",
+        permanent: true,
+      },
       // /resources/blogs → /resource/blogs
       {
         source: "/resources/blogs",
