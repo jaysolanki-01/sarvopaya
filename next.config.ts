@@ -40,6 +40,12 @@ const nextConfig: NextConfig = {
         destination: "/d2c-marketing-channels-guide",
         permanent: true,
       },
+      // Alias for First 1,000 customers guide
+      {
+        source: "/how-d2c-brands-can-acquire-their-first-1000-customers",
+        destination: "/how-d2c-brands-acquire-first-1000-customers",
+        permanent: true,
+      },
       // /resources/blogs → /resource/blogs
       {
         source: "/resources/blogs",
