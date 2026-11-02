@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
         destination: "/privacy-policy",
         permanent: true,
       },
+      // Alias for D2C brand building guide
+      {
+        source: "/how-to-build-a-d2c-brand-from-scratch",
+        destination: "/how-to-build-d2c-brand-from-scratch",
+        permanent: true,
+      },
       // /resources/blogs → /resource/blogs
       {
         source: "/resources/blogs",
