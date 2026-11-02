@@ -172,11 +172,6 @@ export default function D2CIndustryConversionChart() {
             data={INDUSTRY_CONVERSION_DATA}
             layout="vertical"
             margin={{ top: 10, right: 30, left: 10, bottom: 10 }}
-            onMouseMove={(state: any) => {
-              if (state && state.activePayload && state.activePayload.length) {
-                setActiveSector(state.activePayload[0].payload.sector);
-              }
-            }}
           >
             <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#00000010" />
             <XAxis
@@ -208,6 +203,8 @@ export default function D2CIndustryConversionChart() {
                       : "#858585"
                   }
                   className="transition-all duration-200 cursor-pointer"
+                  onMouseEnter={() => setActiveSector(entry.sector)}
+                  onClick={() => setActiveSector(entry.sector)}
                 />
               ))}
             </Bar>
