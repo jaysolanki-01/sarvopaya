@@ -58,6 +58,12 @@ const nextConfig: NextConfig = {
         destination: "/social-media-marketing-for-d2c-brands",
         permanent: true,
       },
+      // Alias for Customer retention guide
+      {
+        source: "/why-customer-retention-is-important-for-d2c-brands",
+        destination: "/customer-retention-d2c-marketing-guide",
+        permanent: true,
+      },
       // /resources/blogs → /resource/blogs
       {
         source: "/resources/blogs",
