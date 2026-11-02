@@ -46,6 +46,12 @@ const nextConfig: NextConfig = {
         destination: "/how-d2c-brands-acquire-first-1000-customers",
         permanent: true,
       },
+      // Alias for Marketing challenges guide
+      {
+        source: "/the-biggest-marketing-challenges-faced-by-d2c-brands",
+        destination: "/biggest-marketing-challenges-d2c-brands",
+        permanent: true,
+      },
       // /resources/blogs → /resource/blogs
       {
         source: "/resources/blogs",
