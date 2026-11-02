@@ -52,6 +52,12 @@ const nextConfig: NextConfig = {
         destination: "/biggest-marketing-challenges-d2c-brands",
         permanent: true,
       },
+      // Alias for Social media marketing guide
+      {
+        source: "/how-social-media-marketing-helps-d2c-brands-grow",
+        destination: "/social-media-marketing-for-d2c-brands",
+        permanent: true,
+      },
       // /resources/blogs → /resource/blogs
       {
         source: "/resources/blogs",
