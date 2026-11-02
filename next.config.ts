@@ -28,6 +28,12 @@ const nextConfig: NextConfig = {
         destination: "/how-to-build-d2c-brand-from-scratch",
         permanent: true,
       },
+      // Alias for D2C vs B2C guide
+      {
+        source: "/d2c-vs-b2c",
+        destination: "/d2c-vs-b2c-guide",
+        permanent: true,
+      },
       // /resources/blogs → /resource/blogs
       {
         source: "/resources/blogs",
