@@ -522,8 +522,8 @@ export default function PrivacyPolicyPage() {
 
                 <p className="mt-6 text-sm text-black/70">
                   To exercise any of these rights, please email us at{" "}
-                  <a href="mailto:jay.sarvopaya@gmail.com" className="font-bold text-[var(--accent)] underline underline-offset-2">
-                    jay.sarvopaya@gmail.com
+                  <a href="mailto:jay@sarvopaya.com" className="font-bold text-[var(--accent)] underline underline-offset-2">
+                    jay@sarvopaya.com
                   </a>
                   . We will respond within 30 days (or within timelines mandated by your local law).
                 </p>
@@ -567,10 +567,10 @@ export default function PrivacyPolicyPage() {
 
                       <p className="mt-4 text-xs font-bold uppercase tracking-widest text-black/40">Email</p>
                       <a
-                        href="mailto:jay.sarvopaya@gmail.com"
+                        href="mailto:jay@sarvopaya.com"
                         className="mt-1 block text-sm font-semibold text-[var(--accent)] underline underline-offset-2"
                       >
-                        jay.sarvopaya@gmail.com
+                        jay@sarvopaya.com
                       </a>
 
                       <p className="mt-4 text-xs font-bold uppercase tracking-widest text-black/40">Telephone</p>
@@ -671,10 +671,10 @@ export default function PrivacyPolicyPage() {
                     <p className="mt-0.5 text-[11px] text-black/50">
                       Grievance Officer:{" "}
                       <a
-                        href="mailto:jay.sarvopaya@gmail.com"
+                        href="mailto:jay@sarvopaya.com"
                         className="font-medium text-[var(--accent)] underline underline-offset-2"
                       >
-                        jay.sarvopaya@gmail.com
+                        jay@sarvopaya.com
                       </a>
                     </p>
                   </div>

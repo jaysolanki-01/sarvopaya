@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef, type FormEvent } from "react";
 import Image from "next/image";
@@ -37,7 +37,7 @@ const contactSchema = {
   mainEntity: {
     "@type": "Organization",
     name: "Sarvopaya",
-    email: "jay.sarvopaya@gmail.com",
+    email: "jay@sarvopaya.com",
     telephone: "+91-92655-03415",
     address: {
       "@type": "PostalAddress",
@@ -280,10 +280,10 @@ export default function ContactPage() {
                   Email
                 </p>
                 <a
-                  href="mailto:jay.sarvopaya@gmail.com"
+                  href="mailto:jay@sarvopaya.com"
                   className="break-words text-base font-semibold text-black transition-colors duration-300 hover:text-accent sm:text-lg"
                 >
-                  jay.sarvopaya@gmail.com
+                  jay@sarvopaya.com
                 </a>
               </div>
               <div className="flex flex-col gap-1.5 py-5 sm:flex-row sm:items-baseline sm:gap-6">

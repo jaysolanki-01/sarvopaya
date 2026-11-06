@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostDetail from "@/components/BlogPostDetail";
 import { getFounderPovBySlug, founderPovs } from "@/lib/founderPovs";
+import { AUTHOR_PERSON_SCHEMA, ORGANIZATION_SCHEMA } from "@/lib/authorSchema";
 
 export function generateStaticParams() {
   return founderPovs.map((post) => ({ slug: post.slug }));
@@ -47,31 +48,46 @@ export default async function FounderPovPostPage({
 
   if (!post) notFound();
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.excerpt,
-    url: `https://sarvopaya.com/resources/founders-pov/${post.slug}`,
-    datePublished: post.date,
-    author: {
-      "@type": "Person",
-      name: post.author,
-      url: "https://sarvopaya.com/about",
+  const schemas: object[] = [
+    AUTHOR_PERSON_SCHEMA,
+    ORGANIZATION_SCHEMA,
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": `https://www.sarvopaya.com/resources/founders-pov/${post.slug}#article`,
+      mainEntityOfPage: `https://www.sarvopaya.com/resources/founders-pov/${post.slug}`,
+      headline: post.title,
+      description: post.excerpt,
+      url: `https://www.sarvopaya.com/resources/founders-pov/${post.slug}`,
+      datePublished: post.date,
+      inLanguage: "en-US",
+      author: {
+        "@type": "Person",
+        "@id": "https://www.sarvopaya.com/about#jay-solanki",
+        name: post.author,
+        jobTitle: "Founder & Growth Architect",
+        url: "https://www.sarvopaya.com/about",
+        image: "https://www.sarvopaya.com/images/jay-solanki.png",
+      },
+      publisher: {
+        "@type": "Organization",
+        "@id": "https://www.sarvopaya.com/#organization",
+        name: "Sarvopaya",
+        url: "https://www.sarvopaya.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://www.sarvopaya.com/images/Logo_black.png",
+        },
+      },
+      keywords: post.tag,
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Sarvopaya",
-      url: "https://sarvopaya.com",
-    },
-    keywords: post.tag,
-  };
+  ];
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
       <BlogPostDetail
         post={post}

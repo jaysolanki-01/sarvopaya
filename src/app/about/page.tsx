@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView, useReducedMotion, AnimatePresence } from "framer-motion";
@@ -213,7 +213,7 @@ const aboutSchema = {
     description:
       "A creative media, technology and AI company built for ambitious brands.",
     foundingLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "Ahmedabad", addressCountry: "IN" } },
-    email: "jay.sarvopaya@gmail.com",
+    email: "jay@sarvopaya.com",
     telephone: "+91-92655-03415",
     address: {
       "@type": "PostalAddress",
@@ -800,8 +800,8 @@ export default function AboutPage() {
                   },
                   {
                     label: "Email",
-                    value: "jay.sarvopaya@gmail.com",
-                    href: "mailto:jay.sarvopaya@gmail.com",
+                    value: "jay@sarvopaya.com",
+                    href: "mailto:jay@sarvopaya.com",
                   },
                   {
                     label: "Phone",

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FinalCTA from "@/components/FinalCTA";
 import { blogPosts } from "@/lib/blogPosts";
+import { AUTHOR_PERSON_SCHEMA, ORGANIZATION_SCHEMA } from "@/lib/authorSchema";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -45,30 +46,43 @@ export default function BlogsPage() {
     });
   }, [selectedTag, searchQuery]);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    name: "Sarvopaya Growth & Marketing Blogs",
-    description: "In-depth guides, playbooks and strategic insights on AI automation, performance marketing, SEO, and business growth from Sarvopaya.",
-    url: "https://www.sarvopaya.com/resource/blogs",
-    blogPost: blogPosts.map((post) => ({
-      "@type": "BlogPosting",
-      headline: post.title,
-      description: post.excerpt,
-      datePublished: post.date,
-      url: `https://www.sarvopaya.com/${post.slug}`,
+  const jsonLdSchemas = [
+    AUTHOR_PERSON_SCHEMA,
+    ORGANIZATION_SCHEMA,
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "Sarvopaya Growth & Marketing Blogs",
+      description:
+        "In-depth guides, playbooks and strategic insights on AI automation, performance marketing, SEO, and business growth from Sarvopaya.",
+      url: "https://www.sarvopaya.com/resource/blogs",
       author: {
         "@type": "Person",
-        name: post.author,
+        "@id": "https://www.sarvopaya.com/about#jay-solanki",
+        name: "Jay Solanki",
       },
-    })),
-  };
+      blogPost: blogPosts.map((post) => ({
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.excerpt,
+        datePublished: post.date,
+        url: `https://www.sarvopaya.com/${post.slug}`,
+        author: {
+          "@type": "Person",
+          "@id": "https://www.sarvopaya.com/about#jay-solanki",
+          name: post.author,
+          jobTitle: "Founder & Growth Architect",
+          url: "https://www.sarvopaya.com/about",
+        },
+      })),
+    },
+  ];
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchemas) }}
       />
 
       {/* ── HERO ── */}

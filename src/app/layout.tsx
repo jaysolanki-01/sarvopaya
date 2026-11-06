@@ -96,7 +96,7 @@ const localBusinessSchema = {
   logo: `${siteUrl}/images/Main_icon.png`,
   image: `${siteUrl}/images/Main_icon.png`,
   description: siteDescription,
-  email: "jay.sarvopaya@gmail.com",
+  email: "jay@sarvopaya.com",
   telephone: "+91-92655-03415",
   priceRange: "$$",
   address: {
@@ -155,7 +155,7 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/images/Main_icon.png`,
   description: siteDescription,
-  email: "jay.sarvopaya@gmail.com",
+  email: "jay@sarvopaya.com",
   telephone: "+91-92655-03415",
   address: {
     "@type": "PostalAddress",
@@ -168,7 +168,7 @@ const organizationSchema = {
     {
       "@type": "ContactPoint",
       contactType: "customer support",
-      email: "jay.sarvopaya@gmail.com",
+      email: "jay@sarvopaya.com",
       telephone: "+91-92655-03415",
       areaServed: ["IN", "US", "GB", "AE", "SA", "AU", "CA", "SG", "DE"],
       availableLanguage: ["en", "de"],

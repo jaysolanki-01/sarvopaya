@@ -343,6 +343,58 @@ export default function BlogPostDetail({
                 </div>
               </motion.div>
             )}
+
+            {/* ── AUTHOR BIO CARD (E-E-A-T) ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: EASE }}
+              className="rounded-3xl border border-black/8 bg-black/[0.02] p-6 sm:p-8"
+            >
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-black/10 bg-black/5 shadow-sm">
+                  <Image
+                    src="/images/jay-solanki.png"
+                    alt={post.author}
+                    fill
+                    sizes="80px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-black/50">
+                      About the Author
+                    </span>
+                    <span className="h-1 w-1 rounded-full bg-black/30" />
+                    <span className="text-xs font-semibold text-emerald-600">
+                      Founder &amp; Growth Architect
+                    </span>
+                  </div>
+                  <h3 className="mt-1 text-xl font-black text-black">
+                    {post.author}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-black/65">
+                    Jay Solanki is the Founder and Growth Architect at Sarvopaya. He specializes in full-funnel direct-to-consumer marketing, unit economics engineering (CM1, CM2, CM3), creative testing velocity, and automated customer retention systems for high-growth online brands.
+                  </p>
+                  <div className="mt-4 flex flex-wrap items-center gap-4 text-xs font-bold text-black">
+                    <Link
+                      href="/about"
+                      className="inline-flex items-center gap-1 text-black transition-colors hover:text-black/60 hover:underline"
+                    >
+                      Read Founder Story →
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-1 text-black/70 transition-colors hover:text-black hover:underline"
+                    >
+                      Book Strategy Consultation →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
