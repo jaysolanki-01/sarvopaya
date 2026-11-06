@@ -64,6 +64,12 @@ const nextConfig: NextConfig = {
         destination: "/customer-retention-d2c-marketing-guide",
         permanent: true,
       },
+      // Alias for Winning D2C marketing strategy guide
+      {
+        source: "/how-to-create-a-winning-d2c-marketing-strategy-for-your-brand",
+        destination: "/how-to-create-a-winning-d2c-marketing-strategy",
+        permanent: true,
+      },
       // /resources/blogs → /resource/blogs
       {
         source: "/resources/blogs",
