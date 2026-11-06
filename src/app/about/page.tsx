@@ -831,22 +831,21 @@ export default function AboutPage() {
             {/* Google Maps embed */}
             <motion.div
               variants={item}
-              className="relative overflow-hidden rounded-3xl border border-white/8 sm:h-[420px]"
-              style={{ height: "340px" }}
+              className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl h-[380px] sm:h-[450px]"
             >
               <iframe
                 title="Sarvopaya office location"
-                src="https://maps.google.com/maps?q=C-1102+PNTC+Times+Of+India+Press+Road+Vejalpur+Ahmedabad+380015+India&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58757.53789532279!2d72.4868868533292!3d23.011060465688495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e857219e19757%3A0x7554c0c7d09c37c8!2sSarvopaya!5e0!3m2!1sen!2sus!4v1793952432694!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
-                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
+                style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerPolicy="strict-origin-when-cross-origin"
               />
               {/* "Open in Maps" pill */}
               <a
-                href="https://share.google/uof4RFT5sGHERr5LP"
+                href="https://maps.google.com/?q=Sarvopaya"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full bg-black/80 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition-colors duration-300 hover:bg-accent"
