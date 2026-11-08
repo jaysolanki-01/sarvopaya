@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef, useEffect } from "react";
 import {
@@ -248,31 +248,66 @@ function CampaignEcosystem() {
             }}
             className="cursor-pointer"
           >
-            <motion.div
-              animate={{ scale: isActive ? 1.15 : 1 }}
-              transition={{ duration: 0.25, ease: EASE }}
-              className={`flex h-11 w-11 items-center justify-center rounded-xl border backdrop-blur-sm transition-colors duration-300 ${
-                isActive
-                  ? "border-[var(--accent)]/50 bg-[var(--accent)]/10 text-white"
-                  : "border-white/15 bg-white/6 text-white/55 hover:border-white/30 hover:text-white/90"
-              }`}
-            >
-              <p.Icon className="h-4.5 w-4.5" />
-            </motion.div>
+            {/* Floating and Hoverable Badge */}
+            <div className="relative">
+              {/* Active glow halo */}
+              {isActive && !shouldReduce && (
+                <motion.div
+                  className="pointer-events-none absolute -inset-2 rounded-2xl bg-[var(--accent)]/25 blur-md"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: [0.35, 0.75, 0.35], scale: [0.95, 1.1, 0.95] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                />
+              )}
+
+              <motion.div
+                animate={
+                  isActive
+                    ? { scale: 1.22, y: -6, rotate: 0 }
+                    : shouldReduce
+                    ? { scale: 1, y: 0, rotate: 0 }
+                    : {
+                        scale: 1,
+                        y: [0, -4.5, 0],
+                        rotate: [0, i % 2 === 0 ? 1.5 : -1.5, 0],
+                      }
+                }
+                transition={
+                  isActive
+                    ? { duration: 0.25, ease: EASE }
+                    : shouldReduce
+                    ? { duration: 0.2 }
+                    : {
+                        duration: 3.2 + (i % 3) * 0.45,
+                        delay: (i * 0.35) % 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }
+                }
+                whileHover={!shouldReduce ? { scale: 1.22, y: -6 } : { scale: 1.1 }}
+                whileTap={{ scale: 0.94 }}
+                className={`relative flex h-11 w-11 items-center justify-center rounded-xl border backdrop-blur-sm transition-colors duration-300 ${
+                  isActive
+                    ? "border-[var(--accent)]/70 bg-[var(--accent)]/15 text-white shadow-[0_8px_20px_rgba(237,40,48,0.35)]"
+                    : "border-white/15 bg-white/6 text-white/55 hover:border-white/35 hover:text-white/90"
+                }`}
+              >
+                <p.Icon className="h-4.5 w-4.5" />
+              </motion.div>
+            </div>
 
             <AnimatePresence>
               {isActive && (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.18, ease: EASE }}
-                  className="absolute z-40 min-w-[130px] rounded-xl border border-white/15 bg-black/95 p-3 shadow-2xl backdrop-blur-xl"
+                  initial={{ opacity: 0, scale: 0.9, x: tooltipRight ? -8 : 8, y: "-50%" }}
+                  animate={{ opacity: 1, scale: 1, x: 0, y: "-50%" }}
+                  exit={{ opacity: 0, scale: 0.9, x: tooltipRight ? -4 : 4, y: "-50%" }}
+                  transition={{ duration: 0.2, ease: EASE }}
+                  className="pointer-events-none absolute z-40 min-w-[130px] rounded-xl border border-white/15 bg-black/95 p-3 shadow-2xl backdrop-blur-xl sm:pointer-events-auto"
                   style={{
                     left: tooltipRight ? "120%" : "auto",
                     right: tooltipRight ? "auto" : "120%",
                     top: "50%",
-                    transform: "translateY(-50%)",
                   }}
                 >
                   <p className="mb-1 font-heading text-[10px] font-bold uppercase tracking-widest text-white">{p.label}</p>
