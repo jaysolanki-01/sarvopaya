@@ -172,6 +172,53 @@ function BlogChartRenderer({ chart }: { chart: BlogChart }) {
   );
 }
 
+function renderParagraphWithLinks(text: string) {
+  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const elements: React.ReactNode[] = [];
+  let lastIdx = 0;
+  let match;
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIdx) {
+      elements.push(text.substring(lastIdx, match.index));
+    }
+    const label = match[1];
+    const url = match[2];
+    const isInternal = url.startsWith("/");
+
+    if (isInternal) {
+      elements.push(
+        <Link
+          key={`${match.index}-${url}`}
+          href={url}
+          className="font-semibold text-black underline decoration-black/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+        >
+          {label}
+        </Link>
+      );
+    } else {
+      elements.push(
+        <a
+          key={`${match.index}-${url}`}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold text-black underline decoration-black/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+        >
+          {label}
+        </a>
+      );
+    }
+    lastIdx = match.index + match[0].length;
+  }
+
+  if (lastIdx < text.length) {
+    elements.push(text.substring(lastIdx));
+  }
+
+  return elements.length > 0 ? elements : text;
+}
+
 export default function BlogPostDetail({
   post,
   parentLabel = "Blogs",
@@ -270,7 +317,7 @@ export default function BlogPostDetail({
                 <div className="mt-4 space-y-4">
                   {section.body.split("\n\n").map((para, j) => (
                     <p key={j} className="text-base leading-relaxed text-black/60 sm:text-lg">
-                      {para}
+                      {renderParagraphWithLinks(para)}
                     </p>
                   ))}
                 </div>
@@ -291,7 +338,7 @@ export default function BlogPostDetail({
                         <div className="space-y-3">
                           {sub.body.split("\n\n").map((para, m) => (
                             <p key={m} className="text-base leading-relaxed text-black/60 sm:text-lg">
-                              {para}
+                              {renderParagraphWithLinks(para)}
                             </p>
                           ))}
                         </div>
