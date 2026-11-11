@@ -18,7 +18,7 @@ const staticRoutes: {
   { path: "/resources",                            changeFrequency: "weekly",  priority: 0.8 },
   { path: "/privacy-policy",                       changeFrequency: "yearly",  priority: 0.3 },
   // Services
-  { path: "/services/d2c-marketing",              changeFrequency: "monthly", priority: 0.9 },
+  { path: "/services/d2c-marketing",              changeFrequency: "weekly",  priority: 0.95 },
   { path: "/services/seo",                         changeFrequency: "monthly", priority: 0.9 },
   { path: "/services/social-media-marketing",     changeFrequency: "monthly", priority: 0.8 },
   { path: "/services/advertising",                 changeFrequency: "monthly", priority: 0.8 },

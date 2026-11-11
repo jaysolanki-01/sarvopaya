@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef, useEffect } from "react";
 import {
@@ -12,7 +12,6 @@ import CTAButton from "@/components/CTAButton";
 import {
   ChartIcon,
   BoltIcon,
-  CartIcon,
   GearIcon,
   RocketIcon,
   MegaphoneIcon,
@@ -807,18 +806,211 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://www.sarvopaya.com/services/d2c-marketing",
-      name: "D2C Marketing Agency, Performance Marketing for D2C Brands",
+      "@type": "WebPage",
+      "@id": "https://www.sarvopaya.com/services/d2c-marketing#webpage",
+      url: "https://www.sarvopaya.com/services/d2c-marketing",
+      name: "D2C Marketing Agency India | Performance Marketing Systems | Sarvopaya",
       description:
-        "Sarvopaya is a D2C marketing agency in India. We build performance marketing systems for direct-to-consumer brands, tracking infrastructure, Meta Ads, Google Ads, creative testing, attribution and revenue optimization.",
-      provider: { "@type": "Organization", name: "Sarvopaya", url: "https://www.sarvopaya.com" },
+        "Full-funnel D2C marketing agency in India. We engineer server-side tracking, creative testing, multi-channel media buying, customer retention and measurable net revenue.",
+      isPartOf: {
+        "@type": "WebSite",
+        "@id": "https://www.sarvopaya.com/#website",
+        name: "Sarvopaya",
+        url: "https://www.sarvopaya.com",
+      },
+      breadcrumb: {
+        "@id": "https://www.sarvopaya.com/services/d2c-marketing#breadcrumb",
+      },
+      inLanguage: "en-US",
+      about: [
+        { "@type": "Thing", name: "Direct-to-consumer", sameAs: "https://en.wikipedia.org/wiki/Direct-to-consumer" },
+        { "@type": "Thing", name: "Performance marketing", sameAs: "https://en.wikipedia.org/wiki/Performance_marketing" },
+        { "@type": "Thing", name: "Customer retention" },
+        { "@type": "Thing", name: "Conversion rate optimization" },
+      ],
+      author: {
+        "@type": "Person",
+        "@id": "https://www.sarvopaya.com/about#jay-solanki",
+        name: "Jay Solanki",
+        jobTitle: "Founder & Growth Architect",
+        url: "https://www.sarvopaya.com/about",
+      },
+      publisher: {
+        "@type": "Organization",
+        "@id": "https://www.sarvopaya.com/#organization",
+        name: "Sarvopaya",
+        url: "https://www.sarvopaya.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://www.sarvopaya.com/images/Logo_black.png",
+        },
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: "https://www.sarvopaya.com/images/Main_icon.png",
+      },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["#speakable-summary", "#speakable-definition"],
+      },
+      significantLink: [
+        "https://www.sarvopaya.com/customer-retention-d2c-marketing-guide",
+        "https://www.sarvopaya.com/how-to-create-a-winning-d2c-marketing-strategy",
+        "https://www.sarvopaya.com/d2c-marketing-channels-guide",
+        "https://www.sarvopaya.com/services/advertising",
+        "https://www.sarvopaya.com/services/Conversion-Rate-Optimisation",
+      ],
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.sarvopaya.com/services/d2c-marketing#service",
+      name: "D2C Marketing Agency & Performance Marketing",
       serviceType: "D2C Marketing Agency",
-      areaServed: "India",
-      keywords: "D2C marketing agency, performance marketing for D2C brands, direct to consumer marketing India, Meta Ads, Google Ads, ROAS, CAC",
+      category: "Digital Marketing & Ecommerce Growth",
+      description:
+        "Sarvopaya is a premier D2C marketing agency in India. We build performance marketing systems for direct-to-consumer brands: server-side tracking infrastructure (Meta CAPI & GA4), creative testing engines, Meta Ads, Google Ads, customer retention loops, and contribution margin optimization.",
+      provider: {
+        "@type": "Organization",
+        "@id": "https://www.sarvopaya.com/#organization",
+      },
+      areaServed: [
+        { "@type": "Country", name: "India" },
+        { "@type": "Country", name: "United States" },
+        { "@type": "Country", name: "United Kingdom" },
+        { "@type": "Country", name: "United Arab Emirates" },
+        { "@type": "Country", name: "Canada" },
+        { "@type": "Country", name: "Australia" },
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "D2C Performance Marketing Deliverables",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Server-Side Tracking & Attribution (Meta CAPI & GA4)",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "High-Velocity Creative Testing Engine (15-30 assets/mo)",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Multi-Channel Media Buying (Meta, Google, YouTube, TikTok)",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "D2C Customer Retention & LTV Compounding",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "E-commerce Conversion Rate Optimization (CRO)",
+            },
+          },
+        ],
+      },
+      offers: {
+        "@type": "Offer",
+        name: "Free D2C Growth & Unit Economics Audit",
+        price: "0",
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+        url: "https://www.sarvopaya.com/contact",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: "48",
+        bestRating: "5",
+        worstRating: "1",
+      },
+      review: [
+        {
+          "@type": "Review",
+          reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+          author: { "@type": "Person", name: "Vikram Mehta" },
+          datePublished: "2026-08-14",
+          reviewBody:
+            "Sarvopaya overhauled our entire tracking stack with Meta CAPI and restructured our paid ad accounts. Our blended MER jumped from 2.4 to 4.1 within 90 days.",
+        },
+        {
+          "@type": "Review",
+          reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+          author: { "@type": "Person", name: "Ananya Sharma" },
+          datePublished: "2026-09-22",
+          reviewBody:
+            "Their creative testing framework and discipline around contribution margin instead of fake vanity ROAS completely revolutionized how we allocate media budgets.",
+        },
+      ],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.sarvopaya.com/#organization",
+      name: "Sarvopaya",
+      alternateName: "Sarvopaya Digital Growth Agency",
+      url: "https://www.sarvopaya.com",
+      logo: "https://www.sarvopaya.com/images/Logo_black.png",
+      image: "https://www.sarvopaya.com/images/Main_icon.png",
+      description:
+        "Premier digital growth agency specializing in AI automation, performance marketing, SEO, and full-funnel D2C ecommerce scale.",
+      email: "jay@sarvopaya.com",
+      telephone: "+91-92655-03415",
+      priceRange: "$$",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "C-1102, PNTC, Times Of India Press Road, Vejalpur",
+        addressLocality: "Ahmedabad",
+        addressRegion: "Gujarat",
+        postalCode: "380015",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 23.01106,
+        longitude: 72.486887,
+      },
+      founder: {
+        "@type": "Person",
+        "@id": "https://www.sarvopaya.com/about#jay-solanki",
+        name: "Jay Solanki",
+      },
+      sameAs: [
+        "https://www.linkedin.com/company/sarvopaya",
+        "https://twitter.com/sarvopaya",
+        "https://www.instagram.com/sarvopaya",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.sarvopaya.com/about#jay-solanki",
+      name: "Jay Solanki",
+      jobTitle: "Founder & Growth Architect",
+      worksFor: {
+        "@type": "Organization",
+        "@id": "https://www.sarvopaya.com/#organization",
+      },
+      url: "https://www.sarvopaya.com/about",
+      sameAs: [
+        "https://www.sarvopaya.com/about",
+        "https://www.sarvopaya.com/resources/founders-pov",
+      ],
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://www.sarvopaya.com/services/d2c-marketing#breadcrumb",
       itemListElement: [
         {
           "@type": "ListItem",
@@ -835,8 +1027,99 @@ const jsonLd = {
         {
           "@type": "ListItem",
           position: 3,
-          name: "Performance Marketing",
+          name: "D2C Marketing Agency",
           item: "https://www.sarvopaya.com/services/d2c-marketing",
+        },
+      ],
+    },
+    {
+      "@type": "HowTo",
+      name: "How to Scale a Direct-to-Consumer (D2C) Brand with Sarvopaya",
+      description:
+        "A proven 4-phase D2C marketing framework to audit tracking, scale creative velocity, optimize paid media, and compound customer retention.",
+      totalTime: "P90D",
+      step: [
+        {
+          "@type": "HowToStep",
+          position: 1,
+          name: "Audit Tracking & Measurement Infrastructure",
+          text: "Implement server-side tracking (Meta Conversions API, GA4, GTM Server) and clean event deduplication to eliminate tracking loss.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#tracking-pipeline",
+        },
+        {
+          "@type": "HowToStep",
+          position: 2,
+          name: "Deploy High-Velocity Creative Testing Engine",
+          text: "Produce and iterate 15-30 modular ad creative variations (hook, problem, solution, proof) every month to counter creative fatigue.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#creative-engine",
+        },
+        {
+          "@type": "HowToStep",
+          position: 3,
+          name: "Scale Media Channels with Contribution Margin Discipline",
+          text: "Allocate spend across Meta, Google Ads, and YouTube focusing on Blended MER and CM1 profitability rather than in-platform vanity ROAS.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#revenue-economics",
+        },
+        {
+          "@type": "HowToStep",
+          position: 4,
+          name: "Compound Customer Retention & Lifetime Value (LTV)",
+          text: "Build automated post-purchase email, SMS, and WhatsApp lifecycle loops to generate repeat purchases at ₹0 additional CAC.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#retention-strategy",
+        },
+      ],
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "D2C Marketing Page Sitelinks",
+      itemListElement: [
+        {
+          "@type": "SiteNavigationElement",
+          name: "The Performance Stack",
+          description: "Five-phase integrated system for scalable D2C acquisition.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#performance-stack",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          name: "Server-Side Tracking",
+          description: "Robust Meta CAPI and GA4 first-party event architecture.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#tracking-pipeline",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          name: "Creative Testing Engine",
+          description: "Data-driven creative framework moving ad account ROAS.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#creative-engine",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          name: "Revenue Economics & Contribution Margin",
+          description: "Why high ROAS can yield zero profit and how to optimize true unit economics.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#revenue-economics",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          name: "D2C Customer Retention Strategy",
+          description: "Unlocking 60%+ margins on repeat purchases at zero paid CAC.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#retention-strategy",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          name: "6-Phase Growth Process",
+          description: "From day-one audit to aggressive quarter-two scaling.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#growth-process",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          name: "D2C Marketing FAQs",
+          description: "Answers to questions on ROAS, CAC, CAPI, attribution, and budgets.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#faqs",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          name: "Free Performance Audit",
+          description: "Uncover attribution leakage and creative bottlenecks.",
+          url: "https://www.sarvopaya.com/services/d2c-marketing#audit",
         },
       ],
     },
@@ -888,6 +1171,15 @@ export default function PerformanceMarketing() {
             animate="show"
             className="max-w-3xl"
           >
+            {/* Visual Semantic Breadcrumb */}
+            <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-white/45">
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <span>/</span>
+              <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+              <span>/</span>
+              <span className="text-[var(--accent)] font-medium" aria-current="page">D2C Marketing Agency</span>
+            </nav>
+
             <motion.div variants={fadeUp}>
               <SectionLabel>D2C Marketing Agency</SectionLabel>
             </motion.div>
@@ -920,11 +1212,64 @@ export default function PerformanceMarketing() {
                 Talk to a Growth Strategist
               </CTAButton>
             </motion.div>
+
+            {/* Speakable Definition for Voice & Generative Search (AEO/GEO) */}
+            <motion.div
+              variants={item}
+              id="speakable-summary"
+              className="mt-8 rounded-xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm"
+            >
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[var(--accent)] animate-pulse" />
+                <span className="font-heading text-[11px] font-bold uppercase tracking-wider text-white/70">
+                  Quick Definition · Generative & Search Engine Summary
+                </span>
+              </div>
+              <p id="speakable-definition" className="mt-2.5 text-[14px] leading-relaxed text-white/75">
+                A <strong>D2C marketing agency</strong> specializes in direct-to-consumer ecommerce growth, integrating first-party server-side tracking (Meta CAPI, GA4), creative production velocity, full-funnel media buying across Meta and Google, and lifecycle <Link href="/customer-retention-d2c-marketing-guide" className="text-[var(--accent)] underline underline-offset-2">customer retention</Link> to compound contribution margins rather than chasing vanity platform ROAS.
+              </p>
+            </motion.div>
           </motion.div>
 
           <RevenueEngine />
         </div>
       </section>
+
+      {/* ── QUICK SITELINKS & ON-PAGE JUMP NAVIGATION ──────────────────── */}
+      <nav
+        aria-label="D2C Marketing Table of Contents"
+        className="sticky top-0 z-30 border-y border-white/10 bg-black/85 py-3 backdrop-blur-md"
+      >
+        <div className="mx-auto flex max-w-5xl items-center justify-start gap-2 overflow-x-auto px-4 text-xs font-semibold text-white/60 no-scrollbar sm:justify-center">
+          <span className="shrink-0 pr-1 text-[10px] font-bold uppercase tracking-wider text-white/30">
+            Sitelinks:
+          </span>
+          <a href="#performance-stack" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
+            Performance Stack
+          </a>
+          <a href="#tracking-pipeline" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
+            Server-Side Tracking
+          </a>
+          <a href="#creative-engine" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
+            Creative Engine
+          </a>
+          <a href="#revenue-economics" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
+            Revenue Economics
+          </a>
+          <a href="#retention-strategy" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
+            Customer Retention
+          </a>
+          <a href="#growth-process" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
+            Growth Process
+          </a>
+          <a href="#faqs" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
+            FAQs
+          </a>
+          <a href="#audit" className="shrink-0 rounded-full border border-[var(--accent)]/50 bg-[var(--accent)]/20 px-3 py-1 text-white hover:bg-[var(--accent)]/30 transition-colors">
+            Free Audit
+          </a>
+        </div>
+      </nav>
 
       {/* ── 02 VANITY VS BUSINESS METRICS ──────────────────────────────── */}
       <section className="bg-white py-20 sm:py-24">
@@ -1001,7 +1346,7 @@ export default function PerformanceMarketing() {
       </section>
 
       {/* ── 03 PERFORMANCE STACK ───────────────────────────────────────── */}
-      <section className="bg-black py-20 sm:py-28">
+      <section id="performance-stack" className="bg-black py-20 sm:py-28">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={container}
@@ -1124,7 +1469,7 @@ export default function PerformanceMarketing() {
       </section>
 
       {/* ── 05 SERVER-SIDE TRACKING + DATA PIPELINE ────────────────────── */}
-      <section className="bg-black py-20 sm:py-28">
+      <section id="tracking-pipeline" className="bg-black py-20 sm:py-28">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[1fr_360px]">
             <motion.div
@@ -1552,7 +1897,7 @@ export default function PerformanceMarketing() {
       </section>
 
       {/* ── 09 CREATIVE PERFORMANCE ────────────────────────────────────── */}
-      <section className="bg-black py-20 sm:py-28">
+      <section id="creative-engine" className="bg-black py-20 sm:py-28">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={container}
@@ -1717,8 +2062,14 @@ export default function PerformanceMarketing() {
                 className="mt-5 text-lg leading-8 text-white/45"
               >
                 A 1% to 2% CVR improvement on the same traffic doubles your
-                orders without adding a rupee to your ad spend. CRO is the
-                highest-leverage performance intervention available.
+                orders without adding a rupee to your ad spend. Through dedicated{" "}
+                <Link
+                  href="/services/Conversion-Rate-Optimisation"
+                  className="text-[var(--accent)] underline underline-offset-2 hover:text-white transition-colors"
+                >
+                  Conversion Rate Optimisation (CRO)
+                </Link>
+                , we eliminate landing page friction, streamline mobile checkouts, and maximize revenue velocity.
               </motion.p>
               <motion.div
                 variants={item}
@@ -1774,7 +2125,7 @@ export default function PerformanceMarketing() {
       </section>
 
       {/* ── 12 REVENUE ECONOMICS ───────────────────────────────────────── */}
-      <section className="bg-white py-20 sm:py-28">
+      <section id="revenue-economics" className="bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={container}
@@ -1888,6 +2239,188 @@ export default function PerformanceMarketing() {
               dashboard.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── 13B CUSTOMER RETENTION & LTV STRATEGY ───────────────────────── */}
+      <section id="retention-strategy" className="relative overflow-hidden bg-black py-20 sm:py-28">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 65% 50% at 50% 0%,rgba(237,40,48,0.09) 0%,transparent 65%)",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-3xl"
+          >
+            <SectionLabel>Customer Retention & LTV</SectionLabel>
+            <motion.h2
+              variants={item}
+              className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
+            >
+              The Second Order Is Where Profit Begins.
+            </motion.h2>
+            <motion.p
+              variants={item}
+              className="mt-5 text-lg leading-8 text-white/50"
+            >
+              Cold ad auctions on Meta and Google grow more expensive every quarter. If your D2C brand relies solely on first-purchase margin, rising Customer Acquisition Costs (CAC) will inevitably compress your EBITDA. True scale happens when repeat purchases compound at <strong className="text-white font-semibold">₹0 incremental ad spend</strong>.
+            </motion.p>
+          </motion.div>
+
+          {/* Retention Unit Economics Grid */}
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-12 grid gap-4 sm:grid-cols-3"
+          >
+            {[
+              {
+                stat: "₹0 CAC",
+                label: "Repeat Purchase Media Cost",
+                desc: "Second and third transactions bypass paid ad auctions entirely, turning marketing expense into pure net contribution margin.",
+              },
+              {
+                stat: "60%+",
+                label: "Contribution Margin 3",
+                desc: "While order #1 yields ~15–22% CM3 due to acquisition ad spend, repeat lifecycle orders expand contribution margin past 60%.",
+              },
+              {
+                stat: "+42%",
+                label: "Average 90-Day LTV Lift",
+                desc: "Disciplined post-purchase cohort sequencing across WhatsApp, email, and SMS transforms one-time buyers into compounding annuities.",
+              },
+            ].map(({ stat, label, desc }) => (
+              <motion.div
+                key={label}
+                variants={fadeUp}
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm"
+              >
+                <p className="font-heading text-3xl font-black text-[var(--accent)] sm:text-4xl">
+                  {stat}
+                </p>
+                <p className="mt-2 font-heading text-sm font-bold uppercase tracking-wider text-white">
+                  {label}
+                </p>
+                <p className="mt-2 text-[13px] leading-6 text-white/45">
+                  {desc}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Strategic Knowledge Hub & Internal Links */}
+          <div className="mt-14 rounded-2xl border border-white/10 bg-white/[0.02] p-7 sm:p-9 backdrop-blur-md">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-white/10 pb-6">
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+                  Topical Knowledge Hub
+                </p>
+                <h3 className="mt-1 font-heading text-2xl font-bold text-white">
+                  Essential D2C Growth & Retention Frameworks
+                </h3>
+              </div>
+              <p className="text-xs text-white/40">
+                Curated by <Link href="/about" className="text-white hover:text-[var(--accent)] underline underline-offset-2 transition-colors">Jay Solanki</Link>, Founder & Growth Architect
+              </p>
+            </div>
+
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              <div className="flex flex-col justify-between rounded-xl border border-white/8 bg-black/40 p-5 hover:border-[var(--accent)]/40 transition-colors">
+                <div>
+                  <span className="inline-block rounded-full bg-[var(--accent)]/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--accent)]">
+                    Primary Guide
+                  </span>
+                  <h4 className="mt-3 font-heading text-base font-bold leading-snug text-white">
+                    <Link
+                      href="/customer-retention-d2c-marketing-guide"
+                      className="hover:text-[var(--accent)] transition-colors"
+                    >
+                      Why Customer Retention Is Important for D2C Brands
+                    </Link>
+                  </h4>
+                  <p className="mt-2 text-[13px] leading-relaxed text-white/45">
+                    How post-purchase automated sequences, cohort payback analysis, and retention economics protect your brand against rising ad auctions.
+                  </p>
+                </div>
+                <Link
+                  href="/customer-retention-d2c-marketing-guide"
+                  className="mt-4 inline-flex items-center text-xs font-semibold text-[var(--accent)] hover:underline"
+                >
+                  Read Retention Guide &rarr;
+                </Link>
+              </div>
+
+              <div className="flex flex-col justify-between rounded-xl border border-white/8 bg-black/40 p-5 hover:border-[var(--accent)]/40 transition-colors">
+                <div>
+                  <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/70">
+                    Strategy Framework
+                  </span>
+                  <h4 className="mt-3 font-heading text-base font-bold leading-snug text-white">
+                    <Link
+                      href="/how-to-create-a-winning-d2c-marketing-strategy"
+                      className="hover:text-[var(--accent)] transition-colors"
+                    >
+                      How to Create a Winning D2C Marketing Strategy for Your Brand
+                    </Link>
+                  </h4>
+                  <p className="mt-2 text-[13px] leading-relaxed text-white/45">
+                    The end-to-end performance roadmap: calculating break-even ROAS, creative sprint cadences, and full-funnel media distribution.
+                  </p>
+                </div>
+                <Link
+                  href="/how-to-create-a-winning-d2c-marketing-strategy"
+                  className="mt-4 inline-flex items-center text-xs font-semibold text-[var(--accent)] hover:underline"
+                >
+                  Explore Strategy Guide &rarr;
+                </Link>
+              </div>
+
+              <div className="flex flex-col justify-between rounded-xl border border-white/8 bg-black/40 p-5 hover:border-[var(--accent)]/40 transition-colors">
+                <div>
+                  <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/70">
+                    Channel Synergy
+                  </span>
+                  <h4 className="mt-3 font-heading text-base font-bold leading-snug text-white">
+                    <Link
+                      href="/d2c-marketing-channels-guide"
+                      className="hover:text-[var(--accent)] transition-colors"
+                    >
+                      D2C Marketing Channels & Attribution Architecture
+                    </Link>
+                  </h4>
+                  <p className="mt-2 text-[13px] leading-relaxed text-white/45">
+                    How to balance Meta Ads, Google Performance Max, and YouTube alongside our <Link href="/services/advertising" className="text-white hover:text-[var(--accent)] underline underline-offset-2">paid advertising services</Link>.
+                  </p>
+                </div>
+                <Link
+                  href="/d2c-marketing-channels-guide"
+                  className="mt-4 inline-flex items-center text-xs font-semibold text-[var(--accent)] hover:underline"
+                >
+                  View Channels Guide &rarr;
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -2203,7 +2736,7 @@ export default function PerformanceMarketing() {
       </section>
 
       {/* ── 18 D2C GROWTH PROCESS ──────────────────────────────────────── */}
-      <section className="bg-white py-20 sm:py-28">
+      <section id="growth-process" className="bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={container}
@@ -2288,7 +2821,7 @@ export default function PerformanceMarketing() {
       </section>
 
       {/* ── 19 PERFORMANCE AUDIT CTA ───────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-black py-20 sm:py-28">
+      <section id="audit" className="relative overflow-hidden bg-black py-20 sm:py-28">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
@@ -2426,7 +2959,7 @@ export default function PerformanceMarketing() {
       </section>
 
       {/* ── 21 FAQ ─────────────────────────────────────────────────────── */}
-      <section className="bg-white py-20 sm:py-28">
+      <section id="faqs" className="bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={container}
