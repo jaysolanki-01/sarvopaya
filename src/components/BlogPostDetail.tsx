@@ -172,51 +172,63 @@ function BlogChartRenderer({ chart }: { chart: BlogChart }) {
   );
 }
 
-function renderParagraphWithLinks(text: string) {
+function renderInlineToken(token: string, key: string): React.ReactNode {
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  const elements: React.ReactNode[] = [];
-  let lastIdx = 0;
-  let match;
+  const boldRegex = /\*\*([^*]+)\*\*/g;
+  const tokenRegex = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
 
-  while ((match = linkRegex.exec(text)) !== null) {
-    if (match.index > lastIdx) {
-      elements.push(text.substring(lastIdx, match.index));
-    }
-    const label = match[1];
-    const url = match[2];
-    const isInternal = url.startsWith("/");
+  const parts: React.ReactNode[] = [];
+  let last = 0;
+  let m;
 
-    if (isInternal) {
-      elements.push(
-        <Link
-          key={`${match.index}-${url}`}
-          href={url}
-          className="font-semibold text-black underline decoration-black/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-        >
-          {label}
-        </Link>
-      );
+  while ((m = tokenRegex.exec(token)) !== null) {
+    if (m.index > last) parts.push(token.substring(last, m.index));
+
+    const chunk = m[0];
+    if (chunk.startsWith("**")) {
+      const inner = chunk.slice(2, -2);
+      parts.push(<strong key={`${key}-b${m.index}`} className="font-semibold text-black">{inner}</strong>);
     } else {
-      elements.push(
-        <a
-          key={`${match.index}-${url}`}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-semibold text-black underline decoration-black/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-        >
-          {label}
-        </a>
-      );
+      linkRegex.lastIndex = 0;
+      const lm = linkRegex.exec(chunk);
+      if (lm) {
+        const label = lm[1];
+        const url = lm[2];
+        if (url.startsWith("/")) {
+          parts.push(
+            <Link key={`${key}-l${m.index}`} href={url}
+              className="font-semibold text-black underline decoration-black/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">
+              {label}
+            </Link>
+          );
+        } else {
+          parts.push(
+            <a key={`${key}-l${m.index}`} href={url} target="_blank" rel="noopener noreferrer"
+              className="font-semibold text-black underline decoration-black/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">
+              {label}
+            </a>
+          );
+        }
+      }
     }
-    lastIdx = match.index + match[0].length;
+    last = m.index + m[0].length;
   }
 
-  if (lastIdx < text.length) {
-    elements.push(text.substring(lastIdx));
-  }
+  if (last < token.length) parts.push(token.substring(last));
+  void boldRegex;
+  return parts.length > 0 ? parts : token;
+}
 
-  return elements.length > 0 ? elements : text;
+function renderParagraphWithLinks(text: string) {
+  const lines = text.split("\n");
+  const nodes: React.ReactNode[] = [];
+  lines.forEach((line, i) => {
+    if (i > 0) nodes.push(<br key={`br-${i}`} />);
+    const rendered = renderInlineToken(line, `l${i}`);
+    if (Array.isArray(rendered)) nodes.push(...rendered);
+    else nodes.push(rendered);
+  });
+  return nodes;
 }
 
 export default function BlogPostDetail({
