@@ -1711,7 +1711,165 @@ function UnitEconomicsCalculator() {
   );
 }
 
-// ─── D2C Mascot ───────────────────────────────────────────────────────────────
+// ─── Shared 3D Mascot SVG ─────────────────────────────────────────────────────
+
+function D2CMascotSVG({ width = 88, height = 126, p = "d2cm" }: { width?: number; height?: number; p?: string }) {
+  return (
+    <svg width={width} height={height} viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        {/* Skin — lit top-left */}
+        <radialGradient id={`${p}-sk`} cx="38%" cy="28%" r="68%">
+          <stop offset="0%" stopColor="#ffe0b8"/>
+          <stop offset="55%" stopColor="#f5c891"/>
+          <stop offset="100%" stopColor="#c97840"/>
+        </radialGradient>
+        {/* Suit */}
+        <linearGradient id={`${p}-su`} x1="15%" y1="5%" x2="90%" y2="95%">
+          <stop offset="0%" stopColor="#ff4a52"/>
+          <stop offset="40%" stopColor="#ed2830"/>
+          <stop offset="100%" stopColor="#8b0a14"/>
+        </linearGradient>
+        {/* Eye white */}
+        <radialGradient id={`${p}-ew`} cx="40%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#ffffff"/>
+          <stop offset="100%" stopColor="#dde0ee"/>
+        </radialGradient>
+        {/* Iris */}
+        <radialGradient id={`${p}-ir`} cx="38%" cy="35%" r="58%">
+          <stop offset="0%" stopColor="#3a3a60"/>
+          <stop offset="100%" stopColor="#08080f"/>
+        </radialGradient>
+        {/* Hand skin */}
+        <radialGradient id={`${p}-hd`} cx="40%" cy="30%" r="65%">
+          <stop offset="0%" stopColor="#ffe0b8"/>
+          <stop offset="100%" stopColor="#c97840"/>
+        </radialGradient>
+        {/* Hair */}
+        <linearGradient id={`${p}-hr`} x1="10%" y1="0%" x2="80%" y2="100%">
+          <stop offset="0%" stopColor="#3a1e00"/>
+          <stop offset="50%" stopColor="#1a0900"/>
+          <stop offset="100%" stopColor="#080400"/>
+        </linearGradient>
+        {/* Pants */}
+        <linearGradient id={`${p}-pt`} x1="10%" y1="0%" x2="80%" y2="100%">
+          <stop offset="0%" stopColor="#28283a"/>
+          <stop offset="100%" stopColor="#0d0d16"/>
+        </linearGradient>
+      </defs>
+
+      {/* Ground shadow */}
+      <ellipse cx="50" cy="138" rx="26" ry="4.5" fill="rgba(0,0,0,0.3)"/>
+
+      {/* LEGS */}
+      <rect x="28" y="96" width="17" height="27" rx="8" fill={`url(#${p}-pt)`}/>
+      <rect x="55" y="96" width="17" height="27" rx="8" fill={`url(#${p}-pt)`}/>
+      <rect x="30" y="99" width="5" height="18" rx="2.5" fill="rgba(255,255,255,0.09)"/>
+      <rect x="57" y="99" width="5" height="18" rx="2.5" fill="rgba(255,255,255,0.09)"/>
+
+      {/* SHOES */}
+      <ellipse cx="36.5" cy="123" rx="14" ry="6" fill="#111"/>
+      <ellipse cx="63.5" cy="123" rx="14" ry="6" fill="#111"/>
+      <ellipse cx="33" cy="120.5" rx="6" ry="2.2" fill="rgba(255,255,255,0.22)"/>
+      <ellipse cx="59.5" cy="120.5" rx="6" ry="2.2" fill="rgba(255,255,255,0.22)"/>
+
+      {/* BODY / SUIT */}
+      <rect x="20" y="54" width="60" height="48" rx="15" fill={`url(#${p}-su)`}/>
+      {/* suit highlight */}
+      <ellipse cx="35" cy="62" rx="13" ry="7" fill="rgba(255,255,255,0.12)"/>
+      {/* suit bottom rim shadow */}
+      <rect x="20" y="93" width="60" height="9" rx="4" fill="rgba(0,0,0,0.18)"/>
+
+      {/* SHIRT / TIE */}
+      <polygon points="41,54 50,67 59,54" fill="#f8f8f8"/>
+      <polygon points="44,67 50,77 56,67" fill="#e2e2e2"/>
+      <polygon points="47,67 50,80 53,67 50,63" fill="#fff"/>
+      <polygon points="49,67 50,80 52,67" fill="rgba(0,0,0,0.08)"/>
+      <ellipse cx="50" cy="63" rx="3" ry="2" fill="rgba(255,255,255,0.9)"/>
+      <circle cx="50" cy="86" r="2.2" fill="rgba(0,0,0,0.25)"/>
+
+      {/* LEFT ARM */}
+      <line x1="21" y1="67" x2="7" y2="81" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
+      <line x1="22" y1="66" x2="9" y2="78" stroke="rgba(255,120,120,0.35)" strokeWidth="5" strokeLinecap="round"/>
+      <circle cx="5" cy="83" r="7.5" fill={`url(#${p}-hd)`}/>
+      <circle cx="3" cy="81" r="2.2" fill="rgba(255,255,255,0.45)"/>
+
+      {/* RIGHT ARM (animated) */}
+      <g className="d2c-arm">
+        <line x1="79" y1="63" x2="92" y2="48" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
+        <line x1="78" y1="62" x2="90" y2="48" stroke="rgba(255,120,120,0.35)" strokeWidth="5" strokeLinecap="round"/>
+        <circle cx="93" cy="44" r="7.5" fill={`url(#${p}-hd)`}/>
+        <circle cx="91" cy="42" r="2.2" fill="rgba(255,255,255,0.45)"/>
+      </g>
+
+      {/* NECK */}
+      <rect x="43" y="50" width="14" height="9" rx="4" fill="#f0b878"/>
+
+      {/* HEAD */}
+      <circle cx="50" cy="31" r="31" fill={`url(#${p}-sk)`}/>
+
+      {/* HAIR */}
+      <path d="M19 26 Q19 1 50 4 Q81 1 81 26 Q74 13 50 13 Q26 13 19 26Z" fill={`url(#${p}-hr)`}/>
+      <path d="M26 15 Q38 5 56 6 Q66 8 72 14" stroke="rgba(200,130,30,0.3)" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+      <path d="M30 12 Q42 4 58 5" stroke="rgba(255,220,100,0.12)" strokeWidth="5" fill="none" strokeLinecap="round"/>
+
+      {/* EARS */}
+      <ellipse cx="19" cy="33" rx="4.5" ry="7" fill={`url(#${p}-sk)`}/>
+      <ellipse cx="81" cy="33" rx="4.5" ry="7" fill={`url(#${p}-sk)`}/>
+      <ellipse cx="19" cy="34" rx="2.3" ry="4" fill="#d08040" opacity="0.65"/>
+      <ellipse cx="81" cy="34" rx="2.3" ry="4" fill="#d08040" opacity="0.65"/>
+
+      {/* GLASSES — 3D depth: shadow frame behind, then lit frame */}
+      <rect x="24.5" y="21.5" width="22" height="21" rx="7" fill="none" stroke="#8b0a14" strokeWidth="4"/>
+      <rect x="52.5" y="21.5" width="22" height="21" rx="7" fill="none" stroke="#8b0a14" strokeWidth="4"/>
+      <rect x="25" y="22" width="22" height="21" rx="7" fill="rgba(180,210,255,0.06)" stroke="#ed2830" strokeWidth="2.5"/>
+      <rect x="53" y="22" width="22" height="21" rx="7" fill="rgba(180,210,255,0.06)" stroke="#ed2830" strokeWidth="2.5"/>
+      {/* lens reflection streaks */}
+      <path d="M28 25 L37 23" stroke="rgba(255,255,255,0.45)" strokeWidth="1.5" strokeLinecap="round"/>
+      <path d="M56 25 L65 23" stroke="rgba(255,255,255,0.45)" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="47" y1="32" x2="53" y2="32" stroke="#ed2830" strokeWidth="2.5"/>
+      <line x1="25" y1="35" x2="21" y2="39" stroke="#ed2830" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="75" y1="35" x2="79" y2="39" stroke="#ed2830" strokeWidth="2" strokeLinecap="round"/>
+
+      {/* EYES */}
+      <g className="d2c-eyel">
+        <circle cx="36" cy="33" r="8" fill={`url(#${p}-ew)`}/>
+        <circle cx="37" cy="34" r="5" fill={`url(#${p}-ir)`}/>
+        <circle cx="37" cy="34" r="2.8" fill="#05050e"/>
+        <circle cx="38.8" cy="31.5" r="2" fill="white"/>
+        <circle cx="34.5" cy="35.5" r="0.9" fill="rgba(255,255,255,0.55)"/>
+      </g>
+      <g className="d2c-eyer">
+        <circle cx="64" cy="33" r="8" fill={`url(#${p}-ew)`}/>
+        <circle cx="65" cy="34" r="5" fill={`url(#${p}-ir)`}/>
+        <circle cx="65" cy="34" r="2.8" fill="#05050e"/>
+        <circle cx="66.8" cy="31.5" r="2" fill="white"/>
+        <circle cx="62.5" cy="35.5" r="0.9" fill="rgba(255,255,255,0.55)"/>
+      </g>
+
+      {/* EYEBROWS */}
+      <path d="M28 23.5 Q35.5 20 43 22.5" stroke="#2a1500" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+      <path d="M57 22.5 Q64.5 20 72 23.5" stroke="#2a1500" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+
+      {/* NOSE */}
+      <ellipse cx="50" cy="41" rx="3.5" ry="2.5" fill="rgba(180,100,30,0.4)"/>
+      <circle cx="49" cy="40" r="1.3" fill="rgba(255,220,160,0.4)"/>
+
+      {/* MOUTH */}
+      <path d="M37 47 Q50 58 63 47" stroke="#b05020" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+      <circle cx="37" cy="47" r="1.5" fill="#c07838" opacity="0.5"/>
+      <circle cx="63" cy="47" r="1.5" fill="#c07838" opacity="0.5"/>
+
+      {/* CHEEK BLUSH */}
+      <ellipse cx="22" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.4"/>
+      <ellipse cx="78" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.4"/>
+
+      {/* HEAD TOP HIGHLIGHT — 3D sphere illusion */}
+      <ellipse cx="38" cy="17" rx="13" ry="7" fill="rgba(255,255,255,0.13)"/>
+    </svg>
+  );
+}
+
+// ─── D2C Mascot ─────────────────────────────────────────────────────────────────
 
 function D2CMascot() {
   const [tipIdx, setTipIdx] = useState(0);
@@ -1807,47 +1965,7 @@ function D2CMascot() {
           role="button"
           aria-label={contacted ? "Talk to our expert" : "Open Unit Economics Calculator"}
         >
-          <svg width="88" height="126" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="50" cy="138" rx="26" ry="4.5" fill="rgba(0,0,0,0.3)"/>
-            <rect x="28" y="96" width="17" height="27" rx="8" fill="#1a1a1a"/>
-            <rect x="55" y="96" width="17" height="27" rx="8" fill="#1a1a1a"/>
-            <ellipse cx="36.5" cy="123" rx="13.5" ry="6" fill="#0d0d0d"/>
-            <ellipse cx="63.5" cy="123" rx="13.5" ry="6" fill="#0d0d0d"/>
-            <rect x="20" y="54" width="60" height="48" rx="15" fill="#ed2830"/>
-            <polygon points="40,54 50,69 60,54" fill="#fff" opacity="0.96"/>
-            <polygon points="46,69 50,80 54,69" fill="#b01520"/>
-            <circle cx="50" cy="84" r="2.2" fill="rgba(255,255,255,0.3)"/>
-            <line x1="21" y1="67" x2="7" y2="81" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
-            <circle cx="5" cy="83" r="7.5" fill="#f5c891"/>
-            <g className="d2c-arm">
-              <line x1="79" y1="63" x2="92" y2="48" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
-              <circle cx="93" cy="44" r="7.5" fill="#f5c891"/>
-            </g>
-            <rect x="43" y="50" width="14" height="9" rx="4" fill="#f5c891"/>
-            <circle cx="50" cy="31" r="31" fill="#f5c891"/>
-            <path d="M19 26 Q19 1 50 4 Q81 1 81 26 Q74 13 50 13 Q26 13 19 26Z" fill="#190e00"/>
-            <ellipse cx="19" cy="33" rx="4.5" ry="7" fill="#f5c891"/>
-            <ellipse cx="81" cy="33" rx="4.5" ry="7" fill="#f5c891"/>
-            <rect x="25" y="22" width="22" height="21" rx="7" fill="none" stroke="#ed2830" strokeWidth="2.5"/>
-            <rect x="53" y="22" width="22" height="21" rx="7" fill="none" stroke="#ed2830" strokeWidth="2.5"/>
-            <line x1="47" y1="32" x2="53" y2="32" stroke="#ed2830" strokeWidth="2.5"/>
-            <line x1="25" y1="35" x2="21" y2="39" stroke="#ed2830" strokeWidth="2" strokeLinecap="round"/>
-            <line x1="75" y1="35" x2="79" y2="39" stroke="#ed2830" strokeWidth="2" strokeLinecap="round"/>
-            <g className="d2c-eyel">
-              <circle cx="36" cy="33" r="8" fill="white"/>
-              <circle cx="37" cy="34" r="4.5" fill="#1a1a2e"/>
-              <circle cx="38.5" cy="32" r="1.8" fill="white"/>
-            </g>
-            <g className="d2c-eyer">
-              <circle cx="64" cy="33" r="8" fill="white"/>
-              <circle cx="65" cy="34" r="4.5" fill="#1a1a2e"/>
-              <circle cx="66.5" cy="32" r="1.8" fill="white"/>
-            </g>
-            <ellipse cx="22" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.6"/>
-            <ellipse cx="78" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.6"/>
-            <ellipse cx="50" cy="40" rx="3" ry="2" fill="#e8a870" opacity="0.75"/>
-            <path d="M37 46 Q50 57 63 46" stroke="#c06028" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-          </svg>
+          <D2CMascotSVG width={88} height={126} p="d2cm" />
         </div>
       </div>
     </>
@@ -1943,39 +2061,7 @@ function D2CExitIntentModal() {
 
         {/* Mascot */}
         <div className="d2c-ei-char" style={{ marginBottom: 8 }}>
-          <svg width="92" height="132" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="50" cy="138" rx="26" ry="4.5" fill="rgba(0,0,0,0.3)"/>
-            <rect x="28" y="96" width="17" height="27" rx="8" fill="#1a1a1a"/>
-            <rect x="55" y="96" width="17" height="27" rx="8" fill="#1a1a1a"/>
-            <ellipse cx="36.5" cy="123" rx="13.5" ry="6" fill="#0d0d0d"/>
-            <ellipse cx="63.5" cy="123" rx="13.5" ry="6" fill="#0d0d0d"/>
-            <rect x="20" y="54" width="60" height="48" rx="15" fill="#ed2830"/>
-            <polygon points="40,54 50,69 60,54" fill="#fff" opacity="0.96"/>
-            <polygon points="46,69 50,80 54,69" fill="#b01520"/>
-            <circle cx="50" cy="84" r="2.2" fill="rgba(255,255,255,0.3)"/>
-            <line x1="21" y1="67" x2="5" y2="58" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
-            <circle cx="3" cy="55" r="7.5" fill="#f5c891"/>
-            <line x1="79" y1="63" x2="96" y2="55" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
-            <circle cx="97" cy="52" r="7.5" fill="#f5c891"/>
-            <rect x="43" y="50" width="14" height="9" rx="4" fill="#f5c891"/>
-            <circle cx="50" cy="31" r="31" fill="#f5c891"/>
-            <path d="M19 26 Q19 1 50 4 Q81 1 81 26 Q74 13 50 13 Q26 13 19 26Z" fill="#190e00"/>
-            <ellipse cx="19" cy="33" rx="4.5" ry="7" fill="#f5c891"/>
-            <ellipse cx="81" cy="33" rx="4.5" ry="7" fill="#f5c891"/>
-            <rect x="25" y="22" width="22" height="21" rx="7" fill="none" stroke="#ed2830" strokeWidth="2.5"/>
-            <rect x="53" y="22" width="22" height="21" rx="7" fill="none" stroke="#ed2830" strokeWidth="2.5"/>
-            <line x1="47" y1="32" x2="53" y2="32" stroke="#ed2830" strokeWidth="2.5"/>
-            <circle cx="36" cy="33" r="8" fill="white"/>
-            <circle cx="37" cy="34" r="4.5" fill="#1a1a2e"/>
-            <circle cx="38.5" cy="32" r="1.8" fill="white"/>
-            <circle cx="64" cy="33" r="8" fill="white"/>
-            <circle cx="65" cy="34" r="4.5" fill="#1a1a2e"/>
-            <circle cx="66.5" cy="32" r="1.8" fill="white"/>
-            <ellipse cx="22" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.6"/>
-            <ellipse cx="78" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.6"/>
-            <ellipse cx="50" cy="40" rx="3" ry="2" fill="#e8a870" opacity="0.75"/>
-            <path d="M37 46 Q50 57 63 46" stroke="#c06028" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-          </svg>
+          <D2CMascotSVG width={92} height={132} p="d2cei" />
         </div>
 
         {/* Speech bubble callout */}
