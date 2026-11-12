@@ -52,10 +52,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/Main_icon.png",
-        width: 512,
-        height: 512,
-        alt: "Sarvopaya, AI Automation & Growth Marketing Agency",
+        url: "/images/homepage-og.webp",
+        width: 1512,
+        height: 756,
+        alt: "Sarvopaya — Creative. Technology. AI. Complete digital solutions for ambitious brands.",
       },
     ],
   },
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Automation & Growth Marketing Agency India | Sarvopaya",
     description: siteDescription,
-    images: ["/images/Main_icon.png"],
+    images: ["/images/homepage-og.webp"],
   },
   icons: {
     icon: [
