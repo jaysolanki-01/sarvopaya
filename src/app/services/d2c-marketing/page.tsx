@@ -8,6 +8,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import CTAButton from "@/components/CTAButton";
 import {
   ChartIcon,
@@ -1682,6 +1683,115 @@ export default function PerformanceMarketing() {
               </p>
               <DataPipeline />
             </motion.div>
+          </div>
+
+          {/* ── Analytics Dashboard Screenshots ──────────────────────── */}
+          <div className="mt-20 sm:mt-24">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, ease: EASE }}
+              className="mb-10 flex items-center gap-4"
+            >
+              <div className="h-px w-8 bg-[var(--accent)]/60" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--accent)]">
+                Live Reporting
+              </span>
+              <div className="h-px flex-1 bg-white/8" />
+            </motion.div>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:items-start">
+              {/* Card 1 — User Activity */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.7, ease: EASE, delay: 0 }}
+                className="animate-float group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-transform duration-300 hover:scale-[1.03] hover:border-white/20 sm:mt-10"
+                style={{ animationDelay: "0s" }}
+              >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/[0.04] to-transparent" />
+                <div className="relative p-1.5">
+                  <Image
+                    src="/images/analytics/ga4-activity.png"
+                    alt="User activity over time – GA4 dashboard"
+                    width={600}
+                    height={400}
+                    className="w-full rounded-xl opacity-90"
+                  />
+                </div>
+                <div className="relative px-4 pb-4 pt-2.5">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400/80">
+                    User Activity
+                  </p>
+                  <p className="mt-0.5 text-[13px] text-white/40">
+                    30-day rolling trend
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Card 2 — Audience */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.14 }}
+                className="animate-float group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-transform duration-300 hover:scale-[1.03] hover:border-white/20"
+                style={{ animationDelay: "1.4s" }}
+              >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/[0.04] to-transparent" />
+                <div className="relative p-1.5">
+                  <Image
+                    src="/images/analytics/ga4-users.png"
+                    alt="Active and new users – GA4 dashboard"
+                    width={600}
+                    height={400}
+                    className="w-full rounded-xl opacity-90"
+                  />
+                </div>
+                <div className="relative px-4 pb-4 pt-2.5">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400/80">
+                    Audience
+                  </p>
+                  <p className="mt-0.5 text-[13px] text-white/40">
+                    Active vs new users · 28s avg session
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Card 3 — Sessions */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.28 }}
+                className="animate-float group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-transform duration-300 hover:scale-[1.03] hover:border-white/20 sm:mt-10"
+                style={{ animationDelay: "2.8s" }}
+              >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-violet-500/[0.04] to-transparent" />
+                <div className="relative p-1.5">
+                  <Image
+                    src="/images/analytics/ga4-sessions.png"
+                    alt="Sessions and traffic channels – GA4 dashboard"
+                    width={600}
+                    height={400}
+                    className="w-full rounded-xl opacity-90"
+                  />
+                </div>
+                <div className="relative px-4 pb-4 pt-2.5">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400/80">
+                    Sessions
+                  </p>
+                  <p className="mt-0.5 text-[13px] text-white/40">
+                    Multi-channel traffic breakdown
+                  </p>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
