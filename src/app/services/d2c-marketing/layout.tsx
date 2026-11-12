@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "D2C Marketing Agency India | Performance Marketing | Sarvopaya",
+    absolute: "D2C Marketing Agency India | Performance Marketing",
   },
   description:
-    "Sarvopaya is a premier D2C marketing agency in India. We engineer full-funnel performance marketing, tracking infrastructure, creative testing & customer retention.",
+    "D2C marketing agency in India. Full-funnel performance marketing, server-side tracking, creative testing & customer retention for D2C brands.",
   keywords: [
     "D2C marketing agency",
     "D2C marketing agency India",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Sarvopaya",
-    title: "D2C Marketing Agency India | Performance Marketing Systems | Sarvopaya",
+    title: "D2C Marketing Agency India | Performance Marketing Systems",
     description:
-      "Full-funnel D2C marketing agency in India. Server-side tracking, creative testing, multi-channel media buying, customer retention and measurable net revenue.",
+      "Full-funnel D2C marketing agency in India. Server-side tracking, creative testing, media buying, customer retention and measurable net revenue.",
     url: "https://www.sarvopaya.com/services/d2c-marketing",
     images: [
       {
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "D2C Marketing Agency India | Performance Marketing Systems | Sarvopaya",
+    title: "D2C Marketing Agency India | Performance Marketing Systems",
     description:
-      "Full-funnel D2C marketing agency in India. Server-side tracking, creative testing, multi-channel media buying, customer retention and measurable net revenue.",
+      "Full-funnel D2C marketing agency in India. Server-side tracking, creative testing, media buying, customer retention and measurable net revenue.",
     images: ["https://www.sarvopaya.com/images/d2c-marketing-og.webp"],
     creator: "@sarvopaya",
   },
