@@ -116,6 +116,137 @@ function PlusIcon({ open }: { open: boolean }) {
   );
 }
 
+// ─── Platform Icons ───────────────────────────────────────────────────────────
+
+function IcGoogle() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+    </svg>
+  );
+}
+
+function IcMeta() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2"/>
+    </svg>
+  );
+}
+
+function IcInstagram() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <defs>
+        <linearGradient id="ig-g" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#f09433"/>
+          <stop offset="50%" stopColor="#dc2743"/>
+          <stop offset="100%" stopColor="#bc1888"/>
+        </linearGradient>
+      </defs>
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="url(#ig-g)"/>
+    </svg>
+  );
+}
+
+function IcYouTube() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FF0000"/>
+    </svg>
+  );
+}
+
+function IcShopify() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20.924 7.625a1.52 1.52 0 00-1.425-1.282c-.131-.01-.261-.018-.392-.025A6.027 6.027 0 0014.9 2.4a1.457 1.457 0 00-.07.003 1.46 1.46 0 00-.288-.002C13.818 2.183 13.07 2 12.235 2 9.69 2 8.44 4.945 8.044 6.471L5.86 7.147C5.33 7.312 5.3 7.343 5.23 7.858L3 22.5l14.3 2.5 4.624-1.179L20.924 7.625zM14.6 2.834c-.692.215-1.46.453-2.232.692.216-.832.628-1.657 1.12-2.196.189-.203.45-.428.76-.552.296.621.367 1.456.352 2.056zm-1.359-2.834c.246 0 .459.052.641.15-.296.154-.584.398-.847.69-.672.735-1.185 1.876-1.386 2.973-.51.158-1.011.316-1.498.466.355-1.207 1.343-4.279 3.09-4.279zm1.1 10.636l-2.244-.686s-.27.913-.733 1.808a5.785 5.785 0 01-.484.782 3.46 3.46 0 01-.594.625.47.47 0 01-.1.065c-.174.075-.344.06-.48-.11-.288-.354-.295-1.267.069-2.333.22-.637.624-1.32 1.094-1.853a3.9 3.9 0 011.248-.934l-.009-.025c-.135-.358-.49-.596-.876-.596-.165 0-.33.045-.48.133-.524.304-1.137 1.188-1.512 2.313-.49 1.47-.461 2.916.08 3.618.256.317.613.471.985.471.368 0 .756-.15 1.123-.402a5.14 5.14 0 00.874-.828c.272-.32.509-.686.698-1.072l.093.028z" fill="#96BF48"/>
+    </svg>
+  );
+}
+
+function IcWooCommerce() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="0" y="3" width="24" height="15" rx="3" fill="#7F54B3"/>
+      <path d="M2 7.5c.17-.23.4-.33.7-.3.56.06.86.4.88 1.02.1 1.09-.46 2.3-.36 3.4 0 .3.13.45.4.45.3 0 .75-.26 1.35-.82.26-.26.46-.46.59-.62.03.2.1.49.13.85.03.46.16.68.36.68.13 0 .29-.1.49-.26.49-.46.85-1.19 1.14-2.13.1-.3.17-.52.2-.62-.1.46-.13 1-.1 1.44.1 1.48.49 2.26 1.14 2.3.46.03.82-.49 1.08-1.51l.33.79c.3.49.65.78 1.08.82.39.03.75-.16 1.08-.62.3-.4.52-.89.69-1.51-.43.2-.75.16-.95-.07-.13-.16-.16-.43-.1-.79.07-.43.3-.95.65-1.64.2-.36.3-.65.3-.95 0-.49-.26-.78-.75-.82-.36-.03-.69.16-.98.52-.16.23-.36.62-.52 1.18-.16.52-.26 1.04-.26 1.51-.29-.26-.55-.82-.75-1.67l-.1-.39c-.1-.33-.26-.49-.49-.49-.2 0-.36.13-.46.43-.26.82-.46 1.44-.65 1.84-.3.69-.62 1.02-.98 1.02-.26 0-.43-.36-.49-1.08-.03-.43.03-1.28.2-2.56.06-.49.03-.85-.16-1.11C3.17 7.07 2.93 7 2.63 7L2 7.5z" fill="white"/>
+      <path d="M13 7.5c.17-.23.4-.33.7-.3.56.06.86.4.88 1.02.1 1.09-.46 2.3-.36 3.4 0 .3.13.45.4.45.3 0 .75-.26 1.35-.82.26-.26.46-.46.59-.62.03.2.1.49.13.85.03.46.16.68.36.68.13 0 .29-.1.49-.26.49-.46.85-1.19 1.14-2.13.1-.3.17-.52.2-.62-.1.46-.13 1-.1 1.44.1 1.48.49 2.26 1.14 2.3.46.03.82-.49 1.08-1.51l.33.79c.3.49.65.78 1.08.82.39.03.75-.16 1.08-.62.3-.4.52-.89.69-1.51-.43.2-.75.16-.95-.07-.13-.16-.16-.43-.1-.79.07-.43.3-.95.65-1.64.2-.36.3-.65.3-.95 0-.49-.26-.78-.75-.82-.36-.03-.69.16-.98.52-.16.23-.36.62-.52 1.18-.16.52-.26 1.04-.26 1.51-.29-.26-.55-.82-.75-1.67l-.1-.39c-.1-.33-.26-.49-.49-.49-.2 0-.36.13-.46.43-.26.82-.46 1.44-.65 1.84-.3.69-.62 1.02-.98 1.02-.26 0-.43-.36-.49-1.08-.03-.43.03-1.28.2-2.56.06-.49.03-.85-.16-1.11C14.17 7.07 13.93 7 13.63 7L13 7.5z" fill="white"/>
+    </svg>
+  );
+}
+
+function IcKlaviyo() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <rect width="24" height="24" rx="3" fill="#231F20"/>
+      <path d="M6.5 4.5h3v15h-3zm3 7.5 6-7.5h3.5l-6.5 8 6.5 7H15z" fill="white"/>
+    </svg>
+  );
+}
+
+function IcGTM() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2.5L4 8v8l8 5.5 8-5.5V8L12 2.5z" fill="#8AB4F8"/>
+      <path d="M12 7.5l-5 3v3l5 3 5-3v-3l-5-3z" fill="white" opacity="0.9"/>
+      <circle cx="12" cy="12" r="2.5" fill="#4285F4"/>
+    </svg>
+  );
+}
+
+function IcGA4() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" fill="#E37400"/>
+      <path d="M7 17V11h2.5v6H7zm3.75 0V7h2.5v10h-2.5zM14.5 17v-4H17v4h-2.5z" fill="white"/>
+    </svg>
+  );
+}
+
+function IcBigQuery() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" fill="#4285F4"/>
+      <path d="M8 8h8v2H8zm0 3h8v2H8zm0 3h5v2H8z" fill="white"/>
+      <path d="M15 15l3 3-1.5 1.5-3-3V15h1.5z" fill="#FBBC05"/>
+    </svg>
+  );
+}
+
+function IcLookerStudio() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" fill="#4285F4"/>
+      <path d="M7 16V13l3-3 3 3 3-5v8H7z" fill="white"/>
+      <circle cx="10" cy="10" r="1.5" fill="#FBBC05"/>
+    </svg>
+  );
+}
+
+type MarqueeTool = { name: string; color: string; icon?: React.ReactNode };
+
+function ToolChip({ tool }: { tool: MarqueeTool }) {
+  return (
+    <div className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/8 bg-white/[0.04] px-4 py-2">
+      {tool.icon ? (
+        <span aria-hidden="true" className="shrink-0 flex h-4 w-4 items-center justify-center">
+          {tool.icon}
+        </span>
+      ) : (
+        <span
+          aria-hidden="true"
+          className="h-2 w-2 shrink-0 rounded-full"
+          style={{ background: tool.color, boxShadow: `0 0 6px ${tool.color}80` }}
+        />
+      )}
+      <span className="text-[13px] font-medium text-white/65">{tool.name}</span>
+    </div>
+  );
+}
+
 // ─── Motion UX 01 Revenue Engine ───────────────────────────────────────────
 
 function RevenueEngine() {
@@ -1623,79 +1754,55 @@ export default function PerformanceMarketing() {
 
           {/* Row 1 Tracking (→ 32s) */}
           <div className="flex w-max animate-marquee items-center gap-3">
-            {[...Array(2)].flatMap(() =>
-              [
-                { name: "Google Tag Manager", color: "#ed2830" },
-                { name: "Meta Pixel", color: "#ed2830" },
-                { name: "GA4 Ecommerce", color: "#ed2830" },
-                { name: "Meta Conversions API", color: "#ed2830" },
-                { name: "GTM Server Container", color: "#ed2830" },
-                { name: "Google Ads Conversions", color: "#ed2830" },
-                { name: "Enhanced Conversions", color: "#ed2830" },
+            {([...Array(2)] as unknown[]).flatMap((_v, _a) =>
+              ([
+                { name: "Google Tag Manager", color: "#ed2830", icon: <IcGTM /> },
+                { name: "Meta Pixel", color: "#ed2830", icon: <IcMeta /> },
+                { name: "GA4 Ecommerce", color: "#ed2830", icon: <IcGA4 /> },
+                { name: "Meta Conversions API", color: "#ed2830", icon: <IcMeta /> },
+                { name: "GTM Server Container", color: "#ed2830", icon: <IcGTM /> },
+                { name: "Google Ads Conversions", color: "#ed2830", icon: <IcGoogle /> },
+                { name: "Enhanced Conversions", color: "#ed2830", icon: <IcGoogle /> },
                 { name: "Event Deduplication", color: "#ed2830" },
                 { name: "UTM Architecture", color: "#ed2830" },
                 { name: "Data Layer", color: "#ed2830" },
-                { name: "Server-Side GTM", color: "#ed2830" },
+                { name: "Server-Side GTM", color: "#ed2830", icon: <IcGTM /> },
                 { name: "Purchase Event Tracking", color: "#ed2830" },
-              ].map((tool, i) => (
-                <div
-                  key={`r1-${tool.name}-${i}`}
-                  className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/8 bg-white/[0.04] px-4 py-2"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="h-2 w-2 shrink-0 rounded-full"
-                    style={{ background: tool.color, boxShadow: `0 0 6px ${tool.color}80` }}
-                  />
-                  <span className="text-[13px] font-medium text-white/65">
-                    {tool.name}
-                  </span>
-                </div>
+              ] as MarqueeTool[]).map((tool, i) => (
+                <ToolChip key={`r1-${tool.name}-${i}`} tool={tool} />
               ))
             )}
           </div>
 
           {/* Row 2 Paid Media (← 26s) */}
           <div className="flex w-max animate-marquee-r items-center gap-3">
-            {[...Array(2)].flatMap(() =>
-              [
-                { name: "Meta Ads Manager", color: "#3b82f6" },
-                { name: "Google Shopping", color: "#3b82f6" },
-                { name: "Performance Max", color: "#3b82f6" },
-                { name: "YouTube Ads", color: "#3b82f6" },
-                { name: "Google Search Ads", color: "#3b82f6" },
-                { name: "Advantage+ Shopping", color: "#3b82f6" },
-                { name: "Dynamic Product Ads", color: "#3b82f6" },
+            {([...Array(2)] as unknown[]).flatMap((_v, _a) =>
+              ([
+                { name: "Meta Ads Manager", color: "#3b82f6", icon: <IcMeta /> },
+                { name: "Google Shopping", color: "#3b82f6", icon: <IcGoogle /> },
+                { name: "Performance Max", color: "#3b82f6", icon: <IcGoogle /> },
+                { name: "YouTube Ads", color: "#3b82f6", icon: <IcYouTube /> },
+                { name: "Google Search Ads", color: "#3b82f6", icon: <IcGoogle /> },
+                { name: "Advantage+ Shopping", color: "#3b82f6", icon: <IcMeta /> },
+                { name: "Dynamic Product Ads", color: "#3b82f6", icon: <IcMeta /> },
                 { name: "Retargeting Campaigns", color: "#3b82f6" },
                 { name: "Catalog Ads", color: "#3b82f6" },
                 { name: "Prospecting", color: "#3b82f6" },
-                { name: "Instagram Ads", color: "#3b82f6" },
-                { name: "Facebook Ads", color: "#3b82f6" },
-              ].map((tool, i) => (
-                <div
-                  key={`r2-${tool.name}-${i}`}
-                  className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/8 bg-white/[0.04] px-4 py-2"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="h-2 w-2 shrink-0 rounded-full"
-                    style={{ background: tool.color, boxShadow: `0 0 6px ${tool.color}80` }}
-                  />
-                  <span className="text-[13px] font-medium text-white/65">
-                    {tool.name}
-                  </span>
-                </div>
+                { name: "Instagram Ads", color: "#3b82f6", icon: <IcInstagram /> },
+                { name: "Facebook Ads", color: "#3b82f6", icon: <IcMeta /> },
+              ] as MarqueeTool[]).map((tool, i) => (
+                <ToolChip key={`r2-${tool.name}-${i}`} tool={tool} />
               ))
             )}
           </div>
 
           {/* Row 3 Analytics & Reporting (→ 38s) */}
           <div className="flex w-max animate-marquee-s items-center gap-3">
-            {[...Array(2)].flatMap(() =>
-              [
-                { name: "Looker Studio", color: "#22c55e" },
-                { name: "BigQuery", color: "#22c55e" },
-                { name: "GA4 Reporting", color: "#22c55e" },
+            {([...Array(2)] as unknown[]).flatMap((_v, _a) =>
+              ([
+                { name: "Looker Studio", color: "#22c55e", icon: <IcLookerStudio /> },
+                { name: "BigQuery", color: "#22c55e", icon: <IcBigQuery /> },
+                { name: "GA4 Reporting", color: "#22c55e", icon: <IcGA4 /> },
                 { name: "Custom Dashboards", color: "#22c55e" },
                 { name: "Attribution Modelling", color: "#22c55e" },
                 { name: "Cohort Analysis", color: "#22c55e" },
@@ -1705,54 +1812,30 @@ export default function PerformanceMarketing() {
                 { name: "Webhook Integrations", color: "#22c55e" },
                 { name: "CAC Reporting", color: "#22c55e" },
                 { name: "Blended ROAS", color: "#22c55e" },
-              ].map((tool, i) => (
-                <div
-                  key={`r3-${tool.name}-${i}`}
-                  className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/8 bg-white/[0.04] px-4 py-2"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="h-2 w-2 shrink-0 rounded-full"
-                    style={{ background: tool.color, boxShadow: `0 0 6px ${tool.color}80` }}
-                  />
-                  <span className="text-[13px] font-medium text-white/65">
-                    {tool.name}
-                  </span>
-                </div>
+              ] as MarqueeTool[]).map((tool, i) => (
+                <ToolChip key={`r3-${tool.name}-${i}`} tool={tool} />
               ))
             )}
           </div>
 
           {/* Row 4 Ecommerce & CRO (← 34s) */}
           <div className="flex w-max animate-marquee-rs items-center gap-3">
-            {[...Array(2)].flatMap(() =>
-              [
-                { name: "Shopify", color: "#a855f7" },
-                { name: "WooCommerce", color: "#a855f7" },
-                { name: "Klaviyo", color: "#a855f7" },
+            {([...Array(2)] as unknown[]).flatMap((_v, _a) =>
+              ([
+                { name: "Shopify", color: "#a855f7", icon: <IcShopify /> },
+                { name: "WooCommerce", color: "#a855f7", icon: <IcWooCommerce /> },
+                { name: "Klaviyo", color: "#a855f7", icon: <IcKlaviyo /> },
                 { name: "Landing Pages", color: "#a855f7" },
                 { name: "Checkout Optimization", color: "#a855f7" },
                 { name: "A/B Testing", color: "#a855f7" },
-                { name: "Page Speed Optimization", color: "#a855f7" },
+                { name: "Page Speed Optimization", color: "#a855f7", icon: <IcGoogle /> },
                 { name: "Product Feed Optimization", color: "#a855f7" },
                 { name: "Cart Recovery", color: "#a855f7" },
                 { name: "Email Retention Flows", color: "#a855f7" },
                 { name: "CRO Audits", color: "#a855f7" },
                 { name: "Mobile UX", color: "#a855f7" },
-              ].map((tool, i) => (
-                <div
-                  key={`r4-${tool.name}-${i}`}
-                  className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/8 bg-white/[0.04] px-4 py-2"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="h-2 w-2 shrink-0 rounded-full"
-                    style={{ background: tool.color, boxShadow: `0 0 6px ${tool.color}80` }}
-                  />
-                  <span className="text-[13px] font-medium text-white/65">
-                    {tool.name}
-                  </span>
-                </div>
+              ] as MarqueeTool[]).map((tool, i) => (
+                <ToolChip key={`r4-${tool.name}-${i}`} tool={tool} />
               ))
             )}
           </div>
