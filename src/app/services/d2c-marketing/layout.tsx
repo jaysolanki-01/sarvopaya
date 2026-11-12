@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     url: "https://www.sarvopaya.com/services/d2c-marketing",
     images: [
       {
-        url: "https://www.sarvopaya.com/images/Main_icon.png",
-        width: 1200,
-        height: 630,
-        alt: "Sarvopaya - D2C Marketing Agency India",
+        url: "https://www.sarvopaya.com/images/d2c-marketing-og.webp",
+        width: 1512,
+        height: 756,
+        alt: "D2C Marketing Built Around Business Outcomes | Sarvopaya",
       },
     ],
   },
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "D2C Marketing Agency India | Performance Marketing Systems | Sarvopaya",
     description:
       "Full-funnel D2C marketing agency in India. Server-side tracking, creative testing, multi-channel media buying, customer retention and measurable net revenue.",
-    images: ["https://www.sarvopaya.com/images/Main_icon.png"],
+    images: ["https://www.sarvopaya.com/images/d2c-marketing-og.webp"],
     creator: "@sarvopaya",
   },
   robots: {
