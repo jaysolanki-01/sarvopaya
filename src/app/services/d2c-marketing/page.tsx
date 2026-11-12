@@ -1711,6 +1711,129 @@ function UnitEconomicsCalculator() {
   );
 }
 
+// ─── D2C Mascot ───────────────────────────────────────────────────────────────
+
+function D2CMascot() {
+  const [tipIdx, setTipIdx] = useState(0);
+  const [bubbleVisible, setBubbleVisible] = useState(false);
+
+  const tips = [
+    "Open the calculator! ↑",
+    "LTV : CAC above 3×?",
+    "Know your breakeven ROAS!",
+    "Scale or Pause — you decide!",
+  ];
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setBubbleVisible(true), 2400);
+    const interval = setInterval(() => {
+      setBubbleVisible(false);
+      setTimeout(() => {
+        setTipIdx((p) => (p + 1) % tips.length);
+        setBubbleVisible(true);
+      }, 400);
+    }, 5500);
+    return () => { clearTimeout(t1); clearInterval(interval); };
+  }, []);
+
+  const handleClick = () => {
+    document.getElementById("unit-economics")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <>
+      <style>{`
+        @keyframes d2c-char-enter { from { transform: translateY(155px); } to { transform: translateY(0); } }
+        @keyframes d2c-char-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+        @keyframes d2c-arm-wave   { 0%,100% { transform: rotate(0deg); } 28% { transform: rotate(-24deg); } 70% { transform: rotate(18deg); } }
+        @keyframes d2c-blink      { 0%,90%,100% { transform: scaleY(1); } 94% { transform: scaleY(0.07); } }
+        .d2c-mwrap  { animation: d2c-char-enter 0.75s cubic-bezier(0.34,1.56,0.64,1) 1.3s both; }
+        .d2c-mfloat { animation: d2c-char-float 3.2s ease-in-out infinite; }
+        .d2c-arm    { transform-origin: 79px 63px; animation: d2c-arm-wave 1.8s ease-in-out infinite; }
+        .d2c-eyel   { transform-origin: 36px 33px; animation: d2c-blink 5s ease-in-out 0.9s infinite; }
+        .d2c-eyer   { transform-origin: 64px 33px; animation: d2c-blink 5s ease-in-out 1.1s infinite; }
+      `}</style>
+      <div
+        className="d2c-mwrap fixed bottom-0 z-50 flex flex-col items-start pointer-events-none"
+        style={{ left: "max(16px, env(safe-area-inset-left, 0px))" }}
+      >
+        {/* Speech bubble */}
+        <div
+          className="pointer-events-auto mb-1 ml-2 relative"
+          style={{
+            background: "#fff",
+            color: "#111",
+            fontFamily: "var(--font-heading, 'Space Grotesk', sans-serif)",
+            fontSize: 12,
+            fontWeight: 600,
+            lineHeight: 1.45,
+            padding: "9px 13px",
+            borderRadius: "12px 12px 12px 3px",
+            maxWidth: 165,
+            boxShadow: "0 6px 24px rgba(0,0,0,0.6)",
+            transition: "opacity 0.38s ease",
+            opacity: bubbleVisible ? 1 : 0,
+          }}
+        >
+          {tips[tipIdx]}
+          <span style={{ position: "absolute", bottom: -7, left: 16, borderStyle: "solid", borderWidth: "7px 7px 0", borderColor: "#fff transparent transparent" }} />
+        </div>
+
+        {/* Character */}
+        <div
+          className="d2c-mfloat pointer-events-auto cursor-pointer select-none"
+          style={{ filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.65))" }}
+          onClick={handleClick}
+          role="button"
+          aria-label="Open Unit Economics Calculator"
+        >
+          <svg width="88" height="126" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="138" rx="26" ry="4.5" fill="rgba(0,0,0,0.3)"/>
+            <rect x="28" y="96" width="17" height="27" rx="8" fill="#1a1a1a"/>
+            <rect x="55" y="96" width="17" height="27" rx="8" fill="#1a1a1a"/>
+            <ellipse cx="36.5" cy="123" rx="13.5" ry="6" fill="#0d0d0d"/>
+            <ellipse cx="63.5" cy="123" rx="13.5" ry="6" fill="#0d0d0d"/>
+            <rect x="20" y="54" width="60" height="48" rx="15" fill="#ed2830"/>
+            <polygon points="40,54 50,69 60,54" fill="#fff" opacity="0.96"/>
+            <polygon points="46,69 50,80 54,69" fill="#b01520"/>
+            <circle cx="50" cy="84" r="2.2" fill="rgba(255,255,255,0.3)"/>
+            <line x1="21" y1="67" x2="7" y2="81" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
+            <circle cx="5" cy="83" r="7.5" fill="#f5c891"/>
+            <g className="d2c-arm">
+              <line x1="79" y1="63" x2="92" y2="48" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
+              <circle cx="93" cy="44" r="7.5" fill="#f5c891"/>
+            </g>
+            <rect x="43" y="50" width="14" height="9" rx="4" fill="#f5c891"/>
+            <circle cx="50" cy="31" r="31" fill="#f5c891"/>
+            <path d="M19 26 Q19 1 50 4 Q81 1 81 26 Q74 13 50 13 Q26 13 19 26Z" fill="#190e00"/>
+            <ellipse cx="19" cy="33" rx="4.5" ry="7" fill="#f5c891"/>
+            <ellipse cx="81" cy="33" rx="4.5" ry="7" fill="#f5c891"/>
+            <rect x="25" y="22" width="22" height="21" rx="7" fill="none" stroke="#ed2830" strokeWidth="2.5"/>
+            <rect x="53" y="22" width="22" height="21" rx="7" fill="none" stroke="#ed2830" strokeWidth="2.5"/>
+            <line x1="47" y1="32" x2="53" y2="32" stroke="#ed2830" strokeWidth="2.5"/>
+            <line x1="25" y1="35" x2="21" y2="39" stroke="#ed2830" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="75" y1="35" x2="79" y2="39" stroke="#ed2830" strokeWidth="2" strokeLinecap="round"/>
+            <g className="d2c-eyel">
+              <circle cx="36" cy="33" r="8" fill="white"/>
+              <circle cx="37" cy="34" r="4.5" fill="#1a1a2e"/>
+              <circle cx="38.5" cy="32" r="1.8" fill="white"/>
+            </g>
+            <g className="d2c-eyer">
+              <circle cx="64" cy="33" r="8" fill="white"/>
+              <circle cx="65" cy="34" r="4.5" fill="#1a1a2e"/>
+              <circle cx="66.5" cy="32" r="1.8" fill="white"/>
+            </g>
+            <ellipse cx="22" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.6"/>
+            <ellipse cx="78" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.6"/>
+            <ellipse cx="50" cy="40" rx="3" ry="2" fill="#e8a870" opacity="0.75"/>
+            <path d="M37 46 Q50 57 63 46" stroke="#c06028" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function PerformanceMarketing({ t: tProp }: { t?: D2CTranslations } = {}) {
@@ -3399,6 +3522,8 @@ function PerformanceMarketingContent({ trans: t }: { trans: D2CTranslations }) {
           </motion.div>
         </div>
       </section>
+
+      <D2CMascot />
     </>
   );
 }
