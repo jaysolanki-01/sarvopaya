@@ -359,7 +359,13 @@ export default function BlogPostDetail({
                     {section.subsections.map((sub, k) => (
                       <div key={k} className="space-y-3">
                         <h3 className="text-lg font-bold tracking-tight text-black sm:text-xl">
-                          {sub.heading}
+                          {sub.heading.includes("Sarvopaya") ? (
+                            <Link href="/about" className="hover:text-[var(--accent)] transition-colors">
+                              {sub.heading}
+                            </Link>
+                          ) : (
+                            sub.heading
+                          )}
                         </h3>
                         {sub.heading.includes("Sarvopaya") && (
                           <div className="overflow-hidden rounded-xl border border-black/8 shadow-sm">
