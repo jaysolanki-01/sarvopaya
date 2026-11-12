@@ -1854,6 +1854,189 @@ function D2CMascot() {
   );
 }
 
+// ─── Exit-Intent Modal ────────────────────────────────────────────────────────
+
+function D2CExitIntentModal() {
+  const [visible, setVisible] = useState(false);
+  const firedRef = useRef(false);
+
+  useEffect(() => {
+    try { if (sessionStorage.getItem("d2c_exit_shown")) return; } catch {}
+
+    const fire = () => {
+      if (firedRef.current) return;
+      firedRef.current = true;
+      try { sessionStorage.setItem("d2c_exit_shown", "1"); } catch {}
+      setVisible(true);
+    };
+
+    const onMouseLeave = (e: MouseEvent) => { if (e.clientY <= 5) fire(); };
+    const onVisibilityChange = () => { if (document.visibilityState === "hidden") fire(); };
+
+    const t = setTimeout(() => {
+      document.addEventListener("mouseleave", onMouseLeave);
+      document.addEventListener("visibilitychange", onVisibilityChange);
+    }, 5000);
+
+    return () => {
+      clearTimeout(t);
+      document.removeEventListener("mouseleave", onMouseLeave);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <>
+      <style>{`
+        @keyframes d2c-ei-bg   { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes d2c-ei-card { from { opacity: 0; transform: translate(-50%, -40%) scale(0.88); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+        @keyframes d2c-ei-char { 0% { transform: translateY(120px) scale(0.6); opacity: 0; } 55% { transform: translateY(-18px) scale(1.1); opacity: 1; } 75% { transform: translateY(6px) scale(0.97); } 100% { transform: translateY(0) scale(1); opacity: 1; } }
+        @keyframes d2c-ei-run  { 0%,100% { transform: rotate(0deg); } 25% { transform: rotate(-4deg); } 75% { transform: rotate(4deg); } }
+        @keyframes d2c-ei-bubble { from { opacity: 0; transform: scale(0.7) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .d2c-ei-char { animation: d2c-ei-char 0.65s cubic-bezier(0.34,1.56,0.64,1) both; }
+        .d2c-ei-char svg { animation: d2c-ei-run 0.4s ease-in-out 3; }
+        .d2c-ei-bubble { animation: d2c-ei-bubble 0.4s ease 0.5s both; }
+      `}</style>
+
+      {/* Backdrop */}
+      <div
+        onClick={() => setVisible(false)}
+        style={{
+          position: "fixed", inset: 0, zIndex: 200,
+          background: "rgba(0,0,0,0.78)",
+          backdropFilter: "blur(5px)",
+          animation: "d2c-ei-bg 0.3s ease both",
+        }}
+      />
+
+      {/* Card */}
+      <div
+        style={{
+          position: "fixed", zIndex: 201,
+          top: "50%", left: "50%",
+          transform: "translate(-50%,-50%)",
+          background: "#111",
+          border: "1px solid rgba(237,40,48,0.35)",
+          borderRadius: 20,
+          padding: "36px 32px 32px",
+          maxWidth: 400,
+          width: "calc(100vw - 32px)",
+          boxShadow: "0 24px 80px rgba(237,40,48,0.25), 0 8px 32px rgba(0,0,0,0.8)",
+          animation: "d2c-ei-card 0.45s cubic-bezier(0.34,1.56,0.64,1) both",
+          textAlign: "center",
+        }}
+      >
+        {/* Close */}
+        <button
+          onClick={() => setVisible(false)}
+          style={{
+            position: "absolute", top: 14, right: 16,
+            background: "none", border: "none", color: "#666",
+            fontSize: 22, cursor: "pointer", lineHeight: 1,
+          }}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+        {/* Mascot */}
+        <div className="d2c-ei-char" style={{ marginBottom: 8 }}>
+          <svg width="92" height="132" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="138" rx="26" ry="4.5" fill="rgba(0,0,0,0.3)"/>
+            <rect x="28" y="96" width="17" height="27" rx="8" fill="#1a1a1a"/>
+            <rect x="55" y="96" width="17" height="27" rx="8" fill="#1a1a1a"/>
+            <ellipse cx="36.5" cy="123" rx="13.5" ry="6" fill="#0d0d0d"/>
+            <ellipse cx="63.5" cy="123" rx="13.5" ry="6" fill="#0d0d0d"/>
+            <rect x="20" y="54" width="60" height="48" rx="15" fill="#ed2830"/>
+            <polygon points="40,54 50,69 60,54" fill="#fff" opacity="0.96"/>
+            <polygon points="46,69 50,80 54,69" fill="#b01520"/>
+            <circle cx="50" cy="84" r="2.2" fill="rgba(255,255,255,0.3)"/>
+            <line x1="21" y1="67" x2="5" y2="58" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
+            <circle cx="3" cy="55" r="7.5" fill="#f5c891"/>
+            <line x1="79" y1="63" x2="96" y2="55" stroke="#ed2830" strokeWidth="13" strokeLinecap="round"/>
+            <circle cx="97" cy="52" r="7.5" fill="#f5c891"/>
+            <rect x="43" y="50" width="14" height="9" rx="4" fill="#f5c891"/>
+            <circle cx="50" cy="31" r="31" fill="#f5c891"/>
+            <path d="M19 26 Q19 1 50 4 Q81 1 81 26 Q74 13 50 13 Q26 13 19 26Z" fill="#190e00"/>
+            <ellipse cx="19" cy="33" rx="4.5" ry="7" fill="#f5c891"/>
+            <ellipse cx="81" cy="33" rx="4.5" ry="7" fill="#f5c891"/>
+            <rect x="25" y="22" width="22" height="21" rx="7" fill="none" stroke="#ed2830" strokeWidth="2.5"/>
+            <rect x="53" y="22" width="22" height="21" rx="7" fill="none" stroke="#ed2830" strokeWidth="2.5"/>
+            <line x1="47" y1="32" x2="53" y2="32" stroke="#ed2830" strokeWidth="2.5"/>
+            <circle cx="36" cy="33" r="8" fill="white"/>
+            <circle cx="37" cy="34" r="4.5" fill="#1a1a2e"/>
+            <circle cx="38.5" cy="32" r="1.8" fill="white"/>
+            <circle cx="64" cy="33" r="8" fill="white"/>
+            <circle cx="65" cy="34" r="4.5" fill="#1a1a2e"/>
+            <circle cx="66.5" cy="32" r="1.8" fill="white"/>
+            <ellipse cx="22" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.6"/>
+            <ellipse cx="78" cy="43" rx="6.5" ry="3.5" fill="#ffb0b0" opacity="0.6"/>
+            <ellipse cx="50" cy="40" rx="3" ry="2" fill="#e8a870" opacity="0.75"/>
+            <path d="M37 46 Q50 57 63 46" stroke="#c06028" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+          </svg>
+        </div>
+
+        {/* Speech bubble callout */}
+        <div
+          className="d2c-ei-bubble"
+          style={{
+            display: "inline-block",
+            background: "#ed2830",
+            color: "#fff",
+            fontFamily: "var(--font-heading, 'Space Grotesk', sans-serif)",
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            padding: "5px 12px",
+            borderRadius: 20,
+            marginBottom: 14,
+          }}
+        >
+          Before you go…
+        </div>
+
+        <h3 style={{ color: "#fff", fontFamily: "var(--font-heading, 'Space Grotesk', sans-serif)", fontSize: 22, fontWeight: 800, margin: "0 0 10px", lineHeight: 1.25 }}>
+          Get a <span style={{ color: "#ed2830" }}>Free Brand Audit</span>
+        </h3>
+        <p style={{ color: "#aaa", fontSize: 14, lineHeight: 1.6, margin: "0 0 24px" }}>
+          Find out exactly what&apos;s holding your D2C brand back—CAC, ROAS, LTV gaps—in one 30-min call. No pitch, just clarity.
+        </p>
+
+        {/* CTA */}
+        <a
+          href="/contact"
+          style={{
+            display: "block",
+            background: "#ed2830",
+            color: "#fff",
+            fontFamily: "var(--font-heading, 'Space Grotesk', sans-serif)",
+            fontWeight: 700,
+            fontSize: 15,
+            padding: "14px 24px",
+            borderRadius: 10,
+            textDecoration: "none",
+            marginBottom: 10,
+            transition: "opacity 0.2s",
+          }}
+          onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+          onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+        >
+          Book Free Audit →
+        </a>
+        <button
+          onClick={() => setVisible(false)}
+          style={{ background: "none", border: "none", color: "#555", fontSize: 13, cursor: "pointer" }}
+        >
+          No thanks, I&apos;ll figure it out myself
+        </button>
+      </div>
+    </>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function PerformanceMarketing({ t: tProp }: { t?: D2CTranslations } = {}) {
@@ -3544,6 +3727,7 @@ function PerformanceMarketingContent({ trans: t }: { trans: D2CTranslations }) {
       </section>
 
       <D2CMascot />
+      <D2CExitIntentModal />
     </>
   );
 }
