@@ -18,7 +18,7 @@ export async function generateMetadata({
 
   if (!post) return { title: "Post Not Found" };
 
-  const title = post.title;
+  const title = { absolute: post.title };
 
   return {
     title,

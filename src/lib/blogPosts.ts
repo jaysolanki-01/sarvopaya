@@ -3084,7 +3084,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "18 min read",
     author: "Jay Solanki",
     excerpt:
-      "A no-fluff guide to the 10 best D2C marketing agencies in India — evaluated on unit economics expertise, full-funnel creative output, retention capabilities, and genuine brand-building track records, not Google rankings or paid directories.",
+      "The 10 best D2C marketing agencies in India ranked by unit economics, creative velocity, and retention — not Google rankings or paid directories.",
     sections: [
       {
         heading: "Why Choosing the Right D2C Marketing Agency in India Is a High-Stakes Decision",
