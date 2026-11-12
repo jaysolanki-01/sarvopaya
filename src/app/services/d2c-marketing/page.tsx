@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, createContext, useContext } from "react";
 import {
   motion,
   AnimatePresence,
@@ -20,6 +20,13 @@ import {
   TargetIcon,
   MonitorIcon,
 } from "@/components/icons";
+import type { D2CTranslations } from "@/lib/d2c-translations-types";
+import { enIN as enINTranslations } from "@/lib/d2c-translations-en";
+
+// ─── Translation Context ───────────────────────────────────────────────────
+
+const TCtx = createContext<D2CTranslations>(enINTranslations);
+function useT() { return useContext(TCtx); }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -292,6 +299,7 @@ function ToolChip({ tool }: { tool: MarqueeTool }) {
 
 function RevenueEngine() {
   const prefersReducedMotion = useReducedMotion();
+  const { reWidget } = useT();
 
   const [spend, setSpend] = useState(200000);
   const [roas, setRoas] = useState(3.2);
@@ -323,10 +331,10 @@ function RevenueEngine() {
     >
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/8 px-6 py-4 sm:px-8">
         <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/35">
-          Performance Simulation
+          {reWidget.title}
         </p>
         <p className="text-[10px] text-white/20">
-          Illustrative model not a guarantee
+          {reWidget.disclaimer}
         </p>
       </div>
 
@@ -334,12 +342,12 @@ function RevenueEngine() {
         {/* Inputs */}
         <div className="border-b border-white/8 p-6 sm:border-b-0 sm:border-r sm:p-8">
           <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-white/25">
-            Inputs
+            {reWidget.inputs}
           </p>
           <div className="flex flex-col gap-7">
             {[
               {
-                label: "Ad Spend",
+                label: reWidget.adSpend,
                 display: `₹${fmtINR(spend)}`,
                 min: 10000,
                 max: 2000000,
@@ -351,7 +359,7 @@ function RevenueEngine() {
                 accent: false,
               },
               {
-                label: "ROAS",
+                label: reWidget.roas,
                 display: `${roas.toFixed(1)}×`,
                 min: 0.5,
                 max: 10,
@@ -363,7 +371,7 @@ function RevenueEngine() {
                 accent: true,
               },
               {
-                label: "Conversion Rate",
+                label: reWidget.cvr,
                 display: `${cvr.toFixed(1)}%`,
                 min: 0.1,
                 max: 8,
@@ -375,7 +383,7 @@ function RevenueEngine() {
                 accent: false,
               },
               {
-                label: "Avg Order Value",
+                label: reWidget.aov,
                 display: `₹${fmtINR(aov)}`,
                 min: 500,
                 max: 10000,
@@ -420,19 +428,19 @@ function RevenueEngine() {
         {/* Outputs */}
         <div className="p-6 sm:p-8">
           <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-white/25">
-            Outputs
+            {reWidget.outputs}
           </p>
           <div className="grid grid-cols-2 gap-3">
             {[
               {
-                label: "Revenue",
+                label: reWidget.revenue,
                 val: `₹${fmtINR(animRevenue)}`,
                 accent: true,
               },
-              { label: "Orders", val: fmtINR(animOrders), accent: false },
-              { label: "CAC", val: `₹${fmtINR(animCac)}`, accent: false },
+              { label: reWidget.orders, val: fmtINR(animOrders), accent: false },
+              { label: reWidget.cac, val: `₹${fmtINR(animCac)}`, accent: false },
               {
-                label: "Traffic Needed",
+                label: reWidget.traffic,
                 val: fmtINR(animTraffic),
                 accent: false,
               },
@@ -490,6 +498,7 @@ const pipelineNodes = [
 function DataPipeline() {
   const prefersReducedMotion = useReducedMotion();
   const [active, setActive] = useState(0);
+  const { pipelineNodes } = useT();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false, margin: "-80px" });
 
@@ -665,6 +674,7 @@ const stackPhases = [
 
 function PerformanceStack() {
   const [active, setActive] = useState(0);
+  const { stackPhases } = useT();
   const phase = stackPhases[active];
 
   return (
@@ -782,6 +792,7 @@ const funnelStages = [
 
 function D2CFunnel() {
   const [active, setActive] = useState<number | null>(null);
+  const { funnelStages, funnelMeasureLabel, funnelOptimizeLabel, funnelRiskLabel } = useT();
 
   return (
     <div className="mt-10 overflow-hidden rounded-2xl border border-white/8">
@@ -827,7 +838,7 @@ function D2CFunnel() {
                   <div className="grid gap-4 px-5 pb-6 pt-1 sm:grid-cols-3 sm:px-8">
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--accent)]">
-                        What We Measure
+                        {funnelMeasureLabel}
                       </p>
                       <ul className="mt-2 flex flex-col gap-1">
                         {stage.measure.map((m) => (
@@ -839,7 +850,7 @@ function D2CFunnel() {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">
-                        What We Optimize
+                        {funnelOptimizeLabel}
                       </p>
                       <p className="mt-2 text-sm leading-6 text-white/45">
                         {stage.optimize}
@@ -847,7 +858,7 @@ function D2CFunnel() {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/22">
-                        Common Risk
+                        {funnelRiskLabel}
                       </p>
                       <p className="mt-2 text-sm leading-6 text-white/32">
                         {stage.risk}
@@ -935,6 +946,7 @@ const faqs = [
 
 function FAQAccordion() {
   const [open, setOpen] = useState<number | null>(null);
+  const { faqs } = useT();
 
   return (
     <div className="mt-10 divide-y divide-black/8">
@@ -1308,7 +1320,16 @@ const jsonLd = {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function PerformanceMarketing() {
+export default function PerformanceMarketing({ t: tProp }: { t?: D2CTranslations } = {}) {
+  const trans = tProp ?? enINTranslations;
+  return (
+    <TCtx.Provider value={trans}>
+      <PerformanceMarketingContent trans={trans} />
+    </TCtx.Provider>
+  );
+}
+
+function PerformanceMarketingContent({ trans: t }: { trans: D2CTranslations }) {
   return (
     <>
       <script
@@ -1345,32 +1366,29 @@ export default function PerformanceMarketing() {
           >
             {/* Visual Semantic Breadcrumb */}
             <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-white/45">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <Link href="/" className="hover:text-white transition-colors">{t.heroBcHome}</Link>
               <span>/</span>
-              <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+              <Link href="/services" className="hover:text-white transition-colors">{t.heroBcServices}</Link>
               <span>/</span>
-              <span className="text-[var(--accent)] font-medium" aria-current="page">D2C Marketing Agency</span>
+              <span className="text-[var(--accent)] font-medium" aria-current="page">{t.heroBcCurrent}</span>
             </nav>
 
             <motion.div variants={fadeUp}>
-              <SectionLabel>D2C Marketing Agency</SectionLabel>
+              <SectionLabel>{t.heroLabel}</SectionLabel>
             </motion.div>
 
             <motion.h1
               variants={item}
               className="mt-7 font-heading text-4xl font-black leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
             >
-              D2C Marketing Agency Built Around Business Outcomes.
+              {t.heroH1}
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-7 max-w-2xl text-lg leading-8 text-white/50 sm:text-xl"
             >
-              As a D2C marketing agency, we build the tracking layer, buy media
-              with precision, test creative at volume, and optimize every stage
-              of your funnel, because &ldquo;good ROAS&rdquo; means nothing
-              without good data.
+              {t.heroSub}
             </motion.p>
 
             <motion.div
@@ -1378,10 +1396,10 @@ export default function PerformanceMarketing() {
               className="mt-8 flex flex-wrap gap-3"
             >
               <CTAButton href="/contact" variant="primary" size="lg">
-                Get a Performance Audit
+                {t.heroCta1}
               </CTAButton>
               <CTAButton href="/contact" variant="outline" size="lg">
-                Talk to a Growth Strategist
+                {t.heroCta2}
               </CTAButton>
             </motion.div>
 
@@ -1398,17 +1416,17 @@ export default function PerformanceMarketing() {
       >
         <div className="mx-auto flex max-w-5xl items-center gap-1.5 overflow-x-auto px-4 no-scrollbar sm:justify-center">
           <span className="shrink-0 mr-1 text-[9px] font-black uppercase tracking-[0.25em] text-white/25">
-            Jump to:
+            {t.navJumpTo}
           </span>
           {[
-            { href: "#why-sarvopaya", label: "Why Us" },
-            { href: "#performance-stack", label: "Performance Stack" },
-            { href: "#tracking-pipeline", label: "Tracking" },
-            { href: "#creative-engine", label: "Creative Engine" },
-            { href: "#revenue-economics", label: "Revenue Economics" },
-            { href: "#retention-strategy", label: "Retention" },
-            { href: "#growth-process", label: "Growth Process" },
-            { href: "#faqs", label: "FAQs" },
+            { href: "#why-sarvopaya", label: t.navWhyUs },
+            { href: "#performance-stack", label: t.navStack },
+            { href: "#tracking-pipeline", label: t.navTracking },
+            { href: "#creative-engine", label: t.navCreative },
+            { href: "#revenue-economics", label: t.navRevenue },
+            { href: "#retention-strategy", label: t.navRetention },
+            { href: "#growth-process", label: t.navProcess },
+            { href: "#faqs", label: t.navFaqs },
           ].map(({ href, label }) => (
             <a
               key={href}
@@ -1422,7 +1440,7 @@ export default function PerformanceMarketing() {
             href="#audit"
             className="shrink-0 rounded-full border border-[var(--accent)]/60 bg-[var(--accent)]/15 px-3 py-1 text-[11px] font-bold text-white transition-all duration-200 hover:bg-[var(--accent)]/25"
           >
-            Free Audit →
+            {t.navAudit}
           </a>
         </div>
       </nav>
@@ -1437,21 +1455,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel light>What We Optimize</SectionLabel>
+            <SectionLabel light>{t.vanityLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-black sm:text-5xl"
             >
-              Don&apos;t Optimize for Clicks.
-              <br />
-              Optimize for Revenue.
+              {t.vanityH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 text-lg leading-8 text-black/55"
             >
-              Most agencies report on the metrics that make their dashboards
-              look good. We report on the metrics that make your business grow.
+              {t.vanityBody}
             </motion.p>
           </motion.div>
 
@@ -1464,22 +1479,13 @@ export default function PerformanceMarketing() {
           >
             <div className="grid grid-cols-2 border-b border-black/8 bg-black/[0.02] px-6 py-4 sm:px-8">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/35">
-                Vanity Metrics
+                {t.vanityColA}
               </p>
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-                Business Metrics
+                {t.vanityColB}
               </p>
             </div>
-            {[
-              ["Clicks", "Revenue"],
-              ["Impressions", "Orders"],
-              ["Reach", "CAC"],
-              ["CPC", "MER"],
-              ["CTR", "LTV"],
-              ["Platform ROAS", "Contribution Margin"],
-              ["Followers", "Repeat Purchase Rate"],
-              ["Engagement Rate", "Payback Period"],
-            ].map(([vanity, biz], i) => (
+            {t.vanityRows.map(([vanity, biz], i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
@@ -1511,22 +1517,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.25 }}
             className="max-w-2xl"
           >
-            <SectionLabel>The Difference</SectionLabel>
+            <SectionLabel>{t.whyLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
             >
-              Why Sarvopaya for
-              <br />
-              Your D2C Brand.
+              {t.whyH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 text-lg leading-8 text-white/45"
             >
-              Most agencies split tracking, media, and creative across
-              different teams. We build one connected system where every layer
-              feeds the next — so your spend compounds instead of leaking.
+              {t.whyBody}
             </motion.p>
           </motion.div>
 
@@ -1537,50 +1539,19 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.15 }}
             className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {[
-              {
-                num: "01",
-                title: "D2C-Only Focus",
-                body: "We work exclusively with direct-to-consumer brands. Every framework, benchmark, and playbook is built for ecommerce revenue — not lead gen, SaaS, or brand awareness.",
-                accent: "from-[var(--accent)]/20 to-transparent",
-                border: "border-[var(--accent)]/20",
-              },
-              {
-                num: "02",
-                title: "Tracking Before Spend",
-                body: "We fix your measurement before we touch your media budget. Server-side events, deduplication, and GA4 ecommerce accuracy come first — so every rupee is tracked correctly.",
-                accent: "from-blue-500/15 to-transparent",
-                border: "border-blue-500/20",
-              },
-              {
-                num: "03",
-                title: "Creative at Scale",
-                body: "Hooks, angles, and static + video variants shipped weekly. We test creative like a media buyer — structured, volume-driven, and tied directly to CPA and ROAS targets.",
-                accent: "from-emerald-500/15 to-transparent",
-                border: "border-emerald-500/20",
-              },
-              {
-                num: "04",
-                title: "MER Over Platform ROAS",
-                body: "We report on Marketing Efficiency Ratio and contribution margin — not inflated in-platform numbers. If your overall business isn't growing, we tell you.",
-                accent: "from-violet-500/15 to-transparent",
-                border: "border-violet-500/20",
-              },
-              {
-                num: "05",
-                title: "Retention Built In",
-                body: "Acquisition without retention is a leaking bucket. We build Klaviyo flows, post-purchase sequences, and LTV programmes alongside paid media — not as an afterthought.",
-                accent: "from-amber-500/15 to-transparent",
-                border: "border-amber-500/20",
-              },
-              {
-                num: "06",
-                title: "One Team, Full Stack",
-                body: "No outsourcing, no silos. The person running your Meta account understands your GTM setup. The person building your reports reads the same P&L as you.",
-                accent: "from-cyan-500/15 to-transparent",
-                border: "border-cyan-500/20",
-              },
-            ].map(({ num, title, body, accent, border }) => (
+            {t.whyCards.map(({ title, body }, cardIdx) => {
+              const cardStyles = [
+                { accent: "from-[var(--accent)]/20 to-transparent", border: "border-[var(--accent)]/20" },
+                { accent: "from-blue-500/15 to-transparent", border: "border-blue-500/20" },
+                { accent: "from-emerald-500/15 to-transparent", border: "border-emerald-500/20" },
+                { accent: "from-violet-500/15 to-transparent", border: "border-violet-500/20" },
+                { accent: "from-amber-500/15 to-transparent", border: "border-amber-500/20" },
+                { accent: "from-cyan-500/15 to-transparent", border: "border-cyan-500/20" },
+              ];
+              const { accent, border } = cardStyles[cardIdx % cardStyles.length];
+              const num = String(cardIdx + 1).padStart(2, "0");
+              return ({ num, title, body, accent, border });
+            }).map(({ num, title, body, accent, border }) => (
               <motion.div
                 key={num}
                 variants={item}
@@ -1610,13 +1581,7 @@ export default function PerformanceMarketing() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-2xl border border-white/8 bg-white/[0.03] px-6 py-5"
           >
-            {[
-              "Meta Business Partner",
-              "Google Partner",
-              "D2C Brands Only",
-              "No Lock-in Contracts",
-              "Full Data Ownership",
-            ].map((badge) => (
+            {t.whyBadges.map((badge) => (
               <span
                 key={badge}
                 className="flex items-center gap-2 text-[12px] font-semibold text-white/40"
@@ -1638,19 +1603,18 @@ export default function PerformanceMarketing() {
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <SectionLabel>The System</SectionLabel>
+            <SectionLabel>{t.stackLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
             >
-              The Performance Stack
+              {t.stackH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 max-w-2xl text-lg leading-8 text-white/45"
             >
-              Five phases. One system. Built in sequence, because the order
-              matters.
+              {t.stackBody}
             </motion.p>
           </motion.div>
 
@@ -1668,29 +1632,24 @@ export default function PerformanceMarketing() {
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <SectionLabel light>Tracking & Measurement</SectionLabel>
+              <SectionLabel light>{t.trackingLabel}</SectionLabel>
               <motion.h2
                 variants={item}
                 className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-black sm:text-5xl"
               >
-                If the Data Is Wrong, Everything Downstream Is Wrong.
+                {t.trackingH2}
               </motion.h2>
               <motion.p
                 variants={item}
                 className="mt-5 text-lg leading-8 text-black/55"
               >
-                Tracking isn&apos;t setup once and forgotten. It&apos;s the
-                infrastructure your entire performance system depends on. Broken
-                events mean broken attribution. Broken attribution means broken
-                decisions.
+                {t.trackingBody1}
               </motion.p>
               <motion.p
                 variants={item}
                 className="mt-4 text-[15px] leading-7 text-black/48"
               >
-                Before any campaign goes live, we audit your existing tracking,
-                rebuild what&apos;s broken, and put in place the event
-                architecture that makes every platform&apos;s data trustworthy.
+                {t.trackingBody2}
               </motion.p>
             </motion.div>
 
@@ -1701,38 +1660,18 @@ export default function PerformanceMarketing() {
               viewport={{ once: true, amount: 0.2 }}
               className="grid grid-cols-2 gap-3 content-start"
             >
-              {[
-                {
-                  icon: <GearIcon className="h-5 w-5" />,
-                  title: "Google Tag Manager",
-                  desc: "Container setup, triggers, custom events",
-                },
-                {
-                  icon: <ChartIcon className="h-5 w-5" />,
-                  title: "GA4 Ecommerce",
-                  desc: "Full purchase funnel event tracking",
-                },
-                {
-                  icon: <MonitorIcon className="h-5 w-5" />,
-                  title: "Meta Pixel + CAPI",
-                  desc: "Pixel implementation with Conversions API",
-                },
-                {
-                  icon: <TargetIcon className="h-5 w-5" />,
-                  title: "Google Ads Conversions",
-                  desc: "Tag-based + Enhanced Conversions",
-                },
-                {
-                  icon: <BoltIcon className="h-5 w-5" />,
-                  title: "Server-Side GTM",
-                  desc: "Event forwarding via GTM server container",
-                },
-                {
-                  icon: <RocketIcon className="h-5 w-5" />,
-                  title: "UTM Architecture",
-                  desc: "Consistent campaign taxonomy at source",
-                },
-              ].map(({ icon, title, desc }) => (
+              {t.trackingCards.map(({ title, desc }, tcIdx) => {
+                const tcIcons = [
+                  <GearIcon key="gear" className="h-5 w-5" />,
+                  <ChartIcon key="chart" className="h-5 w-5" />,
+                  <MonitorIcon key="monitor" className="h-5 w-5" />,
+                  <TargetIcon key="target" className="h-5 w-5" />,
+                  <BoltIcon key="bolt" className="h-5 w-5" />,
+                  <RocketIcon key="rocket" className="h-5 w-5" />,
+                ];
+                const icon = tcIcons[tcIdx % tcIcons.length];
+                return ({ icon, title, desc });
+              }).map(({ icon, title, desc }) => (
                 <motion.div
                   key={title}
                   variants={fadeUp}
@@ -1762,49 +1701,31 @@ export default function PerformanceMarketing() {
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <SectionLabel>Server-Side Tracking</SectionLabel>
+              <SectionLabel>{t.serverLabel}</SectionLabel>
               <motion.h2
                 variants={item}
                 className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
               >
-                Your Data Shouldn&apos;t Depend on a Browser.
+                {t.serverH2}
               </motion.h2>
               <motion.p
                 variants={item}
                 className="mt-5 text-lg leading-8 text-white/45"
               >
-                Browser-based tracking has limits. Ad blockers, ITP, browser
-                restrictions all reduce the signal your platforms rely on to
-                optimize delivery and report results.
+                {t.serverBody1}
               </motion.p>
               <motion.p
                 variants={item}
                 className="mt-4 text-[15px] leading-7 text-white/38"
               >
-                Server-side tracking sends events from your infrastructure
-                directly to Meta, Google and GA4 bypassing the browser layer
-                entirely. Combined with proper event deduplication, this can
-                improve the quality and completeness of your measurement signal.
+                {t.serverBody2}
               </motion.p>
 
               <motion.div
                 variants={item}
                 className="mt-8 grid gap-3 sm:grid-cols-3"
               >
-                {[
-                  {
-                    label: "Meta Conversions API",
-                    desc: "Server event forwarding to Meta",
-                  },
-                  {
-                    label: "Google Enhanced Conversions",
-                    desc: "First-party data to Google Ads",
-                  },
-                  {
-                    label: "GTM Server Container",
-                    desc: "Central server-side tag management",
-                  },
-                ].map(({ label, desc }) => (
+                {t.serverCards.map(({ label, desc }) => (
                   <div
                     key={label}
                     className="rounded-xl border border-white/8 bg-white/[0.03] p-4"
@@ -1819,8 +1740,7 @@ export default function PerformanceMarketing() {
                 variants={item}
                 className="mt-6 text-[12px] text-white/22"
               >
-                Server-side tracking supplements but does not replace client-side
-                measurement. It does not guarantee 100% data accuracy.
+                {t.serverDisclaimer}
               </motion.p>
             </motion.div>
 
@@ -1831,7 +1751,7 @@ export default function PerformanceMarketing() {
               transition={{ duration: 0.7, ease: EASE }}
             >
               <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white/28">
-                Data Flow
+                {t.serverDataFlowLabel}
               </p>
               <DataPipeline />
             </motion.div>
@@ -1848,7 +1768,7 @@ export default function PerformanceMarketing() {
             >
               <div className="h-px w-8 bg-[var(--accent)]/60" />
               <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--accent)]">
-                Live Reporting
+                {t.serverLiveReportingLabel}
               </span>
               <div className="h-px flex-1 bg-white/8" />
             </motion.div>
@@ -1876,10 +1796,10 @@ export default function PerformanceMarketing() {
                 </div>
                 <div className="relative px-4 pb-4 pt-2.5">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400/80">
-                    User Activity
+                    {t.serverAnalyticsCards[0].label}
                   </p>
                   <p className="mt-0.5 text-[13px] text-white/40">
-                    30-day rolling trend
+                    {t.serverAnalyticsCards[0].sub}
                   </p>
                 </div>
               </motion.div>
@@ -1906,10 +1826,10 @@ export default function PerformanceMarketing() {
                 </div>
                 <div className="relative px-4 pb-4 pt-2.5">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400/80">
-                    Audience
+                    {t.serverAnalyticsCards[1].label}
                   </p>
                   <p className="mt-0.5 text-[13px] text-white/40">
-                    Active vs new users · 28s avg session
+                    {t.serverAnalyticsCards[1].sub}
                   </p>
                 </div>
               </motion.div>
@@ -1936,10 +1856,10 @@ export default function PerformanceMarketing() {
                 </div>
                 <div className="relative px-4 pb-4 pt-2.5">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400/80">
-                    Sessions
+                    {t.serverAnalyticsCards[2].label}
                   </p>
                   <p className="mt-0.5 text-[13px] text-white/40">
-                    Multi-channel traffic breakdown
+                    {t.serverAnalyticsCards[2].sub}
                   </p>
                 </div>
               </motion.div>
@@ -1958,19 +1878,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel>The Performance Stack</SectionLabel>
+            <SectionLabel>{t.toolEcosystemLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
             >
-              Every Tool, Working Together.
+              {t.toolEcosystemH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-4 text-lg leading-8 text-white/42"
             >
-              The technology ecosystem behind a performance-led D2C brand from
-              tracking infrastructure to media platforms to analytics and CRO.
+              {t.toolEcosystemBody}
             </motion.p>
           </motion.div>
         </div>
@@ -2114,20 +2033,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel>The D2C Funnel</SectionLabel>
+            <SectionLabel>{t.funnelLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
             >
-              Every Stage Is an Optimization Opportunity
+              {t.funnelH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 text-lg leading-8 text-white/45"
             >
-              We measure, optimize, and monitor every stage of the D2C customer
-              journey. Select a stage to see what we track and where things go
-              wrong.
+              {t.funnelBody}
             </motion.p>
           </motion.div>
 
@@ -2251,20 +2168,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel>Creative & Media</SectionLabel>
+            <SectionLabel>{t.creativeLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
             >
-              Creative Is the Variable That Moves the ROAS.
+              {t.creativeH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 text-lg leading-8 text-white/45"
             >
-              At scale, the biggest performance lever isn&apos;t budget it&apos;s
-              creative. We build, test and iterate ad creatives with a data-first
-              framework, not guesswork.
+              {t.creativeBody}
             </motion.p>
           </motion.div>
 
@@ -2275,28 +2190,7 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {[
-              {
-                step: "01",
-                label: "Hook",
-                desc: "First 3 seconds. Thumb-stop. Pattern interrupt. Relevant to audience.",
-              },
-              {
-                step: "02",
-                label: "Problem",
-                desc: "Surface the pain. Connect with the specific context of your customer.",
-              },
-              {
-                step: "03",
-                label: "Solution",
-                desc: "Your product as the mechanism. Benefits, not features.",
-              },
-              {
-                step: "04",
-                label: "Proof",
-                desc: "Social proof, UGC, reviews, demonstration. Trust at the moment of doubt.",
-              },
-            ].map(({ step, label, desc }) => (
+            {t.creativeSteps.map(({ step, label, desc }) => (
               <motion.div
                 key={step}
                 variants={fadeUp}
@@ -2325,20 +2219,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel light>Creative Testing</SectionLabel>
+            <SectionLabel light>{t.testingLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-black sm:text-5xl"
             >
-              Test. Learn. Iterate. Don&apos;t Guess.
+              {t.testingH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 text-[17px] leading-8 text-black/55"
             >
-              We run structured creative tests at the ad level not the
-              campaign level to isolate variables and understand what drives
-              performance improvements.
+              {t.testingBody}
             </motion.p>
           </motion.div>
 
@@ -2351,19 +2243,11 @@ export default function PerformanceMarketing() {
           >
             <div className="min-w-[520px]">
             <div className="grid grid-cols-3 border-b border-black/8 bg-black/[0.02] px-6 py-4 sm:px-8">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">Variable</p>
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">What We Test</p>
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">We Measure</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">{t.testingColA}</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">{t.testingColB}</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">{t.testingColC}</p>
             </div>
-            {[
-              ["Hook", "Static vs video vs UGC, first-frame imagery", "CTR, Hook Rate"],
-              ["Headline", "Benefit-led vs problem-led vs social proof", "CTR, CVR"],
-              ["Format", "Reels, Carousels, Single image, Stories", "CPM, CTR"],
-              ["Offer", "Free shipping vs % off vs gift-with-purchase", "CVR, AOV"],
-              ["CTA", "Shop Now vs Learn More vs Get Offer", "CTR, CVR"],
-              ["Audience", "Broad vs LAL vs interest-based", "ROAS, CAC"],
-              ["Landing Page", "Homepage vs PDP vs custom lander", "CVR, Bounce"],
-            ].map(([variable, test, measure], i) => (
+            {t.testingRows.map(([variable, test, measure], i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
@@ -2395,40 +2279,31 @@ export default function PerformanceMarketing() {
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <SectionLabel>Conversion Rate Optimization</SectionLabel>
+              <SectionLabel>{t.croLabel}</SectionLabel>
               <motion.h2
                 variants={item}
                 className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
               >
-                Double Your CVR. Halve Your CAC. Without Touching Your Spend.
+                {t.croH2}
               </motion.h2>
               <motion.p
                 variants={item}
                 className="mt-5 text-lg leading-8 text-white/45"
               >
-                A 1% to 2% CVR improvement on the same traffic doubles your
-                orders without adding a rupee to your ad spend. Through dedicated{" "}
-                <Link
-                  href="/services/Conversion-Rate-Optimisation"
-                  className="text-[var(--accent)] underline underline-offset-2 hover:text-white transition-colors"
-                >
-                  Conversion Rate Optimisation (CRO)
-                </Link>
-                , we eliminate landing page friction, streamline mobile checkouts, and maximize revenue velocity.
+                {t.croBody}
               </motion.p>
               <motion.div
                 variants={item}
                 className="mt-8 rounded-xl border border-white/8 bg-white/[0.03] p-5"
               >
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/28">
-                  Revenue Formula
+                  {t.croFormulaLabel}
                 </p>
                 <p className="mt-3 font-heading text-2xl font-bold text-white/80 sm:text-3xl">
-                  Traffic × CVR × AOV = Revenue
+                  {t.croFormula}
                 </p>
                 <p className="mt-3 text-[13px] text-white/32">
-                  Improving any one of these three variables grows revenue. We
-                  optimize all three.
+                  {t.croFormulaNote}
                 </p>
               </motion.div>
             </motion.div>
@@ -2440,18 +2315,7 @@ export default function PerformanceMarketing() {
               viewport={{ once: true, amount: 0.2 }}
               className="flex flex-col gap-3 content-start"
             >
-              {[
-                "Landing Page Audit and Redesign",
-                "Product Page Conversion Optimization",
-                "Mobile UX Review",
-                "Page Speed Assessment",
-                "Above-the-fold Messaging",
-                "Social Proof and Trust Signal Integration",
-                "Checkout Friction Reduction",
-                "Cart Abandonment Flow",
-                "Upsell and Cross-sell Strategy",
-                "A/B Testing of Page Elements",
-              ].map((it) => (
+              {t.croItems.map((it) => (
                 <motion.div
                   key={it}
                   variants={fadeUp}
@@ -2479,20 +2343,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel light>Revenue Economics</SectionLabel>
+            <SectionLabel light>{t.revenueLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-black sm:text-5xl"
             >
-              High ROAS. Zero Profit. How That Happens.
+              {t.revenueH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 text-lg leading-8 text-black/55"
             >
-              ROAS doesn&apos;t account for returns, margins, platform fees, or
-              fulfilment costs. We optimize for contribution margin the number
-              that determines whether the business is actually profitable.
+              {t.revenueBody}
             </motion.p>
           </motion.div>
 
@@ -2505,19 +2367,11 @@ export default function PerformanceMarketing() {
           >
             <div className="min-w-[480px]">
             <div className="grid grid-cols-3 border-b border-black/8 bg-black/[0.02] px-6 py-4 sm:px-8">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">Metric</p>
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">Brand A</p>
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--accent)]">Brand B</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">{t.revenueColMetric}</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-black/35">{t.revenueColA}</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--accent)]">{t.revenueColB}</p>
             </div>
-            {[
-              ["Ad Spend", "₹2,00,000", "₹2,00,000"],
-              ["Platform ROAS", "4.5×", "3.0×"],
-              ["Revenue (attributed)", "₹9,00,000", "₹6,00,000"],
-              ["Gross Margin", "25%", "55%"],
-              ["Gross Profit", "₹2,25,000", "₹3,30,000"],
-              ["Ad Spend", "−₹2,00,000", "−₹2,00,000"],
-              ["Contribution Margin", "₹25,000 ✗", "₹1,30,000 ✓"],
-            ].map(([metric, a, b], i) => (
+            {t.revenueRows.map(([metric, a, b], i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
@@ -2546,7 +2400,7 @@ export default function PerformanceMarketing() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-5 text-[12px] text-black/30"
           >
-            Illustrative example. Actual results depend on your product category, return rates, fulfilment costs and margin structure.
+            {t.revenueDisclaimer}
           </motion.p>
         </div>
       </section>
@@ -2569,19 +2423,13 @@ export default function PerformanceMarketing() {
             transition={{ duration: 0.7, ease: EASE }}
           >
             <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[var(--accent)]">
-              On ROAS
+              {t.roasEyebrow}
             </p>
             <h2 className="mt-5 font-heading text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              ROAS is a Signal.
-              <br />
-              Not the Destination.
+              {t.roasH2}
             </h2>
             <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/45">
-              Platform-reported ROAS tells you what a platform attributed to
-              itself. It doesn&apos;t tell you what your business actually made.
-              MER, contribution margin, and LTV tell you that. We work with
-              brands to build measurement frameworks that go beyond the
-              dashboard.
+              {t.roasBody}
             </p>
           </motion.div>
         </div>
@@ -2615,18 +2463,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-3xl"
           >
-            <SectionLabel>Customer Retention & LTV</SectionLabel>
+            <SectionLabel>{t.retentionLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
             >
-              The Second Order Is Where Profit Begins.
+              {t.retentionH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 text-lg leading-8 text-white/50"
             >
-              Cold ad auctions on Meta and Google grow more expensive every quarter. If your D2C brand relies solely on first-purchase margin, rising Customer Acquisition Costs (CAC) will inevitably compress your EBITDA. True scale happens when repeat purchases compound at <strong className="text-white font-semibold">₹0 incremental ad spend</strong>.
+              {t.retentionBody}
             </motion.p>
           </motion.div>
 
@@ -2638,23 +2486,7 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12 grid gap-4 sm:grid-cols-3"
           >
-            {[
-              {
-                stat: "₹0 CAC",
-                label: "Repeat Purchase Media Cost",
-                desc: "Second and third transactions bypass paid ad auctions entirely, turning marketing expense into pure net contribution margin.",
-              },
-              {
-                stat: "60%+",
-                label: "Contribution Margin 3",
-                desc: "While order #1 yields ~15–22% CM3 due to acquisition ad spend, repeat lifecycle orders expand contribution margin past 60%.",
-              },
-              {
-                stat: "+42%",
-                label: "Average 90-Day LTV Lift",
-                desc: "Disciplined post-purchase cohort sequencing across WhatsApp, email, and SMS transforms one-time buyers into compounding annuities.",
-              },
-            ].map(({ stat, label, desc }) => (
+            {t.retentionStats.map(({ stat, label, desc }) => (
               <motion.div
                 key={label}
                 variants={fadeUp}
@@ -2678,92 +2510,45 @@ export default function PerformanceMarketing() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-white/10 pb-6">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-                  Topical Knowledge Hub
+                  {t.retentionHubEyebrow}
                 </p>
                 <h3 className="mt-1 font-heading text-2xl font-bold text-white">
-                  Essential D2C Growth & Retention Frameworks
+                  {t.retentionHubH3}
                 </h3>
               </div>
               <p className="text-xs text-white/40">
-                Curated by <Link href="/about" className="text-white hover:text-[var(--accent)] underline underline-offset-2 transition-colors">Jay Solanki</Link>, Founder & Growth Architect
+                {t.retentionHubByline}
               </p>
             </div>
 
             <div className="mt-6 grid gap-6 md:grid-cols-3">
-              <div className="flex flex-col justify-between rounded-xl border border-white/8 bg-black/40 p-5 hover:border-[var(--accent)]/40 transition-colors">
-                <div>
-                  <span className="inline-block rounded-full bg-[var(--accent)]/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--accent)]">
-                    Primary Guide
-                  </span>
-                  <h4 className="mt-3 font-heading text-base font-bold leading-snug text-white">
-                    <Link
-                      href="/customer-retention-d2c-marketing-guide"
-                      className="hover:text-[var(--accent)] transition-colors"
-                    >
-                      Why Customer Retention Is Important for D2C Brands
+              {([
+                "/customer-retention-d2c-marketing-guide",
+                "/how-to-create-a-winning-d2c-marketing-strategy",
+                "/d2c-marketing-channels-guide",
+              ] as const).map((href, gi) => {
+                const g = t.retentionGuides[gi];
+                return (
+                  <div key={gi} className="flex flex-col justify-between rounded-xl border border-white/8 bg-black/40 p-5 hover:border-[var(--accent)]/40 transition-colors">
+                    <div>
+                      <span className={`inline-block rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${gi === 0 ? "bg-[var(--accent)]/15 text-[var(--accent)]" : "bg-white/10 text-white/70"}`}>
+                        {g.tag}
+                      </span>
+                      <h4 className="mt-3 font-heading text-base font-bold leading-snug text-white">
+                        <Link href={href} className="hover:text-[var(--accent)] transition-colors">
+                          {g.title}
+                        </Link>
+                      </h4>
+                      <p className="mt-2 text-[13px] leading-relaxed text-white/45">
+                        {g.desc}
+                      </p>
+                    </div>
+                    <Link href={href} className="mt-4 inline-flex items-center text-xs font-semibold text-[var(--accent)] hover:underline">
+                      {g.cta}
                     </Link>
-                  </h4>
-                  <p className="mt-2 text-[13px] leading-relaxed text-white/45">
-                    How post-purchase automated sequences, cohort payback analysis, and retention economics protect your brand against rising ad auctions.
-                  </p>
-                </div>
-                <Link
-                  href="/customer-retention-d2c-marketing-guide"
-                  className="mt-4 inline-flex items-center text-xs font-semibold text-[var(--accent)] hover:underline"
-                >
-                  Read Retention Guide &rarr;
-                </Link>
-              </div>
-
-              <div className="flex flex-col justify-between rounded-xl border border-white/8 bg-black/40 p-5 hover:border-[var(--accent)]/40 transition-colors">
-                <div>
-                  <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/70">
-                    Strategy Framework
-                  </span>
-                  <h4 className="mt-3 font-heading text-base font-bold leading-snug text-white">
-                    <Link
-                      href="/how-to-create-a-winning-d2c-marketing-strategy"
-                      className="hover:text-[var(--accent)] transition-colors"
-                    >
-                      How to Create a Winning D2C Marketing Strategy for Your Brand
-                    </Link>
-                  </h4>
-                  <p className="mt-2 text-[13px] leading-relaxed text-white/45">
-                    The end-to-end performance roadmap: calculating break-even ROAS, creative sprint cadences, and full-funnel media distribution.
-                  </p>
-                </div>
-                <Link
-                  href="/how-to-create-a-winning-d2c-marketing-strategy"
-                  className="mt-4 inline-flex items-center text-xs font-semibold text-[var(--accent)] hover:underline"
-                >
-                  Explore Strategy Guide &rarr;
-                </Link>
-              </div>
-
-              <div className="flex flex-col justify-between rounded-xl border border-white/8 bg-black/40 p-5 hover:border-[var(--accent)]/40 transition-colors">
-                <div>
-                  <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/70">
-                    Channel Synergy
-                  </span>
-                  <h4 className="mt-3 font-heading text-base font-bold leading-snug text-white">
-                    <Link
-                      href="/d2c-marketing-channels-guide"
-                      className="hover:text-[var(--accent)] transition-colors"
-                    >
-                      D2C Marketing Channels & Attribution Architecture
-                    </Link>
-                  </h4>
-                  <p className="mt-2 text-[13px] leading-relaxed text-white/45">
-                    How to balance Meta Ads, Google Performance Max, and YouTube alongside our <Link href="/services/advertising" className="text-white hover:text-[var(--accent)] underline underline-offset-2">paid advertising services</Link>.
-                  </p>
-                </div>
-                <Link
-                  href="/d2c-marketing-channels-guide"
-                  className="mt-4 inline-flex items-center text-xs font-semibold text-[var(--accent)] hover:underline"
-                >
-                  View Channels Guide &rarr;
-                </Link>
-              </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -2779,20 +2564,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel light>Attribution</SectionLabel>
+            <SectionLabel light>{t.attributionLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-black sm:text-5xl"
             >
-              No Attribution Model Is Perfect. Most Ignore That Fact.
+              {t.attributionH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 text-lg leading-8 text-black/55"
             >
-              We work with multiple attribution perspectives to make better
-              decisions not to find the number that makes our performance look
-              best.
+              {t.attributionBody}
             </motion.p>
           </motion.div>
 
@@ -2803,29 +2586,7 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12 grid gap-5 sm:grid-cols-3"
           >
-            {[
-              {
-                label: "Platform Attribution",
-                description:
-                  "What Meta and Google each claim. Useful for platform-level optimization, not cross-channel truth.",
-                use: "Campaign-level bidding and budget allocation within a platform",
-                caveat: "Platforms over-attribute to themselves; totals will exceed actual revenue",
-              },
-              {
-                label: "MER (Blended)",
-                description:
-                  "Total revenue divided by total marketing spend. Channel-agnostic. The clearest top-level efficiency signal.",
-                use: "Evaluating overall marketing efficiency week-over-week",
-                caveat: "Doesn't tell you which channel to invest more in",
-              },
-              {
-                label: "Incrementality Testing",
-                description:
-                  "Holdout tests that measure whether ads actually drove additional revenue vs what would have happened anyway.",
-                use: "Measuring true causal impact of a channel or campaign",
-                caveat: "Requires sufficient scale and test periods to produce statistically valid results",
-              },
-            ].map(({ label, description, use, caveat }) => (
+            {t.attributionMethods.map(({ label, description, use, caveat }) => (
               <motion.div
                 key={label}
                 variants={fadeUp}
@@ -2840,13 +2601,13 @@ export default function PerformanceMarketing() {
                 <div className="mt-4 space-y-2">
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--accent)]">
-                      Best For
+                      {t.attributionBestFor}
                     </span>
                     <p className="mt-1 text-[13px] text-black/50">{use}</p>
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-black/30">
-                      Limitation
+                      {t.attributionLimitation}
                     </span>
                     <p className="mt-1 text-[13px] text-black/40">{caveat}</p>
                   </div>
@@ -2867,12 +2628,12 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel>How We Operate</SectionLabel>
+            <SectionLabel>{t.dataLoopLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
             >
-              The Loop That Drives Compounding Performance
+              {t.dataLoopH2}
             </motion.h2>
           </motion.div>
 
@@ -2883,28 +2644,7 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12 grid gap-4 sm:grid-cols-4"
           >
-            {[
-              {
-                step: "01",
-                label: "Collect",
-                desc: "Clean tracking captures every event across every channel",
-              },
-              {
-                step: "02",
-                label: "Analyse",
-                desc: "Data is processed into readable signals and performance patterns",
-              },
-              {
-                step: "03",
-                label: "Decide",
-                desc: "Spend, creative, audience and CRO decisions made from evidence",
-              },
-              {
-                step: "04",
-                label: "Test",
-                desc: "Changes implemented, results measured, loop begins again",
-              },
-            ].map(({ step, label, desc }, i) => (
+            {t.dataLoopSteps.map(({ step, label, desc }, i) => (
               <motion.div
                 key={step}
                 variants={fadeUp}
@@ -2941,20 +2681,18 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel light>Reporting</SectionLabel>
+            <SectionLabel light>{t.reportingLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-black sm:text-5xl"
             >
-              A Dashboard Built for Decision-Making, Not Decoration.
+              {t.reportingH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mt-5 text-lg leading-8 text-black/55"
             >
-              Weekly reports organized around the metrics that drive action. No
-              vanity numbers. No walls of charts. Just what you need to make the
-              next decision.
+              {t.reportingBody}
             </motion.p>
           </motion.div>
 
@@ -2965,20 +2703,7 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
           >
-            {[
-              { metric: "MER", label: "Marketing Efficiency Ratio" },
-              { metric: "ROAS", label: "Per Platform & Campaign" },
-              { metric: "CAC", label: "By Channel & Segment" },
-              { metric: "AOV", label: "By Source & Campaign" },
-              { metric: "CVR", label: "Funnel Stage Breakdown" },
-              { metric: "CTR", label: "Per Ad, Format & Audience" },
-              { metric: "CPM", label: "Platform Benchmarks" },
-              { metric: "LTV", label: "Cohort-Level Tracking" },
-              { metric: "Orders", label: "Revenue by Campaign" },
-              { metric: "Spend", label: "Pacing & Budget View" },
-              { metric: "CPC", label: "Efficiency by Placement" },
-              { metric: "Repeat Rate", label: "Retention Overview" },
-            ].map(({ metric, label }) => (
+            {t.reportingMetrics.map(({ metric, label }) => (
               <motion.div
                 key={metric}
                 variants={fadeUp}
@@ -3004,12 +2729,12 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel>Scope of Work</SectionLabel>
+            <SectionLabel>{t.scopeLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
             >
-              What We Take Off Your Plate
+              {t.scopeH2}
             </motion.h2>
           </motion.div>
 
@@ -3020,44 +2745,16 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {[
-              {
-                icon: <GearIcon className="h-5 w-5" />,
-                label: "Tracking & Measurement",
-                items: ["GTM, GA4, Pixel, CAPI, Enhanced Conversions", "Server-side setup and maintenance", "Attribution framework and reporting"],
-              },
-              {
-                icon: <MegaphoneIcon className="h-5 w-5" />,
-                label: "Paid Media",
-                items: ["Meta Ads full management", "Google Ads (Shopping, Search, PMax, YouTube)", "Budget pacing, bidding, campaign structure"],
-              },
-              {
-                icon: <BoltIcon className="h-5 w-5" />,
-                label: "Creative",
-                items: ["Ad creative briefs and feedback", "Creative testing framework", "Performance creative iterations"],
-              },
-              {
-                icon: <FunnelIcon className="h-5 w-5" />,
-                label: "Funnel & CRO",
-                items: ["Landing page review and optimization", "Checkout flow analysis", "Product page improvement recommendations"],
-              },
-              {
-                icon: <ChartIcon className="h-5 w-5" />,
-                label: "Reporting",
-                items: ["Weekly performance reports", "Monthly business review decks", "Custom dashboards (Looker Studio / GA4)"],
-              },
-              {
-                icon: <RocketIcon className="h-5 w-5" />,
-                label: "Strategy & Growth",
-                items: ["Channel strategy and budget allocation", "Audience and offer strategy", "Scaling frameworks as performance grows"],
-              },
-            ].map(({ icon, label, items }) => (
+            {t.scopeCategories.map(({ label, items }, si) => {
+              const scopeIcons = [GearIcon, MegaphoneIcon, BoltIcon, FunnelIcon, ChartIcon, RocketIcon];
+              const ScopeIcon = scopeIcons[si] ?? GearIcon;
+              return (
               <motion.div
                 key={label}
                 variants={fadeUp}
                 className="rounded-2xl border border-white/8 bg-white/[0.03] p-6"
               >
-                <div className="mb-3 text-[var(--accent)]">{icon}</div>
+                <div className="mb-3 text-[var(--accent)]"><ScopeIcon className="h-5 w-5" /></div>
                 <p className="font-heading text-base font-bold text-white/80">
                   {label}
                 </p>
@@ -3075,7 +2772,8 @@ export default function PerformanceMarketing() {
                   ))}
                 </ul>
               </motion.div>
-            ))}
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -3090,12 +2788,12 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel light>How We Work</SectionLabel>
+            <SectionLabel light>{t.growthLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-black sm:text-5xl"
             >
-              From Onboarding to Ongoing Optimization
+              {t.growthH2}
             </motion.h2>
           </motion.div>
 
@@ -3106,44 +2804,7 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12 flex flex-col gap-4"
           >
-            {[
-              {
-                num: "01",
-                phase: "Audit",
-                timeline: "Week 1",
-                desc: "Full audit of existing tracking, campaigns, creative, and funnel. Baseline established. Gaps identified. Priorities set.",
-              },
-              {
-                num: "02",
-                phase: "Setup",
-                timeline: "Weeks 2–3",
-                desc: "Tracking rebuilt or verified. Campaign structure reviewed and restructured where needed. Creative brief developed based on audit findings.",
-              },
-              {
-                num: "03",
-                phase: "Launch",
-                timeline: "Week 4",
-                desc: "Campaigns activated with proper tracking verified pre-launch. Initial creative set live across Meta and Google.",
-              },
-              {
-                num: "04",
-                phase: "Learn",
-                timeline: "Weeks 4–8",
-                desc: "Gathering performance data. Campaigns exit learning phase. First creative tests in flight. Funnel data reviewed.",
-              },
-              {
-                num: "05",
-                phase: "Optimize",
-                timeline: "Month 2–3",
-                desc: "Actionable patterns emerge. Winning creatives scaled. Underperforming segments cut or restructured. CRO improvements actioned.",
-              },
-              {
-                num: "06",
-                phase: "Scale",
-                timeline: "Month 3+",
-                desc: "What's working gets more budget. New creative tests expand the winning playbook. Reporting tightened as the business grows.",
-              },
-            ].map(({ num, phase, timeline, desc }) => (
+            {t.growthPhases.map(({ num, phase, timeline, desc }) => (
               <motion.div
                 key={num}
                 variants={fadeUp}
@@ -3186,31 +2847,29 @@ export default function PerformanceMarketing() {
               variants={fadeUp}
               className="text-[11px] font-bold uppercase tracking-[0.28em] text-[var(--accent)]"
             >
-              Free Performance Audit
+              {t.auditEyebrow}
             </motion.p>
             <motion.h2
               variants={item}
               className="mt-5 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              Your Ad Spend Deserves Better Data.
+              {t.auditH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/45"
             >
-              We review your tracking setup, campaign structure, creative
-              performance and funnel and tell you exactly where you&apos;re
-              losing money. No pitch. Just findings.
+              {t.auditBody}
             </motion.p>
             <motion.div
               variants={item}
               className="mt-8 flex flex-wrap items-center justify-center gap-3"
             >
               <CTAButton href="/contact" variant="primary" size="lg">
-                Get a Performance Audit
+                {t.auditCta1}
               </CTAButton>
               <CTAButton href="/contact" variant="outline" size="lg">
-                Talk to a Growth Strategist
+                {t.auditCta2}
               </CTAButton>
             </motion.div>
 
@@ -3218,11 +2877,7 @@ export default function PerformanceMarketing() {
               variants={fadeUp}
               className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
             >
-              {[
-                "Free no obligation",
-                "Delivered within 5 business days",
-                "Tracking + campaign + funnel review",
-              ].map((pt) => (
+              {t.auditBadges.map((pt) => (
                 <div key={pt} className="flex items-center gap-2">
                   <span
                     aria-hidden="true"
@@ -3246,12 +2901,12 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.3 }}
             className="max-w-2xl"
           >
-            <SectionLabel light>Who It&apos;s For</SectionLabel>
+            <SectionLabel light>{t.whoLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-black sm:text-5xl"
             >
-              Built for D2C Brands Ready to Own Their Performance Data
+              {t.whoH2}
             </motion.h2>
           </motion.div>
 
@@ -3262,32 +2917,7 @@ export default function PerformanceMarketing() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {[
-              {
-                label: "D2C ecommerce brands on Shopify or WooCommerce",
-                desc: "Product-led brands selling direct, looking to profitably scale paid acquisition",
-              },
-              {
-                label: "Brands spending ₹50K/month or more on ads",
-                desc: "At this scale, measurement gaps and inefficiencies cost real money",
-              },
-              {
-                label: "Brands with broken or unreliable tracking",
-                desc: "If your platform numbers don't add up, your decisions won't either",
-              },
-              {
-                label: "D2C brands transitioning from brand to performance",
-                desc: "Moving from awareness-first to revenue-first with the right infrastructure",
-              },
-              {
-                label: "Brands frustrated with ROAS-only reporting",
-                desc: "Ready to measure real business outcomes instead of platform attribution",
-              },
-              {
-                label: "Brands scaling creative at volume",
-                desc: "Need a testing framework that tells you what to scale and what to cut",
-              },
-            ].map(({ label, desc }) => (
+            {t.whoItems.map(({ label, desc }) => (
               <motion.div
                 key={label}
                 variants={fadeUp}
@@ -3312,12 +2942,12 @@ export default function PerformanceMarketing() {
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <SectionLabel light>FAQ</SectionLabel>
+            <SectionLabel light>{t.faqLabel}</SectionLabel>
             <motion.h2
               variants={item}
               className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-black sm:text-5xl"
             >
-              Questions About Performance Marketing
+              {t.faqH2}
             </motion.h2>
           </motion.div>
 
@@ -3338,26 +2968,23 @@ export default function PerformanceMarketing() {
               variants={item}
               className="font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              Stop Optimizing for
-              <br />
-              Platform Metrics.
+              {t.finalH2}
             </motion.h2>
             <motion.p
               variants={item}
               className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/45"
             >
-              Build the measurement infrastructure, media system, and creative
-              engine your D2C brand needs to grow on actual numbers.
+              {t.finalBody}
             </motion.p>
             <motion.div
               variants={item}
               className="mt-8 flex flex-wrap items-center justify-center gap-3"
             >
               <CTAButton href="/contact" variant="primary" size="lg">
-                Start With a Performance Audit
+                {t.finalCta1}
               </CTAButton>
               <CTAButton href="/services" variant="inverted" size="lg">
-                Explore All Services
+                {t.finalCta2}
               </CTAButton>
             </motion.div>
           </motion.div>
@@ -3366,3 +2993,4 @@ export default function PerformanceMarketing() {
     </>
   );
 }
+
