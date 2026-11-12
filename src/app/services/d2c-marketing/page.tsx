@@ -1716,6 +1716,9 @@ function UnitEconomicsCalculator() {
 function D2CMascot() {
   const [tipIdx, setTipIdx] = useState(0);
   const [bubbleVisible, setBubbleVisible] = useState(false);
+  const [contacted, setContacted] = useState(false);
+  const [ctaBounce, setCtaBounce] = useState(false);
+  const phaseRef = useRef(false);
 
   const tips = [
     "Open the calculator! ↑",
@@ -1727,6 +1730,7 @@ function D2CMascot() {
   useEffect(() => {
     const t1 = setTimeout(() => setBubbleVisible(true), 2400);
     const interval = setInterval(() => {
+      if (phaseRef.current) return;
       setBubbleVisible(false);
       setTimeout(() => {
         setTipIdx((p) => (p + 1) % tips.length);
@@ -1737,7 +1741,21 @@ function D2CMascot() {
   }, []);
 
   const handleClick = () => {
+    if (contacted) {
+      window.location.href = "/contact";
+      return;
+    }
     document.getElementById("unit-economics")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => {
+      phaseRef.current = true;
+      setBubbleVisible(false);
+      setTimeout(() => {
+        setContacted(true);
+        setBubbleVisible(true);
+        setCtaBounce(true);
+        setTimeout(() => setCtaBounce(false), 700);
+      }, 500);
+    }, 3500);
   };
 
   return (
@@ -1747,8 +1765,10 @@ function D2CMascot() {
         @keyframes d2c-char-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
         @keyframes d2c-arm-wave   { 0%,100% { transform: rotate(0deg); } 28% { transform: rotate(-24deg); } 70% { transform: rotate(18deg); } }
         @keyframes d2c-blink      { 0%,90%,100% { transform: scaleY(1); } 94% { transform: scaleY(0.07); } }
+        @keyframes d2c-cta-bounce { 0% { transform: scale(1) translateY(0); } 30% { transform: scale(1.12) translateY(-12px); } 60% { transform: scale(0.96) translateY(2px); } 100% { transform: scale(1) translateY(0); } }
         .d2c-mwrap  { animation: d2c-char-enter 0.75s cubic-bezier(0.34,1.56,0.64,1) 1.3s both; }
         .d2c-mfloat { animation: d2c-char-float 3.2s ease-in-out infinite; }
+        .d2c-mfloat.d2c-bounce { animation: d2c-cta-bounce 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards; }
         .d2c-arm    { transform-origin: 79px 63px; animation: d2c-arm-wave 1.8s ease-in-out infinite; }
         .d2c-eyel   { transform-origin: 36px 33px; animation: d2c-blink 5s ease-in-out 0.9s infinite; }
         .d2c-eyer   { transform-origin: 64px 33px; animation: d2c-blink 5s ease-in-out 1.1s infinite; }
@@ -1761,31 +1781,31 @@ function D2CMascot() {
         <div
           className="pointer-events-auto mb-1 ml-2 relative"
           style={{
-            background: "#fff",
-            color: "#111",
+            background: contacted ? "#ed2830" : "#fff",
+            color: contacted ? "#fff" : "#111",
             fontFamily: "var(--font-heading, 'Space Grotesk', sans-serif)",
-            fontSize: 12,
-            fontWeight: 600,
+            fontSize: contacted ? 13 : 12,
+            fontWeight: 700,
             lineHeight: 1.45,
             padding: "9px 13px",
             borderRadius: "12px 12px 12px 3px",
-            maxWidth: 165,
-            boxShadow: "0 6px 24px rgba(0,0,0,0.6)",
-            transition: "opacity 0.38s ease",
+            maxWidth: contacted ? 185 : 165,
+            boxShadow: contacted ? "0 6px 28px rgba(237,40,48,0.5)" : "0 6px 24px rgba(0,0,0,0.6)",
+            transition: "opacity 0.38s ease, background 0.4s ease, box-shadow 0.4s ease, max-width 0.3s ease",
             opacity: bubbleVisible ? 1 : 0,
           }}
         >
-          {tips[tipIdx]}
-          <span style={{ position: "absolute", bottom: -7, left: 16, borderStyle: "solid", borderWidth: "7px 7px 0", borderColor: "#fff transparent transparent" }} />
+          {contacted ? "Talk to our expert →" : tips[tipIdx]}
+          <span style={{ position: "absolute", bottom: -7, left: 16, borderStyle: "solid", borderWidth: "7px 7px 0", borderColor: contacted ? "#ed2830 transparent transparent" : "#fff transparent transparent" }} />
         </div>
 
         {/* Character */}
         <div
-          className="d2c-mfloat pointer-events-auto cursor-pointer select-none"
+          className={`d2c-mfloat pointer-events-auto cursor-pointer select-none${ctaBounce ? " d2c-bounce" : ""}`}
           style={{ filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.65))" }}
           onClick={handleClick}
           role="button"
-          aria-label="Open Unit Economics Calculator"
+          aria-label={contacted ? "Talk to our expert" : "Open Unit Economics Calculator"}
         >
           <svg width="88" height="126" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="50" cy="138" rx="26" ry="4.5" fill="rgba(0,0,0,0.3)"/>
