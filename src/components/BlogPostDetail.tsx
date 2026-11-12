@@ -359,6 +359,22 @@ export default function BlogPostDetail({
                         {sub.rechartsChart === "d2c-industry-conversion" && (
                           <D2CIndustryConversionChart />
                         )}
+                        {sub.heading.includes("Sarvopaya") && (
+                          <div className="mt-5 flex flex-wrap gap-3">
+                            <Link
+                              href="/contact"
+                              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-bold text-white shadow-md transition-all hover:brightness-110 hover:shadow-lg active:scale-95"
+                            >
+                              Work with Sarvopaya →
+                            </Link>
+                            <Link
+                              href="/services/d2c-marketing"
+                              className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-white px-6 py-3 text-sm font-bold text-black transition-all hover:border-black/30 hover:bg-black/[0.03] active:scale-95"
+                            >
+                              See Our D2C Services
+                            </Link>
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
