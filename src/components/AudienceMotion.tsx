@@ -186,16 +186,17 @@ function applyTargets(
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "smm" }) {
-  const canvasRef     = useRef<HTMLCanvasElement>(null);
-  const sectionRef    = useRef<HTMLDivElement>(null);
-  const rafRef        = useRef<number | null>(null);
-  const stageRef      = useRef<Stage>("idle");
-  const mouseRef      = useRef({ x: -9999, y: -9999, prevX: -9999, prevY: -9999, active: false });
-  const particlesRef  = useRef<Particle[]>([]);
-  const tRef          = useRef(0);
-  const sizeRef       = useRef({ w: 0, h: 0, mobile: false });
-  const interactedRef = useRef(false);
-  const autoRef       = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const canvasRef          = useRef<HTMLCanvasElement>(null);
+  const sectionRef         = useRef<HTMLDivElement>(null);
+  const canvasContainerRef = useRef<HTMLDivElement>(null);
+  const rafRef             = useRef<number | null>(null);
+  const stageRef           = useRef<Stage>("idle");
+  const mouseRef           = useRef({ x: -9999, y: -9999, prevX: -9999, prevY: -9999, active: false });
+  const particlesRef       = useRef<Particle[]>([]);
+  const tRef               = useRef(0);
+  const sizeRef            = useRef({ w: 0, h: 0, mobile: false });
+  const interactedRef      = useRef(false);
+  const autoRef            = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [stage, setStage]         = useState<Stage>("idle");
   const [showHint, setShowHint]   = useState(true);
@@ -207,14 +208,17 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
     const section = sectionRef.current;
     if (!canvas || !section) return;
 
-    const w      = section.clientWidth;
+    const container = (mode === "homepage" && canvasContainerRef.current)
+      ? canvasContainerRef.current
+      : section;
+
+    const w      = container.clientWidth;
     const mobile = w < 768;
-    const h      = mode === "homepage" ? (mobile ? 300 : 400) : (mobile ? 300 : 480);
+    const h      = mode === "homepage" ? (mobile ? 300 : 480) : (mobile ? 300 : 480);
     const count  = mode === "homepage" ? (mobile ? 220 : 520) : (mobile ? 200 : 500);
     const cx = w / 2, cy = h / 2;
     const rx = Math.min(w * 0.37, 262), ry = Math.min(h * 0.43, 202);
 
-    // Scale canvas buffer by devicePixelRatio for crisp rendering on Retina / OLED
     const dpr = Math.min(window.devicePixelRatio || 1, 3);
     canvas.width  = w * dpr;
     canvas.height = h * dpr;
@@ -344,6 +348,8 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
       applyTargets(stageRef.current, particlesRef.current, cx, cy, rx, ry, h);
     });
     if (sectionRef.current) ro.observe(sectionRef.current);
+    const cc = canvasContainerRef.current;
+    if (mode === "homepage" && cc) ro.observe(cc);
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -380,7 +386,7 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
       canvas.removeEventListener("touchmove",  onTouch);
       canvas.removeEventListener("touchend",   onLeave);
     };
-  }, [init, loop]);
+  }, [init, loop, mode]);
 
   const goStage = useCallback((next: Stage) => {
     if (autoRef.current) clearTimeout(autoRef.current);
@@ -423,6 +429,308 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
     move:      "IN MOTION",
   };
 
+  // ── Canvas overlays (shared between both modes) ───────────────────────────
+
+  const canvasOverlays = (
+    <>
+      {/* Cursor hint */}
+      <AnimatePresence>
+        {showHint && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 1.4, duration: 0.6 }}
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase tracking-[0.26em] text-white/15"
+          >
+            Move your cursor
+          </motion.p>
+        )}
+      </AnimatePresence>
+
+      {/* Stage badge */}
+      <AnimatePresence mode="wait">
+        {stage !== "idle" && stage !== "final" && stageBadge[stage] && (
+          <motion.div
+            key={stage}
+            initial={{ opacity: 0, scale: 0.88 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.88 }}
+            transition={{ duration: 0.38, ease: EASE }}
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          >
+            <div className="rounded-full border border-white/10 bg-black/72 px-6 py-2.5 backdrop-blur-sm">
+              <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
+                {stageBadge[stage]}
+              </span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Move state: funnel labels */}
+      <AnimatePresence>
+        {stage === "move" && !showFinal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 flex flex-col items-center justify-around py-8"
+          >
+            {["INTEREST", "INTENT", "ACTION"].map((label, i) => (
+              <motion.span
+                key={label}
+                initial={{ opacity: 0, x: 12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.2, duration: 0.5, ease: EASE }}
+                className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/20"
+              >
+                {label}
+              </motion.span>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+
+  // ── Homepage: bold editorial 2-column layout ──────────────────────────────
+
+  if (mode === "homepage") {
+    return (
+      <section
+        ref={sectionRef}
+        className="relative w-full overflow-hidden bg-black"
+        aria-label="Audience motion interactive marketing experience"
+      >
+        <p className="sr-only">
+          An interactive particle simulation showing how targeted marketing moves
+          the right audience from awareness through to action. Use the stage controls below to
+          step through Attention, Relevance, Amplify, and Move.
+        </p>
+
+        {/* ── Top: editorial headline + canvas ───────────────────────────── */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-center gap-0 lg:grid-cols-[42%_58%]">
+
+            {/* Left: editorial text */}
+            <div className="flex flex-col justify-center py-12 lg:py-20 lg:pr-14">
+
+              {/* Eyebrow */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: EASE }}
+                className="mb-8 flex items-center gap-3"
+              >
+                <span className="h-px w-8 shrink-0 bg-accent" aria-hidden="true" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-white/30">
+                  Creative Media · Technology · AI
+                </span>
+              </motion.div>
+
+              {/* Headline — word-by-word stagger */}
+              <h1 className="font-heading font-bold uppercase leading-[0.88] tracking-tight">
+                {(["Make the", "Audience", "Move."] as const).map((line, i) => (
+                  <motion.span
+                    key={line}
+                    initial={{ opacity: 0, y: 52 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.72, delay: i * 0.14, ease: EASE }}
+                    className={`block text-[clamp(2.8rem,7vw,5.5rem)] ${
+                      line === "Audience" ? "text-accent" : "text-white"
+                    }`}
+                  >
+                    {line}
+                  </motion.span>
+                ))}
+              </h1>
+
+              {/* Body */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.65, delay: 0.52, ease: EASE }}
+                className="mt-7 max-w-[22rem] text-sm leading-relaxed text-white/40"
+              >
+                Creative media, technology, and AI —<br />
+                working together to move the right people.
+              </motion.p>
+
+              {/* CTA — always visible */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.68, ease: EASE }}
+                className="mt-9"
+              >
+                <CTAButton href="/contact" variant="inverted" size="lg">
+                  Work With Us
+                </CTAButton>
+              </motion.div>
+            </div>
+
+            {/* Right: canvas */}
+            <motion.div
+              ref={canvasContainerRef}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.22, ease: EASE }}
+              className="relative lg:border-l lg:border-white/[0.05]"
+            >
+              <div className="relative select-none overflow-hidden">
+                <canvas
+                  ref={canvasRef}
+                  aria-hidden="true"
+                  className="touch-none"
+                  style={{ cursor: "none", display: "block" }}
+                />
+                {canvasOverlays}
+
+                {/* Final resolution overlay */}
+                <AnimatePresence>
+                  {showFinal && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 1.0 }}
+                      className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-8 text-center"
+                    >
+                      <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.7, ease: EASE }}
+                        className="text-sm font-medium text-white/40"
+                      >
+                        Brands don&apos;t just need reach.
+                      </motion.p>
+                      <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.0, duration: 0.7, ease: EASE }}
+                        className="mt-1.5 text-sm font-medium text-white/40"
+                      >
+                        They need movement.
+                      </motion.p>
+                      <motion.h3
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.7, duration: 0.8, ease: EASE }}
+                        className="mt-8 font-heading text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+                      >
+                        The agency that
+                        <br />
+                        <span className="text-accent">moves the right audience.</span>
+                      </motion.h3>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* ── Bottom bar: stage controls + metrics ────────────────────────── */}
+        <div className="border-t border-white/[0.07]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+
+              {/* Stage controls — numbered tab style */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: EASE }}
+                className="flex divide-x divide-white/[0.07]"
+                role="group"
+                aria-label="Marketing stage controls"
+              >
+                {controls.map((ctrl, ci) => {
+                  const isActive = stage === ctrl.id;
+                  const isPast   = STAGE_ORDER.indexOf(ctrl.id) < stageIdx && stageIdx > 0;
+                  return (
+                    <button
+                      key={ctrl.id}
+                      type="button"
+                      onClick={() => goStage(ctrl.id)}
+                      disabled={stage === "final"}
+                      aria-pressed={isActive}
+                      className={`relative flex flex-col gap-0.5 px-4 py-4 text-left transition-all duration-300 first:pl-0 sm:px-5 disabled:cursor-not-allowed ${
+                        isActive
+                          ? "text-white"
+                          : isPast
+                          ? "text-white/22"
+                          : "text-white/42 hover:text-white/70"
+                      }`}
+                    >
+                      {/* Active top-line indicator */}
+                      {isActive && (
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-x-0 top-0 h-px bg-accent"
+                        />
+                      )}
+                      <span className="text-[9px] font-bold uppercase tracking-[0.24em] text-white/18">
+                        {`0${ci + 1}`}
+                      </span>
+                      <span className="text-[11px] font-bold uppercase tracking-[0.16em]">
+                        {ctrl.label}
+                      </span>
+                      <span className="hidden text-[10px] text-white/20 sm:block">
+                        {ctrl.hint}
+                      </span>
+                    </button>
+                  );
+                })}
+              </motion.div>
+
+              {/* Metrics */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.18, ease: EASE }}
+                className="flex flex-col gap-1.5 sm:items-end"
+              >
+                <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-white/18">
+                  Audience Model · Live Simulation
+                </p>
+                <div className="flex gap-5">
+                  {[
+                    { label: "AUDIENCE",   value: metrics.audience   },
+                    { label: "INTERESTED", value: metrics.interested },
+                    { label: "INTENT",     value: metrics.intent     },
+                    { label: "ACTION",     value: metrics.action     },
+                  ].map(m => (
+                    <div key={m.label} className="flex flex-col">
+                      <span className="font-heading text-2xl font-bold tabular-nums text-white sm:text-3xl">
+                        {m.value.toLocaleString()}
+                      </span>
+                      <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-white/25">
+                        {m.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // ── SMM / default mode (original layout, unchanged) ──────────────────────
+
   return (
     <section
       ref={sectionRef}
@@ -435,7 +743,7 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
         step through Attention, Relevance, Amplify, and Move.
       </p>
 
-      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8${mode === "homepage" ? " py-10 sm:py-14" : " py-16 sm:py-20"}`}>
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
 
         {/* ── Headline ──────────────────────────────────────────────────────── */}
         <motion.div
@@ -446,31 +754,17 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
           className="mb-5 max-w-2xl"
         >
           <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/30">
-            {mode === "homepage" ? "Creative Media · Technology · AI" : "Social Media Marketing"}
+            Social Media Marketing
           </span>
-          {mode === "homepage" ? (
-            <h1 className="mt-3 font-heading text-4xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Make the
-              <br />
-              <span className="text-accent">Audience</span>
-              <br />
-              Move.
-            </h1>
-          ) : (
-            <h2 className="mt-3 font-heading text-4xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Make the
-              <br />
-              <span className="text-accent">Audience</span>
-              <br />
-              Move.
-            </h2>
-          )}
+          <h2 className="mt-3 font-heading text-4xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Make the
+            <br />
+            <span className="text-accent">Audience</span>
+            <br />
+            Move.
+          </h2>
           <p className="mt-4 max-w-xs text-sm leading-6 text-white/40">
-            {mode === "homepage" ? (
-              <>Creative media, technology, and AI —<br />working together to move the right people.</>
-            ) : (
-              <>Attention is easy to chase.<br />Building movement is different.</>
-            )}
+            Attention is easy to chase.<br />Building movement is different.
           </p>
         </motion.div>
 
@@ -482,69 +776,7 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
             className="w-full touch-none"
             style={{ cursor: "none", display: "block" }}
           />
-
-          {/* Cursor hint */}
-          <AnimatePresence>
-            {showHint && (
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ delay: 1.4, duration: 0.6 }}
-                aria-hidden="true"
-                className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase tracking-[0.26em] text-white/15"
-              >
-                Move your cursor
-              </motion.p>
-            )}
-          </AnimatePresence>
-
-          {/* Stage badge */}
-          <AnimatePresence mode="wait">
-            {stage !== "idle" && stage !== "final" && stageBadge[stage] && (
-              <motion.div
-                key={stage}
-                initial={{ opacity: 0, scale: 0.88 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.88 }}
-                transition={{ duration: 0.38, ease: EASE }}
-                aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-              >
-                <div className="rounded-full border border-white/10 bg-black/72 px-6 py-2.5 backdrop-blur-sm">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
-                    {stageBadge[stage]}
-                  </span>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Move state: funnel labels */}
-          <AnimatePresence>
-            {stage === "move" && !showFinal && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 flex flex-col items-center justify-around py-8"
-              >
-                {["INTEREST", "INTENT", "ACTION"].map((label, i) => (
-                  <motion.span
-                    key={label}
-                    initial={{ opacity: 0, x: 12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.2, duration: 0.5, ease: EASE }}
-                    className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/20"
-                  >
-                    {label}
-                  </motion.span>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {canvasOverlays}
 
           {/* Final resolution overlay */}
           <AnimatePresence>
@@ -555,65 +787,32 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
                 transition={{ duration: 1.0 }}
                 className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center"
               >
-                {mode === "homepage" ? (
-                  <>
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3, duration: 0.7, ease: EASE }}
-                      className="text-sm font-medium text-white/40"
-                    >
-                      Brands don&apos;t just need reach.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.0, duration: 0.7, ease: EASE }}
-                      className="mt-1.5 text-sm font-medium text-white/40"
-                    >
-                      They need movement.
-                    </motion.p>
-                    <motion.h3
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.7, duration: 0.8, ease: EASE }}
-                      className="mt-8 font-heading text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
-                    >
-                      The agency that
-                      <br />
-                      <span className="text-accent">moves the right audience.</span>
-                    </motion.h3>
-                  </>
-                ) : (
-                  <>
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3, duration: 0.7, ease: EASE }}
-                      className="text-sm font-medium text-white/40"
-                    >
-                      Marketing isn&apos;t about making more noise.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.0, duration: 0.7, ease: EASE }}
-                      className="mt-1.5 text-sm font-medium text-white/40"
-                    >
-                      It&apos;s about creating movement.
-                    </motion.p>
-                    <motion.h3
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.7, duration: 0.8, ease: EASE }}
-                      className="mt-8 font-heading text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
-                    >
-                      Don&apos;t reach everyone.
-                      <br />
-                      <span className="text-accent">Move the right ones.</span>
-                    </motion.h3>
-                  </>
-                )}
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.7, ease: EASE }}
+                  className="text-sm font-medium text-white/40"
+                >
+                  Marketing isn&apos;t about making more noise.
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.0, duration: 0.7, ease: EASE }}
+                  className="mt-1.5 text-sm font-medium text-white/40"
+                >
+                  It&apos;s about creating movement.
+                </motion.p>
+                <motion.h3
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.7, duration: 0.8, ease: EASE }}
+                  className="mt-8 font-heading text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+                >
+                  Don&apos;t reach everyone.
+                  <br />
+                  <span className="text-accent">Move the right ones.</span>
+                </motion.h3>
               </motion.div>
             )}
           </AnimatePresence>
@@ -679,9 +878,7 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
           </div>
         </div>
 
-        {/* Scroll indicator removed, controls are now visible without scrolling */}
-
-        {/* ── Final CTA ─────────────────────────────────────────────────────── */}
+        {/* ── Final CTA (SMM mode) ──────────────────────────────────────────── */}
         <AnimatePresence>
           {showFinal && (
             <motion.div
@@ -690,15 +887,9 @@ export default function AudienceMotion({ mode = "smm" }: { mode?: "homepage" | "
               transition={{ delay: 2.7, duration: 0.8, ease: EASE }}
               className="mt-14 flex justify-center"
             >
-              {mode === "homepage" ? (
-                <CTAButton href="/contact" variant="inverted" size="lg">
-                  Work With Us
-                </CTAButton>
-              ) : (
-                <CTAButton href="/contact" variant="inverted" size="lg">
-                  Start a Conversation
-                </CTAButton>
-              )}
+              <CTAButton href="/contact" variant="inverted" size="lg">
+                Start a Conversation
+              </CTAButton>
             </motion.div>
           )}
         </AnimatePresence>
