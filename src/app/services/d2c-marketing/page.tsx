@@ -1318,6 +1318,186 @@ const jsonLd = {
   ],
 };
 
+// ─── DataLoop Infographic ─────────────────────────────────────────────────────
+
+type LoopArrowDir = "right" | "down" | "left" | "up";
+
+function LoopArrow({ dir, inView, delay = 0 }: {
+  dir: LoopArrowDir; inView: boolean; delay?: number;
+}) {
+  const horiz = dir === "right" || dir === "left";
+  const linePath = {
+    right: "M 6,12 L 68,12",
+    left:  "M 74,12 L 12,12",
+    down:  "M 12,6 L 12,68",
+    up:    "M 12,74 L 12,12",
+  }[dir];
+  const headPath = {
+    right: "M 60,6 L 74,12 L 60,18",
+    left:  "M 20,6 L 6,12 L 20,18",
+    down:  "M 6,60 L 12,74 L 18,60",
+    up:    "M 6,20 L 12,6 L 18,20",
+  }[dir];
+
+  if (horiz) {
+    return (
+      <svg width="80" height="24" viewBox="0 0 80 24" fill="none" aria-hidden="true">
+        <motion.path d={linePath} stroke="#ed2830" strokeWidth="1.5" strokeLinecap="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={inView ? { pathLength: 1, opacity: 0.85 } : {}}
+          transition={{ duration: 0.55, delay, ease: "easeOut" }}
+        />
+        <motion.path d={headPath} stroke="#ed2830" strokeWidth="1.5"
+          strokeLinecap="round" strokeLinejoin="round" fill="none"
+          initial={{ opacity: 0 }} animate={inView ? { opacity: 0.85 } : {}}
+          transition={{ duration: 0.25, delay: delay + 0.5 }}
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg width="24" height="80" viewBox="0 0 24 80" fill="none" aria-hidden="true">
+      <motion.path d={linePath} stroke="#ed2830" strokeWidth="1.5" strokeLinecap="round"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={inView ? { pathLength: 1, opacity: 0.85 } : {}}
+        transition={{ duration: 0.55, delay, ease: "easeOut" }}
+      />
+      <motion.path d={headPath} stroke="#ed2830" strokeWidth="1.5"
+        strokeLinecap="round" strokeLinejoin="round" fill="none"
+        initial={{ opacity: 0 }} animate={inView ? { opacity: 0.85 } : {}}
+        transition={{ duration: 0.25, delay: delay + 0.5 }}
+      />
+    </svg>
+  );
+}
+
+function LoopStepCard({ step, label, desc, Icon, inView, delay, rtl = false }: {
+  step: string; label: string; desc: string;
+  Icon: (p: { className?: string }) => JSX.Element;
+  inView: boolean; delay: number; rtl?: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.65, delay, ease: [0.16, 1, 0.3, 1] }}
+      className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5"
+    >
+      <div className={`flex items-start gap-3 ${rtl ? "flex-row-reverse" : ""}`}>
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent/[0.08] ring-1 ring-accent/15">
+          <Icon className="h-4 w-4 text-accent" aria-hidden="true" />
+        </div>
+        <div className={rtl ? "text-right" : ""}>
+          <p className="text-[9px] font-extrabold uppercase tracking-[0.25em] text-accent/55">{step}</p>
+          <p className="font-heading text-[15px] font-black uppercase leading-tight text-white/85">{label}</p>
+        </div>
+      </div>
+      <p className={`mt-3.5 text-[12.5px] leading-[1.6] text-white/32 ${rtl ? "text-right" : ""}`}>
+        {desc}
+      </p>
+    </motion.div>
+  );
+}
+
+function LoopCenterHub({ inView }: { inView: boolean }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={inView ? { opacity: 1, scale: 1 } : {}}
+      transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className="relative flex h-[68px] w-[68px] items-center justify-center"
+      aria-hidden="true"
+    >
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 rounded-full border border-dashed border-accent/22"
+      />
+      <div className="relative flex h-[50px] w-[50px] items-center justify-center rounded-full border border-accent/12 bg-accent/[0.05]">
+        <span className="text-[8.5px] font-extrabold uppercase tracking-[0.14em] text-accent/55">LOOP</span>
+      </div>
+    </motion.div>
+  );
+}
+
+function DataLoopInfographic({ steps }: {
+  steps: { step: string; label: string; desc: string }[];
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.2 });
+  const Icons = [MonitorIcon, ChartIcon, TargetIcon, BoltIcon] as const;
+  // Grid layout (clockwise cycle):
+  //   TL = steps[0] = 01 Collect     TR = steps[1] = 02 Analyse
+  //   BL = steps[3] = 04 Test        BR = steps[2] = 03 Decide
+
+  return (
+    <div ref={ref} className="mt-16">
+      {/* Mobile: vertical list */}
+      <div className="flex flex-col gap-3 sm:hidden">
+        {steps.map(({ step, label, desc }, i) => {
+          const Icon = Icons[i];
+          return (
+            <motion.div key={step}
+              initial={{ opacity: 0, x: -14 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.55, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex items-start gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5"
+            >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent/[0.08] ring-1 ring-accent/15">
+                <Icon className="h-4 w-4 text-accent" aria-hidden="true" />
+              </div>
+              <div>
+                <p className="text-[9px] font-extrabold uppercase tracking-[0.25em] text-accent/55">{step}</p>
+                <p className="font-heading text-[15px] font-black uppercase text-white/85">{label}</p>
+                <p className="mt-1.5 text-[12.5px] leading-[1.6] text-white/32">{desc}</p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Desktop: 2×2 cycle grid with animated arrows */}
+      <div
+        className="hidden sm:grid mx-auto"
+        style={{
+          gridTemplateColumns: "1fr 80px 1fr",
+          gridTemplateRows: "auto 80px auto",
+          maxWidth: "700px",
+        }}
+      >
+        {/* Row 1: Collect | → | Analyse */}
+        <LoopStepCard step={steps[0].step} label={steps[0].label} desc={steps[0].desc}
+          Icon={Icons[0]} inView={inView} delay={0.05} />
+        <div className="flex items-center justify-center">
+          <LoopArrow dir="right" inView={inView} delay={0.25} />
+        </div>
+        <LoopStepCard step={steps[1].step} label={steps[1].label} desc={steps[1].desc}
+          Icon={Icons[1]} inView={inView} delay={0.15} rtl />
+
+        {/* Row 2: ↑ | HUB | ↓ */}
+        <div className="flex items-center justify-center">
+          <LoopArrow dir="up" inView={inView} delay={0.75} />
+        </div>
+        <div className="flex items-center justify-center">
+          <LoopCenterHub inView={inView} />
+        </div>
+        <div className="flex items-center justify-center">
+          <LoopArrow dir="down" inView={inView} delay={0.45} />
+        </div>
+
+        {/* Row 3: Test | ← | Decide */}
+        <LoopStepCard step={steps[3].step} label={steps[3].label} desc={steps[3].desc}
+          Icon={Icons[3]} inView={inView} delay={0.65} />
+        <div className="flex items-center justify-center">
+          <LoopArrow dir="left" inView={inView} delay={0.55} />
+        </div>
+        <LoopStepCard step={steps[2].step} label={steps[2].label} desc={steps[2].desc}
+          Icon={Icons[2]} inView={inView} delay={0.55} rtl />
+      </div>
+    </div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function PerformanceMarketing({ t: tProp }: { t?: D2CTranslations } = {}) {
@@ -2637,37 +2817,7 @@ function PerformanceMarketingContent({ trans: t }: { trans: D2CTranslations }) {
             </motion.h2>
           </motion.div>
 
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mt-12 grid gap-4 sm:grid-cols-4"
-          >
-            {t.dataLoopSteps.map(({ step, label, desc }, i) => (
-              <motion.div
-                key={step}
-                variants={fadeUp}
-                className="relative rounded-2xl border border-white/8 bg-white/[0.03] p-6"
-              >
-                {i < 3 && (
-                  <div
-                    aria-hidden="true"
-                    className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/2 text-white/15 sm:block"
-                  >
-                    →
-                  </div>
-                )}
-                <p className="font-heading text-4xl font-black text-white/7">
-                  {step}
-                </p>
-                <p className="mt-3 font-heading text-lg font-bold uppercase text-white/75">
-                  {label}
-                </p>
-                <p className="mt-2 text-[13px] leading-5 text-white/35">{desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+          <DataLoopInfographic steps={t.dataLoopSteps} />
         </div>
       </section>
 
