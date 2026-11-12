@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, createContext, useContext } from "react";
+import { useState, useRef, useEffect, createContext, useContext, type ReactElement } from "react";
 import {
   motion,
   AnimatePresence,
@@ -1373,7 +1373,7 @@ function LoopArrow({ dir, inView, delay = 0 }: {
 
 function LoopStepCard({ step, label, desc, Icon, inView, delay, rtl = false }: {
   step: string; label: string; desc: string;
-  Icon: (p: { className?: string }) => JSX.Element;
+  Icon: (p: { className?: string }) => ReactElement;
   inView: boolean; delay: number; rtl?: boolean;
 }) {
   return (
