@@ -227,6 +227,46 @@ function IcLookerStudio() {
   );
 }
 
+function IcMetaPNG() {
+  return (
+    <span className="flex h-4 w-4 items-center justify-center overflow-hidden rounded-[3px] bg-white">
+      <Image src="/images/logos/meta.png" alt="" width={12} height={12} className="h-3 w-3 object-contain" />
+    </span>
+  );
+}
+
+function IcGoogleAds() {
+  return (
+    <span className="flex h-4 w-4 items-center justify-center overflow-hidden rounded-[3px] bg-white">
+      <Image src="/images/logos/google-ads.webp" alt="" width={12} height={12} className="h-3 w-3 object-contain" />
+    </span>
+  );
+}
+
+function IcGoogleAnalytics() {
+  return (
+    <span className="flex h-4 w-4 items-center justify-center overflow-hidden rounded-[3px] bg-white">
+      <Image src="/images/logos/google-analytics.webp" alt="" width={12} height={12} className="h-3 w-3 object-contain" />
+    </span>
+  );
+}
+
+function IcClarity() {
+  return (
+    <span className="flex h-4 w-4 items-center justify-center overflow-hidden rounded-[3px] bg-white">
+      <Image src="/images/logos/clarity.png" alt="" width={12} height={12} className="h-3 w-3 object-contain" />
+    </span>
+  );
+}
+
+function IcMerchantCenter() {
+  return (
+    <span className="flex h-4 w-4 items-center justify-center overflow-hidden rounded-[3px] bg-white">
+      <Image src="/images/logos/merchant-center.png" alt="" width={12} height={12} className="h-3 w-3 object-contain" />
+    </span>
+  );
+}
+
 type MarqueeTool = { name: string; color: string; icon?: React.ReactNode };
 
 function ToolChip({ tool }: { tool: MarqueeTool }) {
@@ -1867,17 +1907,17 @@ export default function PerformanceMarketing() {
             {([...Array(2)] as unknown[]).flatMap((_v, _a) =>
               ([
                 { name: "Google Tag Manager", color: "#ed2830", icon: <IcGTM /> },
-                { name: "Meta Pixel", color: "#ed2830", icon: <IcMeta /> },
-                { name: "GA4 Ecommerce", color: "#ed2830", icon: <IcGA4 /> },
-                { name: "Meta Conversions API", color: "#ed2830", icon: <IcMeta /> },
+                { name: "Meta Pixel", color: "#ed2830", icon: <IcMetaPNG /> },
+                { name: "GA4 Ecommerce", color: "#ed2830", icon: <IcGoogleAnalytics /> },
+                { name: "Meta Conversions API", color: "#ed2830", icon: <IcMetaPNG /> },
                 { name: "GTM Server Container", color: "#ed2830", icon: <IcGTM /> },
-                { name: "Google Ads Conversions", color: "#ed2830", icon: <IcGoogle /> },
-                { name: "Enhanced Conversions", color: "#ed2830", icon: <IcGoogle /> },
+                { name: "Google Ads Conversions", color: "#ed2830", icon: <IcGoogleAds /> },
+                { name: "Enhanced Conversions", color: "#ed2830", icon: <IcGoogleAds /> },
                 { name: "Event Deduplication", color: "#ed2830" },
                 { name: "UTM Architecture", color: "#ed2830" },
                 { name: "Data Layer", color: "#ed2830" },
                 { name: "Server-Side GTM", color: "#ed2830", icon: <IcGTM /> },
-                { name: "Purchase Event Tracking", color: "#ed2830" },
+                { name: "Microsoft Clarity", color: "#ed2830", icon: <IcClarity /> },
               ] as MarqueeTool[]).map((tool, i) => (
                 <ToolChip key={`r1-${tool.name}-${i}`} tool={tool} />
               ))
@@ -1888,18 +1928,18 @@ export default function PerformanceMarketing() {
           <div className="flex w-max animate-marquee-r items-center gap-3">
             {([...Array(2)] as unknown[]).flatMap((_v, _a) =>
               ([
-                { name: "Meta Ads Manager", color: "#3b82f6", icon: <IcMeta /> },
-                { name: "Google Shopping", color: "#3b82f6", icon: <IcGoogle /> },
-                { name: "Performance Max", color: "#3b82f6", icon: <IcGoogle /> },
+                { name: "Meta Ads Manager", color: "#3b82f6", icon: <IcMetaPNG /> },
+                { name: "Google Shopping", color: "#3b82f6", icon: <IcGoogleAds /> },
+                { name: "Performance Max", color: "#3b82f6", icon: <IcGoogleAds /> },
                 { name: "YouTube Ads", color: "#3b82f6", icon: <IcYouTube /> },
-                { name: "Google Search Ads", color: "#3b82f6", icon: <IcGoogle /> },
-                { name: "Advantage+ Shopping", color: "#3b82f6", icon: <IcMeta /> },
-                { name: "Dynamic Product Ads", color: "#3b82f6", icon: <IcMeta /> },
+                { name: "Google Search Ads", color: "#3b82f6", icon: <IcGoogleAds /> },
+                { name: "Advantage+ Shopping", color: "#3b82f6", icon: <IcMetaPNG /> },
+                { name: "Dynamic Product Ads", color: "#3b82f6", icon: <IcMetaPNG /> },
+                { name: "Google Merchant Center", color: "#3b82f6", icon: <IcMerchantCenter /> },
                 { name: "Retargeting Campaigns", color: "#3b82f6" },
                 { name: "Catalog Ads", color: "#3b82f6" },
-                { name: "Prospecting", color: "#3b82f6" },
                 { name: "Instagram Ads", color: "#3b82f6", icon: <IcInstagram /> },
-                { name: "Facebook Ads", color: "#3b82f6", icon: <IcMeta /> },
+                { name: "Facebook Ads", color: "#3b82f6", icon: <IcMetaPNG /> },
               ] as MarqueeTool[]).map((tool, i) => (
                 <ToolChip key={`r2-${tool.name}-${i}`} tool={tool} />
               ))
@@ -1912,7 +1952,7 @@ export default function PerformanceMarketing() {
               ([
                 { name: "Looker Studio", color: "#22c55e", icon: <IcLookerStudio /> },
                 { name: "BigQuery", color: "#22c55e", icon: <IcBigQuery /> },
-                { name: "GA4 Reporting", color: "#22c55e", icon: <IcGA4 /> },
+                { name: "GA4 Reporting", color: "#22c55e", icon: <IcGoogleAnalytics /> },
                 { name: "Custom Dashboards", color: "#22c55e" },
                 { name: "Attribution Modelling", color: "#22c55e" },
                 { name: "Cohort Analysis", color: "#22c55e" },
@@ -1938,12 +1978,12 @@ export default function PerformanceMarketing() {
                 { name: "Landing Pages", color: "#a855f7" },
                 { name: "Checkout Optimization", color: "#a855f7" },
                 { name: "A/B Testing", color: "#a855f7" },
-                { name: "Page Speed Optimization", color: "#a855f7", icon: <IcGoogle /> },
                 { name: "Product Feed Optimization", color: "#a855f7" },
                 { name: "Cart Recovery", color: "#a855f7" },
                 { name: "Email Retention Flows", color: "#a855f7" },
                 { name: "CRO Audits", color: "#a855f7" },
                 { name: "Mobile UX", color: "#a855f7" },
+                { name: "Google Merchant Center", color: "#a855f7", icon: <IcMerchantCenter /> },
               ] as MarqueeTool[]).map((tool, i) => (
                 <ToolChip key={`r4-${tool.name}-${i}`} tool={tool} />
               ))
