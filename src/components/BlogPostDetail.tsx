@@ -320,7 +320,7 @@ export default function BlogPostDetail({
                 key={section.heading}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6, ease: EASE, delay: i * 0.05 }}
               >
                 <h2 className="text-xl font-black tracking-tight text-black sm:text-2xl">
@@ -370,7 +370,7 @@ export default function BlogPostDetail({
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6, ease: EASE }}
                 className="pt-10 border-t border-black/8"
               >
@@ -407,7 +407,7 @@ export default function BlogPostDetail({
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.6, ease: EASE }}
               className="rounded-3xl border border-black/8 bg-black/[0.02] p-6 sm:p-8"
             >
