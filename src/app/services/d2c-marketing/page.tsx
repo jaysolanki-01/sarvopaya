@@ -1705,21 +1705,6 @@ function UnitEconomicsCalculator() {
             />
           </div>
 
-          {/* CTA */}
-          <div className="rounded-xl border border-[#ed2830]/20 bg-[#ed2830]/5 p-5">
-            <p className="mb-1 font-heading text-sm font-bold text-white">
-              Want a real audit of your D2C economics?
-            </p>
-            <p className="mb-4 text-[12px] text-white/50">
-              We map your actual MER, LTV and contribution margin to a scaling plan.
-            </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#ed2830] px-4 py-2 text-sm font-bold text-white transition-opacity hover:opacity-90"
-            >
-              Get a Free Audit →
-            </a>
-          </div>
         </div>
       </div>
     </div>
