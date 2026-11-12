@@ -1394,35 +1394,35 @@ export default function PerformanceMarketing() {
       {/* ── QUICK SITELINKS & ON-PAGE JUMP NAVIGATION ──────────────────── */}
       <nav
         aria-label="D2C Marketing Table of Contents"
-        className="sticky top-0 z-30 border-y border-white/10 bg-black/85 py-3 backdrop-blur-md"
+        className="sticky top-0 z-30 border-y border-white/8 bg-black/90 py-2.5 backdrop-blur-md"
       >
-        <div className="mx-auto flex max-w-5xl items-center justify-start gap-2 overflow-x-auto px-4 text-xs font-semibold text-white/60 no-scrollbar sm:justify-center">
-          <span className="shrink-0 pr-1 text-[10px] font-bold uppercase tracking-wider text-white/30">
-            Sitelinks:
+        <div className="mx-auto flex max-w-5xl items-center gap-1.5 overflow-x-auto px-4 no-scrollbar sm:justify-center">
+          <span className="shrink-0 mr-1 text-[9px] font-black uppercase tracking-[0.25em] text-white/25">
+            Jump to:
           </span>
-          <a href="#performance-stack" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
-            Performance Stack
-          </a>
-          <a href="#tracking-pipeline" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
-            Server-Side Tracking
-          </a>
-          <a href="#creative-engine" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
-            Creative Engine
-          </a>
-          <a href="#revenue-economics" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
-            Revenue Economics
-          </a>
-          <a href="#retention-strategy" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
-            Customer Retention
-          </a>
-          <a href="#growth-process" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
-            Growth Process
-          </a>
-          <a href="#faqs" className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:border-[var(--accent)] hover:text-white transition-colors">
-            FAQs
-          </a>
-          <a href="#audit" className="shrink-0 rounded-full border border-[var(--accent)]/50 bg-[var(--accent)]/20 px-3 py-1 text-white hover:bg-[var(--accent)]/30 transition-colors">
-            Free Audit
+          {[
+            { href: "#why-sarvopaya", label: "Why Us" },
+            { href: "#performance-stack", label: "Performance Stack" },
+            { href: "#tracking-pipeline", label: "Tracking" },
+            { href: "#creative-engine", label: "Creative Engine" },
+            { href: "#revenue-economics", label: "Revenue Economics" },
+            { href: "#retention-strategy", label: "Retention" },
+            { href: "#growth-process", label: "Growth Process" },
+            { href: "#faqs", label: "FAQs" },
+          ].map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="shrink-0 rounded-full border border-white/8 bg-white/[0.04] px-3 py-1 text-[11px] font-semibold text-white/50 transition-all duration-200 hover:border-[var(--accent)]/60 hover:bg-[var(--accent)]/10 hover:text-white"
+            >
+              {label}
+            </a>
+          ))}
+          <a
+            href="#audit"
+            className="shrink-0 rounded-full border border-[var(--accent)]/60 bg-[var(--accent)]/15 px-3 py-1 text-[11px] font-bold text-white transition-all duration-200 hover:bg-[var(--accent)]/25"
+          >
+            Free Audit →
           </a>
         </div>
       </nav>
@@ -1496,6 +1496,134 @@ export default function PerformanceMarketing() {
                   </span>
                 </div>
               </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── WHY SARVOPAYA ──────────────────────────────────────────────── */}
+      <section id="why-sarvopaya" className="bg-black py-20 sm:py-28">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="max-w-2xl"
+          >
+            <SectionLabel>The Difference</SectionLabel>
+            <motion.h2
+              variants={item}
+              className="mt-6 font-heading text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
+            >
+              Why Sarvopaya for
+              <br />
+              Your D2C Brand.
+            </motion.h2>
+            <motion.p
+              variants={item}
+              className="mt-5 text-lg leading-8 text-white/45"
+            >
+              Most agencies split tracking, media, and creative across
+              different teams. We build one connected system where every layer
+              feeds the next — so your spend compounds instead of leaking.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+            className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {[
+              {
+                num: "01",
+                title: "D2C-Only Focus",
+                body: "We work exclusively with direct-to-consumer brands. Every framework, benchmark, and playbook is built for ecommerce revenue — not lead gen, SaaS, or brand awareness.",
+                accent: "from-[var(--accent)]/20 to-transparent",
+                border: "border-[var(--accent)]/20",
+              },
+              {
+                num: "02",
+                title: "Tracking Before Spend",
+                body: "We fix your measurement before we touch your media budget. Server-side events, deduplication, and GA4 ecommerce accuracy come first — so every rupee is tracked correctly.",
+                accent: "from-blue-500/15 to-transparent",
+                border: "border-blue-500/20",
+              },
+              {
+                num: "03",
+                title: "Creative at Scale",
+                body: "Hooks, angles, and static + video variants shipped weekly. We test creative like a media buyer — structured, volume-driven, and tied directly to CPA and ROAS targets.",
+                accent: "from-emerald-500/15 to-transparent",
+                border: "border-emerald-500/20",
+              },
+              {
+                num: "04",
+                title: "MER Over Platform ROAS",
+                body: "We report on Marketing Efficiency Ratio and contribution margin — not inflated in-platform numbers. If your overall business isn't growing, we tell you.",
+                accent: "from-violet-500/15 to-transparent",
+                border: "border-violet-500/20",
+              },
+              {
+                num: "05",
+                title: "Retention Built In",
+                body: "Acquisition without retention is a leaking bucket. We build Klaviyo flows, post-purchase sequences, and LTV programmes alongside paid media — not as an afterthought.",
+                accent: "from-amber-500/15 to-transparent",
+                border: "border-amber-500/20",
+              },
+              {
+                num: "06",
+                title: "One Team, Full Stack",
+                body: "No outsourcing, no silos. The person running your Meta account understands your GTM setup. The person building your reports reads the same P&L as you.",
+                accent: "from-cyan-500/15 to-transparent",
+                border: "border-cyan-500/20",
+              },
+            ].map(({ num, title, body, accent, border }) => (
+              <motion.div
+                key={num}
+                variants={item}
+                className={`group relative overflow-hidden rounded-2xl border ${border} bg-white/[0.03] p-6 transition-all duration-300 hover:bg-white/[0.055] hover:scale-[1.02]`}
+              >
+                <div className={`absolute inset-x-0 top-0 h-24 bg-gradient-to-b ${accent} opacity-60`} />
+                <div className="relative">
+                  <span className="font-heading text-[11px] font-black tracking-[0.22em] text-white/18">
+                    {num}
+                  </span>
+                  <h3 className="mt-3 font-heading text-lg font-black leading-snug text-white">
+                    {title}
+                  </h3>
+                  <p className="mt-3 text-[14px] leading-6 text-white/45">
+                    {body}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Bottom trust strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
+            className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-2xl border border-white/8 bg-white/[0.03] px-6 py-5"
+          >
+            {[
+              "Meta Business Partner",
+              "Google Partner",
+              "D2C Brands Only",
+              "No Lock-in Contracts",
+              "Full Data Ownership",
+            ].map((badge) => (
+              <span
+                key={badge}
+                className="flex items-center gap-2 text-[12px] font-semibold text-white/40"
+              >
+                <span className="h-1 w-1 rounded-full bg-[var(--accent)]/60" />
+                {badge}
+              </span>
             ))}
           </motion.div>
         </div>
