@@ -57,6 +57,7 @@ export type ArticleItem = {
       rechartsChart?: string;
     }[];
   }[];
+  image?: string;
   faqs?: { question: string; answer: string }[];
 };
 
@@ -305,6 +306,19 @@ export default function BlogPostDetail({
           </motion.div>
         </div>
       </section>
+
+      {/* ── BANNER IMAGE ── */}
+      {post.image && (
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-4">
+          <div className="overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full object-cover"
+            />
+          </div>
+        </div>
+      )}
 
       {/* ── DIVIDER ── */}
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">

@@ -50,6 +50,7 @@ export type BlogPost = {
   excerpt: string;
   readTime: string;
   author: string;
+  image?: string;
   sections: BlogSection[];
   faqs?: BlogFAQ[];
 };
@@ -3079,6 +3080,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-10-d2c-marketing-agency-india",
     title: "Best 10 D2C Marketing Agencies in India (2026 Edition)",
+    image: "/images/best-10-d2c-marketing-agencies-india-banner.webp",
     date: "November 2026",
     tag: "D2C Marketing",
     readTime: "18 min read",

@@ -29,11 +29,15 @@ export async function generateMetadata({
       description: post.excerpt,
       url: `https://www.sarvopaya.com/${post.slug}`,
       type: "article",
+      ...(post.image && {
+        images: [{ url: `https://www.sarvopaya.com${post.image}`, width: 1456, height: 816, alt: post.title }],
+      }),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description: post.excerpt,
+      ...(post.image && { images: [`https://www.sarvopaya.com${post.image}`] }),
     },
   };
 }
