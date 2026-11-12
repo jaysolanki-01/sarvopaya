@@ -347,6 +347,15 @@ export default function BlogPostDetail({
                         <h3 className="text-lg font-bold tracking-tight text-black sm:text-xl">
                           {sub.heading}
                         </h3>
+                        {sub.heading.includes("Sarvopaya") && (
+                          <div className="overflow-hidden rounded-xl border border-black/8 shadow-sm">
+                            <img
+                              src="/images/sarvopaya-agency-preview.png"
+                              alt="Sarvopaya homepage — India's leading D2C performance marketing agency specialising in unit economics, full-funnel growth, and profitable customer acquisition"
+                              className="w-full object-cover"
+                            />
+                          </div>
+                        )}
                         <div className="space-y-3">
                           {sub.body.split("\n\n").map((para, m) => (
                             <p key={m} className="text-base leading-relaxed text-black/60 sm:text-lg">
