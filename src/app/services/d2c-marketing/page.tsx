@@ -1498,6 +1498,234 @@ function DataLoopInfographic({ steps }: {
   );
 }
 
+// ─── Unit Economics Calculator ───────────────────────────────────────────────
+
+type UECStatus = "scalable" | "caution" | "pause";
+
+function UECGauge({ value, max, color }: { value: number; max: number; color: string }) {
+  const pct = Math.min(100, Math.max(0, (value / max) * 100));
+  return (
+    <div className="relative h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+      <motion.div
+        className="absolute left-0 top-0 h-full rounded-full"
+        style={{ backgroundColor: color }}
+        initial={{ width: 0 }}
+        animate={{ width: `${pct}%` }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      />
+    </div>
+  );
+}
+
+function UECMetricCard({
+  label, value, suffix = "", subtext, color, max,
+}: {
+  label: string; value: number; suffix?: string; subtext?: string;
+  color: string; max: number;
+}) {
+  const anim = useAnimatedNumber(Math.round(value));
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="rounded-xl border border-white/8 bg-white/[0.03] p-4"
+    >
+      <p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-white/40">{label}</p>
+      <p className="mb-2 font-heading text-2xl font-bold leading-none" style={{ color }}>
+        {anim.toLocaleString("en-IN")}{suffix}
+      </p>
+      {subtext && <p className="mb-2 text-[11px] text-white/40">{subtext}</p>}
+      <UECGauge value={value} max={max} color={color} />
+    </motion.div>
+  );
+}
+
+function UECSlider({
+  label, value, min, max, step, format, onChange,
+}: {
+  label: string; value: number; min: number; max: number; step: number;
+  format: (v: number) => string; onChange: (v: number) => void;
+}) {
+  const pct = ((value - min) / (max - min)) * 100;
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] font-semibold uppercase tracking-widest text-white/50">{label}</span>
+        <span className="font-heading text-sm font-bold text-white">{format(value)}</span>
+      </div>
+      <div className="relative h-5 flex items-center">
+        <div className="absolute w-full h-1 rounded-full bg-white/10" />
+        <div
+          className="absolute h-1 rounded-full"
+          style={{ width: `${pct}%`, backgroundColor: "#ed2830" }}
+        />
+        <input
+          type="range"
+          min={min}
+          max={max}
+          step={step}
+          value={value}
+          onChange={(e) => onChange(Number(e.target.value))}
+          className="absolute w-full appearance-none bg-transparent cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ed2830] [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#ed2830] [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white"
+        />
+      </div>
+    </div>
+  );
+}
+
+function UnitEconomicsCalculator() {
+  const [adSpend, setAdSpend] = useState(500000);
+  const [aov, setAov] = useState(1800);
+  const [grossMargin, setGrossMargin] = useState(55);
+  const [repeatRate, setRepeatRate] = useState(2.1);
+
+  const orders = adSpend / (aov * 0.03); // assume 3% CVR proxy
+  const revenue = orders * aov;
+  const mer = revenue / adSpend;
+  const cac = adSpend / orders;
+  const ltv = aov * grossMargin / 100 * repeatRate;
+  const ltvCac = ltv / cac;
+  const contribMargin = aov * (grossMargin / 100) - cac;
+  const breakevenRoas = 1 / (grossMargin / 100);
+
+  let status: UECStatus = "pause";
+  if (ltvCac >= 3) status = "scalable";
+  else if (ltvCac >= 1.5) status = "caution";
+
+  const statusConfig: Record<UECStatus, { label: string; color: string; desc: string }> = {
+    scalable: { label: "SCALABLE", color: "#22c55e", desc: "Strong unit economics. Scale with confidence." },
+    caution: { label: "CAUTION", color: "#f59e0b", desc: "Marginal. Optimise CAC or improve margin before scaling." },
+    pause: { label: "PAUSE", color: "#ef4444", desc: "Unit economics are negative. Fix before increasing spend." },
+  };
+  const sc = statusConfig[status];
+
+  return (
+    <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
+        {/* Inputs */}
+        <div className="space-y-7 rounded-2xl border border-white/8 bg-white/[0.025] p-6 sm:p-8">
+          <p className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Your Numbers</p>
+          <UECSlider
+            label="Monthly Ad Spend"
+            value={adSpend}
+            min={50000}
+            max={5000000}
+            step={50000}
+            format={(v) => `₹${fmtINR(v)}`}
+            onChange={setAdSpend}
+          />
+          <UECSlider
+            label="Average Order Value"
+            value={aov}
+            min={300}
+            max={15000}
+            step={100}
+            format={(v) => `₹${fmtINR(v)}`}
+            onChange={setAov}
+          />
+          <UECSlider
+            label="Gross Margin"
+            value={grossMargin}
+            min={15}
+            max={85}
+            step={1}
+            format={(v) => `${v}%`}
+            onChange={setGrossMargin}
+          />
+          <UECSlider
+            label="Repeat Purchase Rate (×)"
+            value={repeatRate}
+            min={1}
+            max={6}
+            step={0.1}
+            format={(v) => `${v.toFixed(1)}×`}
+            onChange={setRepeatRate}
+          />
+        </div>
+
+        {/* Outputs */}
+        <div className="flex flex-col gap-6">
+          {/* Status badge */}
+          <motion.div
+            key={status}
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.35 }}
+            className="flex items-center gap-4 rounded-2xl border p-5"
+            style={{ borderColor: sc.color + "44", backgroundColor: sc.color + "0d" }}
+          >
+            <div
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+              style={{ backgroundColor: sc.color + "22", color: sc.color }}
+            >
+              {status === "scalable" ? "✓" : status === "caution" ? "!" : "✕"}
+            </div>
+            <div>
+              <p className="font-heading text-lg font-black uppercase tracking-wide" style={{ color: sc.color }}>
+                {sc.label}
+              </p>
+              <p className="text-[12px] text-white/55">{sc.desc}</p>
+            </div>
+          </motion.div>
+
+          {/* Metrics grid */}
+          <div className="grid grid-cols-2 gap-3">
+            <UECMetricCard
+              label="MER"
+              value={Math.round(mer * 10) / 10}
+              suffix="×"
+              subtext="Media Efficiency Ratio"
+              color="#ed2830"
+              max={10}
+            />
+            <UECMetricCard
+              label="LTV : CAC"
+              value={Math.round(ltvCac * 10) / 10}
+              suffix="×"
+              subtext="Target ≥ 3×"
+              color={sc.color}
+              max={8}
+            />
+            <UECMetricCard
+              label="Breakeven ROAS"
+              value={Math.round(breakevenRoas * 10) / 10}
+              suffix="×"
+              subtext="Minimum to cover COGS"
+              color="#94a3b8"
+              max={10}
+            />
+            <UECMetricCard
+              label="Contrib. Margin / Order"
+              value={Math.round(contribMargin)}
+              suffix=""
+              subtext={contribMargin > 0 ? "Positive — room to scale" : "Negative — fix first"}
+              color={contribMargin > 0 ? "#22c55e" : "#ef4444"}
+              max={aov}
+            />
+          </div>
+
+          {/* CTA */}
+          <div className="rounded-xl border border-[#ed2830]/20 bg-[#ed2830]/5 p-5">
+            <p className="mb-1 font-heading text-sm font-bold text-white">
+              Want a real audit of your D2C economics?
+            </p>
+            <p className="mb-4 text-[12px] text-white/50">
+              We map your actual MER, LTV and contribution margin to a scaling plan.
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#ed2830] px-4 py-2 text-sm font-bold text-white transition-opacity hover:opacity-90"
+            >
+              Get a Free Audit →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function PerformanceMarketing({ t: tProp }: { t?: D2CTranslations } = {}) {
@@ -2972,6 +3200,52 @@ function PerformanceMarketingContent({ trans: t }: { trans: D2CTranslations }) {
                 <p className="text-[15px] leading-7 text-black/55">{desc}</p>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 18B UNIT ECONOMICS CALCULATOR ──────────────────────────────── */}
+      <section id="unit-economics" className="relative overflow-hidden bg-black py-20 sm:py-28">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 50% at 50% 0%,rgba(237,40,48,0.06) 0%,transparent 65%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 text-center"
+          >
+            <SectionLabel>Free Tool</SectionLabel>
+            <h2 className="mt-4 font-heading text-3xl font-black uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
+              Unit Economics Calculator
+            </h2>
+            <p className="mt-4 text-base text-white/50 max-w-xl mx-auto">
+              Move the sliders to see your real MER, LTV:CAC and breakeven ROAS — instantly.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <UnitEconomicsCalculator />
           </motion.div>
         </div>
       </section>
