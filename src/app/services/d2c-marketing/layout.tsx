@@ -27,8 +27,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.sarvopaya.com/services/d2c-marketing",
     languages: {
-      "en": "https://www.sarvopaya.com/services/d2c-marketing",
       "x-default": "https://www.sarvopaya.com/services/d2c-marketing",
+      "en-IN": "https://www.sarvopaya.com/services/d2c-marketing",
+      "en-US": "https://www.sarvopaya.com/en-us/services/d2c-marketing",
+      "en-GB": "https://www.sarvopaya.com/en-gb/services/d2c-marketing",
+      "en-AE": "https://www.sarvopaya.com/en-ae/services/d2c-marketing",
+      "hi": "https://www.sarvopaya.com/hi/services/d2c-marketing",
+      "de": "https://www.sarvopaya.com/de/services/d2c-marketing",
+      "nl": "https://www.sarvopaya.com/nl/services/d2c-marketing",
+      "fr": "https://www.sarvopaya.com/fr/services/d2c-marketing",
+      "pt": "https://www.sarvopaya.com/pt/services/d2c-marketing",
     },
   },
   openGraph: {
