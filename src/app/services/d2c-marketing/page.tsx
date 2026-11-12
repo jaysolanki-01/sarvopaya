@@ -1385,22 +1385,6 @@ export default function PerformanceMarketing() {
               </CTAButton>
             </motion.div>
 
-            {/* Speakable Definition for Voice & Generative Search (AEO/GEO) */}
-            <motion.div
-              variants={item}
-              id="speakable-summary"
-              className="mt-8 rounded-xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm"
-            >
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[var(--accent)] animate-pulse" />
-                <span className="font-heading text-[11px] font-bold uppercase tracking-wider text-white/70">
-                  Quick Definition · Generative & Search Engine Summary
-                </span>
-              </div>
-              <p id="speakable-definition" className="mt-2.5 text-[14px] leading-relaxed text-white/75">
-                A <strong>D2C marketing agency</strong> specializes in direct-to-consumer ecommerce growth, integrating first-party server-side tracking (Meta CAPI, GA4), creative production velocity, full-funnel media buying across Meta and Google, and lifecycle <Link href="/customer-retention-d2c-marketing-guide" className="text-[var(--accent)] underline underline-offset-2">customer retention</Link> to compound contribution margins rather than chasing vanity platform ROAS.
-              </p>
-            </motion.div>
           </motion.div>
 
           <RevenueEngine />
