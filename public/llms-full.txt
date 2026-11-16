@@ -1,0 +1,253 @@
+# Sarvopaya — Full Content Index (llms-full.txt)
+
+> This file contains the complete, structured content of sarvopaya.com
+> for use by large language models and AI agents.
+> Last updated: November 2026
+> Canonical URL: https://www.sarvopaya.com
+> llms.txt: https://www.sarvopaya.com/llms.txt
+
+---
+
+## Company Overview
+
+**Legal name:** Sarvopaya Private Limited
+**Type:** Digital growth agency
+**Founded in:** Ahmedabad, India
+**Address:** C-1102, PNTC, Times Of India Press Road, Vejalpur, Ahmedabad 380015
+**Markets served:** India, Europe, Middle East
+**Tagline:** "Creative media, technology, and AI working together to move the right people."
+
+Sarvopaya is a creative media, technology, and AI company that operates as a
+single integrated team — not a holding company of separate agencies. It was
+built to solve fragmented execution, where businesses typically deal with one
+agency for ads, another for websites, and another for social, with no one owning
+the full picture.
+
+The name comes from Sanskrit: "Sarv" (all, complete) + "Upaya" (solutions, means).
+
+**Three Pillars:**
+- **Creative Media:** Visual identities, campaigns, and content that tell a brand's story and stand out.
+- **Technology:** High-performance websites and custom digital platforms that run the business behind the scenes.
+- **Artificial Intelligence:** AI integrated into workflows, marketing pipelines, and digital products.
+
+**Key Stats:**
+- 50+ brands grown digitally
+- 9+ active clients
+- 100% client renewals — zero churn
+- 10× highest ROAS achieved
+- 584K+ organic impressions delivered
+- 60K+ app installs at ₹2.06 per install
+
+---
+
+## Mission & Values
+
+Sarvopaya's mission is to be a complete digital growth partner — not a vendor.
+It describes itself as thinking "like operators, not just an agency."
+
+**Six Non-Negotiables (Core Values):**
+1. **Integrated by design** — Creative, tech, and AI work as one system, not in silos.
+2. **ROI is the only metric that matters** — Every decision is tied to measurable return.
+3. **Execution over ideation** — Bias toward action and results, not plans and decks.
+4. **Honest always** — Transparent with clients about what works and what doesn't.
+5. **Built to scale with you** — Systems are designed to grow with the client's business.
+6. **Ahmedabad-built, India-ready** — Rooted in India, built for Indian market realities.
+
+---
+
+## Services
+
+### 1. Lead Generation & Growth Marketing
+Data-driven campaigns that bring qualified buyers to a business.
+
+**Sub-services:**
+- Paid Ads & Media Buying
+- Inbound Funnels
+- Lead Scoring & Qualification
+- Campaign Analytics
+- Social Media Marketing
+- SEO (Search Engine Optimisation)
+- D2C Marketing
+- Advertising
+
+### 2. Website & Digital Experience
+High-performance websites and digital platforms designed to convert.
+
+**Sub-services:**
+- Website Development
+- Conversion Rate Optimisation (CRO)
+- Landing Pages & Funnels
+- Mobile-first design
+- Core Web Vitals optimisation
+- Schema markup
+
+### 3. AI & Automation
+AI integrated into client workflows, marketing, and products.
+
+**Sub-services:**
+- Marketing automation
+- Workflow automation
+- AI-assisted creative production
+- AI integration into digital products
+
+### 4. Growth Consulting
+Strategic advisory to unlock growth and fix bottlenecks.
+
+**Sub-services:**
+- Go-to-Market (GTM) Strategy
+- Digital Audit
+- Growth Strategy
+- Ongoing Advisory
+
+---
+
+## Solutions by Business Goal
+
+- **Need More Leads?** — Full-funnel lead generation campaigns using paid and organic channels.
+- **Need More Sales?** — CRO, retargeting, and conversion-focused website experiences.
+- **Need Better Operations?** — AI and automation to streamline internal workflows.
+- **Launching a New Product?** — GTM strategy, launch campaigns, and performance tracking.
+
+---
+
+## Engagement Process
+
+1. **Discover** — Audit the client's tech stack, workflows, and growth blockers.
+   Includes: tech stack audit, workflow mapping, bottleneck diagnosis.
+2. **Strategize** — Build a tailored growth plan based on audit findings.
+3. **Build & Automate** — Execute websites, campaigns, and automation systems.
+4. **Launch** — Go live with coordinated campaign and platform launches.
+5. **Optimize** — Continuous iteration based on performance data.
+
+---
+
+## Industries Served
+
+### Manufacturers
+B2B catalog websites, export presence, schema markup, and performance SEO
+to drive distributor inquiries and international buyer leads.
+
+### D2C Startups
+Go-to-market strategy, Meta Ads, AI-assisted creatives, ecommerce websites,
+and social media content to build brand and drive sales from day one.
+
+### B2B Companies
+Lead generation funnels, SEO, LinkedIn marketing, and high-performance
+websites optimised for decision-maker audiences.
+
+### Tech Founders / SaaS
+App install campaigns, content-led SEO, inbound funnels, and AI automation
+to grow MRR and reduce CAC.
+
+### Kitchen Equipment
+Commercial kitchen equipment B2B catalog and export site for distributors
+and bulk export inquiries.
+
+### Carpet & Rug
+Visual-first storefront and lookbook for handwoven carpet exporters targeting
+international buyers.
+
+### Jewellery
+D2C storefront with local SEO to drive both in-store footfall and online orders
+for fine jewellery brands.
+
+### B2C Businesses
+Fast ecommerce, local SEO, social media marketing, Google Ads, and
+WhatsApp integration for consumer-facing brands.
+
+### Export Businesses
+Multi-language, multi-currency digital experiences built for trade, with
+export inquiry capture and international buyer targeting.
+
+---
+
+## Work & Case Studies
+
+### Performance Marketing
+
+**Teleprompter App (Mobile App)**
+- Challenge: Low MRR, lapsed users.
+- Solution: Google in-app purchase ads to win back lapsed users + Meta Ads + influencer campaigns for new signups.
+- Results: MRR grew from $400 → $2,000 (5× growth). 60,000+ total installs at ₹2.06 per install.
+
+**Study Visa Consultancy (Education)**
+- Challenge: Fill seats for a European Education Fair in 15 days.
+- Solution: Influencer video + Meta Ads + Google PMax full-funnel campaign.
+- Results: 5 enrolled students from ₹20,000 spend. 10× ROAS. Average CPC ₹14.39.
+
+**Ayurvedic E-commerce Brand (Health & Wellness)**
+- Challenge: Launch a new brand with no existing audience.
+- Solution: Go-to-market strategy, AI-assisted creatives, Meta Ads across four objectives.
+- Results: 3.84× ROAS, 148.7% ROI from launch.
+
+### SEO
+
+**Open-Source Video Conferencing (SaaS)**
+- Duration: 12 months
+- Results: 31,100 clicks, 584,000 impressions, 150+ quality leads per month.
+
+**White-Label SaaS Platform**
+- Challenge: Starting with zero SEO foundation.
+- Results: 10 blog posts reached page 1 of Google. 84,100 impressions.
+
+**B2B Tech Brand**
+- Solution: Keyword research and content strategy.
+- Results: 38,200 impressions, 236 clicks, average position 14.5. Impressions tripled in final month.
+
+### Website & Digital
+
+**The Stop n Shop (Retail / E-commerce)**
+- Solution: Mobile-first website rebuild.
+- Results: 95+ PageSpeed score, all Core Web Vitals passed, new keyword rankings.
+
+**Kareliya Equipments (Industrial Equipment)**
+- Solution: Fast B2B site with schema markup and optimised category pages.
+- Results: 90+ PageSpeed score, 100% pages indexed, rising organic visibility month-on-month.
+
+**Kaleen Baba (Home Furnishing / Carpets)**
+- Solution: Catalogue redesign and mobile rebuild.
+- Results: 4× organic visibility growth, 92+ PageSpeed score, product pages ranking for carpet and rug queries.
+
+### Social Media
+
+**Kareliya Equipments (Instagram)**
+- Built and managed Instagram content for a B2B display counter manufacturer.
+
+**Luniva Jewels (Instagram)**
+- Created an emotion-led content identity for a 925 silver jewellery brand.
+
+---
+
+## Clients
+
+Kaleen Baba · Sander Dickkopp · Capitel Flux · Urban Money · Luniva ·
+Raj Tandoor and Kitchen Equipment · Kareliya Equipments · JP Consultancy ·
+HKT Consultancy · Shreedhar Spacecraft · Fair Print Solutions GmbH
+
+---
+
+## Testimonial
+
+> "Sarvopaya rebuilt our lead funnel completely. Our qualified pipeline doubled
+> within two months. They think like operators, not just an agency."
+> — Aarav Mehta, Founder, D2C Nutrition Startup
+
+---
+
+## Contact & Social
+
+- **Website:** https://www.sarvopaya.com
+- **Book a free 30-minute call:** https://www.sarvopaya.com/contact
+- **WhatsApp:** Available via contact page
+- **LinkedIn:** https://www.linkedin.com/company/sarvopaya
+- **Instagram:** https://www.instagram.com/sarvopaya
+- **Facebook:** https://www.facebook.com/sarvopaya
+- **Reddit:** Available via footer links
+- **Offices:** India · UK · USA (contact page has timezone widgets for all three)
+
+---
+
+## Legal
+
+- **Privacy Policy:** https://www.sarvopaya.com/privacy-policy
+- **Copyright:** © 2026 Sarvopaya Private Limited. All rights reserved.
