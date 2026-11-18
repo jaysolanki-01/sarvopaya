@@ -35,7 +35,7 @@ export default function BlogsPage() {
   }, []);
 
   const filteredPosts = useMemo(() => {
-    return blogPosts.filter((post) => {
+    return [...blogPosts].reverse().filter((post) => {
       const matchesCategory = selectedTag === "All" || post.tag === selectedTag;
       const matchesSearch =
         searchQuery === "" ||
