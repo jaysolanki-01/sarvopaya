@@ -238,11 +238,11 @@ export default function BlogsPage() {
                     <div className="flex items-center gap-3">
                       <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full bg-black/5 ring-1 ring-black/10">
                         <Image
-                          src="/images/Main_icon.png"
+                          src="/images/jay-solanki.png"
                           alt={post.author}
                           fill
                           sizes="32px"
-                          className="object-contain p-1"
+                          className="object-cover"
                         />
                       </div>
                       <div>
