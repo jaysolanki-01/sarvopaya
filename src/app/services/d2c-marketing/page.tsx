@@ -2092,7 +2092,7 @@ function D2CExitIntentModal() {
         </p>
 
         {/* CTA */}
-        <a
+        <Link
           href="/contact"
           style={{
             display: "block",
@@ -2111,7 +2111,7 @@ function D2CExitIntentModal() {
           onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
         >
           Book Free Audit →
-        </a>
+        </Link>
         <button
           onClick={() => setVisible(false)}
           style={{ background: "none", border: "none", color: "#555", fontSize: 13, cursor: "pointer" }}
