@@ -58,13 +58,13 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "how-to-create-a-winning-d2c-marketing-strategy",
-    title: "How to Create a Winning D2C Marketing Strategy for Your Brand",
+    title: "How to Create a Winning D2C Marketing Strategy",
     date: "November 2026",
     tag: "D2C Marketing Strategy",
     readTime: "16 min read",
     author: "Jay Solanki",
     excerpt:
-      "A comprehensive, step-by-step masterclass on building a winning D2C marketing strategy that scales profitably. Learn how to engineer contribution margins, build a high-velocity creative pipeline, optimize custom conversion funnels, and scale automated lifecycle retention.",
+      "Build a winning D2C marketing strategy. Learn contribution margins, creative pipelines, conversion funnels, and lifecycle retention to scale profitably.",
     sections: [
       {
         heading: "The Modern D2C Marketing Strategy Blueprint: Moving Beyond Paid Media Arbitrage",
@@ -312,7 +312,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "15 min read",
     author: "Jay Solanki",
     excerpt:
-      "Learn why customer retention is the ultimate profit engine in D2C marketing. Discover how repeat purchase economics, automated WhatsApp replenishment, and zero-party data maximize customer lifetime value (LTV).",
+      "Learn why retention is the profit engine in D2C marketing. Discover how repeat purchase economics, WhatsApp replenishment, and zero-party data maximize LTV.",
     sections: [
       {
         heading: "The Profit Engine of D2C Commerce: Why Customer Retention Dictates Survival in 2027",
@@ -540,7 +540,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "15 min read",
     author: "Jay Solanki",
     excerpt:
-      "Discover how social media marketing fuels D2C brand growth in 2027. Master full-funnel paid social ads, viral creator UGC, community building, and social commerce architectures that drive predictable revenue.",
+      "Learn how social media marketing fuels D2C growth. Master paid social ads, UGC, community building, and social commerce architectures that drive revenue.",
     sections: [
       {
         heading: "The D2C Demand Engine: Why Social Media Marketing Is Indispensable for Modern Brands",
@@ -768,7 +768,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "15 min read",
     author: "Jay Solanki",
     excerpt:
-      "Analyze the biggest marketing challenges faced by D2C brands in 2027. Discover actionable solutions for rising CAC, ad fatigue, cash flow leakage, attribution blind spots, and customer retention.",
+      "Actionable solutions for the biggest D2C marketing challenges: rising CAC, ad fatigue, cash flow leakage, attribution blind spots, and customer retention.",
     sections: [
       {
         heading: "The New D2C Reality: Why Marketing Challenges in 2027 Require a Strategic Overhaul",
@@ -1025,7 +1025,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "15 min read",
     author: "Jay Solanki",
     excerpt:
-      "A zero-to-one playbook for early-stage founders. Learn the proven D2C marketing tactics, low-budget creative testing methods, and organic growth loops to acquire your first 1,000 customers profitably.",
+      "A playbook for early-stage founders. Learn proven D2C tactics, low-budget creative testing, and organic growth loops to acquire your first 1,000 customers.",
     sections: [
       {
         heading: "The Zero-to-1,000 Crucible: Why Early-Stage D2C Marketing Demands a Different Playbook",
@@ -1247,7 +1247,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "17 min read",
     author: "Jay Solanki",
     excerpt:
-      "Discover the 12 most effective D2C marketing channels for scaling ecommerce brands in 2027. Compare performance benchmarks, CAC:LTV efficiency, and conversion architecture across paid, organic, and retention channels.",
+      "The 12 most effective D2C marketing channels in 2027. Compare CAC:LTV benchmarks and conversion architecture across paid, organic, and retention channels.",
     sections: [
       {
         heading: "The Modern D2C Marketing Channel Mix: Why Omnichannel Diversification Wins in 2027",
@@ -1557,7 +1557,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "13 min read",
     author: "Jay Solanki",
     excerpt:
-      "Understand the key differences between D2C and B2C commerce. Discover how D2C marketing empowers brands to retain higher margins, own first-party customer data, and eliminate middlemen in 2027.",
+      "Understand D2C vs B2C differences. Learn how D2C marketing helps brands retain higher margins, own first-party data, and eliminate middlemen in 2027.",
     sections: [
       {
         heading: "D2C vs B2C at a Glance: Definition, Mechanics & Fundamental Differences",
@@ -1810,7 +1810,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "16 min read",
     author: "Jay Solanki",
     excerpt:
-      "A comprehensive, zero-to-one guide on how to build a profitable D2C brand from scratch. Master product-market validation, high-velocity D2C marketing, unit economics modeling, and full-funnel retention.",
+      "A zero-to-one guide to building a profitable D2C brand. Master product-market validation, D2C marketing, unit economics modeling, and full-funnel retention.",
     sections: [
       {
         heading: "The Zero-to-One Blueprint: How to Build a Modern D2C Brand in 2027",
@@ -2038,13 +2038,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "d2c-marketing-trends-2027",
-    title: "10 D2C Marketing Trends Every eCommerce Brand Should Know in 2027",
+    title: "10 D2C Marketing Trends for eCommerce Brands in 2027",
     date: "November 2026",
     tag: "D2C Marketing",
     readTime: "15 min read",
     author: "Jay Solanki",
     excerpt:
-      "Explore the top 10 D2C marketing trends shaping direct-to-consumer ecommerce in 2027. From Generative Engine Optimization (GEO) and AI agentic checkouts to WhatsApp commerce and contribution margin governance.",
+      "The top 10 D2C marketing trends in 2027 — from GEO and AI agentic checkouts to WhatsApp commerce and contribution margin governance.",
     sections: [
       {
         heading: "The New Era of D2C Commerce: Why D2C Marketing Trends in 2027 Demand a Paradigm Shift",
@@ -2291,13 +2291,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "d2c-marketing-strategy-guide",
-    title: "D2C Marketing Strategy: A Complete Guide to Growing Your Online Brand",
+    title: "D2C Marketing Strategy: Complete Guide (2026)",
     date: "October 2026",
     tag: "D2C Marketing",
     readTime: "14 min read",
     author: "Jay Solanki",
     excerpt:
-      "A comprehensive D2C marketing strategy playbook for scaling online brands in 2026. Master high-velocity creative testing, direct-response funnels, contribution margins, and lifecycle retention.",
+      "A D2C marketing strategy playbook for scaling online brands. Master creative testing, direct-response funnels, contribution margins, and lifecycle retention.",
     sections: [
       {
         heading: "What Is a D2C Marketing Strategy? The 2026 Growth Blueprint",
@@ -2629,13 +2629,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "what-is-d2c-marketing-guide",
-    title: "What Is D2C Marketing? A Complete Guide for Direct-to-Consumer Brands",
+    title: "What Is D2C Marketing? A Complete 2026 Guide",
     date: "October 2026",
     tag: "D2C Marketing",
     readTime: "12 min read",
     author: "Jay Solanki",
     excerpt:
-      "What is D2C marketing? Learn how direct-to-consumer brands scale in 2026. A complete D2C marketing guide covering acquisition channels, unit economics, retention, and GEO strategies.",
+      "What is D2C marketing? A complete guide covering how direct-to-consumer brands scale — acquisition channels, unit economics, retention, and GEO strategies.",
     sections: [
       {
         heading: "What Is D2C Marketing? Definition, Mechanics & Core Principles",
@@ -2975,13 +2975,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "ecommerce-contribution-margin-guide",
-    title: "The Complete Guide to Contribution Margin: The Only Metric That Actually Scales Modern D2C Brands",
+    title: "Contribution Margin Guide: Scale Your D2C Brand",
     date: "September 2026",
     tag: "Performance Marketing",
     readTime: "8 min read",
     author: "Sarvopaya Growth Team",
     excerpt:
-      "Stop chasing platform ROAS. In 2026, scaling a profitable D2C brand requires tracking Contribution Margin 1, 2, and 3. Here is our exact financial modeling framework and dashboard template.",
+      "Stop chasing platform ROAS. Scaling a D2C brand requires tracking Contribution Margin 1, 2, and 3. Our financial modeling framework and dashboard template.",
     sections: [
       {
         heading: "Why Blended ROAS is an Illusion",
@@ -3003,13 +3003,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "n8n-marketing-automation-playbook",
-    title: "How to Build an Automated Lead Qualification Engine with n8n, AI, and WhatsApp",
+    title: "Build a Lead Qualification Engine with n8n & AI",
     date: "August 2026",
     tag: "AI Automation",
     readTime: "7 min read",
     author: "Sarvopaya Automation Lab",
     excerpt:
-      "A step-by-step technical architecture for routing, scoring, and instantly engaging high-ticket inbound leads within 60 seconds using open-source n8n, Claude 3.5 Sonnet, and WhatsApp Cloud API.",
+      "Build a lead qualification engine: route, score, and engage high-ticket leads within 60 seconds using n8n, AI, and WhatsApp Cloud API.",
     sections: [
       {
         heading: "The 5-Minute Lead Decay Window",
@@ -3031,13 +3031,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "technical-seo-geo-checklist-2026",
-    title: "The Technical SEO & Generative Engine Optimization (GEO) Checklist for 2026",
+    title: "Technical SEO & GEO Checklist for 2026",
     date: "July 2026",
     tag: "SEO & GEO",
     readTime: "9 min read",
     author: "Sarvopaya SEO Practice",
     excerpt:
-      "How to audit and optimize your web presence for Google Search Generative Experience, OpenAI ChatGPT Search, and Perplexity AI. The 12 essential technical criteria modern sites must satisfy.",
+      "Audit and optimize for Google SGE, ChatGPT Search, and Perplexity AI. The 12 essential technical SEO and GEO criteria every modern site must satisfy.",
   sections: [
       {
         heading: "The Shift from Keyword Density to Entity Authority",
@@ -3055,13 +3055,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "creative-fatigue-meta-ads-system",
-    title: "The High-Velocity Ad Creative Testing System: Solving Creative Fatigue on Meta & TikTok",
+    title: "Beat Creative Fatigue: Ad Testing System for Meta",
     date: "June 2026",
     tag: "Performance Marketing",
     readTime: "6 min read",
     author: "Sarvopaya Creative Studio",
     excerpt:
-      "Why your best ads die after three weeks and how to engineer an always-on creative iteration framework that produces 20+ fresh performance concepts weekly without blowing up production budgets.",
+      "Why your best ads die after three weeks and how to build an always-on creative system that produces 20+ fresh concepts weekly without blowing your budget.",
     sections: [
       {
         heading: "The Mechanics of Creative Fatigue",
@@ -3198,14 +3198,14 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "performance-marketing-d2c-brands-increase-roas",
-    title: "Performance Marketing for D2C Brands: Strategies to Increase ROAS",
+    title: "Performance Marketing for D2C Brands: Increase ROAS",
     date: "November 2026",
     tag: "Performance Marketing",
     readTime: "16 min read",
     author: "Jay Solanki",
     image: "/images/best-10-d2c-marketing-agencies-india-banner.webp",
     excerpt:
-      "A practical guide to performance marketing for D2C brands — covering Meta Ads, Google Shopping, creative velocity, landing page CRO, and the unit economics framework that separates profitable scaling from cash-burning growth.",
+      "Master performance marketing for D2C brands: Meta Ads, Google Shopping, creative velocity, landing page CRO, and unit economics for profitable scaling.",
     sections: [
       {
         heading: "What Performance Marketing Actually Means for D2C Brands",
@@ -3291,13 +3291,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "meta-pixel-setup-services-ecommerce",
-    title: "Meta Pixel Setup for eCommerce Businesses: Complete 2026 Guide",
+    title: "Meta Pixel Setup for eCommerce: Complete 2026 Guide",
     date: "November 2026",
     tag: "Performance Marketing",
     readTime: "14 min read",
     author: "Jay Solanki",
     excerpt:
-      "A complete guide to Meta Pixel setup for eCommerce — standard events, Conversions API, pixel auditing, and the tracking infrastructure that makes profitable Meta Ads possible.",
+      "Complete guide to Meta Pixel setup for eCommerce — standard events, Conversions API, pixel auditing, and the tracking infrastructure for profitable Meta Ads.",
     sections: [
       {
         heading: "Why Meta Pixel Setup Is the Most Important Technical Decision for Your eCommerce Store",
