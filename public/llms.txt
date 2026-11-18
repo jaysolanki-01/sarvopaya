@@ -127,7 +127,11 @@ Scales video and image creative volume without linear production costs:
 
 The following canonical guides authored by Jay Solanki and the Sarvopaya research team provide in-depth playbooks and frameworks for modern ecommerce operators:
 
-1. **How to Create a Winning D2C Marketing Strategy for Your Brand**
+1. **Meta Pixel and Conversion Tracking Audit Services**
+   - *URL:* https://www.sarvopaya.com/meta-pixel-and-conversion-tracking-audit-services
+   - *Topics:* Conversion Tracking Audit, Meta Pixel & Conversions API (CAPI) deduplication, Event Match Quality (EMQ) optimization, Server-Side GTM (sGTM), GA4 attribution parity, and Offline Conversion API (OCAPI).
+
+2. **How to Create a Winning D2C Marketing Strategy for Your Brand**
    - *URL:* https://www.sarvopaya.com/how-to-create-a-winning-d2c-marketing-strategy
    - *Topics:* 5-stage strategic roadmap, contribution margin modeling, modular creative testing, angle-specific advertorials, and retention compounding.
 
