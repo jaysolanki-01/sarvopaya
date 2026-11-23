@@ -16,6 +16,7 @@ import {
   BrowserPulseIcon,
   OrbitNodesIcon,
   CompassNeedleIcon,
+  LayersIcon,
 } from "@/components/icons";
 
 type SubLink = {
@@ -75,6 +76,14 @@ const serviceCategories: ServiceCategory[] = [
     icon: OrbitNodesIcon,
     external: true,
     tagline: "Automate follow-up, ops, and reporting with AI workflows.",
+  },
+  {
+    label: "Branding & Creative",
+    href: "/services/branding-design",
+    icon: LayersIcon,
+    sublinks: [
+      { label: "Branding & Design", href: "/services/branding-design" },
+    ],
   },
   {
     label: "Growth Consulting",
