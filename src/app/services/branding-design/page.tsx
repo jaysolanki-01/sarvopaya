@@ -1,8 +1,10 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { FadeInView, MarqueeStrip, CountUp } from "@/components/animation";
+import { BrandStamp } from "@/components/BrandStamp";
 
 // ─────────────────── TYPES ────────────────────────────
 interface Capability {
@@ -427,82 +429,78 @@ export default function BrandingDesignPage() {
         ref={heroRef}
         className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-white pb-12 pt-28 sm:pt-36"
       >
-        {/* Background large ghost number */}
-        <motion.div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-8 -top-4 select-none font-black uppercase leading-none text-black/[0.025] sm:right-0"
-          style={{ fontSize: "clamp(100px,22vw,320px)" }}
-          animate={{ y: "0%" }}
-        >
-          BRAND
-        </motion.div>
-
         <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
+          {/* Two-column layout on desktop: content left, stamp right */}
+          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
 
-          {/* Breadcrumb */}
-          <FadeUp trigger={heroIv} delay={0.05} className="mb-10">
-            <div className="flex items-center gap-2 text-[11px] font-medium text-black/35 tracking-wider">
-              <Link href="/services" className="transition-colors hover:text-black">Services</Link>
-              <span>/</span>
-              <span className="text-black/70">Branding & Design</span>
+            {/* Left: text content */}
+            <div className="lg:flex-1">
+              {/* Breadcrumb */}
+              <FadeUp trigger={heroIv} delay={0.05} className="mb-10">
+                <div className="flex items-center gap-2 text-[11px] font-medium text-black/35 tracking-wider">
+                  <Link href="/services" className="transition-colors hover:text-black">Services</Link>
+                  <span>/</span>
+                  <span className="text-black/70">Branding & Design</span>
+                </div>
+              </FadeUp>
+
+              {/* Main headline */}
+              <h1 className="font-heading font-black leading-[0.95] tracking-tight">
+                <div className="overflow-hidden">
+                  <motion.div
+                    initial={{ y: "110%" }}
+                    animate={heroIv ? { y: "0%" } : { y: "110%" }}
+                    transition={{ duration: 0.9, ease: EXPO, delay: 0.1 }}
+                    style={{ fontSize: "clamp(52px,9vw,118px)" }}
+                    className="block text-black"
+                  >
+                    Brands Built to
+                  </motion.div>
+                </div>
+                <div className="overflow-hidden">
+                  <motion.div
+                    initial={{ y: "110%" }}
+                    animate={heroIv ? { y: "0%" } : { y: "110%" }}
+                    transition={{ duration: 0.9, ease: EXPO, delay: 0.22 }}
+                    style={{ fontSize: "clamp(52px,9vw,118px)" }}
+                    className="block italic text-[var(--accent)]"
+                  >
+                    Own Their Category.
+                  </motion.div>
+                </div>
+              </h1>
+
+              {/* Sub-row: tagline + CTA */}
+              <div className="mt-10 flex flex-col gap-6 sm:mt-14 sm:flex-row sm:items-end sm:justify-between">
+                <FadeUp trigger={heroIv} delay={0.4} className="sm:max-w-md">
+                  <p className="text-base leading-relaxed text-black/50 sm:text-lg">
+                    Not just logo design. We build strategic brand identities — visual languages
+                    rooted in market positioning that build recognition, trust, and pricing power
+                    for scaling brands.
+                  </p>
+                </FadeUp>
+                <FadeUp trigger={heroIv} delay={0.52} className="flex flex-wrap gap-3 sm:shrink-0">
+                  <Link
+                    href="/contact"
+                    className="group inline-flex h-12 items-center gap-2.5 rounded-full bg-black px-7 text-xs font-bold tracking-wide text-white transition-all duration-400 hover:bg-[var(--accent)] hover:shadow-2xl"
+                  >
+                    Start a Brand Project
+                    <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </Link>
+                  <Link
+                    href="/resources"
+                    className="inline-flex h-12 items-center gap-2 rounded-full border border-black/15 px-7 text-xs font-bold text-black transition-colors duration-300 hover:border-black/35"
+                  >
+                    View Work
+                  </Link>
+                </FadeUp>
+              </div>
             </div>
-          </FadeUp>
 
-          {/* Main headline — large editorial treatment */}
-          <div className="max-w-6xl">
-            <h1 className="font-heading font-black leading-[0.95] tracking-tight">
-
-              <div className="overflow-hidden">
-                <motion.div
-                  initial={{ y: "110%" }}
-                  animate={heroIv ? { y: "0%" } : { y: "110%" }}
-                  transition={{ duration: 0.9, ease: EXPO, delay: 0.1 }}
-                  style={{ fontSize: "clamp(52px,9vw,128px)" }}
-                  className="block text-black"
-                >
-                  Brands Built to
-                </motion.div>
-              </div>
-
-              <div className="overflow-hidden">
-                <motion.div
-                  initial={{ y: "110%" }}
-                  animate={heroIv ? { y: "0%" } : { y: "110%" }}
-                  transition={{ duration: 0.9, ease: EXPO, delay: 0.22 }}
-                  style={{ fontSize: "clamp(52px,9vw,128px)" }}
-                  className="block italic text-[var(--accent)]"
-                >
-                  Own Their Category.
-                </motion.div>
-              </div>
-            </h1>
-          </div>
-
-          {/* Sub-row: tagline + CTA side by side */}
-          <div className="mt-10 grid grid-cols-1 gap-8 sm:mt-14 lg:grid-cols-12 lg:items-end">
-            <FadeUp trigger={heroIv} delay={0.4} className="lg:col-span-6">
-              <p className="text-base leading-relaxed text-black/50 sm:text-lg lg:max-w-lg">
-                Not just logo design. We build strategic brand identities — visual languages
-                rooted in market positioning that build recognition, trust, and pricing power
-                for scaling brands.
-              </p>
-            </FadeUp>
-
-            <FadeUp trigger={heroIv} delay={0.52} className="flex flex-wrap gap-3 lg:col-span-4 lg:col-start-9 lg:justify-end">
-              <Link
-                href="/contact"
-                className="group inline-flex h-12 items-center gap-2.5 rounded-full bg-black px-7 text-xs font-bold tracking-wide text-white transition-all duration-400 hover:bg-[var(--accent)] hover:shadow-2xl"
-              >
-                Start a Brand Project
-                <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </Link>
-              <Link
-                href="/resources"
-                className="inline-flex h-12 items-center gap-2 rounded-full border border-black/15 px-7 text-xs font-bold text-black transition-colors duration-300 hover:border-black/35"
-              >
-                View Work
-              </Link>
-            </FadeUp>
+            {/* Right: animated brand stamp — desktop only */}
+            <div className="hidden lg:block lg:w-[300px] lg:shrink-0 lg:pt-8 xl:w-[340px]">
+              <BrandStamp />
+            </div>
           </div>
         </div>
 
@@ -515,19 +513,39 @@ export default function BrandingDesignPage() {
             className="mt-16 grid grid-cols-2 gap-6 border-t border-black/8 pt-7 sm:grid-cols-4"
           >
             {[
-              { n: "50+", l: "Brand Projects" },
+              { n: null, count: 50, suffix: "+", l: "Brand Projects" },
               { n: "4–6w", l: "Delivery Timeline" },
               { n: "Strategy-First", l: "Our Process" },
               { n: "India · UAE · EU", l: "Market Experience" },
             ].map((s) => (
               <div key={s.l}>
-                <p className="font-heading text-xl font-black text-black sm:text-2xl">{s.n}</p>
+                <p className="font-heading text-xl font-black text-black sm:text-2xl">
+                  {"count" in s && s.count != null ? (
+                    <CountUp value={s.count} suffix={s.suffix} />
+                  ) : (
+                    s.n
+                  )}
+                </p>
                 <p className="mt-1 text-[11px] text-black/40">{s.l}</p>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════
+          MARQUEE STRIP — brand vocabulary
+      ══════════════════════════════════════════════════════ */}
+      <div className="border-y border-black/8 py-4 overflow-hidden bg-white">
+        <MarqueeStrip speed={50} gap={40}>
+          {["BRAND IDENTITY", "VISUAL SYSTEM", "STRATEGY", "POSITIONING", "PACKAGING", "BRAND GUIDELINES", "REBRANDING", "TYPOGRAPHY", "COLOR SYSTEM", "DIGITAL EXPERIENCE"].map((item) => (
+            <span key={item} className="inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-black/35">
+              {item}
+              <span className="text-[var(--accent)]">·</span>
+            </span>
+          ))}
+        </MarqueeStrip>
+      </div>
 
       {/* ══════════════════════════════════════════════════════
           MANIFESTO — Full-width dark editorial
@@ -611,12 +629,16 @@ export default function BrandingDesignPage() {
       <section className="bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="mb-14">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-black/35">The Problem</span>
-            <h2 className="mt-3 font-heading text-3xl font-black leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl">
-              Generic Design Is Not Neutral.
-              <br />
-              <span className="text-black/20">It Actively Loses You Business.</span>
-            </h2>
+            <FadeInView variant="fadeUp" delay={0}>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-black/35">The Problem</span>
+            </FadeInView>
+            <FadeInView variant="fadeUp" delay={0.1}>
+              <h2 className="mt-3 font-heading text-3xl font-black leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl">
+                Generic Design Is Not Neutral.
+                <br />
+                <span className="text-black/20">It Actively Loses You Business.</span>
+              </h2>
+            </FadeInView>
           </div>
 
           <div className="grid grid-cols-1 gap-px bg-black/8 overflow-hidden rounded-2xl sm:grid-cols-3">
@@ -625,26 +647,27 @@ export default function BrandingDesignPage() {
               { title: "Price Pressure", body: "Commoditized brands compete on price. Premium brands command premium margins. Visual identity is the primary lever between the two.", tag: "Cost of Weakness" },
               { title: "Low Conversion", body: "Visitors judge credibility in milliseconds. Inconsistent or amateurish design creates friction that well-designed checkout flows cannot overcome.", tag: "Cost of Weakness" },
             ].map((item, i) => (
-              <div
-                key={item.title}
-                className="group bg-white p-8 transition-colors duration-300 hover:bg-black/[0.02] sm:p-10"
-              >
-                <span className="text-[9px] font-bold uppercase tracking-widest text-[var(--accent)]">{item.tag}</span>
-                <h3 className="mt-3 font-heading text-2xl font-black text-black">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-black/50">{item.body}</p>
-                <div className="mt-5 h-0.5 w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
-              </div>
+              <FadeInView key={item.title} variant="fadeUp" delay={i * 0.1} start="top 90%">
+                <div className="group h-full bg-white p-8 transition-colors duration-300 hover:bg-black/[0.02] sm:p-10">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-[var(--accent)]">{item.tag}</span>
+                  <h3 className="mt-3 font-heading text-2xl font-black text-black">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-black/50">{item.body}</p>
+                  <div className="mt-5 h-0.5 w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
+                </div>
+              </FadeInView>
             ))}
           </div>
 
           {/* Accent answer strip */}
-          <div className="mt-px overflow-hidden rounded-b-none bg-[var(--accent)] p-8 sm:p-10 -mx-0 rounded-2xl mt-4">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-white/60">The Sarvopaya Difference</span>
-            <h3 className="mt-3 font-heading text-2xl font-black text-white sm:text-3xl">
-              Strategy-led brand identities that anchor visual design in market positioning —
-              giving you a sustainable competitive advantage built into the visual layer.
-            </h3>
-          </div>
+          <FadeInView variant="fadeUp" delay={0.15} start="top 92%">
+            <div className="mt-4 overflow-hidden rounded-2xl bg-[var(--accent)] p-8 sm:p-10">
+              <span className="text-[9px] font-bold uppercase tracking-widest text-white/60">The Sarvopaya Difference</span>
+              <h3 className="mt-3 font-heading text-2xl font-black text-white sm:text-3xl">
+                Strategy-led brand identities that anchor visual design in market positioning —
+                giving you a sustainable competitive advantage built into the visual layer.
+              </h3>
+            </div>
+          </FadeInView>
         </div>
       </section>
 
@@ -656,12 +679,16 @@ export default function BrandingDesignPage() {
 
           <div className="mb-16 grid grid-cols-1 gap-6 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-black/35">What We Design</span>
-              <h2 className="mt-3 font-heading text-4xl font-black leading-[1.05] tracking-tight text-black sm:text-5xl">
-                Six Brand
-                <br />
-                Design Capabilities.
-              </h2>
+              <FadeInView variant="fadeUp" delay={0}>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-black/35">What We Design</span>
+              </FadeInView>
+              <FadeInView variant="fadeUp" delay={0.1}>
+                <h2 className="mt-3 font-heading text-4xl font-black leading-[1.05] tracking-tight text-black sm:text-5xl">
+                  Six Brand
+                  <br />
+                  Design Capabilities.
+                </h2>
+              </FadeInView>
             </div>
             <FadeUp trigger={capIv} delay={0.2} className="lg:col-span-5 lg:col-start-8 flex items-end">
               <p className="text-base leading-relaxed text-black/50">
@@ -839,18 +866,19 @@ export default function BrandingDesignPage() {
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-black/35">Design Craft</span>
-              <h2 className="mt-2 font-heading text-2xl font-black text-black sm:text-3xl">The Tools Behind the Work.</h2>
-            </div>
+            <FadeInView variant="fadeUp" delay={0}>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-black/35">Design Craft</span>
+                <h2 className="mt-2 font-heading text-2xl font-black text-black sm:text-3xl">The Tools Behind the Work.</h2>
+              </div>
+            </FadeInView>
             <div className="flex flex-wrap gap-3">
-              {["Figma", "Illustrator", "InDesign", "Photoshop", "Spline", "Framer"].map((tool) => (
-                <span
-                  key={tool}
-                  className="rounded-full border border-black/10 bg-black/[0.02] px-4 py-2 text-xs font-bold text-black/60 transition-all duration-200 hover:border-black/25 hover:text-black"
-                >
-                  {tool}
-                </span>
+              {["Figma", "Illustrator", "InDesign", "Photoshop", "Spline", "Framer"].map((tool, i) => (
+                <FadeInView key={tool} variant="scaleIn" delay={i * 0.06} start="top 95%">
+                  <span className="rounded-full border border-black/10 bg-black/[0.02] px-4 py-2 text-xs font-bold text-black/60 transition-all duration-200 hover:border-black/25 hover:text-black">
+                    {tool}
+                  </span>
+                </FadeInView>
               ))}
             </div>
           </div>
@@ -863,7 +891,7 @@ export default function BrandingDesignPage() {
       <section className="bg-black/[0.015] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="overflow-hidden rounded-3xl bg-[#0a0a0a] p-8 sm:p-12">
-            <div className="mb-8 max-w-2xl">
+            <FadeInView variant="fadeUp" delay={0} className="mb-8 max-w-2xl">
               <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">Full Growth Ecosystem</span>
               <h2 className="mt-3 font-heading text-3xl font-black text-white sm:text-4xl">
                 Branding Backed by a
@@ -873,30 +901,31 @@ export default function BrandingDesignPage() {
                 Your brand identity integrates directly with performance advertising, digital
                 experience design, and AI-powered content systems — all under one roof.
               </p>
-            </div>
+            </FadeInView>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 { n: "01", href: "/services/website-digital-experience", label: "Digital Experience", title: "Website & UI Design", body: "Brand identity translated into high-converting digital experiences.", accent: true },
                 { n: "02", href: "/services/d2c-marketing", label: "Performance", title: "D2C Ads & Growth", body: "Brand creative frameworks built for Meta and Google Ads conversion.", accent: false },
                 { n: "03", href: "/services/social-media-marketing", label: "Social & Content", title: "Social Media", body: "On-brand content systems for Instagram, LinkedIn, and YouTube.", accent: false },
                 { n: "04", href: "/services/seo", label: "Organic Growth", title: "SEO & GEO", body: "Brand authority amplified through content and search engine visibility.", accent: false },
-              ].map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className={`group rounded-2xl p-5 transition-all duration-300 ${
-                    item.accent
-                      ? "border border-[var(--accent)]/30 bg-[var(--accent)]/8 hover:bg-[var(--accent)]/15"
-                      : "border border-white/8 bg-white/[0.03] hover:border-white/15 hover:bg-white/[0.06]"
-                  }`}
-                >
-                  <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--accent)]">{item.n}. {item.label}</p>
-                  <h4 className="mt-1 font-heading text-sm font-bold text-white">{item.title}</h4>
-                  <p className="mt-2 text-xs leading-relaxed text-white/45">{item.body}</p>
-                  <div className="mt-4 flex items-center gap-1 text-xs font-bold text-white/30 transition-colors group-hover:text-[var(--accent)]">
-                    Explore <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-                  </div>
-                </Link>
+              ].map((item, i) => (
+                <FadeInView key={item.title} variant="fadeUp" delay={i * 0.08} start="top 92%">
+                  <Link
+                    href={item.href}
+                    className={`group block h-full rounded-2xl p-5 transition-all duration-300 ${
+                      item.accent
+                        ? "border border-[var(--accent)]/30 bg-[var(--accent)]/8 hover:bg-[var(--accent)]/15"
+                        : "border border-white/8 bg-white/[0.03] hover:border-white/15 hover:bg-white/[0.06]"
+                    }`}
+                  >
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--accent)]">{item.n}. {item.label}</p>
+                    <h4 className="mt-1 font-heading text-sm font-bold text-white">{item.title}</h4>
+                    <p className="mt-2 text-xs leading-relaxed text-white/45">{item.body}</p>
+                    <div className="mt-4 flex items-center gap-1 text-xs font-bold text-white/30 transition-colors group-hover:text-[var(--accent)]">
+                      Explore <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                    </div>
+                  </Link>
+                </FadeInView>
               ))}
             </div>
           </div>
