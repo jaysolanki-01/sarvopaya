@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import BookMeeting from "@/components/BookMeeting";
 import LeadPopup from "@/components/LeadPopup";
 import CookieBanner from "@/components/CookieBanner";
+import { AnimationProviders } from "@/components/animation";
 import "./globals.css";
 
 const siteUrl = "https://www.sarvopaya.com";
@@ -243,10 +244,12 @@ export default async function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <Navbar />
-        <div className="relative z-10 bg-background">{children}</div>
-        <Footer />
+        <AnimationProviders>
+          <Navbar />
+          <div className="relative z-10 bg-background">{children}</div>
+          <Footer />
 
+        </AnimationProviders>
         <BookMeeting />
         <LeadPopup />
         <CookieBanner />
