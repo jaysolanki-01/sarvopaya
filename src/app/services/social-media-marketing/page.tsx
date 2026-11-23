@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import Testimonials from "@/components/Testimonials";
+import { FadeInView } from "@/components/animation";
 import {
   InstagramIcon,
   FacebookIcon,
@@ -27,6 +28,7 @@ import type { ComponentType } from "react";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+// Kept for interactive micro-animations (not scroll-reveal)
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
@@ -566,6 +568,7 @@ export default function SocialMediaMarketingPage() {
       />
 
       {/* ── Section 1: Hero ─────────────────────────────────────────────────── */}
+      {/* Load animation (not scroll-triggered) — keep Framer Motion */}
       <section className="relative flex min-h-[calc(100dvh-4rem)] w-full items-center overflow-hidden bg-white">
         <span
           aria-hidden="true"
@@ -620,10 +623,7 @@ export default function SocialMediaMarketingPage() {
             </div>
           </motion.div>
 
-          <motion.p
-            variants={fadeUp}
-            className="mt-8 text-sm text-black/40"
-          >
+          <motion.p variants={fadeUp} className="mt-8 text-sm text-black/40">
             Working with B2B, D2C, and professional service brands across India.
           </motion.p>
         </motion.div>
@@ -632,391 +632,343 @@ export default function SocialMediaMarketingPage() {
       {/* ── Section 2: The Problem ───────────────────────────────────────────── */}
       <section className="w-full bg-neutral-50 py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel>The Real Problem</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl"
             >
               Posting consistently doesn&apos;t mean{" "}
               <span className="text-accent">growing consistently.</span>
-            </motion.h2>
-            <motion.p variants={item} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
+            </FadeInView>
+            <FadeInView variant="fadeUp" delay={0.2} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
               Most businesses already understand they need to be on social media. The problem
               is that activity is not the same as strategy. And strategy is what actually
               drives growth.
-            </motion.p>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={container}
-            className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2"
-          >
-            {/* Problem side */}
-            <motion.div
-              variants={item}
-              className="rounded-3xl border border-black/10 bg-white p-8"
-            >
-              <p className="text-xs font-bold uppercase tracking-widest text-black/30">
-                What most brands do
-              </p>
-              <h3 className="mt-4 text-xl font-bold text-black">Just Posting Content</h3>
-              <ul className="mt-6 flex flex-col gap-4">
-                {[
-                  "Content without a defined audience or goal",
-                  "Followers who have no intent to buy",
-                  "Reach that never turns into website visits",
-                  "Engagement that feels good but means nothing commercially",
-                  "Metrics reported monthly that no one acts on",
-                  "Platform presence that has no connection to the sales pipeline",
-                ].map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm text-black/60">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/5 text-black/30">
-                      ✕
-                    </span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <FadeInView delay={0.05} start="top 88%">
+              <div className="rounded-3xl border border-black/10 bg-white p-8 h-full">
+                <p className="text-xs font-bold uppercase tracking-widest text-black/30">
+                  What most brands do
+                </p>
+                <h3 className="mt-4 text-xl font-bold text-black">Just Posting Content</h3>
+                <ul className="mt-6 flex flex-col gap-4">
+                  {[
+                    "Content without a defined audience or goal",
+                    "Followers who have no intent to buy",
+                    "Reach that never turns into website visits",
+                    "Engagement that feels good but means nothing commercially",
+                    "Metrics reported monthly that no one acts on",
+                    "Platform presence that has no connection to the sales pipeline",
+                  ].map((point) => (
+                    <li key={point} className="flex items-start gap-3 text-sm text-black/60">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/5 text-black/30">
+                        ✕
+                      </span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeInView>
 
-            {/* Solution side */}
-            <motion.div
-              variants={item}
-              className="rounded-3xl bg-black p-8"
-            >
-              <p className="text-xs font-bold uppercase tracking-widest text-white/30">
-                What a system looks like
-              </p>
-              <h3 className="mt-4 text-xl font-bold text-white">
-                Building a Social Media Growth System
-              </h3>
-              <ul className="mt-6 flex flex-col gap-4">
-                {[
-                  "Research-backed strategy with clear platform rationale",
-                  "Content built to attract the audience most likely to buy",
-                  "Distribution designed to turn reach into website intent",
-                  "Community management that converts conversations into leads",
-                  "Paid amplification that scales what organic has proven",
-                  "Monthly reporting that drives the next month's decisions",
-                ].map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm text-white/70">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-white">
-                      ✓
-                    </span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </motion.div>
+            <FadeInView delay={0.15} start="top 88%">
+              <div className="rounded-3xl bg-black p-8 h-full">
+                <p className="text-xs font-bold uppercase tracking-widest text-white/30">
+                  What a system looks like
+                </p>
+                <h3 className="mt-4 text-xl font-bold text-white">
+                  Building a Social Media Growth System
+                </h3>
+                <ul className="mt-6 flex flex-col gap-4">
+                  {[
+                    "Research-backed strategy with clear platform rationale",
+                    "Content built to attract the audience most likely to buy",
+                    "Distribution designed to turn reach into website intent",
+                    "Community management that converts conversations into leads",
+                    "Paid amplification that scales what organic has proven",
+                    "Monthly reporting that drives the next month's decisions",
+                  ].map((point) => (
+                    <li key={point} className="flex items-start gap-3 text-sm text-white/70">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-white">
+                        ✓
+                      </span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeInView>
+          </div>
         </div>
       </section>
 
       {/* ── Section 3: Growth System ─────────────────────────────────────────── */}
       <section className="w-full bg-black py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel dark>Our Approach</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
               The Social Media{" "}
               <span className="text-accent">Growth System</span>
-            </motion.h2>
-            <motion.p variants={item} className="mt-4 max-w-xl text-base leading-7 text-white/60">
+            </FadeInView>
+            <FadeInView variant="fadeUp" delay={0.2} className="mt-4 max-w-xl text-base leading-7 text-white/60">
               Eight interconnected steps from research to revenue. Each step has a clear
               business purpose, not just a deliverable.
-            </motion.p>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={container}
-            className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
-          >
-            {growthSystem.map((step) => (
-              <motion.div
-                key={step.step}
-                variants={item}
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.3, ease: EASE }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors duration-500 hover:border-accent/30 hover:bg-accent/10"
-              >
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -right-2 -top-5 font-heading text-[5rem] font-bold leading-none text-white/[0.04]"
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {growthSystem.map((step, i) => (
+              <FadeInView key={step.step} delay={i * 0.07} start="top 92%">
+                <motion.div
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3, ease: EASE }}
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 h-full transition-colors duration-500 hover:border-accent/30 hover:bg-accent/10"
                 >
-                  {step.step}
-                </span>
-                <span className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-white transition-colors duration-500 group-hover:bg-accent group-hover:text-white">
-                  <step.icon className="h-6 w-6" />
-                </span>
-                <h3 className="relative mt-5 font-heading text-base font-bold text-white">
-                  {step.title}
-                </h3>
-                <p className="relative mt-1 text-xs font-semibold uppercase tracking-wider text-accent">
-                  {step.summary}
-                </p>
-                <p className="relative mt-3 text-sm leading-6 text-white/50">
-                  {step.purpose}
-                </p>
-              </motion.div>
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-2 -top-5 font-heading text-[5rem] font-bold leading-none text-white/[0.04]"
+                  >
+                    {step.step}
+                  </span>
+                  <span className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-white transition-colors duration-500 group-hover:bg-accent group-hover:text-white">
+                    <step.icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="relative mt-5 font-heading text-base font-bold text-white">
+                    {step.title}
+                  </h3>
+                  <p className="relative mt-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                    {step.summary}
+                  </p>
+                  <p className="relative mt-3 text-sm leading-6 text-white/50">
+                    {step.purpose}
+                  </p>
+                </motion.div>
+              </FadeInView>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── Section 4: What We Do ────────────────────────────────────────────── */}
+      {/* Keep Framer Motion — interactive accordion with layout animation */}
       <section id="what-we-do" className="w-full scroll-mt-20 bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel>Services</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl"
             >
               What We Do:{" "}
               <span className="text-accent">And Why It Matters</span>
-            </motion.h2>
-            <motion.p variants={item} className="mt-4 max-w-xl text-base leading-7 text-black/60">
+            </FadeInView>
+            <FadeInView variant="fadeUp" delay={0.2} className="mt-4 max-w-xl text-base leading-7 text-black/60">
               Every service has a strategic role. We don&apos;t offer things to fill a proposal.
               We offer what your growth actually requires.
-            </motion.p>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.7, ease: EASE }}
-            onMouseLeave={() => setActiveService(null)}
+          <FadeInView
+            variant="fadeUp"
+            delay={0.1}
             className="mt-10 border-t border-black/20"
           >
-            {services.map((service, index) => {
-              const isActive = activeService === index;
-              return (
-                <div
-                  key={service.title}
-                  onMouseEnter={() => setActiveService(index)}
-                  onClick={() => setActiveService(index)}
-                  className="cursor-pointer border-b border-black/20 py-7 transition-colors"
-                >
-                  <div className="flex items-center gap-3 sm:gap-8">
-                    <span className="w-8 shrink-0 font-heading text-sm font-bold text-black/30 sm:w-16 sm:text-lg">
-                      ({String(index + 1).padStart(2, "0")})
-                    </span>
-                    <motion.div
-                      layout
-                      transition={{ duration: 0.5, ease: EASE }}
-                      className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-black ${
-                        isActive ? "h-16 w-24 sm:h-40 sm:w-64" : "h-10 w-16 sm:h-16 sm:w-24"
-                      }`}
-                    >
-                      <service.icon
-                        className={`text-white/20 transition-all duration-500 ${
-                          isActive ? "h-14 w-14 sm:h-16 sm:w-16" : "h-7 w-7"
+            <div
+              onMouseLeave={() => setActiveService(null)}
+            >
+              {services.map((service, index) => {
+                const isActive = activeService === index;
+                return (
+                  <div
+                    key={service.title}
+                    onMouseEnter={() => setActiveService(index)}
+                    onClick={() => setActiveService(index)}
+                    className="cursor-pointer border-b border-black/20 py-7 transition-colors"
+                  >
+                    <div className="flex items-center gap-3 sm:gap-8">
+                      <span className="w-8 shrink-0 font-heading text-sm font-bold text-black/30 sm:w-16 sm:text-lg">
+                        ({String(index + 1).padStart(2, "0")})
+                      </span>
+                      <motion.div
+                        layout
+                        transition={{ duration: 0.5, ease: EASE }}
+                        className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-black ${
+                          isActive ? "h-16 w-24 sm:h-40 sm:w-64" : "h-10 w-16 sm:h-16 sm:w-24"
                         }`}
-                      />
-                    </motion.div>
-                    <h3
-                      className={`font-heading font-bold uppercase tracking-tight transition-all duration-500 ${
-                        isActive
-                          ? "text-lg text-black sm:text-3xl lg:text-4xl"
-                          : "text-base text-black/40 sm:text-2xl"
-                      }`}
-                    >
-                      {service.title}
-                    </h3>
-                  </div>
+                      >
+                        <service.icon
+                          className={`text-white/20 transition-all duration-500 ${
+                            isActive ? "h-14 w-14 sm:h-16 sm:w-16" : "h-7 w-7"
+                          }`}
+                        />
+                      </motion.div>
+                      <h3
+                        className={`font-heading font-bold uppercase tracking-tight transition-all duration-500 ${
+                          isActive
+                            ? "text-lg text-black sm:text-3xl lg:text-4xl"
+                            : "text-base text-black/40 sm:text-2xl"
+                        }`}
+                      >
+                        {service.title}
+                      </h3>
+                    </div>
 
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
-                      className="mt-6 pl-10 sm:pl-[6.5rem]"
-                    >
-                      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-                        <div>
-                          <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                            What it is
-                          </p>
-                          <p className="mt-2 text-sm leading-6 text-black/70">{service.what}</p>
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
+                        className="mt-6 pl-10 sm:pl-[6.5rem]"
+                      >
+                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                          <div>
+                            <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                              What it is
+                            </p>
+                            <p className="mt-2 text-sm leading-6 text-black/70">{service.what}</p>
+                          </div>
+                          <div>
+                            <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                              What we do
+                            </p>
+                            <p className="mt-2 text-sm leading-6 text-black/70">{service.how}</p>
+                          </div>
+                          <div>
+                            <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                              Why it matters
+                            </p>
+                            <p className="mt-2 text-sm leading-6 text-black/70">{service.why}</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                            What we do
-                          </p>
-                          <p className="mt-2 text-sm leading-6 text-black/70">{service.how}</p>
+                        <div className="mt-6">
+                          <CTAButton href="/contact" variant="primary" size="sm">
+                            Discuss This Service
+                          </CTAButton>
                         </div>
-                        <div>
-                          <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                            Why it matters
-                          </p>
-                          <p className="mt-2 text-sm leading-6 text-black/70">{service.why}</p>
-                        </div>
-                      </div>
-                      <div className="mt-6">
-                        <CTAButton href="/contact" variant="primary" size="sm">
-                          Discuss This Service
-                        </CTAButton>
-                      </div>
-                    </motion.div>
-                  )}
-                </div>
-              );
-            })}
-          </motion.div>
+                      </motion.div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </FadeInView>
         </div>
       </section>
 
       {/* ── Section 5: Platform Strategy ─────────────────────────────────────── */}
       <section className="w-full bg-neutral-50 py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel>Platform Strategy</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl"
             >
               Not every platform is{" "}
               <span className="text-accent">right for every business.</span>
-            </motion.h2>
-            <motion.p variants={item} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
+            </FadeInView>
+            <FadeInView variant="fadeUp" delay={0.2} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
               Platform selection should be based on your audience, business model, content format,
               sales cycle, and objective, not because a competitor is there or because a platform
               is currently trending. We help you focus where it matters.
-            </motion.p>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={container}
-            className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2"
-          >
-            {platforms.map((platform) => (
-              <motion.div
-                key={platform.name}
-                variants={item}
-                className="group relative flex flex-col overflow-hidden rounded-3xl border border-black/10 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/5"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-black/[0.04] text-black transition-colors duration-500 group-hover:bg-black group-hover:text-white">
-                    <platform.icon className="h-7 w-7" />
-                  </span>
-                  <h3 className="font-heading text-xl font-bold text-black">{platform.name}</h3>
-                </div>
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {platforms.map((platform, i) => (
+              <FadeInView key={platform.name} delay={i * 0.1} start="top 90%">
+                <div className="group relative flex flex-col overflow-hidden rounded-3xl border border-black/10 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/5 h-full">
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-black/[0.04] text-black transition-colors duration-500 group-hover:bg-black group-hover:text-white">
+                      <platform.icon className="h-7 w-7" />
+                    </span>
+                    <h3 className="font-heading text-xl font-bold text-black">{platform.name}</h3>
+                  </div>
 
-                <div className="mt-6 flex flex-col gap-4">
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                      Use it when
-                    </p>
-                    <p className="mt-1.5 text-sm leading-6 text-black/70">{platform.when}</p>
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                      Less suited for
-                    </p>
-                    <p className="mt-1.5 text-sm leading-6 text-black/60">{platform.notFor}</p>
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                      Key formats
-                    </p>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {platform.formats.map((f) => (
-                        <span
-                          key={f}
-                          className="rounded-full border border-black/10 px-3 py-1 text-[11px] font-semibold text-black/50"
-                        >
-                          {f}
-                        </span>
-                      ))}
+                  <div className="mt-6 flex flex-col gap-4">
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                        Use it when
+                      </p>
+                      <p className="mt-1.5 text-sm leading-6 text-black/70">{platform.when}</p>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                        Less suited for
+                      </p>
+                      <p className="mt-1.5 text-sm leading-6 text-black/60">{platform.notFor}</p>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                        Key formats
+                      </p>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {platform.formats.map((f) => (
+                          <span
+                            key={f}
+                            className="rounded-full border border-black/10 px-3 py-1 text-[11px] font-semibold text-black/50"
+                          >
+                            {f}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </FadeInView>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── Section 6: Industry Strategies ───────────────────────────────────── */}
       <section className="w-full bg-black py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel dark>Business Models</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
               Strategy changes with{" "}
               <span className="text-accent">your business model.</span>
-            </motion.h2>
-            <motion.p variants={item} className="mt-4 max-w-xl text-base leading-7 text-white/60">
+            </FadeInView>
+            <FadeInView variant="fadeUp" delay={0.2} className="mt-4 max-w-xl text-base leading-7 text-white/60">
               A D2C brand and a B2B SaaS company both need social media, but the strategy,
               platforms, content, and conversion approach are completely different.
-            </motion.p>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          {/* Tab selector */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="mt-10 flex flex-wrap gap-2"
-          >
+          {/* Tab selector — keep Framer Motion (interactive) */}
+          <FadeInView variant="fadeUp" delay={0.15} className="mt-10 flex flex-wrap gap-2">
             {industries.map((ind, i) => (
               <button
                 key={ind.label}
@@ -1030,7 +982,7 @@ export default function SocialMediaMarketingPage() {
                 {ind.label}
               </button>
             ))}
-          </motion.div>
+          </FadeInView>
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -1065,68 +1017,58 @@ export default function SocialMediaMarketingPage() {
       {/* ── Section 7: Content Strategy ───────────────────────────────────────── */}
       <section className="w-full bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel>Content Framework</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl"
             >
               Every post should have{" "}
               <span className="text-accent">a job to do.</span>
-            </motion.h2>
-            <motion.p variants={item} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
+            </FadeInView>
+            <FadeInView variant="fadeUp" delay={0.2} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
               We structure content into five strategic categories, each serving a different
               audience mindset and stage in the buying journey. The mix shifts based on where
               your brand is in its growth and what the data is telling us month to month.
-            </motion.p>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={container}
-            className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-          >
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {contentPillars.map((pillar, i) => (
-              <motion.div
-                key={pillar.label}
-                variants={item}
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.3, ease: EASE }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/5"
-              >
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -right-2 -top-5 font-heading text-[5rem] font-bold leading-none text-black/[0.03]"
+              <FadeInView key={pillar.label} delay={i * 0.08} start="top 90%">
+                <motion.div
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3, ease: EASE }}
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-6 shadow-sm h-full transition-shadow duration-300 hover:shadow-xl hover:shadow-black/5"
                 >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="relative inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-accent">
-                  {pillar.stage}
-                </span>
-                <h3 className="relative mt-4 font-heading text-lg font-bold text-black">
-                  {pillar.label}
-                </h3>
-                <p className="relative mt-2 text-sm leading-6 text-black/60">{pillar.purpose}</p>
-                <ul className="relative mt-4 flex flex-col gap-1.5">
-                  {pillar.examples.map((ex) => (
-                    <li key={ex} className="text-xs text-black/40">
-                      · {ex}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-2 -top-5 font-heading text-[5rem] font-bold leading-none text-black/[0.03]"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="relative inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-accent">
+                    {pillar.stage}
+                  </span>
+                  <h3 className="relative mt-4 font-heading text-lg font-bold text-black">
+                    {pillar.label}
+                  </h3>
+                  <p className="relative mt-2 text-sm leading-6 text-black/60">{pillar.purpose}</p>
+                  <ul className="relative mt-4 flex flex-col gap-1.5">
+                    {pillar.examples.map((ex) => (
+                      <li key={ex} className="text-xs text-black/40">
+                        · {ex}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </FadeInView>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1134,23 +1076,20 @@ export default function SocialMediaMarketingPage() {
       <section className="w-full bg-neutral-50 py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.div variants={item}>
+            <div>
+              <FadeInView>
                 <SectionLabel>GEO</SectionLabel>
-              </motion.div>
-              <motion.h2
-                variants={item}
+              </FadeInView>
+              <FadeInView
+                as="h2"
+                variant="fadeUp"
+                delay={0.1}
                 className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl"
               >
                 Social media and the future of{" "}
                 <span className="text-accent">brand discoverability.</span>
-              </motion.h2>
-              <motion.div variants={item} className="mt-6 flex flex-col gap-4 text-base leading-7 text-black/60">
+              </FadeInView>
+              <FadeInView variant="fadeUp" delay={0.2} className="mt-6 flex flex-col gap-4 text-base leading-7 text-black/60">
                 <p>
                   Generative Engine Optimisation (GEO) refers to building your brand&apos;s
                   presence in a way that makes it easier for AI systems, including Google AI
@@ -1169,22 +1108,14 @@ export default function SocialMediaMarketingPage() {
                   you build the kind of consistent, credible digital presence that gives you a
                   better chance of being surfaced when it matters.
                 </p>
-              </motion.div>
-            </motion.div>
+              </FadeInView>
+            </div>
 
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.p
-                variants={item}
-                className="text-sm font-bold uppercase tracking-wider text-black/40"
-              >
+            <FadeInView variant="fadeUp" delay={0.1}>
+              <p className="text-sm font-bold uppercase tracking-wider text-black/40">
                 Where brand signals come from
-              </motion.p>
-              <motion.div variants={item} className="mt-6 flex flex-col gap-3">
+              </p>
+              <div className="mt-6 flex flex-col gap-3">
                 {[
                   { channel: "Website", signal: "Primary entity definition, service pages, blog content" },
                   { channel: "LinkedIn", signal: "Industry authority, professional context, thought leadership" },
@@ -1208,8 +1139,8 @@ export default function SocialMediaMarketingPage() {
                     </div>
                   </div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </div>
+            </FadeInView>
           </div>
         </div>
       </section>
@@ -1218,23 +1149,20 @@ export default function SocialMediaMarketingPage() {
       <section className="w-full bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.div variants={item}>
+            <div>
+              <FadeInView>
                 <SectionLabel>Search-First Content</SectionLabel>
-              </motion.div>
-              <motion.h2
-                variants={item}
+              </FadeInView>
+              <FadeInView
+                as="h2"
+                variant="fadeUp"
+                delay={0.1}
                 className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl"
               >
                 The best content answers{" "}
                 <span className="text-accent">questions people are already asking.</span>
-              </motion.h2>
-              <motion.div variants={item} className="mt-6 flex flex-col gap-4 text-base leading-7 text-black/60">
+              </FadeInView>
+              <FadeInView variant="fadeUp" delay={0.2} className="mt-6 flex flex-col gap-4 text-base leading-7 text-black/60">
                 <p>
                   We use search data, social listening, and platform analytics to identify the
                   real questions your audience is asking, then build content around genuine demand
@@ -1250,22 +1178,14 @@ export default function SocialMediaMarketingPage() {
                   all contribute data that shapes what we create, not just what performed well last
                   month, but what your audience is actively seeking.
                 </p>
-              </motion.div>
-            </motion.div>
+              </FadeInView>
+            </div>
 
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.p
-                variants={item}
-                className="text-sm font-bold uppercase tracking-wider text-black/40"
-              >
+            <FadeInView variant="fadeUp" delay={0.1}>
+              <p className="text-sm font-bold uppercase tracking-wider text-black/40">
                 Real questions your audience is asking
-              </motion.p>
-              <motion.div variants={item} className="mt-6 flex flex-col gap-3">
+              </p>
+              <div className="mt-6 flex flex-col gap-3">
                 {[
                   "How much does social media marketing cost?",
                   "Does Instagram marketing work for B2B?",
@@ -1284,8 +1204,8 @@ export default function SocialMediaMarketingPage() {
                     <p className="text-sm text-black/70">{q}</p>
                   </div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </div>
+            </FadeInView>
           </div>
         </div>
       </section>
@@ -1293,58 +1213,46 @@ export default function SocialMediaMarketingPage() {
       {/* ── Section 10: Measurement Framework ────────────────────────────────── */}
       <section className="w-full bg-black py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel dark>Measurement</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
               Metrics that connect to{" "}
               <span className="text-accent">your business, not a dashboard.</span>
-            </motion.h2>
-            <motion.p variants={item} className="mt-4 max-w-xl text-base leading-7 text-white/60">
+            </FadeInView>
+            <FadeInView variant="fadeUp" delay={0.2} className="mt-4 max-w-xl text-base leading-7 text-white/60">
               Reach and likes are not business outcomes. We measure social media performance
               across four layers, from awareness to revenue, and weight each based on what
               your business actually needs.
-            </motion.p>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={container}
-            className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
-          >
-            {measurementTiers.map((tier) => (
-              <motion.div
-                key={tier.label}
-                variants={item}
-                className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6"
-              >
-                <span className="inline-flex self-start rounded-full bg-accent/20 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-accent">
-                  {tier.label}
-                </span>
-                <p className="mt-4 text-sm italic leading-6 text-white/40">{tier.meaning}</p>
-                <ul className="mt-5 flex flex-col gap-2.5">
-                  {tier.metrics.map((m) => (
-                    <li key={m} className="flex items-center gap-2.5 text-sm text-white/70">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                      {m}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {measurementTiers.map((tier, i) => (
+              <FadeInView key={tier.label} delay={i * 0.1} start="top 90%">
+                <div className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6 h-full">
+                  <span className="inline-flex self-start rounded-full bg-accent/20 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-accent">
+                    {tier.label}
+                  </span>
+                  <p className="mt-4 text-sm italic leading-6 text-white/40">{tier.meaning}</p>
+                  <ul className="mt-5 flex flex-col gap-2.5">
+                    {tier.metrics.map((m) => (
+                      <li key={m} className="flex items-center gap-2.5 text-sm text-white/70">
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                        {m}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeInView>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1352,23 +1260,20 @@ export default function SocialMediaMarketingPage() {
       <section className="w-full bg-neutral-50 py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.div variants={item}>
+            <div>
+              <FadeInView>
                 <SectionLabel>Reporting</SectionLabel>
-              </motion.div>
-              <motion.h2
-                variants={item}
+              </FadeInView>
+              <FadeInView
+                as="h2"
+                variant="fadeUp"
+                delay={0.1}
                 className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl"
               >
                 Reports that drive{" "}
                 <span className="text-accent">decisions, not archives.</span>
-              </motion.h2>
-              <motion.div variants={item} className="mt-6 flex flex-col gap-4 text-base leading-7 text-black/60">
+              </FadeInView>
+              <FadeInView variant="fadeUp" delay={0.2} className="mt-6 flex flex-col gap-4 text-base leading-7 text-black/60">
                 <p>
                   Most social media reports answer the question: what happened? We build
                   reports that answer: what do we do about it?
@@ -1378,16 +1283,11 @@ export default function SocialMediaMarketingPage() {
                   worked and what didn&apos;t, and specific recommendations for the next 30 days.
                   The objective is to turn data into decisions.
                 </p>
-              </motion.div>
-            </motion.div>
+              </FadeInView>
+            </div>
 
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.div variants={item} className="flex flex-col gap-4">
+            <FadeInView variant="fadeUp" delay={0.1}>
+              <div className="flex flex-col gap-4">
                 <p className="text-sm font-bold uppercase tracking-wider text-black/40">
                   Our reporting loop
                 </p>
@@ -1412,8 +1312,8 @@ export default function SocialMediaMarketingPage() {
                   We use Meta Ads Manager, LinkedIn Analytics, Google Analytics, YouTube Analytics,
                   and where relevant, Google Search Console to inform content decisions.
                 </p>
-              </motion.div>
-            </motion.div>
+              </div>
+            </FadeInView>
           </div>
         </div>
       </section>
@@ -1421,32 +1321,22 @@ export default function SocialMediaMarketingPage() {
       {/* ── Section 12: Case Studies ──────────────────────────────────────────── */}
       <section className="w-full bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel>Case Studies</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl"
             >
               Results we&apos;re{" "}
               <span className="text-accent">proud to talk about.</span>
-            </motion.h2>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={container}
-            className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          >
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 industry: "B2B / Manufacturing",
@@ -1466,134 +1356,115 @@ export default function SocialMediaMarketingPage() {
                 result: "Founder-led LinkedIn content created consistent inbound inquiry.",
                 tag: "LinkedIn · Personal Branding · Copywriting",
               },
-            ].map((cs) => (
-              <motion.div
-                key={cs.industry}
-                variants={item}
-                className="flex flex-col rounded-3xl border border-black/10 bg-white p-8 shadow-sm"
-              >
-                <span className="inline-flex self-start rounded-full border border-black/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-black/50">
-                  {cs.industry}
-                </span>
-                <div className="mt-6 flex flex-col gap-4">
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                      Challenge
-                    </p>
-                    <p className="mt-1.5 text-sm leading-6 text-black/70">{cs.challenge}</p>
+            ].map((cs, i) => (
+              <FadeInView key={cs.industry} delay={i * 0.1} start="top 90%">
+                <div className="flex flex-col rounded-3xl border border-black/10 bg-white p-8 shadow-sm h-full">
+                  <span className="inline-flex self-start rounded-full border border-black/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-black/50">
+                    {cs.industry}
+                  </span>
+                  <div className="mt-6 flex flex-col gap-4">
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                        Challenge
+                      </p>
+                      <p className="mt-1.5 text-sm leading-6 text-black/70">{cs.challenge}</p>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-accent">
+                        Result
+                      </p>
+                      <p className="mt-1.5 text-sm font-semibold leading-6 text-black">{cs.result}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-widest text-accent">
-                      Result
-                    </p>
-                    <p className="mt-1.5 text-sm font-semibold leading-6 text-black">{cs.result}</p>
+                  <div className="mt-6 border-t border-black/10 pt-4">
+                    <p className="text-xs text-black/40">{cs.tag}</p>
                   </div>
                 </div>
-                <div className="mt-6 border-t border-black/10 pt-4">
-                  <p className="text-xs text-black/40">{cs.tag}</p>
-                </div>
-              </motion.div>
+              </FadeInView>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── Section 13: Why Choose Us ─────────────────────────────────────────── */}
       <section className="w-full bg-neutral-50 py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel>Why Sarvopaya</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl"
             >
               What makes the difference{" "}
               <span className="text-accent">isn&apos;t creativity.</span>
               <br />
               It&apos;s discipline.
-            </motion.h2>
-            <motion.p variants={item} className="mt-4 max-w-xl text-base leading-7 text-black/60">
+            </FadeInView>
+            <FadeInView variant="fadeUp" delay={0.2} className="mt-4 max-w-xl text-base leading-7 text-black/60">
               Plenty of agencies produce good-looking content. Fewer connect that content to
               a strategy. Fewer still tie strategy to commercial outcomes and report on it
               honestly every month.
-            </motion.p>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={container}
-            className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          >
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whyUs.map((point, i) => (
-              <motion.div
-                key={point.title}
-                variants={item}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-6 transition-colors duration-500 hover:border-black hover:bg-black"
-              >
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -right-2 -top-5 font-heading text-[5rem] font-bold leading-none text-black/[0.03] transition-colors duration-500 group-hover:text-white/5"
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="relative font-heading text-base font-bold text-black transition-colors duration-500 group-hover:text-white">
-                  {point.title}
-                </h3>
-                <p className="relative mt-3 text-sm leading-6 text-black/60 transition-colors duration-500 group-hover:text-white/60">
-                  {point.description}
-                </p>
-              </motion.div>
+              <FadeInView key={point.title} delay={i * 0.08} start="top 90%">
+                <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white p-6 h-full transition-colors duration-500 hover:border-black hover:bg-black">
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-2 -top-5 font-heading text-[5rem] font-bold leading-none text-black/[0.03] transition-colors duration-500 group-hover:text-white/5"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="relative font-heading text-base font-bold text-black transition-colors duration-500 group-hover:text-white">
+                    {point.title}
+                  </h3>
+                  <p className="relative mt-3 text-sm leading-6 text-black/60 transition-colors duration-500 group-hover:text-white/60">
+                    {point.description}
+                  </p>
+                </div>
+              </FadeInView>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── Section 14: Testimonials ──────────────────────────────────────────── */}
       <Testimonials />
 
-      {/* ── Section 15 (old): FAQ ─────────────────────────────────────────────── */}
+      {/* ── Section 15: FAQ ───────────────────────────────────────────────────── */}
+      {/* Keep Framer Motion — interactive accordion */}
       <section className="w-full bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="max-w-3xl"
-          >
-            <motion.div variants={item}>
+          <div className="max-w-3xl">
+            <FadeInView>
               <SectionLabel>FAQ</SectionLabel>
-            </motion.div>
-            <motion.h2
-              variants={item}
+            </FadeInView>
+            <FadeInView
+              as="h2"
+              variant="fadeUp"
+              delay={0.1}
               className="mt-6 text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl"
             >
               Questions worth{" "}
               <span className="text-accent">straight answers.</span>
-            </motion.h2>
-          </motion.div>
+            </FadeInView>
+          </div>
 
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
+          <FadeInView
+            variant="fadeUp"
+            delay={0.15}
             className="mt-14 divide-y divide-black/10 border-t border-black/10"
           >
             {faqData.map((faq, index) => {
               const open = openFaq === index;
               return (
-                <motion.div key={faq.question} variants={item}>
+                <div key={faq.question}>
                   <button
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
@@ -1620,59 +1491,51 @@ export default function SocialMediaMarketingPage() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </FadeInView>
         </div>
       </section>
 
-      {/* ── Section 15: Final CTA ─────────────────────────────────────────────── */}
+      {/* ── Section 16: Final CTA ─────────────────────────────────────────────── */}
       <section className="w-full bg-black py-20 sm:py-24">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <motion.p
-              variants={fadeUp}
-              className="text-sm font-bold uppercase tracking-widest text-white/40"
-            >
+          <FadeInView variant="fadeUp" className="inline-block">
+            <p className="text-sm font-bold uppercase tracking-widest text-white/40">
               Ready to start
-            </motion.p>
-            <motion.h2
-              variants={fadeUp}
-              className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
+            </p>
+          </FadeInView>
+          <FadeInView
+            as="h2"
+            variant="fadeUp"
+            delay={0.1}
+            className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
+          >
+            Your content isn&apos;t the problem.
+            <br />
+            <span className="text-accent">Your strategy is.</span>
+          </FadeInView>
+          <FadeInView variant="fadeUp" delay={0.2} className="mx-auto mt-6 max-w-xl text-base leading-7 text-white/60 sm:text-lg">
+            Book a strategy call and we&apos;ll audit your current social media presence,
+            identify where the gaps are, and show you exactly how we&apos;d approach building
+            a system that actually contributes to your business.
+          </FadeInView>
+          <FadeInView
+            variant="fadeUp"
+            delay={0.3}
+            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          >
+            <CTAButton href="/contact" variant="inverted" size="lg">
+              Book a Strategy Call
+            </CTAButton>
+            <Link
+              href="/industries"
+              className="text-sm font-semibold text-white/50 transition-colors duration-300 hover:text-white"
             >
-              Your content isn&apos;t the problem.
-              <br />
-              <span className="text-accent">Your strategy is.</span>
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              className="mx-auto mt-6 max-w-xl text-base leading-7 text-white/60 sm:text-lg"
-            >
-              Book a strategy call and we&apos;ll audit your current social media presence,
-              identify where the gaps are, and show you exactly how we&apos;d approach building
-              a system that actually contributes to your business.
-            </motion.p>
-            <motion.div
-              variants={fadeUp}
-              className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
-            >
-              <CTAButton href="/contact" variant="inverted" size="lg">
-                Book a Strategy Call
-              </CTAButton>
-              <Link
-                href="/industries"
-                className="text-sm font-semibold text-white/50 transition-colors duration-300 hover:text-white"
-              >
-                View Our Work →
-              </Link>
-            </motion.div>
-          </motion.div>
+              View Our Work →
+            </Link>
+          </FadeInView>
         </div>
       </section>
     </>
