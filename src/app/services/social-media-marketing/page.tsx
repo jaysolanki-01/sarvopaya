@@ -6,10 +6,8 @@ import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import Testimonials from "@/components/Testimonials";
 import { FadeInView } from "@/components/animation";
+import { PlatformOrbit, PLATFORM_DATA, type PlatformId } from "@/components/PlatformOrbit";
 import {
-  InstagramIcon,
-  FacebookIcon,
-  LinkedInIcon,
   YoutubeIcon,
   MegaphoneIcon,
   ChartIcon,
@@ -201,49 +199,6 @@ const services: Service[] = [
   },
 ];
 
-type Platform = {
-  icon: ComponentType<{ className?: string }>;
-  name: string;
-  bestFor: string;
-  when: string;
-  notFor: string;
-  formats: string[];
-};
-
-const platforms: Platform[] = [
-  {
-    icon: InstagramIcon,
-    name: "Instagram",
-    bestFor: "Visual storytelling, brand discovery, D2C and lifestyle brands.",
-    when: "When your product or service has strong visual appeal and your audience uses Instagram for discovery and inspiration. B2C brands, food, fashion, beauty, wellness, hospitality, and creator-economy products.",
-    notFor: "Complex B2B sales with long decision cycles and senior decision-makers who aren't active on the platform.",
-    formats: ["Reels", "Carousels", "Stories", "Static posts", "DMs for conversion"],
-  },
-  {
-    icon: LinkedInIcon,
-    name: "LinkedIn",
-    bestFor: "B2B authority, founder positioning, lead generation, thought leadership.",
-    when: "When you're selling to businesses, professionals, or decision-makers. If your buyer is a founder, manager, director, or C-suite, LinkedIn is the highest-intent B2B platform available.",
-    notFor: "Impulse purchase products and highly visual consumer brands with no professional angle.",
-    formats: ["Text posts", "Document carousels", "Short-form video", "Newsletters", "Lead Gen Forms"],
-  },
-  {
-    icon: YoutubeIcon,
-    name: "YouTube",
-    bestFor: "Long-form education, search visibility, brand authority, evergreen content.",
-    when: "When your audience needs to understand something before buying, complex products, professional services, SaaS, education, and industries where trust is built through demonstrated expertise.",
-    notFor: "Brands with no capacity for regular video production or those needing fast results.",
-    formats: ["Long-form explainers", "Tutorials", "Case studies", "Shorts", "Webinar recordings"],
-  },
-  {
-    icon: FacebookIcon,
-    name: "Facebook",
-    bestFor: "Community, remarketing, local business, and broader audience reach.",
-    when: "When you have an existing audience to retarget, you're running local campaigns, or you want to build a community around a product or interest. Facebook Groups remain one of the strongest organic community formats available.",
-    notFor: "Brands targeting Gen Z exclusively or trying to drive organic discovery without paid support.",
-    formats: ["Groups", "Ads", "Video", "Events", "Marketplace"],
-  },
-];
 
 type Industry = {
   label: string;
@@ -508,6 +463,7 @@ export default function SocialMediaMarketingPage() {
   const [activeService, setActiveService] = useState<number | null>(0);
   const [activeIndustry, setActiveIndustry] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<PlatformId>("instagram");
 
   const activeInd = industries[activeIndustry];
 
@@ -875,9 +831,10 @@ export default function SocialMediaMarketingPage() {
         </div>
       </section>
 
-      {/* ── Section 5: Platform Strategy ─────────────────────────────────────── */}
+      {/* ── Section 5: Platform Strategy — Orbit ─────────────────────────────── */}
       <section className="w-full bg-neutral-50 py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Header */}
           <div className="max-w-3xl">
             <FadeInView>
               <SectionLabel>Platform Strategy</SectionLabel>
@@ -892,42 +849,96 @@ export default function SocialMediaMarketingPage() {
               <span className="text-accent">right for every business.</span>
             </FadeInView>
             <FadeInView variant="fadeUp" delay={0.2} className="mt-4 max-w-2xl text-base leading-7 text-black/60">
-              Platform selection should be based on your audience, business model, content format,
-              sales cycle, and objective, not because a competitor is there or because a platform
-              is currently trending. We help you focus where it matters.
+              Click a platform to understand when it works, when it doesn&apos;t, and what formats
+              to build on it. Platform selection should follow your audience, not your competitors.
             </FadeInView>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {platforms.map((platform, i) => (
-              <FadeInView key={platform.name} delay={i * 0.1} start="top 90%">
-                <div className="group relative flex flex-col overflow-hidden rounded-3xl border border-black/10 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/5 h-full">
-                  <div className="flex items-center gap-4">
-                    <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-black/[0.04] text-black transition-colors duration-500 group-hover:bg-black group-hover:text-white">
-                      <platform.icon className="h-7 w-7" />
-                    </span>
-                    <h3 className="font-heading text-xl font-bold text-black">{platform.name}</h3>
+          {/* Orbit + Detail panel */}
+          <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
+
+            {/* Orbit visualization */}
+            <FadeInView variant="fadeIn" className="relative overflow-hidden rounded-3xl bg-black p-6 sm:p-8">
+              <p className="mb-4 text-center text-[11px] font-bold uppercase tracking-widest text-white/25">
+                Select a platform
+              </p>
+              <PlatformOrbit selected={selectedPlatform} onSelect={setSelectedPlatform} />
+
+              {/* Mobile tab-row fallback for discoverability */}
+              <div className="mt-5 flex justify-center gap-3 lg:hidden">
+                {(Object.keys(PLATFORM_DATA) as PlatformId[]).map((id) => {
+                  const p = PLATFORM_DATA[id];
+                  return (
+                    <button
+                      key={id}
+                      onClick={() => setSelectedPlatform(id)}
+                      className="rounded-full border px-4 py-1.5 text-xs font-semibold transition-all duration-300"
+                      style={{
+                        borderColor: selectedPlatform === id ? p.color : "rgba(255,255,255,0.15)",
+                        color: selectedPlatform === id ? p.color : "rgba(255,255,255,0.4)",
+                        backgroundColor: selectedPlatform === id ? `${p.color}18` : "transparent",
+                      }}
+                    >
+                      {p.abbr}
+                    </button>
+                  );
+                })}
+              </div>
+            </FadeInView>
+
+            {/* Detail panel — swaps on selection */}
+            <div className="relative min-h-[340px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedPlatform}
+                  initial={{ opacity: 0, x: 16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.32, ease: EASE }}
+                  className="flex flex-col"
+                >
+                  {/* Platform name + color dot */}
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="h-3 w-3 rounded-full"
+                      style={{ backgroundColor: PLATFORM_DATA[selectedPlatform].color }}
+                    />
+                    <h3 className="font-heading text-2xl font-bold text-black sm:text-3xl">
+                      {PLATFORM_DATA[selectedPlatform].label}
+                    </h3>
                   </div>
 
-                  <div className="mt-6 flex flex-col gap-4">
+                  <div className="mt-6 flex flex-col gap-5">
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                        Best for
+                      </p>
+                      <p className="mt-1.5 text-sm leading-6 text-black/70">
+                        {PLATFORM_DATA[selectedPlatform].bestFor}
+                      </p>
+                    </div>
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
                         Use it when
                       </p>
-                      <p className="mt-1.5 text-sm leading-6 text-black/70">{platform.when}</p>
+                      <p className="mt-1.5 text-sm leading-6 text-black/70">
+                        {PLATFORM_DATA[selectedPlatform].when}
+                      </p>
                     </div>
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
                         Less suited for
                       </p>
-                      <p className="mt-1.5 text-sm leading-6 text-black/60">{platform.notFor}</p>
+                      <p className="mt-1.5 text-sm leading-6 text-black/60">
+                        {PLATFORM_DATA[selectedPlatform].notFor}
+                      </p>
                     </div>
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
                         Key formats
                       </p>
                       <div className="mt-2 flex flex-wrap gap-2">
-                        {platform.formats.map((f) => (
+                        {PLATFORM_DATA[selectedPlatform].formats.map((f) => (
                           <span
                             key={f}
                             className="rounded-full border border-black/10 px-3 py-1 text-[11px] font-semibold text-black/50"
@@ -938,9 +949,15 @@ export default function SocialMediaMarketingPage() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </FadeInView>
-            ))}
+
+                  <div className="mt-8">
+                    <CTAButton href="/contact" variant="primary" size="sm">
+                      Discuss {PLATFORM_DATA[selectedPlatform].label} Strategy
+                    </CTAButton>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </section>
