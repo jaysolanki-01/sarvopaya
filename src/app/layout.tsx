@@ -93,6 +93,7 @@ const localBusinessSchema = {
   "@id": "https://www.sarvopaya.com/#localbusiness",
   name: "Sarvopaya",
   alternateName: "Sarvopaya Digital",
+  disambiguatingDescription: "Sarvopaya is a digital growth and AI automation agency based in Ahmedabad, India — distinct from Sarvodaya.",
   url: siteUrl,
   logo: `${siteUrl}/images/Main_icon.png`,
   image: `${siteUrl}/images/Main_icon.png`,
@@ -151,8 +152,10 @@ const localBusinessSchema = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.sarvopaya.com/#organization",
   name: siteName,
   alternateName: "Sarvopaya Digital",
+  disambiguatingDescription: "Sarvopaya is a digital growth and AI automation agency based in Ahmedabad, India — distinct from Sarvodaya.",
   url: siteUrl,
   logo: `${siteUrl}/images/Main_icon.png`,
   description: siteDescription,
@@ -187,12 +190,22 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://www.sarvopaya.com/#website",
   name: "Sarvopaya",
   alternateName: [
     "Sarvopaya Digital",
     "sarvopaya.com",
   ],
   url: "https://www.sarvopaya.com/",
+  inLanguage: "en",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://www.sarvopaya.com/?s={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export default async function RootLayout({
