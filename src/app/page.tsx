@@ -9,6 +9,7 @@ import RetentionRing from "@/components/RetentionRing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
+import { InstagramFeed } from "@/components/InstagramFeed";
 
 export const metadata: Metadata = {
   title: "Sarvopaya | Digital Growth, Marketing & AI Automation Agency",
@@ -43,6 +44,7 @@ export default function Home() {
       <HowItWorks />
       <Testimonials />
       <FAQ />
+      <InstagramFeed limit={6} />
       <FinalCTA />
     </>
   );

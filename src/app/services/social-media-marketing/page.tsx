@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
+import { InstagramFeedWidget } from "@/components/InstagramFeedWidget";
 import Testimonials from "@/components/Testimonials";
 import { FadeInView } from "@/components/animation";
 import { PlatformOrbit, PLATFORM_DATA, type PlatformId } from "@/components/PlatformOrbit";
@@ -1555,6 +1556,8 @@ export default function SocialMediaMarketingPage() {
           </FadeInView>
         </div>
       </section>
+
+      <InstagramFeedWidget limit={6} />
     </>
   );
 }
