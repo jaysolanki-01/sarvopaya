@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { EASE, DURATION } from "@/lib/animation";
 
+gsap.registerPlugin(ScrollTrigger);
+
 interface FadeInViewProps {
   children: ReactNode;
   /** Animation variant */
@@ -30,7 +32,7 @@ export function FadeInView({
   duration = DURATION.base,
   yOffset = 40,
   xOffset = 60,
-  start = "top 88%",
+  start = "top 90%",
   once = true,
   className,
   style,
@@ -54,10 +56,13 @@ export function FadeInView({
 
       gsap.from(el, {
         ...fromVars,
+        clearProps: "transform,opacity",
         scrollTrigger: {
           trigger: el,
           start,
           once,
+          fastScrollEnd: true,
+          invalidateOnRefresh: true,
         },
       });
     },

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -31,11 +31,6 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 };
 
 const fadeUp = {
@@ -469,7 +464,7 @@ export default function SocialMediaMarketingPage() {
   const activeInd = industries[activeIndustry];
 
   return (
-    <>
+    <div className="w-full overflow-x-clip">
       {/* Schema */}
       <script
         type="application/ld+json"
@@ -750,80 +745,87 @@ export default function SocialMediaMarketingPage() {
             delay={0.1}
             className="mt-10 border-t border-black/20"
           >
-            <div
-              onMouseLeave={() => setActiveService(null)}
-            >
+            <div>
               {services.map((service, index) => {
                 const isActive = activeService === index;
                 return (
                   <div
                     key={service.title}
-                    onMouseEnter={() => setActiveService(index)}
-                    onClick={() => setActiveService(index)}
-                    className="cursor-pointer border-b border-black/20 py-7 transition-colors"
+                    className="border-b border-black/20 transition-colors"
                   >
-                    <div className="flex items-center gap-3 sm:gap-8">
-                      <span className="w-8 shrink-0 font-heading text-sm font-bold text-black/30 sm:w-16 sm:text-lg">
-                        ({String(index + 1).padStart(2, "0")})
-                      </span>
-                      <motion.div
-                        layout
-                        transition={{ duration: 0.5, ease: EASE }}
-                        className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-black ${
-                          isActive ? "h-16 w-24 sm:h-40 sm:w-64" : "h-10 w-16 sm:h-16 sm:w-24"
-                        }`}
-                      >
-                        <service.icon
-                          className={`text-white/20 transition-all duration-500 ${
-                            isActive ? "h-14 w-14 sm:h-16 sm:w-16" : "h-7 w-7"
+                    <button
+                      type="button"
+                      onClick={() => setActiveService(isActive ? null : index)}
+                      aria-expanded={isActive}
+                      className="flex w-full cursor-pointer items-center justify-between gap-4 py-7 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                    >
+                      <div className="flex items-center gap-3 sm:gap-8">
+                        <span className="w-8 shrink-0 font-heading text-sm font-bold text-black/30 sm:w-16 sm:text-lg">
+                          ({String(index + 1).padStart(2, "0")})
+                        </span>
+                        <div
+                          className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-black transition-all duration-300 ${
+                            isActive ? "h-14 w-20 sm:h-20 sm:w-32" : "h-10 w-16 sm:h-16 sm:w-24"
                           }`}
-                        />
-                      </motion.div>
-                      <h3
-                        className={`font-heading font-bold uppercase tracking-tight transition-all duration-500 ${
-                          isActive
-                            ? "text-lg text-black sm:text-3xl lg:text-4xl"
-                            : "text-base text-black/40 sm:text-2xl"
-                        }`}
-                      >
-                        {service.title}
-                      </h3>
-                    </div>
+                        >
+                          <service.icon
+                            className={`text-white/25 transition-all duration-300 ${
+                              isActive ? "h-8 w-8 sm:h-10 sm:w-10 text-accent" : "h-7 w-7"
+                            }`}
+                          />
+                        </div>
+                        <h3
+                          className={`font-heading font-bold uppercase tracking-tight transition-colors duration-300 ${
+                            isActive
+                              ? "text-lg text-black sm:text-3xl lg:text-4xl"
+                              : "text-base text-black/45 hover:text-black sm:text-2xl"
+                          }`}
+                        >
+                          {service.title}
+                        </h3>
+                      </div>
+                      <PlusIcon open={isActive} />
+                    </button>
 
-                    {isActive && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
-                        className="mt-6 pl-10 sm:pl-[6.5rem]"
-                      >
-                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-                          <div>
-                            <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                              What it is
-                            </p>
-                            <p className="mt-2 text-sm leading-6 text-black/70">{service.what}</p>
+                    <AnimatePresence initial={false}>
+                      {isActive && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35, ease: EASE }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-8 pt-2 pl-10 sm:pl-[6.5rem]">
+                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                              <div>
+                                <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                                  What it is
+                                </p>
+                                <p className="mt-2 text-sm leading-6 text-black/70">{service.what}</p>
+                              </div>
+                              <div>
+                                <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                                  What we do
+                                </p>
+                                <p className="mt-2 text-sm leading-6 text-black/70">{service.how}</p>
+                              </div>
+                              <div>
+                                <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
+                                  Why it matters
+                                </p>
+                                <p className="mt-2 text-sm leading-6 text-black/70">{service.why}</p>
+                              </div>
+                            </div>
+                            <div className="mt-6">
+                              <CTAButton href="/contact" variant="primary" size="sm">
+                                Discuss This Service
+                              </CTAButton>
+                            </div>
                           </div>
-                          <div>
-                            <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                              What we do
-                            </p>
-                            <p className="mt-2 text-sm leading-6 text-black/70">{service.how}</p>
-                          </div>
-                          <div>
-                            <p className="text-[11px] font-bold uppercase tracking-widest text-black/30">
-                              Why it matters
-                            </p>
-                            <p className="mt-2 text-sm leading-6 text-black/70">{service.why}</p>
-                          </div>
-                        </div>
-                        <div className="mt-6">
-                          <CTAButton href="/contact" variant="primary" size="sm">
-                            Discuss This Service
-                          </CTAButton>
-                        </div>
-                      </motion.div>
-                    )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               })}
@@ -1558,6 +1560,6 @@ export default function SocialMediaMarketingPage() {
       </section>
 
       <InstagramFeedWidget limit={6} />
-    </>
+    </div>
   );
 }

@@ -24,6 +24,24 @@ button, a, input, label, select, textarea, [role="button"] {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Official Lenis compatibility overrides (prevents conflict with html.h-full & scroll-smooth) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
 /* Safe-area utility for notch / home-bar padding */
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px);

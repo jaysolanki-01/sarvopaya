@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -130,6 +130,7 @@ export default function Testimonials() {
                 animate="center"
                 exit="exit"
                 drag="x"
+                dragDirectionLock
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.6}
                 onDragEnd={(_, dragInfo) => {
@@ -137,7 +138,7 @@ export default function Testimonials() {
                   else if (dragInfo.offset.x > 80) paginate(-1);
                 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="relative cursor-grab active:cursor-grabbing"
+                className="relative cursor-grab touch-pan-y active:cursor-grabbing"
               >
                 <p className="text-2xl font-medium leading-snug tracking-tight text-black sm:text-3xl">
                   {current.quote}
