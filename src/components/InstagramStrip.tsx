@@ -4,76 +4,133 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { InstagramIcon } from "@/components/icons";
 import type { InstagramPost } from "@/lib/instagram";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function InstagramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden>
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-    </svg>
-  );
+function formatPostDate(timestamp: string): string {
+  try {
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }).format(new Date(timestamp));
+  } catch {
+    return "";
+  }
 }
 
 function PostCard({ post }: { post: InstagramPost }) {
   const imgSrc =
-    post.media_type === "VIDEO" ? post.thumbnail_url ?? post.media_url : post.media_url;
+    post.media_type === "VIDEO"
+      ? post.thumbnail_url ?? post.media_url
+      : post.media_url;
   const caption = post.caption
-    ? post.caption.length > 100
-      ? post.caption.slice(0, 97) + "…"
+    ? post.caption.length > 115
+      ? post.caption.slice(0, 112) + "…"
       : post.caption
     : null;
+  const formattedDate = formatPostDate(post.timestamp);
 
   return (
     <a
       href={post.permalink}
       target="_blank"
       rel="noopener noreferrer"
-      className="ig-card group relative block flex-none overflow-hidden rounded-xl bg-black/5"
-      style={{ width: "clamp(200px, 24vw, 280px)", aspectRatio: "1" }}
-      aria-label={caption ?? "Instagram post"}
+      className="ig-card group relative block flex-none overflow-hidden rounded-2xl border border-black/10 bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      style={{ width: "clamp(240px, 26vw, 320px)", aspectRatio: "4 / 5" }}
+      aria-label={caption ?? "View Instagram post"}
     >
-      {/* Image */}
       {imgSrc && (
+        // External Instagram CDN URLs rotate dynamically across fbcdn/cdninstagram hosts
+        // eslint-disable-next-line @next/next/no-img-element
         <img
           src={imgSrc}
-          alt={caption ?? ""}
+          alt={caption ?? "Instagram post from Sarvopaya"}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
+          referrerPolicy="no-referrer"
         />
       )}
 
-      {/* Video badge */}
+      {/* Media Type Indicator */}
       {post.media_type === "VIDEO" && (
-        <span className="absolute right-2 top-2 rounded-full bg-black/60 p-1.5 text-white backdrop-blur-sm">
-          <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5" aria-hidden>
+        <span
+          aria-label="Reel or video"
+          className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white backdrop-blur-sm"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="h-3.5 w-3.5 translate-x-0.5"
+            aria-hidden="true"
+          >
             <path d="M8 5v14l11-7z" />
           </svg>
         </span>
       )}
 
-      {/* Hover overlay */}
-      <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        {caption && (
-          <p className="mb-2 text-xs leading-relaxed text-white/90 line-clamp-3">{caption}</p>
+      {post.media_type === "CAROUSEL_ALBUM" && (
+        <span
+          aria-label="Carousel post"
+          className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white backdrop-blur-sm"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="h-3.5 w-3.5"
+            aria-hidden="true"
+          >
+            <rect x="4" y="4" width="12" height="12" rx="2" />
+            <path d="M8 20h10a2 2 0 0 0 2-2V8" />
+          </svg>
+        </span>
+      )}
+
+      {/* Hover Editorial Overlay */}
+      <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+        {formattedDate && (
+          <p className="mb-1.5 text-[11px] font-medium text-white/65">
+            {formattedDate}
+          </p>
         )}
-        <div className="flex items-center gap-1.5 text-white/70">
-          <InstagramIcon />
-          <span className="text-[10px] font-semibold uppercase tracking-widest">View post</span>
+        {caption && (
+          <p className="mb-3 line-clamp-3 text-xs leading-relaxed text-white/95">
+            {caption}
+          </p>
+        )}
+        <div className="flex items-center gap-2 text-xs font-semibold text-white">
+          <InstagramIcon className="h-3.5 w-3.5 text-accent" />
+          <span>View on Instagram</span>
+          <span aria-hidden="true">&rarr;</span>
         </div>
       </div>
     </a>
   );
 }
 
-interface InstagramStripProps {
+export interface InstagramStripProps {
   posts: InstagramPost[];
   handle?: string;
+  kicker?: string;
+  heading?: string;
+  subheading?: string;
+  sectionId?: string;
 }
 
-export function InstagramStrip({ posts, handle = "sarvopaya" }: InstagramStripProps) {
+export function InstagramStrip({
+  posts,
+  handle = "sarvopaya",
+  kicker = "Social",
+  heading = "Follow us on Instagram",
+  subheading = "Daily D2C growth breakdowns, ad creative teardowns, and behind-the-scenes playbooks.",
+  sectionId,
+}: InstagramStripProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -83,66 +140,160 @@ export function InstagramStrip({ posts, handle = "sarvopaya" }: InstagramStripPr
 
       const header = section.querySelector(".ig-header");
       const cards = section.querySelectorAll<HTMLElement>(".ig-card");
+      const targets = [header, ...Array.from(cards)].filter(Boolean);
+      if (!targets.length) return;
 
-      gsap.set([header, ...cards], { opacity: 0, y: 32 });
+      gsap.set(targets, { opacity: 0, y: 24 });
 
       const tl = gsap.timeline({
         scrollTrigger: { trigger: section, start: "top 85%", once: true },
       });
 
-      tl.to(header, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0).to(
-        cards,
-        { opacity: 1, y: 0, duration: 0.55, stagger: 0.08, ease: "power2.out" },
-        0.15,
-      );
+      if (header) {
+        tl.to(header, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 0);
+      }
+      if (cards.length) {
+        tl.to(
+          cards,
+          { opacity: 1, y: 0, duration: 0.5, stagger: 0.07, ease: "power2.out" },
+          0.12,
+        );
+      }
     },
-    { scope: sectionRef },
+    { scope: sectionRef, dependencies: [posts.length] },
   );
 
+  const scrollByCard = (direction: -1 | 1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollBy({ left: direction * 340, behavior: "smooth" });
+  };
+
+  const profileUrl = `https://www.instagram.com/${handle}/`;
+
   return (
-    <section ref={sectionRef} className="py-16 md:py-24">
+    <section
+      id={sectionId}
+      ref={sectionRef}
+      className="w-full border-b border-black/10 bg-white py-20 sm:py-24"
+    >
       {/* Header */}
-      <div className="ig-header mx-auto mb-10 flex max-w-7xl flex-col items-start gap-1 px-6 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <span className="mb-1 inline-block text-[10px] font-bold uppercase tracking-widest text-black/40">
-            Social
-          </span>
-          <h2 className="text-2xl font-bold tracking-tight text-black sm:text-3xl">
-            Follow us on Instagram
-          </h2>
+      <div className="ig-header mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <p className="text-sm font-medium text-accent">{kicker}</p>
+            <h2
+              className="mt-2 font-heading text-3xl font-bold tracking-tight text-black sm:text-4xl"
+              style={{ textWrap: "balance" }}
+            >
+              {heading}
+            </h2>
+            {subheading && (
+              <p className="mt-3 text-sm leading-relaxed text-black/65 sm:text-base">
+                {subheading}
+              </p>
+            )}
+          </div>
+
+          <div className="flex items-center gap-3">
+            {posts.length > 0 && (
+              <div className="hidden items-center gap-2 sm:flex">
+                <button
+                  type="button"
+                  onClick={() => scrollByCard(-1)}
+                  aria-label="Scroll Instagram posts left"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-black/15 text-black transition-colors hover:border-black hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <span aria-hidden="true">&larr;</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollByCard(1)}
+                  aria-label="Scroll Instagram posts right"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-black/15 text-black transition-colors hover:border-black hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <span aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+            )}
+
+            <a
+              href={profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center gap-2 whitespace-nowrap rounded-full border border-black/15 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:border-black hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <InstagramIcon className="h-4 w-4" />
+              <span>@{handle}</span>
+            </a>
+          </div>
         </div>
-        <a
-          href={`https://www.instagram.com/${handle}/`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sm font-semibold text-black/50 transition-colors hover:text-black"
-        >
-          <InstagramIcon />
-          @{handle}
-        </a>
       </div>
 
-      {/* Scrollable strip */}
-      <div className="relative">
-        {/* Fade edges */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-white to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white to-transparent" />
+      {/* Live Posts Strip OR Direct Channel Card */}
+      {posts.length > 0 ? (
+        <div className="relative mt-10">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-white to-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white to-transparent"
+          />
 
-        <div
-          className="flex gap-4 overflow-x-auto px-6 pb-2 scrollbar-hide"
-          style={{ scrollSnapType: "x mandatory" }}
-        >
-          {/* Left spacer so first card clears the left edge fade */}
-          <div className="flex-none" style={{ width: "max(0px, calc((100vw - 1280px)/2))" }} />
-          {posts.map((post) => (
-            <div key={post.id} style={{ scrollSnapAlign: "start" }}>
-              <PostCard post={post} />
+          <div
+            ref={scrollerRef}
+            className="flex gap-5 overflow-x-auto px-4 pb-3 sm:px-6 scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory" }}
+          >
+            <div
+              className="flex-none"
+              style={{ width: "max(0px, calc((100vw - 1280px) / 2))" }}
+            />
+            {posts.map((post) => (
+              <div key={post.id} style={{ scrollSnapAlign: "start" }}>
+                <PostCard post={post} />
+              </div>
+            ))}
+            <div
+              className="flex-none"
+              style={{ width: "max(0px, calc((100vw - 1280px) / 2))" }}
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="mx-auto mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="ig-card flex flex-col items-start justify-between gap-8 rounded-2xl border border-black/10 bg-neutral-50 p-7 sm:p-10 lg:flex-row lg:items-center">
+            <div className="flex items-start gap-4 sm:items-center">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-black text-white">
+                <InstagramIcon className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="font-heading text-xl font-bold text-black">
+                  @{handle}
+                </p>
+                <p className="mt-1 max-w-xl text-sm leading-relaxed text-black/65">
+                  Watch short-form D2C unit economics breakdowns, Meta &amp;
+                  Google ad creative audits, CRO teardowns, and founder notes
+                  directly on Instagram.
+                </p>
+              </div>
             </div>
-          ))}
-          {/* Right spacer */}
-          <div className="flex-none" style={{ width: "max(0px, calc((100vw - 1280px)/2))" }} />
+
+            <a
+              href={profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-black px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <InstagramIcon className="h-4 w-4" />
+              <span>Open @{handle} on Instagram</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

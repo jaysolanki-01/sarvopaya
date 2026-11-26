@@ -3,6 +3,7 @@ import AuthorProfileClient from "@/components/AuthorProfileClient";
 import { blogPosts } from "@/lib/blogPosts";
 import { founderPovs } from "@/lib/founderPovs";
 import { AUTHOR_PERSON_SCHEMA, ORGANIZATION_SCHEMA } from "@/lib/authorSchema";
+import { fetchInstagramPosts } from "@/lib/instagram";
 
 const AUTHOR_URL = "https://www.sarvopaya.com/author/jay-solanki";
 
@@ -67,7 +68,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function JaySolankiAuthorPage() {
+export default async function JaySolankiAuthorPage() {
+  const instagramPosts = await fetchInstagramPosts(6);
+
   const jayArticles = [...blogPosts]
     .reverse()
     .filter((p) => p.author === "Jay Solanki")
@@ -214,7 +217,11 @@ export default function JaySolankiAuthorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <AuthorProfileClient articles={jayArticles} povs={jayPovs} />
+      <AuthorProfileClient
+        articles={jayArticles}
+        povs={jayPovs}
+        instagramPosts={instagramPosts}
+      />
     </>
   );
 }

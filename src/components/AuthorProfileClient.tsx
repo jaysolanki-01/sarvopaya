@@ -5,6 +5,8 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
+import { InstagramStrip } from "@/components/InstagramStrip";
+import type { InstagramPost } from "@/lib/instagram";
 import {
   LinkedInIcon,
   InstagramIcon,
@@ -36,6 +38,7 @@ export type AuthorPovSummary = {
 interface AuthorProfileClientProps {
   articles: AuthorArticleSummary[];
   povs: AuthorPovSummary[];
+  instagramPosts: InstagramPost[];
 }
 
 const EXPERTISE_AREAS = [
@@ -304,6 +307,7 @@ const AUTHOR_FAQS = [
 export default function AuthorProfileClient({
   articles,
   povs,
+  instagramPosts,
 }: AuthorProfileClientProps) {
   const prefersReduced = useReducedMotion();
   const [activeFrameworkId, setActiveFrameworkId] = useState(FRAMEWORKS[0].id);
@@ -1101,11 +1105,21 @@ export default function AuthorProfileClient({
         </div>
       </section>
 
-      {/* ── 06. AUTHOR FAQ (AEO / E-E-A-T) ── */}
+      {/* ── 06. LIVE INSTAGRAM FEED ── */}
+      <InstagramStrip
+        posts={instagramPosts}
+        handle="sarvopaya"
+        sectionId="instagram-feed"
+        kicker="05. Live on Instagram"
+        heading="Latest from @sarvopaya"
+        subheading="Short-form D2C unit economics breakdowns, ad creative teardowns, and founder notes published live on Instagram."
+      />
+
+      {/* ── 07. AUTHOR FAQ (AEO / E-E-A-T) ── */}
       <section className="w-full bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-medium text-accent">
-            05. Frequently Asked Questions
+            06. Frequently Asked Questions
           </p>
           <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-black sm:text-4xl">
             About Jay Solanki &amp; Advisory

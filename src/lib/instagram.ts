@@ -11,7 +11,6 @@ export interface InstagramPost {
 export async function fetchInstagramPosts(limit = 6): Promise<InstagramPost[]> {
   const token = process.env.INSTAGRAM_ACCESS_TOKEN;
   if (!token) {
-    console.warn("[Instagram] INSTAGRAM_ACCESS_TOKEN not set");
     return [];
   }
 
@@ -19,20 +18,27 @@ export async function fetchInstagramPosts(limit = 6): Promise<InstagramPost[]> {
   const opts: RequestInit = { next: { revalidate: 3600 } };
 
   try {
-    // Fast path: user ID already known
+    // Fast path: user ID already known (try Facebook Graph API, then Instagram Graph API)
     const userId = process.env.INSTAGRAM_USER_ID;
     if (userId) {
-      const res = await fetch(
-        `https://graph.facebook.com/v19.0/${userId}/media?fields=${fields}&limit=${limit}&access_token=${token}`,
+      const fbRes = await fetch(
+        `https://graph.facebook.com/v21.0/${userId}/media?fields=${fields}&limit=${limit}&access_token=${token}`,
         opts,
       );
-      const data = await res.json();
-      if (data.data) return data.data as InstagramPost[];
+      const fbData = await fbRes.json();
+      if (Array.isArray(fbData.data)) return fbData.data as InstagramPost[];
+
+      const igRes = await fetch(
+        `https://graph.instagram.com/v21.0/${userId}/media?fields=${fields}&limit=${limit}&access_token=${token}`,
+        opts,
+      );
+      const igData = await igRes.json();
+      if (Array.isArray(igData.data)) return igData.data as InstagramPost[];
     }
 
     // Discovery path 1: Facebook Pages → Instagram Business Account
     const pagesRes = await fetch(
-      `https://graph.facebook.com/v19.0/me/accounts?access_token=${token}`,
+      `https://graph.facebook.com/v21.0/me/accounts?access_token=${token}`,
       opts,
     );
     const pagesData = await pagesRes.json();
@@ -40,32 +46,30 @@ export async function fetchInstagramPosts(limit = 6): Promise<InstagramPost[]> {
     if (pagesData.data?.length) {
       const pageId = pagesData.data[0].id;
       const pageRes = await fetch(
-        `https://graph.facebook.com/v19.0/${pageId}?fields=instagram_business_account&access_token=${token}`,
+        `https://graph.facebook.com/v21.0/${pageId}?fields=instagram_business_account&access_token=${token}`,
         opts,
       );
       const pageData = await pageRes.json();
       const igId: string | undefined = pageData.instagram_business_account?.id;
 
       if (igId) {
-        console.log("[Instagram] user ID:", igId, "— add as INSTAGRAM_USER_ID in env");
         const mediaRes = await fetch(
-          `https://graph.facebook.com/v19.0/${igId}/media?fields=${fields}&limit=${limit}&access_token=${token}`,
+          `https://graph.facebook.com/v21.0/${igId}/media?fields=${fields}&limit=${limit}&access_token=${token}`,
           opts,
         );
         const mediaData = await mediaRes.json();
-        if (mediaData.data) return mediaData.data as InstagramPost[];
+        if (Array.isArray(mediaData.data)) return mediaData.data as InstagramPost[];
       }
     }
 
-    // Discovery path 2: Instagram Basic Display API (personal/creator accounts)
-    const basicRes = await fetch(
-      `https://graph.instagram.com/me/media?fields=${fields}&limit=${limit}&access_token=${token}`,
+    // Discovery path 2: Instagram API with Instagram Login
+    const igMeRes = await fetch(
+      `https://graph.instagram.com/v21.0/me/media?fields=${fields}&limit=${limit}&access_token=${token}`,
       opts,
     );
-    const basicData = await basicRes.json();
-    if (basicData.data) return basicData.data as InstagramPost[];
+    const igMeData = await igMeRes.json();
+    if (Array.isArray(igMeData.data)) return igMeData.data as InstagramPost[];
 
-    console.warn("[Instagram] could not fetch posts:", JSON.stringify(basicData));
     return [];
   } catch (err) {
     console.error("[Instagram] fetch error:", err);
