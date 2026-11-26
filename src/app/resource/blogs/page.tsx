@@ -58,8 +58,9 @@ export default function BlogsPage() {
       url: "https://www.sarvopaya.com/resource/blogs",
       author: {
         "@type": "Person",
-        "@id": "https://www.sarvopaya.com/about#jay-solanki",
+        "@id": "https://www.sarvopaya.com/author/jay-solanki#jay-solanki",
         name: "Jay Solanki",
+        url: "https://www.sarvopaya.com/author/jay-solanki",
       },
       blogPost: blogPosts.map((post) => ({
         "@type": "BlogPosting",
@@ -69,10 +70,10 @@ export default function BlogsPage() {
         url: `https://www.sarvopaya.com/${post.slug}`,
         author: {
           "@type": "Person",
-          "@id": "https://www.sarvopaya.com/about#jay-solanki",
+          "@id": "https://www.sarvopaya.com/author/jay-solanki#jay-solanki",
           name: post.author,
           jobTitle: "Founder & Growth Architect",
-          url: "https://www.sarvopaya.com/about",
+          url: "https://www.sarvopaya.com/author/jay-solanki",
         },
       })),
     },
@@ -235,8 +236,8 @@ export default function BlogsPage() {
 
                   {/* Author and Action footer */}
                   <div className="mt-8 flex items-center justify-between border-t border-black/6 pt-5">
-                    <div className="flex items-center gap-3">
-                      <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full bg-black/5 ring-1 ring-black/10">
+                    <Link href="/author/jay-solanki" className="flex items-center gap-3 group/author">
+                      <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full bg-black/5 ring-1 ring-black/10 transition-all group-hover/author:ring-accent">
                         <Image
                           src="/images/jay-solanki.png"
                           alt={post.author}
@@ -246,10 +247,10 @@ export default function BlogsPage() {
                         />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-black">{post.author}</p>
+                        <p className="text-xs font-bold text-black transition-colors group-hover/author:text-accent">{post.author}</p>
                         <p className="text-[10px] text-black/40">Sarvopaya Editorial</p>
                       </div>
-                    </div>
+                    </Link>
 
                     <Link
                       href={`/${post.slug}`}

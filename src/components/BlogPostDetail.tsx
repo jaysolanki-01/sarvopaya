@@ -289,19 +289,28 @@ export default function BlogPostDetail({
 
             {/* Author */}
             <motion.div variants={up} className="mt-8 flex items-center gap-3">
-              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full">
-                <Image
-                  src="/images/jay-solanki.png"
-                  alt="Jay Solanki"
-                  fill
-                  sizes="44px"
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-black">{post.author}</p>
-                <p className="text-xs text-black/40">Founder, Sarvopaya</p>
-              </div>
+              <Link
+                href="/author/jay-solanki"
+                className="group inline-flex items-center gap-3"
+              >
+                <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-1 ring-black/10 transition-all group-hover:ring-accent">
+                  <Image
+                    src="/images/jay-solanki.png"
+                    alt={post.author}
+                    fill
+                    sizes="44px"
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-black transition-colors group-hover:text-accent">
+                    {post.author}
+                  </p>
+                  <p className="text-xs text-black/45">
+                    Founder &amp; Growth Architect, Sarvopaya
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -457,7 +466,10 @@ export default function BlogPostDetail({
               className="rounded-3xl border border-black/8 bg-black/[0.02] p-6 sm:p-8"
             >
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-black/10 bg-black/5 shadow-sm">
+                <Link
+                  href="/author/jay-solanki"
+                  className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-black/10 bg-black/5 shadow-sm transition-opacity hover:opacity-90"
+                >
                   <Image
                     src="/images/jay-solanki.png"
                     alt={post.author}
@@ -465,7 +477,7 @@ export default function BlogPostDetail({
                     sizes="80px"
                     className="object-cover"
                   />
-                </div>
+                </Link>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-black/50">
@@ -477,17 +489,22 @@ export default function BlogPostDetail({
                     </span>
                   </div>
                   <h3 className="mt-1 text-xl font-black text-black">
-                    {post.author}
+                    <Link
+                      href="/author/jay-solanki"
+                      className="transition-colors hover:text-accent"
+                    >
+                      {post.author}
+                    </Link>
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-black/65">
                     Jay Solanki is the Founder and Growth Architect at Sarvopaya. He specializes in full-funnel direct-to-consumer marketing, unit economics engineering (CM1, CM2, CM3), creative testing velocity, and automated customer retention systems for high-growth online brands.
                   </p>
                   <div className="mt-4 flex flex-wrap items-center gap-4 text-xs font-bold text-black">
                     <Link
-                      href="/about"
-                      className="inline-flex items-center gap-1 text-black transition-colors hover:text-black/60 hover:underline"
+                      href="/author/jay-solanki"
+                      className="inline-flex items-center gap-1 text-black transition-colors hover:text-accent hover:underline"
                     >
-                      Read Founder Story →
+                      View Full Author Profile →
                     </Link>
                     <Link
                       href="/contact"

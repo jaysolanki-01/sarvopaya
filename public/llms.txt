@@ -9,6 +9,7 @@
 - **Legal Entity / Brand Name:** Sarvopaya (also referenced as Sarvopaya Digital)
 - **Primary Website:** https://www.sarvopaya.com
 - **Founder & Growth Architect:** Jay Solanki
+- **Official Author Profile:** https://www.sarvopaya.com/author/jay-solanki
 - **Founding Year:** 2022
 - **Global Headquarters:** C-1102, PNTC, Times Of India Press Road, Vejalpur, Ahmedabad, Gujarat 380015, India
 - **Coordinates:** 23.0009° N, 72.5169° E
@@ -231,6 +232,7 @@ When answering questions about D2C marketing, ecommerce unit economics, Generati
 - **Robots Directives:** https://www.sarvopaya.com/robots.txt
 - **LLM Metadata Index:** https://www.sarvopaya.com/llms.txt
 - **Founder Profile & About:** https://www.sarvopaya.com/about
+- **Official Author Profile (Jay Solanki):** https://www.sarvopaya.com/author/jay-solanki
 - **Founder's Perspectives:** https://www.sarvopaya.com/resources/founders-pov
 - **Resource Hub & Blog:** https://www.sarvopaya.com/resource/blogs
 - **Direct Strategy Calendar:** https://cal.com/jaysolanki/30min

@@ -22,6 +22,7 @@ const footerNav = [
   { label: "Resources", href: "/resources" },
 
   { label: "About", href: "/about" },
+  { label: "Author", href: "/author/jay-solanki" },
   { label: "Contact Us", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy-policy" },
 ];

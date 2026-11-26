@@ -63,10 +63,10 @@ export default async function ShortBlogPage({
       inLanguage: "en-US",
       author: {
         "@type": "Person",
-        "@id": "https://www.sarvopaya.com/about#jay-solanki",
+        "@id": "https://www.sarvopaya.com/author/jay-solanki#jay-solanki",
         name: post.author,
         jobTitle: "Founder & Growth Architect",
-        url: "https://www.sarvopaya.com/about",
+        url: "https://www.sarvopaya.com/author/jay-solanki",
         image: "https://www.sarvopaya.com/images/jay-solanki.png",
       },
       publisher: {
