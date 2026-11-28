@@ -2144,21 +2144,46 @@ function PerformanceMarketingContent({ trans: t }: { trans: D2CTranslations }) {
 
       {/* ── 01 HERO ────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-black pb-20 pt-28 sm:pb-28 sm:pt-36">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.028) 1px,transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
+        {/* Video background */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            src="/videos/d2c-hero.mp4"
+          />
+        </div>
+
+        {/* Dark gradient overlay — keeps text readable */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 50% at 50% 0%,rgba(237,40,48,0.07) 0%,transparent 65%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.75) 100%)",
+          }}
+        />
+
+        {/* Subtle grid texture on top */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+
+        {/* Accent glow */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 50% 0%,rgba(237,40,48,0.12) 0%,transparent 65%)",
           }}
         />
 
